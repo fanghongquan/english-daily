@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日英语 · __TITLE__</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    max-width:200px;background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.75}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:#dce7ff}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px}
+  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vrow{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);cursor:pointer}
+  .vrow:last-child{border-bottom:none}
+  .vrow:hover{background:var(--accent-soft)}
+  .vrow .w{font-weight:700;color:var(--kw);min-width:128px}
+  .vrow .vipa{color:var(--sub);font-size:13px;min-width:150px}
+  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
+  .vrow .play{color:var(--accent);font-size:15px}
+  /* floating selection player */
+  #selbtn{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;color:#fff;border:none;border-radius:20px;padding:8px 15px;
+    font-size:13px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);white-space:nowrap}
+  #selbtn:active{transform:translate(-50%,-100%) scale(.96)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:#fff3cd !important;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh">显示中文翻译</button>
+    <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <span class="speed">语速
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed">嗓音
+      <select id="voice" class="vsel"></select>
+    </span>
+  </div>
+  <p class="tip">提示：用手指/鼠标选中任意单词或句子，会浮出「🔊 朗读」按钮，可听美式发音。
+  觉得声音机械？在「嗓音」里挑带 ⭐ 的增强版；macOS 可在
+  系统设置 → 辅助功能 → 朗读内容 → 系统语音 → 管理语音 里下载英语「增强版」嗓音后刷新本页。</p>
+
+  <main id="article"></main>
+
+  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
+  <div class="vlist" id="vlist"></div>
+
+  <footer>美式发音由浏览器内置语音合成 (Web Speech API) 实时生成 · 建议用 Safari / Chrome 打开</footer>
+</div>
+
+<button id="selbtn">🔊 朗读选中</button>
+
+<script>
+const ARTICLE = __ARTICLE_DATA__;
+
+/* ---------- speech engine ---------- */
+let usVoice = null, rate = 0.95, enVoices = [];
+// 高音质嗓音关键词（增强版 / 神经 / Siri / Google 等），优先选用
+const GOOD = /(Siri|Natural|Neural|Enhanced|Premium|Online|Ava|Zoe|Allison|Evan|Nathan|Joelle|Google US English|Microsoft)/i;
+// 低音质“紧凑版”特征，尽量避开
+const POOR = /(compact|eloquence|fred|albert|junior|organ|bells|bahh|trinoids|whisper|zarvox|cellos|bad news|good news|deranged|boing|wobble|superstar)/i;
+
+function rankVoice(v){
+  let s = 0;
+  if(/^en[-_]US/i.test(v.lang)) s += 6;
+  else if(/^en[-_](GB|AU|CA)/i.test(v.lang)) s += 3;
+  else if(/^en/i.test(v.lang)) s += 1;
+  if(GOOD.test(v.name)) s += 6;
+  if(/google/i.test(v.name)) s += 4;       // Chrome 的 Google US 比苹果紧凑版自然
+  if(/enhanced|premium|siri|neural|natural/i.test(v.name)) s += 5;
+  if(v.localService === false) s += 2;      // 云端嗓音通常更自然
+  if(POOR.test(v.name)) s -= 8;
+  if(/compact/i.test(v.voiceURI||'')) s -= 5;
+  return s;
+}
+
+function loadVoices(){
+  const all = speechSynthesis.getVoices();
+  enVoices = all.filter(v=>/^en/i.test(v.lang)).sort((a,b)=>rankVoice(b)-rankVoice(a));
+  // 还原上次的选择
+  const saved = localStorage.getItem('voiceURI');
+  usVoice = (saved && enVoices.find(v=>v.voiceURI===saved)) || enVoices[0] || null;
+  buildVoiceSelect();
+}
+
+function buildVoiceSelect(){
+  const sel = document.getElementById('voice');
+  if(!sel || !enVoices.length) return;
+  sel.innerHTML = '';
+  enVoices.forEach(v=>{
+    const o = document.createElement('option');
+    o.value = v.voiceURI;
+    const nice = /enhanced|premium|siri|neural|natural/i.test(v.name) ? ' ⭐' : '';
+    o.textContent = v.name + ' (' + v.lang + ')' + nice;
+    if(usVoice && v.voiceURI===usVoice.voiceURI) o.selected = true;
+    sel.appendChild(o);
+  });
+  sel.onchange = ()=>{
+    usVoice = enVoices.find(v=>v.voiceURI===sel.value) || usVoice;
+    localStorage.setItem('voiceURI', sel.value);
+  };
+}
+
+loadVoices();
+speechSynthesis.onvoiceschanged = loadVoices;
+
+let curUtter = null;
+function speak(text, onword, onend){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='en-US'; u.rate=rate; if(usVoice) u.voice=usVoice;
+  if(onword) u.onboundary = onword;
+  u.onend = ()=>{ curUtter=null; if(onend) onend(); };
+  curUtter = u;
+  speechSynthesis.speak(u);
+}
+function stopAll(){ speechSynthesis.cancel(); curUtter=null;
+  if(curAudio){ curAudio.pause(); curAudio=null; }
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+
+/* ---------- 优先播放预生成的自然音频(腾讯云 TTS)，否则回退浏览器实时合成 ---------- */
+const AUDIO = ARTICLE.audio || null;
+let curAudio = null;
+function playUnit(src, fallbackText, hiEl){
+  stopAll();
+  if(src){
+    if(hiEl) hiEl.classList.add('speaking');
+    const a = new Audio(src);
+    a.playbackRate = rate;
+    curAudio = a;
+    a.onended = ()=>{ curAudio=null; if(hiEl) hiEl.classList.remove('speaking'); };
+    a.onerror = ()=>{ if(hiEl) hiEl.classList.remove('speaking');
+                      if(fallbackText) speak(fallbackText); };   // 音频缺失则回退
+    a.play().catch(()=>{ if(hiEl) hiEl.classList.remove('speaking');
+                         if(fallbackText) speak(fallbackText); });
+  } else {
+    if(hiEl) hiEl.classList.add('speaking');
+    speak(fallbackText, null, ()=>{ if(hiEl) hiEl.classList.remove('speaking'); });
+  }
+}
+const vAudio = w => (AUDIO && AUDIO.vocab && AUDIO.vocab[w]) || null;
+
+/* ---------- render ---------- */
+document.getElementById('m-level').textContent = ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent  = ARTICLE.date||'';
+document.getElementById('m-title').textContent = ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent = ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent = ARTICLE.intro_zh||'';
+
+const art = document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div = document.createElement('div');
+  div.className='para show-zh';
+  div.innerHTML =
+    '<div class="en">'+p.en+'</div>'+
+    '<div class="ptools">'+
+      '<button class="icbtn pl">🔊 朗读本段</button>'+
+      '<button class="icbtn tz">中/英</button>'+
+    '</div>'+
+    '<div class="zh">'+p.zh+'</div>';
+  art.appendChild(div);
+  // plain text for paragraph speech
+  const plain = div.querySelector('.en').textContent;
+  div.querySelector('.pl').onclick = ()=>{
+    const src = AUDIO && AUDIO.paras && AUDIO.paras[i];
+    playUnit(src, plain, div.querySelector('.en'));
+  };
+  div.querySelector('.tz').onclick = ()=>div.classList.toggle('show-zh');
+});
+
+/* key-word IPA badges + click to speak the word */
+function applyIpa(show){
+  document.querySelectorAll('.en .kw').forEach(k=>{
+    let badge = k.querySelector('.ipa');
+    if(show){
+      if(!badge){
+        badge = document.createElement('span');
+        badge.className='ipa';
+        badge.textContent = k.dataset.ipa||'';
+        k.appendChild(badge);
+      }
+      badge.style.display='';
+    } else if(badge){ badge.style.display='none'; }
+  });
+}
+applyIpa(true);
+document.querySelectorAll('.en .kw').forEach(k=>{
+  k.addEventListener('click',e=>{
+    e.stopPropagation();
+    const word = (k.firstChild.textContent||k.textContent).trim();
+    playUnit(vAudio(word), word, k);
+  });
+});
+
+/* vocab list */
+const vl = document.getElementById('vlist');
+(ARTICLE.vocab||[]).forEach(v=>{
+  const row=document.createElement('div'); row.className='vrow';
+  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
+    '</span><span class="vdef">'+v.def+'</span><span class="play">🔊</span>';
+  row.onclick=()=>playUnit(vAudio(v.w), v.w, null);
+  vl.appendChild(row);
+});
+
+/* ---------- toolbar ---------- */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{
+  const on=tgZh.classList.toggle('on');
+  tgZh.textContent = on?'显示中文翻译':'隐藏中文翻译';
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on));
+};
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn);
+  tgIpa.textContent = ipaOn?'隐藏音标':'显示音标'; };
+
+document.getElementById('play-all').onclick=()=>{
+  const full = ARTICLE.paragraphs.map(p=>{
+    const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent;
+  }).join(' ');
+  playUnit(AUDIO && AUDIO.full, full, null);
+};
+document.getElementById('stop').onclick=stopAll;
+if(AUDIO){ document.querySelector('.tip').insertAdjacentHTML('beforeend',
+  '<br><b style="color:var(--accent)">✅ 已启用云端自然语音</b>：朗读全文 / 本段 / 重点词为预生成的高自然度发音；选中任意文字仍用浏览器实时合成。'); }
+const rEl=document.getElementById('rate'), rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; };
+
+/* ---------- selection player ---------- */
+const selbtn=document.getElementById('selbtn');
+function showSel(){
+  const s=window.getSelection();
+  const txt=s.toString().trim();
+  if(txt && /[a-zA-Z]/.test(txt) && s.rangeCount){
+    const r=s.getRangeAt(0).getBoundingClientRect();
+    selbtn.style.left=(r.left+r.width/2)+'px';
+    selbtn.style.top=(r.top-8)+'px';
+    selbtn.style.display='block';
+    selbtn.dataset.txt=txt;
+  } else { selbtn.style.display='none'; }
+}
+document.addEventListener('mouseup',()=>setTimeout(showSel,10));
+document.addEventListener('touchend',()=>setTimeout(showSel,10));
+selbtn.addEventListener('mousedown',e=>e.preventDefault());
+selbtn.onclick=()=>{ if(selbtn.dataset.txt) speak(selbtn.dataset.txt); };
+document.addEventListener('scroll',()=>{ selbtn.style.display='none'; },true);
+</script>
+</body>
+</html>

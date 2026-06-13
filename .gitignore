@@ -1,0 +1,6 @@
+# 密钥文件，绝不上传
+secret.env
+
+__pycache__/
+*.pyc
+.DS_Store
