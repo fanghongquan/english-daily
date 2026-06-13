@@ -20,22 +20,20 @@ jobs:
           python-version: "3.11"
 
       - name: Install deps
-        run: pip install anthropic openai tencentcloud-sdk-python
+        # 仅 AI 生成文章时才需要；--use-latest 不依赖。保留以便日后切回 --source ai。
+        run: pip install anthropic openai || true
 
-      - name: Generate + build + push
+      - name: Build + push
         env:
           SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          TTS_API_URL:   ${{ vars.TTS_API_URL }}      # 腾讯云函数地址，注入网页
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
           FEISHU_SECRET:  ${{ secrets.FEISHU_SECRET }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL:   ${{ vars.OPENAI_BASE_URL }}
           OPENAI_MODEL:      ${{ vars.OPENAI_MODEL }}
-          TENCENT_SECRET_ID:  ${{ secrets.TENCENT_SECRET_ID }}
-          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
-          TTS_VOICE:          ${{ vars.TTS_VOICE }}
-        # 先跑通：直接推送 articles/ 里现有最新一篇。
-        # 以后接好内容引擎（AI 生成或文章库）再改回 --source ai。
+        # v2：发音改为网页运行时按需调用腾讯云函数，构建时不再生成音频。
         run: python daily.py --use-latest
 
       - name: Commit generated pages
