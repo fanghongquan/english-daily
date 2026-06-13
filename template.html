@@ -28,7 +28,7 @@
   .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
   .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
   .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
-    max-width:200px;background:var(--card);color:var(--ink)}
+    background:var(--card);color:var(--ink)}
   .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
   .en{font-size:17px;line-height:1.75}
@@ -52,7 +52,6 @@
   .vrow .vipa{color:var(--sub);font-size:13px;min-width:150px}
   .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
   .vrow .play{color:var(--accent);font-size:15px}
-  /* floating selection player */
   #selbtn{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
     background:#1f2329;color:#fff;border:none;border-radius:20px;padding:8px 15px;
     font-size:13px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);white-space:nowrap}
@@ -60,6 +59,7 @@
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
   .speaking{background:#fff3cd !important;border-radius:3px}
+  .loading{opacity:.6}
 </style>
 </head>
 <body>
@@ -81,119 +81,129 @@
       <span id="rateval">0.95×</span>
     </span>
     <span class="speed">嗓音
-      <select id="voice" class="vsel"></select>
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
     </span>
   </div>
-  <p class="tip">提示：用手指/鼠标选中任意单词或句子，会浮出「🔊 朗读」按钮，可听美式发音。
-  觉得声音机械？在「嗓音」里挑带 ⭐ 的增强版；macOS 可在
-  系统设置 → 辅助功能 → 朗读内容 → 系统语音 → 管理语音 里下载英语「增强版」嗓音后刷新本页。</p>
+  <p class="tip">用手指/鼠标<strong>选中任意单词或句子</strong>，浮出「🔊 朗读」按钮即可听美式发音；
+  正文重点词、词汇表点一下也能读。<span id="engine-note"></span></p>
 
   <main id="article"></main>
 
   <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
   <div class="vlist" id="vlist"></div>
 
-  <footer>美式发音由浏览器内置语音合成 (Web Speech API) 实时生成 · 建议用 Safari / Chrome 打开</footer>
+  <footer>美式发音 · 选中或点击实时合成 · 建议用 Safari / Chrome 打开</footer>
 </div>
 
 <button id="selbtn">🔊 朗读选中</button>
 
 <script>
 const ARTICLE = __ARTICLE_DATA__;
+const TTS_API = "__TTS_API__";   // 腾讯云函数地址；为空则回退浏览器语音
 
-/* ---------- speech engine ---------- */
-let usVoice = null, rate = 0.95, enVoices = [];
-// 高音质嗓音关键词（增强版 / 神经 / Siri / Google 等），优先选用
-const GOOD = /(Siri|Natural|Neural|Enhanced|Premium|Online|Ava|Zoe|Allison|Evan|Nathan|Joelle|Google US English|Microsoft)/i;
-// 低音质“紧凑版”特征，尽量避开
-const POOR = /(compact|eloquence|fred|albert|junior|organ|bells|bahh|trinoids|whisper|zarvox|cellos|bad news|good news|deranged|boing|wobble|superstar)/i;
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
 
-function rankVoice(v){
-  let s = 0;
-  if(/^en[-_]US/i.test(v.lang)) s += 6;
-  else if(/^en[-_](GB|AU|CA)/i.test(v.lang)) s += 3;
-  else if(/^en/i.test(v.lang)) s += 1;
-  if(GOOD.test(v.name)) s += 6;
-  if(/google/i.test(v.name)) s += 4;       // Chrome 的 Google US 比苹果紧凑版自然
-  if(/enhanced|premium|siri|neural|natural/i.test(v.name)) s += 5;
-  if(v.localService === false) s += 2;      // 云端嗓音通常更自然
-  if(POOR.test(v.name)) s -= 8;
-  if(/compact/i.test(v.voiceURI||'')) s -= 5;
-  return s;
+/* ---------- 浏览器语音(回退用) ---------- */
+let usVoice = null;
+function pickFallback(){
+  const vs = speechSynthesis.getVoices();
+  usVoice = vs.find(v=>/en-US/i.test(v.lang) && /Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+         || vs.find(v=>v.lang==='en-US') || vs.find(v=>/^en/i.test(v.lang)) || null;
 }
-
-function loadVoices(){
-  const all = speechSynthesis.getVoices();
-  enVoices = all.filter(v=>/^en/i.test(v.lang)).sort((a,b)=>rankVoice(b)-rankVoice(a));
-  // 还原上次的选择
-  const saved = localStorage.getItem('voiceURI');
-  usVoice = (saved && enVoices.find(v=>v.voiceURI===saved)) || enVoices[0] || null;
-  buildVoiceSelect();
-}
-
-function buildVoiceSelect(){
-  const sel = document.getElementById('voice');
-  if(!sel || !enVoices.length) return;
-  sel.innerHTML = '';
-  enVoices.forEach(v=>{
-    const o = document.createElement('option');
-    o.value = v.voiceURI;
-    const nice = /enhanced|premium|siri|neural|natural/i.test(v.name) ? ' ⭐' : '';
-    o.textContent = v.name + ' (' + v.lang + ')' + nice;
-    if(usVoice && v.voiceURI===usVoice.voiceURI) o.selected = true;
-    sel.appendChild(o);
-  });
-  sel.onchange = ()=>{
-    usVoice = enVoices.find(v=>v.voiceURI===sel.value) || usVoice;
-    localStorage.setItem('voiceURI', sel.value);
-  };
-}
-
-loadVoices();
-speechSynthesis.onvoiceschanged = loadVoices;
-
-let curUtter = null;
-function speak(text, onword, onend){
+pickFallback(); speechSynthesis.onvoiceschanged = pickFallback;
+function speakFallback(text){
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang='en-US'; u.rate=rate; if(usVoice) u.voice=usVoice;
-  if(onword) u.onboundary = onword;
-  u.onend = ()=>{ curUtter=null; if(onend) onend(); };
-  curUtter = u;
   speechSynthesis.speak(u);
 }
-function stopAll(){ speechSynthesis.cancel(); curUtter=null;
-  if(curAudio){ curAudio.pause(); curAudio=null; }
-  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
 
-/* ---------- 优先播放预生成的自然音频(腾讯云 TTS)，否则回退浏览器实时合成 ---------- */
-const AUDIO = ARTICLE.audio || null;
-let curAudio = null;
-function playUnit(src, fallbackText, hiEl){
+/* ---------- 腾讯云实时合成(按需) ---------- */
+const cache = new Map();        // voice|text -> data URL
+let curAudio = null, token = 0;
+
+function stopAll(){
+  token++;
+  if(curAudio){ curAudio.pause(); curAudio = null; }
+  speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking'));
+}
+
+function splitClient(text){      // 按句切，<=180 字符，便于逐句快速出声
+  const parts = text.trim().split(/(?<=[.!?;:])\s+/);
+  const out = []; let buf = '';
+  for(let s of parts){
+    while(s.length > 180){
+      let cut = s.lastIndexOf(' ', 180); if(cut<=0) cut = 180;
+      out.push(s.slice(0,cut)); s = s.slice(cut).trim();
+    }
+    if((buf+' '+s).trim().length <= 180){ buf = (buf+' '+s).trim(); }
+    else { if(buf) out.push(buf); buf = s; }
+  }
+  if(buf) out.push(buf);
+  return out.length ? out : [text.trim()];
+}
+
+async function fetchClip(text){
+  const key = voice + '|' + text;
+  if(cache.has(key)) return cache.get(key);
+  const r = await fetch(TTS_API, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({text, voice})
+  });
+  if(!r.ok) throw new Error('tts http '+r.status);
+  const j = await r.json();
+  if(!j.audio) throw new Error(j.error || 'no audio');
+  const url = 'data:audio/mp3;base64,' + j.audio;
+  cache.set(key, url);
+  return url;
+}
+
+function playClip(url){
+  return new Promise((res, rej)=>{
+    const a = new Audio(url); a.playbackRate = rate; curAudio = a;
+    a.onended = res; a.onerror = ()=>rej(new Error('audio'));
+    a.play().catch(rej);
+  });
+}
+
+async function play(text, hiEl){
+  if(!text) return;
   stopAll();
-  if(src){
-    if(hiEl) hiEl.classList.add('speaking');
-    const a = new Audio(src);
-    a.playbackRate = rate;
-    curAudio = a;
-    a.onended = ()=>{ curAudio=null; if(hiEl) hiEl.classList.remove('speaking'); };
-    a.onerror = ()=>{ if(hiEl) hiEl.classList.remove('speaking');
-                      if(fallbackText) speak(fallbackText); };   // 音频缺失则回退
-    a.play().catch(()=>{ if(hiEl) hiEl.classList.remove('speaking');
-                         if(fallbackText) speak(fallbackText); });
-  } else {
-    if(hiEl) hiEl.classList.add('speaking');
-    speak(fallbackText, null, ()=>{ if(hiEl) hiEl.classList.remove('speaking'); });
+  const my = token;
+  if(hiEl){ hiEl.classList.add('speaking'); hiEl.classList.add('loading'); }
+  try{
+    if(!cloudOn){ speakFallback(text); return; }
+    const parts = splitClient(text);
+    for(let i=0;i<parts.length;i++){
+      if(my !== token) return;
+      const cur = fetchClip(parts[i]);
+      if(i+1 < parts.length) fetchClip(parts[i+1]).catch(()=>{});   // 预取下一句
+      let url;
+      try{ url = await cur; }
+      catch(e){ speakFallback(parts.slice(i).join(' ')); return; }   // 失败回退
+      if(hiEl) hiEl.classList.remove('loading');
+      if(my !== token) return;
+      await playClip(url);
+    }
+  } finally {
+    if(my === token && hiEl){ hiEl.classList.remove('speaking'); hiEl.classList.remove('loading'); }
   }
 }
-const vAudio = w => (AUDIO && AUDIO.vocab && AUDIO.vocab[w]) || null;
 
-/* ---------- render ---------- */
+/* ---------- 渲染 ---------- */
 document.getElementById('m-level').textContent = ARTICLE.level||'CET-4';
 document.getElementById('m-date').textContent  = ARTICLE.date||'';
 document.getElementById('m-title').textContent = ARTICLE.title||'';
 document.getElementById('m-titlezh').textContent = ARTICLE.title_zh||'';
 document.getElementById('m-intro').textContent = ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent =
+  cloudOn ? '（腾讯云自然发音，实时合成）' : '（当前用浏览器语音；云函数地址未配置）';
 
 const art = document.getElementById('article');
 ARTICLE.paragraphs.forEach((p,i)=>{
@@ -207,77 +217,69 @@ ARTICLE.paragraphs.forEach((p,i)=>{
     '</div>'+
     '<div class="zh">'+p.zh+'</div>';
   art.appendChild(div);
-  // plain text for paragraph speech
-  const plain = div.querySelector('.en').textContent;
-  div.querySelector('.pl').onclick = ()=>{
-    const src = AUDIO && AUDIO.paras && AUDIO.paras[i];
-    playUnit(src, plain, div.querySelector('.en'));
-  };
-  div.querySelector('.tz').onclick = ()=>div.classList.toggle('show-zh');
+  const enEl = div.querySelector('.en');
+  const plain = enEl.textContent;
+  div.querySelector('.pl').onclick = ()=> play(plain, enEl);
+  div.querySelector('.tz').onclick = ()=> div.classList.toggle('show-zh');
 });
 
-/* key-word IPA badges + click to speak the word */
+/* 重点词音标 + 点击朗读 */
 function applyIpa(show){
   document.querySelectorAll('.en .kw').forEach(k=>{
     let badge = k.querySelector('.ipa');
     if(show){
-      if(!badge){
-        badge = document.createElement('span');
-        badge.className='ipa';
-        badge.textContent = k.dataset.ipa||'';
-        k.appendChild(badge);
-      }
+      if(!badge){ badge=document.createElement('span'); badge.className='ipa';
+        badge.textContent=k.dataset.ipa||''; k.appendChild(badge); }
       badge.style.display='';
     } else if(badge){ badge.style.display='none'; }
   });
 }
 applyIpa(true);
 document.querySelectorAll('.en .kw').forEach(k=>{
-  k.addEventListener('click',e=>{
+  k.addEventListener('click', e=>{
     e.stopPropagation();
-    const word = (k.firstChild.textContent||k.textContent).trim();
-    playUnit(vAudio(word), word, k);
+    const word = (k.firstChild.textContent || k.textContent).trim();
+    play(word, k);
   });
 });
 
-/* vocab list */
+/* 词汇表 */
 const vl = document.getElementById('vlist');
 (ARTICLE.vocab||[]).forEach(v=>{
   const row=document.createElement('div'); row.className='vrow';
   row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
     '</span><span class="vdef">'+v.def+'</span><span class="play">🔊</span>';
-  row.onclick=()=>playUnit(vAudio(v.w), v.w, null);
+  row.onclick=()=>play(v.w, row);
   vl.appendChild(row);
 });
 
-/* ---------- toolbar ---------- */
+/* ---------- 工具条 ---------- */
 const tgZh=document.getElementById('tg-zh');
-tgZh.onclick=()=>{
-  const on=tgZh.classList.toggle('on');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on');
   tgZh.textContent = on?'显示中文翻译':'隐藏中文翻译';
-  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on));
-};
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
 const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
-tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn);
-  tgIpa.textContent = ipaOn?'隐藏音标':'显示音标'; };
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
 
 document.getElementById('play-all').onclick=()=>{
-  const full = ARTICLE.paragraphs.map(p=>{
-    const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent;
-  }).join(' ');
-  playUnit(AUDIO && AUDIO.full, full, null);
+  const full = ARTICLE.paragraphs.map(p=>{ const t=document.createElement('div');
+    t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full, null);
 };
 document.getElementById('stop').onclick=stopAll;
-if(AUDIO){ document.querySelector('.tip').insertAdjacentHTML('beforeend',
-  '<br><b style="color:var(--accent)">✅ 已启用云端自然语音</b>：朗读全文 / 本段 / 重点词为预生成的高自然度发音；选中任意文字仍用浏览器实时合成。'); }
-const rEl=document.getElementById('rate'), rv=document.getElementById('rateval');
-rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; };
 
-/* ---------- selection player ---------- */
+const rEl=document.getElementById('rate'), rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×';
+  if(curAudio) curAudio.playbackRate=rate; };
+
+const vEl=document.getElementById('voice');
+vEl.value = String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice', vEl.value); };
+
+/* ---------- 选中朗读 ---------- */
 const selbtn=document.getElementById('selbtn');
 function showSel(){
-  const s=window.getSelection();
-  const txt=s.toString().trim();
+  const s=window.getSelection(); const txt=s.toString().trim();
   if(txt && /[a-zA-Z]/.test(txt) && s.rangeCount){
     const r=s.getRangeAt(0).getBoundingClientRect();
     selbtn.style.left=(r.left+r.width/2)+'px';
@@ -289,8 +291,8 @@ function showSel(){
 document.addEventListener('mouseup',()=>setTimeout(showSel,10));
 document.addEventListener('touchend',()=>setTimeout(showSel,10));
 selbtn.addEventListener('mousedown',e=>e.preventDefault());
-selbtn.onclick=()=>{ if(selbtn.dataset.txt) speak(selbtn.dataset.txt); };
-document.addEventListener('scroll',()=>{ selbtn.style.display='none'; },true);
+selbtn.onclick=()=>{ if(selbtn.dataset.txt) play(selbtn.dataset.txt, null); };
+document.addEventListener('scroll',()=>{ selbtn.style.display='none'; }, true);
 </script>
 </body>
 </html>

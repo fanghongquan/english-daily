@@ -22,10 +22,12 @@ def pick_latest():
 
 def build(json_path: str) -> str:
     data = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    tts_api = os.environ.get("TTS_API_URL", "")     # 腾讯云函数地址(GitHub 变量)
     tpl = TEMPLATE.read_text(encoding="utf-8")
     page = (tpl
             .replace("__ARTICLE_DATA__", json.dumps(data, ensure_ascii=False))
-            .replace("__TITLE__", html.escape(data.get("title", "每日英语"))))
+            .replace("__TITLE__", html.escape(data.get("title", "每日英语")))
+            .replace("__TTS_API__", tts_api))
     SITE.mkdir(exist_ok=True)
     out = SITE / f"{data['date']}.html"
     out.write_text(page, encoding="utf-8")

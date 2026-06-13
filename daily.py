@@ -43,14 +43,7 @@ def main():
             subprocess.check_call([sys.executable, str(ROOT / "get_article.py"),
                                    "--source", a.source, "--date", a.date])
 
-    # 如配置了腾讯云密钥，则预生成自然语音 mp3（否则网页用浏览器实时合成）
-    if not a.no_audio and os.environ.get("TENCENT_SECRET_ID") \
-            and os.environ.get("TENCENT_SECRET_KEY"):
-        try:
-            subprocess.check_call([sys.executable, str(ROOT / "gen_audio.py"), str(art)])
-        except Exception as e:
-            print("⚠️ 生成语音失败，跳过（网页将回退浏览器合成）:", e)
-
+    # v2：不再构建时预生成音频。发音改为网页运行时按需调用腾讯云函数(见 scf/)。
     build.build(str(art))
 
     if a.no_push:
