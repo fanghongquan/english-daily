@@ -20,8 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install deps
-        # 仅 AI 生成文章时才需要；--use-latest 不依赖。保留以便日后切回 --source ai。
-        run: pip install anthropic openai || true
+        run: pip install openai || true
 
       - name: Build + push
         env:
@@ -33,8 +32,8 @@ jobs:
           OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL:   ${{ vars.OPENAI_BASE_URL }}
           OPENAI_MODEL:      ${{ vars.OPENAI_MODEL }}
-        # v2：发音改为网页运行时按需调用腾讯云函数，构建时不再生成音频。
-        run: python daily.py --use-latest
+        # 每天用 AI(DeepSeek)生成新文章；生成失败会自动回退到现有最新文章。
+        run: python daily.py --source ai
 
       - name: Commit generated pages
         run: |
