@@ -51,6 +51,7 @@ def gen_ai(date: str) -> dict:
         client = OpenAI(base_url=os.environ.get("OPENAI_BASE_URL"))
         r = client.chat.completions.create(
             model=os.environ.get("OPENAI_MODEL", "gpt-4o-mini"),
+            response_format={"type": "json_object"},   # DeepSeek/OpenAI JSON 模式更稳
             messages=[{"role": "system", "content": SYS},
                       {"role": "user", "content": prompt}])
         text = r.choices[0].message.content

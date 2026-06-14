@@ -40,8 +40,15 @@ def main():
     else:
         art = ROOT / "articles" / f"{a.date}.json"
         if not art.exists():
-            subprocess.check_call([sys.executable, str(ROOT / "get_article.py"),
-                                   "--source", a.source, "--date", a.date])
+            try:
+                subprocess.check_call([sys.executable, str(ROOT / "get_article.py"),
+                                       "--source", a.source, "--date", a.date])
+            except Exception as e:
+                print("⚠️ AI 生成失败，回退到现有最新文章：", e)
+                files = sorted(glob.glob(str(ROOT / "articles" / "*.json")))
+                if not files:
+                    raise
+                art = Path(files[-1]); a.date = art.stem
 
     # v2：不再构建时预生成音频。发音改为网页运行时按需调用腾讯云函数(见 scf/)。
     build.build(str(art))
