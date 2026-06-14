@@ -348,7 +348,11 @@ artEl.addEventListener('pointerdown', e=>{
   const i=tokAt(e.clientX,e.clientY); clearSel();
   if(i<0) return;
   sx=e.clientX; sy=e.clientY; moved=false;
-  lpTimer=setTimeout(()=>{ selecting=true; anchor=head=i; hl(i,i); }, 280);   // 长按进入选句
+  if(e.pointerType==='mouse'){            // 鼠标:按下即可直接拖选
+    selecting=true; anchor=head=i; hl(i,i);
+  } else {                                // 触摸:长按再拖(避免和滚动冲突)
+    lpTimer=setTimeout(()=>{ selecting=true; anchor=head=i; hl(i,i); }, 250);
+  }
 }, true);
 artEl.addEventListener('pointermove', e=>{
   if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>10) moved=true;
