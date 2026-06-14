@@ -153,7 +153,7 @@
       </select>
     </span>
   </div>
-  <p class="tip">选中任意<strong>单词或句子</strong> → 弹出「🔊 播放 / ＋ 生词 / 翻译」；点「＋ 生词」即存入墨墨背单词的云词本，到 App 里背。<span id="engine-note"></span></p>
+  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
 
   <main id="article"></main>
 
@@ -331,32 +331,36 @@ function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
     .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
 function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
   document.getElementById('transbox').style.display='none'; selText=''; }
-function showBar(a,b){ const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
-  selbar.style.left=(r.left+r.width/2)+'px'; selbar.style.top=(r.top-8)+'px'; selbar.style.display='flex'; }
+function showBar(a,b){ selbar.style.display='flex';
+  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
 
-let selecting=false, anchor=-1, head=-1, lpTimer=null, sx=0, sy=0, moved=false;
+let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
 artEl.addEventListener('pointerdown', e=>{
-  const i=tokAt(e.clientX,e.clientY); clearSel();
-  if(i<0) return;
   sx=e.clientX; sy=e.clientY; moved=false;
-  if(e.pointerType==='mouse'){            // 鼠标:按下即可直接拖选
+  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
+    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
     selecting=true; anchor=head=i; hl(i,i);
-  } else {                                // 触摸:长按再拖(避免和滚动冲突)
-    lpTimer=setTimeout(()=>{ selecting=true; anchor=head=i; hl(i,i); }, 250);
   }
+  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
 }, true);
 artEl.addEventListener('pointermove', e=>{
-  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>10) moved=true;
-  if(!selecting){ if(moved) clearTimeout(lpTimer); return; }                   // 未进选择=允许滚动
+  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
+  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
   const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
 }, {passive:false});
 window.addEventListener('pointerup', e=>{
-  clearTimeout(lpTimer);
-  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head); } return; }
-  if(!moved){ const i=tokAt(e.clientX,e.clientY);                              // 轻点=选单词
-    if(i>=0){ anchor=head=i; hl(i,i); selText=(TOKENS[i].dataset.w||'').trim(); showBar(i,i); } }
-});
-selbar.addEventListener('pointerdown', e=>e.stopPropagation());
+  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
+  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
+  if(moved) return;                     // 手机上是滚动手势，忽略
+  const i=tokAt(e.clientX,e.clientY);
+  if(i<0){ clearSel(); return; }        // 点空白=取消选择
+  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
+  else { anchor=head=i; }               // 否则 = 选这个词
+  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
 document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
 function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
