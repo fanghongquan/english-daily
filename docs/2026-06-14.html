@@ -90,6 +90,13 @@
     background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
     opacity:0;pointer-events:none;transition:.25s;z-index:60}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
+    max-width:300px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
+    box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
+    max-height:34px;overflow:hidden}
+  #transbox .tb-zh{color:var(--zh)}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
   .speaking{background:#fff3cd !important;border-radius:3px}
@@ -167,8 +174,9 @@
   <div class="sep"></div>
   <button id="sel-add">＋ 遗忘库</button>
   <div class="sep"></div>
-  <button id="sel-copy">复制</button>
+  <button id="sel-translate">翻译</button>
 </div>
+<div id="transbox"></div>
 <div id="toast"></div>
 
 <script>
@@ -339,7 +347,8 @@ function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
 function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
   return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
     .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
-function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none'; selText=''; }
+function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; selText=''; }
 function showBar(a,b){ const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
   selbar.style.left=(r.left+r.width/2)+'px'; selbar.style.top=(r.top-8)+'px'; selbar.style.display='flex'; }
 
@@ -368,17 +377,32 @@ window.addEventListener('pointerup', e=>{
 selbar.addEventListener('pointerdown', e=>e.stopPropagation());
 document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
-document.getElementById('sel-copy').onclick=()=>{ if(selText){
-  const t=selText;
-  (navigator.clipboard&&navigator.clipboard.writeText
-    ? navigator.clipboard.writeText(t)
-    : Promise.reject()).then(()=>toast('已复制')).catch(()=>{
-      const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed';
-      ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); toast('已复制'); }catch(e){ toast('复制失败'); }
-      document.body.removeChild(ta); });
-  clearSel(); } };
-document.addEventListener('scroll',()=>{ if(!selecting) selbar.style.display='none'; }, true);
+function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
+  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
+  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
+  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
+function showTransbox(enText, zhHtml){
+  const tb=document.getElementById('transbox'); const r=selRect();
+  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
+    '</div><div class="tb-zh">'+zhHtml+'</div>';
+  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
+    tb.style.top=(r.bottom+8)+'px'; }
+  tb.style.display='block'; }
+async function translate(text){
+  if(!text) return;
+  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
+  showTransbox(text,'翻译中…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'translate',text})});
+    const j=await r.json();
+    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
+  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
+}
+document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
+  selbar.style.display='none'; translate(t); } };
+document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; } }, true);
 
 /* ========== 复习模块 ========== */
 let rvQueue=[], rvIdx=0;
