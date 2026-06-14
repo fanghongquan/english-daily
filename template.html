@@ -166,6 +166,8 @@
   <button id="sel-play">🔊 播放</button>
   <div class="sep"></div>
   <button id="sel-add">＋ 遗忘库</button>
+  <div class="sep"></div>
+  <button id="sel-copy">复制</button>
 </div>
 <div id="toast"></div>
 
@@ -362,6 +364,16 @@ window.addEventListener('pointerup', e=>{
 selbar.addEventListener('pointerdown', e=>e.stopPropagation());
 document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+document.getElementById('sel-copy').onclick=()=>{ if(selText){
+  const t=selText;
+  (navigator.clipboard&&navigator.clipboard.writeText
+    ? navigator.clipboard.writeText(t)
+    : Promise.reject()).then(()=>toast('已复制')).catch(()=>{
+      const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed';
+      ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); toast('已复制'); }catch(e){ toast('复制失败'); }
+      document.body.removeChild(ta); });
+  clearSel(); } };
 document.addEventListener('scroll',()=>{ if(!selecting) selbar.style.display='none'; }, true);
 
 /* ========== 复习模块 ========== */
