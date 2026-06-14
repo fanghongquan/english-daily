@@ -160,13 +160,7 @@
   <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
   <div class="vlist" id="vlist"></div>
 
-  <section id="review">
-    <h2 class="vh">📚 背单词 · 艾宾浩斯复习 <span class="cnt" id="rv-count"></span></h2>
-    <div class="rvcard" id="rv-card"></div>
-    <div class="syncbar"><span id="sync-status"></span><button id="sync-btn" class="btn">开启同步</button></div>
-  </section>
-
-  <footer>美式发音 · 选中或点击实时合成 · 遗忘库与复习进度保存在本浏览器</footer>
+  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
 </div>
 
 <div id="selbar">
@@ -228,26 +222,7 @@ async function play(text, hiEl){
   } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
 }
 
-/* ========== 遗忘库 + 艾宾浩斯 ========== */
-const LIB_KEY='forgetLib_v1';
-const INT=[1,2,4,7,15,30,60];     // 复习间隔(天)
-function today(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function addDays(base,n){ const t=new Date(base+'T00:00:00'); t.setDate(t.getDate()+n);
-  return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
-function loadLib(){ try{ return JSON.parse(localStorage.getItem(LIB_KEY))||[]; }catch(e){ return []; } }
-function saveLib(a){ localStorage.setItem(LIB_KEY, JSON.stringify(a)); }
-function addToLib(text){ text=(text||'').trim(); if(!text) return 'empty';
-  const lib=loadLib(); if(lib.some(x=>x.text.toLowerCase()===text.toLowerCase())) return 'dup';
-  lib.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),
-    text, type:/\s/.test(text)?'sentence':'word', stage:0, due:today(), added:today() });
-  saveLib(lib); return 'ok'; }
-function dueItems(){ const t=today();
-  return loadLib().filter(x=>x.due<=t).sort((a,b)=> a.due<b.due?-1:(a.due>b.due?1:0)).slice(0,30); }
-function grade(id, kind){ const lib=loadLib(); const it=lib.find(x=>x.id===id); if(!it) return;
-  if(kind==='know'){ it.stage=Math.min(it.stage+1, INT.length-1); it.due=addDays(today(), INT[it.stage]); }
-  else if(kind==='fuzzy'){ it.due=addDays(today(),1); }
-  else { it.stage=0; it.due=addDays(today(),1); }
-  it.last=today(); saveLib(lib); }
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
 
 /* ========== 渲染文章 ========== */
 document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
@@ -279,7 +254,7 @@ const vl=document.getElementById('vlist');
 (ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
   row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
     '</span><span class="vdef">'+v.def+'</span>'+
-    '<button class="mini pl">🔊</button><button class="mini ad">＋库</button>';
+    '<button class="mini pl">🔊</button><button class="mini ad">＋生词</button>';
   row.querySelector('.w').onclick=()=>play(v.w);
   row.querySelector('.pl').onclick=()=>play(v.w);
   row.querySelector('.ad').onclick=()=>doAdd(v.w);
@@ -304,9 +279,16 @@ vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice'
 let toastT=null;
 function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
   clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
-function doAdd(text){ const r=addToLib(text);
-  if(r==='ok'){ toast('已加入遗忘库 ✓'); renderReview(); syncPush(); }
-  else if(r==='dup') toast('已经在遗忘库里了'); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
 
 /* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
 const selbar=document.getElementById('selbar');
@@ -404,69 +386,6 @@ document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selT
 document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
   document.getElementById('transbox').style.display='none'; } }, true);
 
-/* ========== 复习模块 ========== */
-let rvQueue=[], rvIdx=0;
-function renderReview(){
-  const card=document.getElementById('rv-card');
-  const cnt=document.getElementById('rv-count');
-  const total=loadLib().length;
-  if(rvIdx===0 || rvIdx>=rvQueue.length) rvQueue=dueItems();   // 进入/复习完后刷新队列
-  const remain=Math.max(rvQueue.length-rvIdx,0);
-  cnt.textContent='（今日待复习 '+remain+' · 库共 '+total+'）';
-  if(rvIdx>=rvQueue.length){
-    card.innerHTML = total===0
-      ? '<div class="rv-empty"><span class="big">📝</span>遗忘库还是空的。在上面文章里选中单词或句子，点「＋ 遗忘库」加进来吧。</div>'
-      : '<div class="rv-empty"><span class="big">🎉</span>今日复习完成！明天再来。</div>';
-    return;
-  }
-  const it=rvQueue[rvIdx];
-  card.innerHTML=
-    '<div class="rv-type">'+(it.type==='word'?'单词':'句子')+' · 第 '+(it.stage+1)+' 阶</div>'+
-    '<div class="rv-text'+(it.type==='sentence'?' sent':'')+'">'+it.text.replace(/</g,'&lt;')+'</div>'+
-    '<button class="rv-play">🔊 播放</button>'+
-    '<div class="rv-grade">'+
-      '<button class="g-know">认识</button>'+
-      '<button class="g-fuzzy">模糊</button>'+
-      '<button class="g-forget">忘记</button>'+
-    '</div>'+
-    '<div class="rv-progress">'+(rvIdx+1)+' / '+rvQueue.length+'</div>';
-  card.querySelector('.rv-play').onclick=()=>play(it.text,null);
-  const go=k=>{ grade(it.id,k); rvIdx++; renderReview(); syncPush(); };
-  card.querySelector('.g-know').onclick=()=>go('know');
-  card.querySelector('.g-fuzzy').onclick=()=>go('fuzzy');
-  card.querySelector('.g-forget').onclick=()=>go('forget');
-}
-renderReview();
-
-/* ========== 多设备同步(经云函数读写 COS) ========== */
-const SYNC_LS='syncKey';
-function getSyncKey(){ return localStorage.getItem(SYNC_LS)||''; }
-let pushTimer=null;
-function syncPush(){ const k=getSyncKey(); if(!k||!cloudOn) return;
-  clearTimeout(pushTimer); pushTimer=setTimeout(()=>{
-    fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({op:'put',key:k,lib:loadLib()})}).catch(()=>{}); },800); }
-function mergeLib(cloud){ const map={};
-  const put=x=>{ if(!x||!x.text) return; const id=x.text.toLowerCase(); const e=map[id];
-    if(!e || (x.last||x.added||'')>(e.last||e.added||'')) map[id]=x; };
-  loadLib().forEach(put); (cloud||[]).forEach(put);
-  const m=Object.values(map); saveLib(m); return m; }
-async function syncPull(){ const k=getSyncKey(); if(!k||!cloudOn) return;
-  try{ const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({op:'get',key:k})}); const j=await r.json();
-    if(j && j.lib){ mergeLib(j.lib); rvIdx=0; renderReview(); syncPush(); toast('已同步'); } }catch(e){} }
-function renderSync(){ const st=document.getElementById('sync-status'); const btn=document.getElementById('sync-btn');
-  const k=getSyncKey();
-  if(!cloudOn){ st.textContent='多设备同步：云函数部署后可用（当前本地保存）'; btn.style.display='none'; return; }
-  btn.style.display='';
-  if(k){ st.textContent='✅ 同步已开启 · 同步码 '+k; btn.textContent='关闭同步'; }
-  else { st.textContent='多设备同步：未开启（两台设备填相同同步码即可互通）'; btn.textContent='开启同步'; } }
-document.getElementById('sync-btn').onclick=()=>{
-  if(getSyncKey()){ localStorage.removeItem(SYNC_LS); renderSync(); toast('已关闭同步'); }
-  else { const k=(prompt('设置一个同步码（在你的手机和电脑上填相同的一串，相当于密码）：')||'').trim();
-    if(k){ localStorage.setItem(SYNC_LS,k); renderSync(); syncPull(); } } };
-renderSync();
-if(getSyncKey() && cloudOn) syncPull();
 </script>
 </body>
 </html>
