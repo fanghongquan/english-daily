@@ -31,6 +31,11 @@ def main():
     ap.add_argument("--no-audio", action="store_true", help="跳过云端语音预生成")
     a = ap.parse_args()
 
+    # 幂等保护：若今天的页面已生成（说明今天已有一次成功运行+推送），跳过推送，
+    # 这样多个备用 cron 时段不会重复推送。备用时段只在主时段被 GitHub 丢弃时补位。
+    today_page = ROOT / "docs" / f"{datetime.date.today().isoformat()}.html"
+    already_done_today = today_page.exists()
+
     if a.use_latest:
         files = sorted(glob.glob(str(ROOT / "articles" / "*.json")))
         if not files:
@@ -55,6 +60,10 @@ def main():
 
     if a.no_push:
         print("已跳过推送（--no-push）")
+        return
+
+    if already_done_today:
+        print("今天已生成并推送过，跳过本次（备用时段去重）")
         return
 
     data = json.loads(art.read_text(encoding="utf-8"))
