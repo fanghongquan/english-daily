@@ -2,8 +2,11 @@ name: daily-english
 
 on:
   schedule:
-    # UTC 04:15 = 北京时间 12:15，每天推送一次
-    - cron: "15 4 * * *"
+    # GitHub 定时是“尽力而为”，整点/逢5的分钟最拥堵，常被延迟或丢弃。
+    # 用冷门分钟 + 多个备用时段，靠 daily.py 的当日去重保证只推一次。
+    - cron: "13 4 * * *"   # 北京 12:13 主推
+    - cron: "37 4 * * *"   # 北京 12:37 备用①
+    - cron: "7 5 * * *"    # 北京 13:07 备用②
   workflow_dispatch: {}   # 允许在 GitHub 网页上手动触发，方便测试
 
 permissions:
