@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日英语 · The Power of Small Actions</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:#dce7ff}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vrow{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .vrow:last-child{border-bottom:none}
+  .vrow .w{font-weight:700;color:var(--kw);min-width:120px;cursor:pointer}
+  .vrow .vipa{color:var(--sub);font-size:13px;min-width:140px}
+  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
+  .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
+    padding:3px 8px;font-size:12px;cursor:pointer}
+  .vrow .mini:hover{background:#dce7ff}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
+    max-width:300px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
+    box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
+    max-height:34px;overflow:hidden}
+  #transbox .tb-zh{color:var(--zh)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:#fff3cd !important;border-radius:3px}
+  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
+  body{-webkit-touch-callout:none}
+  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  .en .tok{cursor:pointer}
+  .en .tok.sel{background:#cfe0ff;border-radius:3px}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px 100px}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .vrow{flex-wrap:wrap;gap:6px 8px;padding:11px 12px}
+    .vrow .w{min-width:0;order:1;font-size:15px}
+    .vrow .vipa{min-width:0;flex:1;order:2;font-size:11.5px}
+    .vrow .pl{order:3}
+    .vrow .ad{order:4}
+    .vrow .vdef{order:5;flex-basis:100%;font-size:13.5px;color:var(--sub);margin-top:1px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh">显示中文翻译</button>
+    <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <span class="speed">语速
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed">嗓音
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+  </div>
+  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
+  <div class="vlist" id="vlist"></div>
+
+  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
+</div>
+
+<div id="selbar">
+  <button id="sel-play">🔊 播放</button>
+  <div class="sep"></div>
+  <button id="sel-add">＋ 生词</button>
+  <div class="sep"></div>
+  <button id="sel-translate">翻译</button>
+</div>
+<div id="transbox"></div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-06-17", "level": "CET-4", "title": "The Power of Small Actions", "title_zh": "小行动的力量", "intro_zh": "本文约1000词，讲述了日常小事如何汇聚成巨大影响，鼓励读者从身边做起。", "paragraphs": [{"en": "Many people believe that only big <span class=\"kw\" data-ipa=\"/ˈmuvmənts/\" data-def=\"n. 运动；活动\">movements</span> or <span class=\"kw\" data-ipa=\"/ˈɡlɑːbəl/\" data-def=\"adj. 全球的；全面的\">global</span> changes can make a difference. However, the truth is that small actions, when <span class=\"kw\" data-ipa=\"/kəmˈbaɪnd/\" data-def=\"v. 结合；联合\">combined</span>, can lead to remarkable results. A simple smile, a kind word, or a moment of patience can brighten someone's day and create a ripple effect that spreads far beyond our imagination.", "zh": "许多人认为只有大运动或全球性的变革才能带来改变。然而，事实是，小行动汇集起来可以带来显著的结果。一个简单的微笑、一句善意的话语或一时的耐心，可以照亮某人的一天，并产生远远超出我们想象的涟漪效应。"}, {"en": "In our daily lives, we often <span class=\"kw\" data-ipa=\"/ɪɡˈnɔːr/\" data-def=\"v. 忽视；不理会\">ignore</span> the impact of our choices. For instance, <span class=\"kw\" data-ipa=\"/ˈrɛsaɪkəlɪŋ/\" data-def=\"n. 回收利用\">recycling</span> a plastic bottle or turning off lights when leaving a room may seem <span class=\"kw\" data-ipa=\"/ɪnˈsɪɡnɪfɪkənt/\" data-def=\"adj. 不重要的；微不足道的\">insignificant</span>. Yet, if millions of people adopt such habits, the collective effect can reduce waste and save energy significantly.", "zh": "在日常生活中，我们常常忽视自己选择的影响。例如，回收一个塑料瓶或离开房间时关灯，似乎微不足道。然而，如果数百万人养成这样的习惯，集体效应就能显著减少浪费和节约能源。"}, {"en": "Moreover, small acts of <span class=\"kw\" data-ipa=\"/ˈkaɪndnəs/\" data-def=\"n. 善良；仁慈\">kindness</span> can <span class=\"kw\" data-ipa=\"/streŋθən/\" data-def=\"v. 加强；增强\">strengthen</span> relationships. A brief <span class=\"kw\" data-ipa=\"/ˈmɛsɪdʒ/\" data-def=\"n. 消息；信息\">message</span> to check on a friend or holding the door for a stranger costs almost nothing but can build trust and warmth in communities. These gestures remind us that we are not alone.", "zh": "此外，小小的善举能增进人际关系。发一条简短信息问候朋友，或为陌生人扶门，几乎不花什么钱，却能在社区中建立信任和温暖。这些举动提醒我们，我们并不孤单。"}, {"en": "In the workplace, small improvements also matter. Paying attention to details, offering help to coworkers, or <span class=\"kw\" data-ipa=\"/ˈmænɪdʒɪŋ/\" data-def=\"v. 管理；处理\">managing</span> time well can improve <span class=\"kw\" data-ipa=\"/ˌproʊdʌkˈtɪvəti/\" data-def=\"n. 生产力；效率\">productivity</span>. A company that encourages these behaviors often <span class=\"kw\" data-ipa=\"/kriˈeɪts/\" data-def=\"v. 创造；产生\">creates</span> a positive atmosphere where everyone feels valued.", "zh": "在工作场所，小的改进也很重要。关注细节、帮助同事或良好地管理时间，都能提高生产力。鼓励这些行为的公司往往会营造出积极的氛围，让每个人感受到被重视。"}, {"en": "Technology has made it easier to spread small actions. With social <span class=\"kw\" data-ipa=\"/ˈmiːdiə/\" data-def=\"n. 媒体\">media</span>, a single post can <span class=\"kw\" data-ipa=\"/ɪnˈspaɪər/\" data-def=\"v. 激励；启发\">inspire</span> thousands to <span class=\"kw\" data-ipa=\"/pɑːrˈtɪsɪpeɪt/\" data-def=\"v. 参加；参与\">participate</span> in community clean-ups or fundraising. The internet amplifies our individual efforts, turning a local idea into a global trend.", "zh": "科技使传播小行动变得更容易。借助社交媒体，一篇帖子就能激励数千人参与社区清洁或筹款活动。互联网扩大了我们的个人努力，将本地的想法变成了全球趋势。"}, {"en": "However, we must be careful not to underestimate the <span class=\"kw\" data-ipa=\"/rɪˈzɪstəns/\" data-def=\"n. 抵抗；阻力\">resistance</span> to change. Sometimes <span class=\"kw\" data-ipa=\"/ˈheɪbɪts/\" data-def=\"n. 习惯\">habits</span> are hard to break, and we may feel <span class=\"kw\" data-ipa=\"/ˈlɛʒər/\" data-def=\"adj. 空闲的；悠闲的\">leisure</span> time is limited. Yet, by starting with one small step—such as using a reusable bag—we can build momentum.", "zh": "然而，我们必须警惕不要低估变革的阻力。有时习惯很难改变，我们可能觉得空闲时间有限。但通过迈出一小步——比如使用可重复使用的袋子——我们可以积累动力。"}, {"en": "Schools and families play a <span class=\"kw\" data-ipa=\"/ˈvɜːrtʃuəl/\" data-def=\"adj. 虚拟的；实际的\">vital</span> role in teaching the value of small actions. When children see adults <span class=\"kw\" data-ipa=\"/dɪˈmɑːnstreɪt/\" data-def=\"v. 展示；证明\">demonstrate</span> <span class=\"kw\" data-ipa=\"/rɪˈspɛkt/\" data-def=\"n. 尊重；尊敬\">respect</span> and responsibility, they learn to do the same. This education shapes a generation that values contribution over consumption.", "zh": "学校和家庭在教育小行动的价值方面起着至关重要的作用。当孩子们看到成年人展示尊重和责任感时，他们会效仿。这种教育塑造了一代重视贡献而非消费的人。"}, {"en": "In conclusion, never <span class=\"kw\" data-ipa=\"/dɪsˈmɪs/\" data-def=\"v. 不考虑；解雇\">dismiss</span> the power of small actions. Each of us has the ability to make the world a better place, one small step at a time. Whether it's <span class=\"kw\" data-ipa=\"/ˈvɒlənˌtɪrɪŋ/\" data-def=\"v. 自愿做；志愿\">volunteering</span> an hour a week or simply being more <span class=\"kw\" data-ipa=\"/maɪndˈfʌl/\" data-def=\"adj. 留心的；注意的\">mindful</span> of our daily choices, every bit counts.", "zh": "总之，永远不要小看小行动的力量。我们每个人都有能力让世界变得更美好，一次一小步。无论是每周志愿服务一小时，还是更加注意日常选择，每一点都很重要。"}], "vocab": [{"w": "movements", "ipa": "/ˈmuvmənts/", "def": "n. 运动；活动"}, {"w": "global", "ipa": "/ˈɡlɑːbəl/", "def": "adj. 全球的；全面的"}, {"w": "combined", "ipa": "/kəmˈbaɪnd/", "def": "v. 结合；联合"}, {"w": "ignore", "ipa": "/ɪɡˈnɔːr/", "def": "v. 忽视；不理会"}, {"w": "recycling", "ipa": "/ˈrɛsaɪkəlɪŋ/", "def": "n. 回收利用"}, {"w": "insignificant", "ipa": "/ɪnˈsɪɡnɪfɪkənt/", "def": "adj. 不重要的；微不足道的"}, {"w": "kindness", "ipa": "/ˈkaɪndnəs/", "def": "n. 善良；仁慈"}, {"w": "strengthen", "ipa": "/ˈstreŋθən/", "def": "v. 加强；增强"}, {"w": "message", "ipa": "/ˈmɛsɪdʒ/", "def": "n. 消息；信息"}, {"w": "managing", "ipa": "/ˈmænɪdʒɪŋ/", "def": "v. 管理；处理"}, {"w": "productivity", "ipa": "/ˌproʊdʌkˈtɪvəti/", "def": "n. 生产力；效率"}, {"w": "creates", "ipa": "/kriˈeɪts/", "def": "v. 创造；产生"}, {"w": "media", "ipa": "/ˈmiːdiə/", "def": "n. 媒体"}, {"w": "inspire", "ipa": "/ɪnˈspaɪər/", "def": "v. 激励；启发"}, {"w": "participate", "ipa": "/pɑːrˈtɪsɪpeɪt/", "def": "v. 参加；参与"}, {"w": "resistance", "ipa": "/rɪˈzɪstəns/", "def": "n. 抵抗；阻力"}, {"w": "habits", "ipa": "/ˈhæbɪts/", "def": "n. 习惯"}, {"w": "leisure", "ipa": "/ˈliːʒər/", "def": "n. 空闲；悠闲"}, {"w": "vital", "ipa": "/ˈvaɪtl/", "def": "adj. 至关重要的"}, {"w": "demonstrate", "ipa": "/ˈdɛmənstreɪt/", "def": "v. 展示；证明"}, {"w": "respect", "ipa": "/rɪˈspɛkt/", "def": "n./v. 尊重；尊敬"}, {"w": "dismiss", "ipa": "/dɪsˈmɪs/", "def": "v. 不考虑；解雇"}, {"w": "volunteering", "ipa": "/ˌvɑːlənˈtɪrɪŋ/", "def": "v. 自愿做；志愿"}, {"w": "mindful", "ipa": "/ˈmaɪndfəl/", "def": "adj. 留心的；注意的"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; speechSynthesis.speak(u); }
+
+const clipCache=new Map(); let curAudio=null, token=0;
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({text,voice})});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl){
+  if(!text) return; stopAll(); const my=token;
+  if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.innerHTML='<div class="en">'+p.en+'</div>'+
+    '<div class="ptools"><button class="icbtn tz">中/英</button></div>'+
+    '<div class="zh">'+p.zh+'</div>';
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+
+/* 词汇表(播放 + 加入遗忘库) */
+const vl=document.getElementById('vlist');
+(ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
+  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
+    '</span><span class="vdef">'+v.def+'</span>'+
+    '<button class="mini pl">🔊</button><button class="mini ad">＋生词</button>';
+  row.querySelector('.w').onclick=()=>play(v.w);
+  row.querySelector('.pl').onclick=()=>play(v.w);
+  row.querySelector('.ad').onclick=()=>doAdd(v.w);
+  vl.appendChild(row); });
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function tokAt(x,y){ const e=document.elementFromPoint(x,y);
+  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
+function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
+function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
+    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
+function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; selText=''; }
+function showBar(a,b){ selbar.style.display='flex';
+  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
+artEl.addEventListener('pointerdown', e=>{
+  sx=e.clientX; sy=e.clientY; moved=false;
+  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
+    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
+    selecting=true; anchor=head=i; hl(i,i);
+  }
+  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
+}, true);
+artEl.addEventListener('pointermove', e=>{
+  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
+  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
+  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
+}, {passive:false});
+window.addEventListener('pointerup', e=>{
+  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
+  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
+  if(moved) return;                     // 手机上是滚动手势，忽略
+  const i=tokAt(e.clientX,e.clientY);
+  if(i<0){ clearSel(); return; }        // 点空白=取消选择
+  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
+  else { anchor=head=i; }               // 否则 = 选这个词
+  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
+document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
+  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
+  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
+  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
+function showTransbox(enText, zhHtml){
+  const tb=document.getElementById('transbox'); const r=selRect();
+  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
+    '</div><div class="tb-zh">'+zhHtml+'</div>';
+  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
+    tb.style.top=(r.bottom+8)+'px'; }
+  tb.style.display='block'; }
+async function translate(text){
+  if(!text) return;
+  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
+  showTransbox(text,'翻译中…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'translate',text})});
+    const j=await r.json();
+    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
+  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
+}
+document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
+  selbar.style.display='none'; translate(t); } };
+document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; } }, true);
+
+</script>
+</body>
+</html>
