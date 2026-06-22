@@ -29,6 +29,8 @@ def main():
                     help="不生成新文章，直接用 articles/ 里最新一篇（内容引擎没接好时用）")
     ap.add_argument("--no-push", action="store_true")
     ap.add_argument("--no-audio", action="store_true", help="跳过云端语音预生成")
+    ap.add_argument("--force", action="store_true",
+                    help="强制重新生成今天的文章并推送（即使已存在），用于手动重做当天内容")
     a = ap.parse_args()
 
     # 幂等保护：若今天的页面已生成（说明今天已有一次成功运行+推送），跳过推送，
@@ -44,7 +46,7 @@ def main():
         a.date = art.stem                       # 用该文章自身的日期
     else:
         art = ROOT / "articles" / f"{a.date}.json"
-        if not art.exists():
+        if a.force or not art.exists():
             try:
                 subprocess.check_call([sys.executable, str(ROOT / "get_article.py"),
                                        "--source", a.source, "--date", a.date])
@@ -62,7 +64,7 @@ def main():
         print("已跳过推送（--no-push）")
         return
 
-    if already_done_today:
+    if already_done_today and not a.force:
         print("今天已生成并推送过，跳过本次（备用时段去重）")
         return
 
