@@ -7,7 +7,12 @@ on:
     - cron: "13 4 * * *"   # 北京 12:13 主推
     - cron: "37 4 * * *"   # 北京 12:37 备用①
     - cron: "7 5 * * *"    # 北京 13:07 备用②
-  workflow_dispatch: {}   # 允许在 GitHub 网页上手动触发，方便测试
+  workflow_dispatch:      # 允许在 GitHub 网页上手动触发
+    inputs:
+      force:
+        description: "强制重做今天的文章（即使已存在也重新生成并推送）"
+        type: boolean
+        default: false
 
 permissions:
   contents: write         # 允许把生成的网页提交回仓库（GitHub Pages 用）
@@ -36,7 +41,11 @@ jobs:
           OPENAI_BASE_URL:   ${{ vars.OPENAI_BASE_URL }}
           OPENAI_MODEL:      ${{ vars.OPENAI_MODEL }}
         # 每天用 AI(DeepSeek)生成新文章；生成失败会自动回退到现有最新文章。
-        run: python daily.py --source ai
+        # 手动触发时勾选 force 可强制重做当天文章。
+        run: |
+          FORCE=""
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then FORCE="--force"; fi
+          python daily.py --source ai $FORCE
 
       - name: Commit generated pages
         run: |
