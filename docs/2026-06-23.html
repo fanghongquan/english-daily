@@ -3,13 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>每日英语 · From Ethiopian Highlands to Global Cups: How Coffee Conquered the World</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <style>
   :root{
     --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
-    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
     --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
     --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -39,7 +54,7 @@
   .ptools{display:flex;gap:10px;margin-top:10px}
   .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
     padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
-  .icbtn:hover{background:#dce7ff}
+  .icbtn:hover{background:var(--accent-soft2)}
   .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
     font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
     margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
@@ -54,7 +69,7 @@
   .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
   .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
     padding:3px 8px;font-size:12px;cursor:pointer}
-  .vrow .mini:hover{background:#dce7ff}
+  .vrow .mini:hover{background:var(--accent-soft2)}
   /* 复习模块 */
   #review{margin-top:30px}
   .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
@@ -91,20 +106,20 @@
     opacity:0;pointer-events:none;transition:.25s;z-index:60}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
-    max-width:300px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    max-width:300px;background:var(--card);color:var(--ink);border:1px solid var(--line);
     border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
-    box-shadow:0 6px 20px rgba(0,0,0,.18)}
+    box-shadow:0 6px 20px var(--shadow)}
   #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
     max-height:34px;overflow:hidden}
   #transbox .tb-zh{color:var(--zh)}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
-  .speaking{background:#fff3cd !important;border-radius:3px}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
   /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
   body{-webkit-touch-callout:none}
   .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
   .en .tok{cursor:pointer}
-  .en .tok.sel{background:#cfe0ff;border-radius:3px}
+  .en .tok.sel{background:var(--selbg);border-radius:3px}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
     .wrap{padding:14px 12px 100px}
@@ -140,6 +155,7 @@
   <div class="toolbar">
     <button class="btn on" id="tg-zh">显示中文翻译</button>
     <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="tg-theme">🌙 夜间</button>
     <button class="btn" id="play-all">▶ 朗读全文</button>
     <button class="btn" id="stop">⏹ 停止</button>
     <span class="speed">语速
@@ -266,6 +282,14 @@ tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'�
   document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
 const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
 tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
 document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
   const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
   play(full,null); };
