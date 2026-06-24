@@ -18,6 +18,7 @@
     --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
     --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
     --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
   }
   html[data-theme="dark"]{
     --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
@@ -25,6 +26,7 @@
     --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
     --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
     --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -115,6 +117,24 @@
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
   .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
   /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
   body{-webkit-touch-callout:none}
   .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
@@ -173,8 +193,10 @@
 
   <main id="article"></main>
 
-  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
-  <div class="vlist" id="vlist"></div>
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
 
   <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
 </div>
@@ -265,16 +287,37 @@ function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
 applyIpa(true);
 /* 重点词的点击/朗读由下方“自定义选择”统一处理 */
 
-/* 词汇表(播放 + 加入遗忘库) */
-const vl=document.getElementById('vlist');
-(ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
-  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
-    '</span><span class="vdef">'+v.def+'</span>'+
-    '<button class="mini pl">🔊</button><button class="mini ad">＋生词</button>';
-  row.querySelector('.w').onclick=()=>play(v.w);
-  row.querySelector('.pl').onclick=()=>play(v.w);
-  row.querySelector('.ad').onclick=()=>doAdd(v.w);
-  vl.appendChild(row); });
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
