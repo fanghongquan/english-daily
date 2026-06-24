@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>每日英语 · Tea Culture Around the World: More Than a Drink</title>
+<title>每日英语 · Tea Traditions Across Continents: From Japanese Matcha to Moroccan Mint</title>
 <script>
 /* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
 (function(){try{var t=localStorage.getItem('theme');
@@ -18,6 +18,7 @@
     --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
     --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
     --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
   }
   html[data-theme="dark"]{
     --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
@@ -25,6 +26,7 @@
     --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
     --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
     --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -115,6 +117,24 @@
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
   .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
   /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
   body{-webkit-touch-callout:none}
   .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
@@ -173,8 +193,10 @@
 
   <main id="article"></main>
 
-  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
-  <div class="vlist" id="vlist"></div>
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
 
   <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
 </div>
@@ -190,7 +212,7 @@
 <div id="toast"></div>
 
 <script>
-const ARTICLE = {"date": "2026-06-24", "level": "CET-4", "title": "Tea Culture Around the World: More Than a Drink", "title_zh": "世界各地的茶文化：不止是一种饮品", "intro_zh": "本文约1000词，介绍中国、日本、英国、摩洛哥等地的茶文化，涵盖历史、仪式和现代演变，适合CET-4水平阅读。", "paragraphs": [{"en": "Tea is the second most consumed beverage in the world after water. From the misty mountains of China to the bustling streets of London, tea has been enjoyed for thousands of years. It is not just a drink; it is a symbol of hospitality, a <span class=\"kw\" data-ipa=\"/ˈsɪmbəl/\" data-def=\"n. 象征\">symbol</span> of culture, and a way of life. Every year, billions of cups of tea are drunk <span class=\"kw\" data-ipa=\"/ˈɡloʊbl/\" data-def=\"adj. 全球的\">global</span>ly, with different regions developing their own unique traditions. In this article, we will explore the fascinating tea cultures of China, Japan, the United Kingdom, and Morocco.", "zh": "茶是世界上仅次于水的第二大消费饮品。从中国云雾缭绕的山脉到伦敦熙熙攘攘的街道，茶已经被享用了数千年。它不仅是一种饮品，更是好客的象征、文化的象征和一种生活方式。每年，全球有数十亿杯茶被饮用，不同地区发展出了各自独特的传统。在本文中，我们将探索中国、日本、英国和摩洛哥迷人的茶文化。"}, {"en": "China is the birthplace of tea. According to legend, Emperor Shennong discovered tea around 2737 BCE when tea leaves blew into his pot of boiling water. Today, Chinese tea culture is rich and <span class=\"kw\" data-ipa=\"/ˈdaɪvɜːrs/\" data-def=\"adj. 多样的\">diverse</span>. People enjoy various types such as green tea, black tea, oolong tea, and pu'er tea. The tea ceremony, called Gongfu Cha, emphasizes the <span class=\"kw\" data-ipa=\"/ˈskɪl/\" data-def=\"n. 技能\">skill</span> of brewing and the appreciation of the tea's aroma and taste. Tea is also an important part of social gatherings and business meetings, often served to show respect to guests.", "zh": "中国是茶的诞生地。据传说，神农皇帝在公元前2737年左右发现了茶，当时茶叶飘进了他的一锅开水中。今天，中国茶文化丰富多样。人们享用各种类型的茶，如绿茶、红茶、乌龙茶和普洱茶。茶道，即功夫茶，强调冲泡的技巧以及对茶香和茶味的品鉴。茶也是社交聚会和商务会议的重要组成部分，常被用来向客人表示尊重。"}, {"en": "Japan has its own unique tea culture, centered around the <span class=\"kw\" data-ipa=\"/ˈsɛr.ə.moʊ.ni/\" data-def=\"n. 仪式\">ceremony</span> known as Chanoyu, or the Way of Tea. This ceremony is a highly ritualized practice influenced by Zen Buddhism. The host prepares and serves matcha, a powdered green tea, with great care and <span class=\"kw\" data-ipa=\"/ˈpreɪzɪs/\" data-def=\"adj. 精确的\">precise</span> movements. Every gesture, from cleaning the tea bowl to whisking the tea, has meaning. The goal is to achieve harmony, respect, purity, and tranquility. Japanese tea culture also emphasizes the beauty of <span class=\"kw\" data-ipa=\"/ˈsɪmp.əl/\" data-def=\"adj. 简单的\">simple</span> things and the importance of being present in the moment.", "zh": "日本拥有自己独特的茶文化，以名为茶道（Chanoyu）的仪式为中心。这是一种深受禅宗影响的高度仪式化的实践。主人以极大的细心和精确的动作准备并奉上抹茶，一种粉状的绿茶。每一个动作，从清洁茶碗到搅拌茶，都有其含义。目标是达到和谐、尊重、纯净和宁静。日本茶文化也强调简单事物的美以及活在当下的重要性。"}, {"en": "In the United Kingdom, tea is a national obsession. Afternoon tea, a tradition that began in the 1840s, is a light meal consisting of sandwiches, scones, cakes, and of course, tea. British people drink about 60 billion cups of tea each year, most of it black tea with milk. Tea breaks are a common part of the workday, offering a moment to relax and <span class=\"kw\" data-ipa=\"/səˈʃaɪ.əl.ə.ti/\" data-def=\"n. 社交\">socialize</span>. The British love for tea is so strong that during World War II, the government even <span class=\"kw\" data-ipa=\"/ˈreɪʃ.ən/\" data-def=\"v. 定量配给\">ration</span>ed it to ensure everyone could have their daily cup.", "zh": "在英国，茶是一种全国性的迷恋。下午茶是一种始于19世纪40年代的传统，是一种包括三明治、司康饼、蛋糕以及茶的便餐。英国人每年饮用约600亿杯茶，其中大部分是加牛奶的红茶。茶歇是工作日的常见部分，提供了放松和社交的时刻。英国人对茶的热爱如此强烈，以至于在二战期间，政府甚至对茶实行定量配给，以确保每个人都能喝上每日一杯。"}, {"en": "Morocco offers a completely different tea experience. Moroccan mint tea, also known as \"Berber whiskey,\" is a sweet and refreshing drink made from green tea, fresh mint, and sugar. The tea is poured from a height to create foam and is served in small glasses. Hospitality is a key part of Moroccan culture, and offering tea is a sign of <span class=\"kw\" data-ipa=\"/ˈwel.kəm/\" data-def=\"n. 欢迎\">welcome</span>. It is customary to drink three glasses of tea, each with a different taste: the first is as gentle as life, the second as strong as love, and the third as bitter as death.", "zh": "摩洛哥提供了一种完全不同的茶体验。摩洛哥薄荷茶，也被称为“柏柏尔威士忌”，是一种由绿茶、新鲜薄荷和糖制成的甜而清爽的饮品。茶从高处倒入以产生泡沫，并盛在小玻璃杯中。好客是摩洛哥文化的关键部分，奉茶是欢迎的标志。习惯上要喝三杯茶，每一杯味道不同：第一杯如生命般温柔，第二杯如爱情般强烈，第三杯如死亡般苦涩。"}, {"en": "As the world becomes more connected, tea culture continues to <span class=\"kw\" data-ipa=\"/ɪˈvɑlv/\" data-def=\"v. 进化\">evolve</span>. New trends such as bubble tea from Taiwan have gained international popularity, especially among young people. Bubble tea, also called boba tea, is a cold drink that combines tea with milk or fruit and chewy tapioca pearls. It is a <span class=\"kw\" data-ipa=\"/ˈkrɛ.ə.tɪv/\" data-def=\"adj. 创造性的\">creative</span> twist on traditional tea. Meanwhile, tea <span class=\"kw\" data-ipa=\"/tʊrˈɪzəm/\" data-def=\"n. 旅游业\">tourism</span> is on the rise, with travelers visiting tea plantations in countries like Sri Lanka and India to learn about tea production.", "zh": "随着世界联系日益紧密，茶文化继续演变。像来自台湾的珍珠奶茶这样的新趋势已在国际上流行起来，尤其在年轻人中。珍珠奶茶是一种冷饮，将茶与牛奶或水果以及有嚼劲的木薯珍珠结合在一起。这是对传统茶的一种创造性改良。与此同时，茶旅游业正在兴起，旅行者前往斯里兰卡和印度等国的茶叶种植园了解茶叶生产。"}, {"en": "Tea is more than just a beverage; it is a bridge between cultures. Whether you prefer the <span class=\"kw\" data-ipa=\"/ˈsɛr.ə.moʊ.ni/\" data-def=\"n. 仪式\">ceremony</span> of a Japanese tea room or the casual comfort of a British cuppa, tea brings people together. It offers a moment of calm in a busy world and a chance to connect with others. The next time you sip a cup of tea, think about the centuries of history and the millions of hands that have made that moment possible.", "zh": "茶不仅仅是一种饮料；它是连接文化的桥梁。无论你偏爱日本茶室的仪式感，还是英式茶饮的随意舒适，茶都将人们聚在一起。它在繁忙的世界中提供片刻宁静和与他人连接的机会。下次你啜饮一杯茶时，想一想数个世纪的历史以及使那一刻成为可能的数百万双手。"}], "vocab": [{"w": "symbol", "ipa": "/ˈsɪmbəl/", "def": "n. 象征"}, {"w": "global", "ipa": "/ˈɡloʊbl/", "def": "adj. 全球的"}, {"w": "diverse", "ipa": "/ˈdaɪvɜːrs/", "def": "adj. 多样的"}, {"w": "skill", "ipa": "/ˈskɪl/", "def": "n. 技能"}, {"w": "ceremony", "ipa": "/ˈsɛr.ə.moʊ.ni/", "def": "n. 仪式"}, {"w": "precise", "ipa": "/ˈpreɪzɪs/", "def": "adj. 精确的"}, {"w": "simple", "ipa": "/ˈsɪmp.əl/", "def": "adj. 简单的"}, {"w": "socialize", "ipa": "/ˈsoʊ.ʃə.laɪz/", "def": "v. 社交"}, {"w": "ration", "ipa": "/ˈræʃ.ən/", "def": "v. 定量配给"}, {"w": "welcome", "ipa": "/ˈwel.kəm/", "def": "n. 欢迎"}, {"w": "evolve", "ipa": "/ɪˈvɑːlv/", "def": "v. 进化"}, {"w": "creative", "ipa": "/kriˈeɪ.tɪv/", "def": "adj. 创造性的"}, {"w": "tourism", "ipa": "/ˈtʊr.ɪ.zəm/", "def": "n. 旅游业"}, {"w": "consumption", "ipa": "/kənˈsʌmp.ʃən/", "def": "n. 消费"}, {"w": "ritual", "ipa": "/ˈrɪtʃ.u.əl/", "def": "n. 仪式"}, {"w": "aroma", "ipa": "/əˈroʊ.mə/", "def": "n. 香气"}, {"w": "tranquility", "ipa": "/træŋˈkwɪl.ɪ.ti/", "def": "n. 宁静"}, {"w": "obsession", "ipa": "/əbˈseʃ.ən/", "def": "n. 迷恋"}, {"w": "hospitality", "ipa": "/ˌhɑːs.pɪˈtæl.ɪ.ti/", "def": "n. 好客"}, {"w": "customary", "ipa": "/ˈkʌs.tə.mer.i/", "def": "adj. 习惯的"}]};
+const ARTICLE = {"date": "2026-06-24", "level": "CET-4", "title": "Tea Traditions Across Continents: From Japanese Matcha to Moroccan Mint", "title_zh": "各大洲的茶传统：从日本抹茶到摩洛哥薄荷茶", "intro_zh": "本文约1000词，介绍世界各地独特的茶文化，包括中国、日本、印度、英国、摩洛哥等地的饮茶习俗和历史。", "paragraphs": [{"en": "Tea is more than just a drink; it is a <span class=\"kw\" data-ipa=\"/ˌsɪmbl/\" data-def=\"象征\">symbol</span> of hospitality and a way of life for billions. Originating in China over 4,000 years ago, tea has spread to every corner of the globe, adapting to local tastes and customs. From the <span class=\"kw\" data-ipa=\"/ˈsɛrəˌmɑni/\" data-def=\"仪式\">ceremony</span> in Japan to the bustling tea stalls in India, each culture has its own unique way of preparing and enjoying this ancient brew. Let's take a journey through some of the world's most fascinating tea traditions.", "zh": "茶不仅仅是一种饮品；对于数十亿人来说，它是好客的象征和一种生活方式。茶起源于四千多年前的中国，已传播到全球每个角落，并适应当地的口味和习俗。从日本的茶道仪式到印度熙熙攘攘的茶摊，每种文化都有自己独特的方式来冲泡和享用这种古老的饮品。让我们踏上旅程，探索一些世界上最迷人的茶传统。"}, {"en": "In China, tea is deeply rooted in daily life. The Chinese have a saying: 'Better to be deprived of food for three days than of tea for one.' There are many <span class=\"kw\" data-ipa=\"/vaɪˈriəti/\" data-def=\"品种\">varieties</span>, such as green, black, oolong, and pu'er. The traditional Chinese tea ceremony, known as 'gongfu cha', emphasizes the <span class=\"kw\" data-ipa=\"/ˈkwa:ləti/\" data-def=\"质量\">quality</span> of the leaves and the skill of the brewer. Tea is often consumed during meals or when hosting guests, and it is believed to have health benefits, including aiding <span class=\"kw\" data-ipa=\"/daɪˈdʒɛstʃən/\" data-def=\"消化\">digestion</span> and reducing stress.", "zh": "在中国，茶深深植根于日常生活。中国有句俗语：'宁可三日无粮，不可一日无茶。'茶叶有许多品种，如绿茶、红茶、乌龙茶和普洱茶。传统的中国茶道称为'功夫茶'，强调茶叶的品质和冲泡者的技艺。人们常在用餐时或待客时饮茶，并相信茶有益健康，包括帮助消化和减轻压力。"}, {"en": "Japan has elevated tea preparation to an art form. The Japanese tea ceremony, called 'chanoyu', is a highly <span class=\"kw\" data-ipa=\"/ˈrɪtʃuəl/\" data-def=\"仪式\">ritualized</span> practice that involves the preparation and presentation of matcha, a powdered green tea. Every movement, from the way the tea bowl is held to the whisking of the tea, is performed with <span class=\"kw\" data-ipa=\"/ˈpreʒər/\" data-def=\"精确\">precision</span>. The ceremony is not just about drinking tea; it is about finding beauty in simplicity and achieving a moment of <span class=\"kw\" data-ipa=\"/ˈpiːs/\" data-def=\"平静\">peace</span>. Matcha is also used in modern foods like lattes and desserts.", "zh": "日本将茶的制备提升为一种艺术形式。日本茶道称为'茶汤'，是一种高度仪式化的实践，涉及抹茶（一种粉末状绿茶）的制备和呈现。从捧茶杯的方式到搅茶的动作，每一个动作都精准地完成。茶道不仅仅关乎饮茶；它是在简单中发现美，获得片刻的平静。抹茶也用于现代食品中，如拿铁和甜点。"}, {"en": "In India, tea is a part of everyday life and is often sold by street vendors called 'chai wallahs'. The most popular type is masala chai, a <span class=\"kw\" data-ipa=\"/ˈspaɪsi/\" data-def=\"辛辣的\">spicy</span> blend of black tea, milk, sugar, and spices like cardamom, ginger, and cinnamon. India is one of the world's largest tea producers, with famous regions like Darjeeling and Assam. Tea is often offered to guests as a sign of <span class=\"kw\" data-ipa=\"/hɑˈspɪtəli/\" data-def=\"好客\">hospitality</span>, and the <span class=\"kw\" data-ipa=\"/ˈærəmə/\" data-def=\"香气\">aroma</span> of chai is a familiar scent in Indian homes and markets.", "zh": "在印度，茶是日常生活的一部分，通常由称为'茶瓦拉'的街头小贩出售。最流行的品种是马萨拉茶，一种由红茶、牛奶、糖和香料如小豆蔻、生姜和肉桂混合而成的辛辣饮品。印度是世界上最大的茶叶生产国之一，拥有著名的大吉岭和阿萨姆等产区。茶通常作为好客的象征提供给客人，而柴茶的香气是印度家庭和市场里熟悉的味道。"}, {"en": "Across the Atlantic, the United Kingdom has a long-standing love affair with tea. Afternoon tea, a <span class=\"kw\" data-ipa=\"/ˈtrædɪʃən/\" data-def=\"传统\">tradition</span> introduced in the 1840s, involves serving tea along with finger sandwiches, scones, and cakes. The British typically drink black tea with milk and sometimes sugar. Tea breaks are a common practice in workplaces, providing a moment to <span class=\"kw\" data-ipa=\"/rɪˈlæks/\" data-def=\"放松\">relax</span> and socialize. The UK consumes about 60 billion cups of tea per year, making it one of the world's top tea-drinking nations.", "zh": "跨过大西洋，英国对茶有着悠久的喜爱。下午茶是19世纪40年代引入的传统，包括茶以及手指三明治、司康饼和蛋糕。英国人通常喝加牛奶、有时加糖的红茶。在工作场所，茶歇是一种常见做法，提供片刻的放松和社交。英国每年消费约600亿杯茶，使其成为世界顶级饮茶国之一。"}, {"en": "In North Africa, particularly Morocco, mint tea is a <span class=\"kw\" data-ipa=\"/ˈstɛipl/\" data-def=\"主食\">staple</span> of hospitality. Known as 'atay', it is made by steeping green tea with fresh mint leaves and a generous amount of sugar. The tea is poured from a height to create a frothy top, a skill that hosts <span class=\"kw\" data-ipa=\"/prəˈfaɪl/\" data-def=\"自豪地展示\">proudly</span> display. Sharing mint tea is a social <span class=\"kw\" data-ipa=\"/ˈrɪtʃuəl/\" data-def=\"仪式\">ritual</span> that strengthens bonds between family and friends. It is customary to serve three glasses, each with a different flavor strength.", "zh": "在北非，特别是摩洛哥，薄荷茶是好客的主食。它被称为'阿泰'，由绿茶与新鲜薄荷叶和大量糖浸泡而成。茶从高处倒出以形成泡沫顶层，这是主人自豪展示的技巧。分享薄荷茶是一种社交仪式，能加强家人和朋友之间的联系。按惯例要敬三杯，每一杯的味道浓度都不同。"}, {"en": "Russia has its own unique tea culture, centered around the 'samovar', a metal container used to boil water for tea. Russian tea is typically strong black tea, often served in a glass with a metal holder called a 'podstakannik'. Tea is commonly accompanied by jam, sweets, or <span class=\"kw\" data-ipa=\"/ˈbeɪkəri/\" data-def=\"糕点\">pastries</span>. The tradition of tea drinking in Russia dates back to the 17th century and is associated with warmth and <span class=\"kw\" data-ipa=\"/ˈkʌmfərt/\" data-def=\"舒适\">comfort</span>, especially during long, cold winters.", "zh": "俄罗斯有其独特的茶文化，以'萨摩瓦尔'为中心，这是一种用于烧水的金属容器。俄罗斯茶通常是浓红茶，常装在带有金属杯托的玻璃杯中饮用。茶通常配以果酱、糖果或糕点。俄罗斯的饮茶传统可追溯到17世纪，与温暖和舒适联系在一起，尤其在漫长寒冷的冬季。"}, {"en": "Despite their differences, all tea cultures share a common theme: tea brings people together. Whether it's a formal Japanese ceremony or a casual chat over a cup of chai, tea creates a moment of connection. In our fast-paced world, taking time to prepare and enjoy tea can be a simple but powerful way to slow down and <span class=\"kw\" data-ipa=\"/əˈpriʃiˌeɪt/\" data-def=\"欣赏\">appreciate</span> the present. So next time you sip your favorite brew, remember that you are part of a global <span class=\"kw\" data-ipa=\"/ˈkʌltʃər/\" data-def=\"文化\">culture</span> that has been evolving for millennia.", "zh": "尽管存在差异，所有茶文化都有一个共同主题：茶将人们聚在一起。无论是正式的日本茶道，还是喝一杯柴茶时的随意聊天，茶创造了连接的片刻。在我们快节奏的世界里，花时间准备和享用茶可以是一种简单却强大的方式，让我们慢下来并欣赏当下。因此，下次你啜饮最喜欢的茶饮时，请记住，你是全球文化的一部分，这种文化已经演变了数千年。"}], "questions": [{"q": "What is the main idea of the passage?", "options": ["Tea is only popular in Asia.", "Different cultures have unique tea traditions that share a common theme of bringing people together.", "The British drink the most tea in the world.", "Tea ceremonies are only practiced in Japan."], "answer": 1, "explain": "主旨题。文章介绍了中国、日本、印度、英国、摩洛哥、俄罗斯等地的茶文化，最后一段总结茶将人们聚在一起，因此选项B正确。"}, {"q": "According to the passage, which country is famous for masala chai?", "options": ["China", "Japan", "India", "Morocco"], "answer": 2, "explain": "细节题。根据第四段，印度最流行的茶是masala chai，因此选C。"}, {"q": "What does the word 'staple' (paragraph 6) most likely mean?", "options": ["A type of food that is rarely eaten.", "A basic or important food item that is regularly consumed.", "A special dish for celebrations only.", "A drink that is not common."], "answer": 1, "explain": "词义题。staple在文中指“主食”，即日常基本消费的食物，这里指薄荷茶是摩洛哥好客的主食，因此选B。"}, {"q": "What can be inferred about the Japanese tea ceremony from the passage?", "options": ["It is a casual activity without rules.", "It focuses on speed and efficiency.", "Every movement is done with care and precision.", "It is only for special occasions."], "answer": 2, "explain": "推断题。根据第三段，日本茶道高度仪式化，每个动作都精准完成，因此可推断出每个动作都小心精确，选C。"}]};
 const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
 let rate = 0.95;
 let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
@@ -265,16 +287,37 @@ function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
 applyIpa(true);
 /* 重点词的点击/朗读由下方“自定义选择”统一处理 */
 
-/* 词汇表(播放 + 加入遗忘库) */
-const vl=document.getElementById('vlist');
-(ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
-  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
-    '</span><span class="vdef">'+v.def+'</span>'+
-    '<button class="mini pl">🔊</button><button class="mini ad">＋生词</button>';
-  row.querySelector('.w').onclick=()=>play(v.w);
-  row.querySelector('.pl').onclick=()=>play(v.w);
-  row.querySelector('.ad').onclick=()=>doAdd(v.w);
-  vl.appendChild(row); });
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
