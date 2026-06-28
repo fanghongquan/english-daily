@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>每日英语 · The Birth of Cinema: How Movies Came to Life</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vrow{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .vrow:last-child{border-bottom:none}
+  .vrow .w{font-weight:700;color:var(--kw);min-width:120px;cursor:pointer}
+  .vrow .vipa{color:var(--sub);font-size:13px;min-width:140px}
+  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
+  .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
+    padding:3px 8px;font-size:12px;cursor:pointer}
+  .vrow .mini:hover{background:var(--accent-soft2)}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
+    max-width:300px;background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
+    box-shadow:0 6px 20px var(--shadow)}
+  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
+    max-height:34px;overflow:hidden}
+  #transbox .tb-zh{color:var(--zh)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
+  body{-webkit-touch-callout:none}
+  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  .en .tok{cursor:pointer}
+  .en .tok.sel{background:var(--selbg);border-radius:3px}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px 100px}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .vrow{flex-wrap:wrap;gap:6px 8px;padding:11px 12px}
+    .vrow .w{min-width:0;order:1;font-size:15px}
+    .vrow .vipa{min-width:0;flex:1;order:2;font-size:11.5px}
+    .vrow .pl{order:3}
+    .vrow .ad{order:4}
+    .vrow .vdef{order:5;flex-basis:100%;font-size:13.5px;color:var(--sub);margin-top:1px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh">显示中文翻译</button>
+    <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="tg-theme">🌙 夜间</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <span class="speed">语速
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed">嗓音
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+  </div>
+  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
+</div>
+
+<div id="selbar">
+  <button id="sel-play">🔊 播放</button>
+  <div class="sep"></div>
+  <button id="sel-add">＋ 生词</button>
+  <div class="sep"></div>
+  <button id="sel-translate">翻译</button>
+</div>
+<div id="transbox"></div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-06-28", "level": "CET-4", "title": "The Birth of Cinema: How Movies Came to Life", "title_zh": "电影的诞生：电影如何活起来", "intro_zh": "本文约1000词，讲述了电影的诞生过程，从早期技术到第一部电影的出现，以及技术革新如何塑造现代电影。文章包含具体事例和数据，适合CET-4水平阅读。", "paragraphs": [{"en": "Today, we take movies for <span class=\"kw\" data-ipa=\"ˈɡræntɪd\" data-def=\"视为理所当然\">granted</span>. But have you ever wondered how this <span class=\"kw\" data-ipa=\"ˌmed.iˈi.vəl\" data-def=\"中世纪的\">medieval</span> art form began? The birth of cinema is a story of <span class=\"kw\" data-ipa=\"ˌɪn.əˈveɪ.ʃən\" data-def=\"创新\">innovation</span> and persistence, starting with simple optical toys and evolving into a billion-dollar industry.", "zh": "今天，我们把电影视为理所当然。但你是否想过这门中世纪的古老艺术形式是如何开始的？电影的诞生是一个关于创新和坚持的故事，从简单的光学玩具开始，发展成为一个价值数十亿美元的产业。"}, {"en": "The <span class=\"kw\" data-ipa=\"\"ˈɔː.ri.dʒɪn\"\" data-def=\"起源\">origin</span> of cinema lies in the 19th century. In 1824, scientist Peter Mark Roget discovered the \"persistence of vision\" — the <span class=\"kw\" data-ipa=\"ˈfɪk.ʃən\" data-def=\"虚构\">fiction</span> that our eyes hold an image for a split second after it disappears. This principle <span class=\"kw\" data-ipa=\"ɪnˈspaɪərd\" data-def=\"启发\">inspired</span> inventors to create devices that showed moving pictures.", "zh": "电影的起源在于19世纪。1824年，科学家彼得·马克·罗杰发现了“视觉暂留”现象——即我们的眼睛在图像消失后会短暂保留影像的错觉。这一原理启发了发明家们创造展示活动影像的设备。"}, {"en": "One early device was the <span class=\"kw\" data-ipa=\"ˈzəʊ.i.əˌtroʊp\" data-def=\"西洋镜\">zoetrope</span>, a spinning drum with slits. Inside, a strip of pictures created the <span class=\"kw\" data-ipa=\"ɪˈluːʒən\" data-def=\"幻觉\">illusion</span> of movement. It was a popular <span class=\"kw\" data-ipa=\"ˈnɒv.əl.ti\" data-def=\"新奇事物\">novelty</span> in Victorian homes. But inventors wanted more: they dreamed of projecting images onto a screen for a large audience.", "zh": "一种早期装置是西洋镜，一种带有狭缝的旋转鼓。内部的一组图片创造了运动的幻觉。它在维多利亚时代的家庭中是一种受欢迎的新奇事物。但发明家们想要的更多：他们梦想着将图像投影到大屏幕上供众人观看。"}, {"en": "The key <span class=\"kw\" data-ipa=\"ˈbrɛk.θruː\" data-def=\"突破\">breakthrough</span> came with photography. In 1878, photographer Eadweard Muybridge <span class=\"kw\" data-ipa=\"ˈsək.ses.fəli\" data-def=\"成功地\">successfully</span> captured a horse in motion using multiple cameras. His famous \"Sallie Gardner at a Gallop\" proved that all four hooves leave the ground at once. This <span class=\"kw\" data-ipa=\"ɪkˈspɛr.ɪ.mənt\" data-def=\"实验\">experiment</span> laid the foundation for motion pictures.", "zh": "关键突破来自摄影。1878年，摄影师埃德沃德·迈布里奇使用多台相机成功捕捉到一匹奔跑中的马。他著名的“奔跑中的萨利·加德纳”证明了马在奔跑时四蹄会同时离地。这一实验为电影奠定了基础。"}, {"en": "In 1895, the Lumière brothers in France held the first public <span class=\"kw\" data-ipa=\"skriːnɪŋ\" data-def=\"放映\">screening</span> of a film. Their short movie, \"Workers Leaving the Lumière Factory,\" lasted only 46 seconds. The audience was <span class=\"kw\" data-ipa=\"əˈmeɪzd\" data-def=\"惊奇的\">amazed</span>. This event is widely <span class=\"kw\" data-ipa=\"rɪˈɡɑːrdɪd\" data-def=\"视为\">regarded</span> as the birth of cinema. Soon, filmmakers around the world began experimenting with longer stories.", "zh": "1895年，法国的卢米埃尔兄弟举行了首次公开电影放映。他们的短片《工厂大门》仅持续了46秒。观众们惊叹不已。这一事件被广泛视为电影的诞生。很快，世界各地的电影制作人开始尝试更长的故事。"}, {"en": "The early 1900s saw rapid <span class=\"kw\" data-ipa=\"əˈdvaːnsmənt\" data-def=\"进步\">advancement</span>. In 1903, Edwin S. Porter's \"The Great Train Robbery\" introduced editing techniques like cross-cutting. Then, in 1927, \"The Jazz Singer\" became the first \"talkie\" with <span class=\"kw\" data-ipa=\"sɪŋkrənaɪzd\" data-def=\"同步的\">synchronized</span> sound. This <span class=\"kw\" data-ipa=\"ˌrev.əˈluː.ʃən\" data-def=\"革命\">revolution</span> changed cinema forever. Audiences could now hear actors' voices and music.", "zh": "20世纪初，电影技术迅速进步。1903年，埃德温·S·波特的《火车大劫案》引入了交叉剪辑等编辑技巧。随后在1927年，《爵士歌手》成为第一部同步声音的“有声电影”。这一革命永远改变了电影。观众现在可以听到演员的声音和音乐。"}, {"en": "Color was the next big step. While early films were hand-colored, the 1930s introduced <span class=\"kw\" data-ipa=\"tekˈnɪkələr\" data-def=\"彩色印片法\">Technicolor</span>, a process that produced vibrant colors. Movies like \"The Wizard of Oz\" (1939) <span class=\"kw\" data-ipa=\"ˈʃəʊkeɪst\" data-def=\"展示\">showcased</span> this technology, <span class=\"kw\" data-ipa=\"kæpˈtɪveɪtɪd\" data-def=\"迷住\">captivated</span> audiences. Today, we have IMAX, 3D, and CGI, but the basic principle remains the same: a series of still images shown quickly creates the illusion of movement.", "zh": "彩色是下一个重大步骤。虽然早期电影是手工上色的，但20世纪30年代引入了彩色印片法，这是一种产生鲜艳色彩的过程。像《绿野仙踪》（1939年）这样的电影展示了这项技术，迷住了观众。今天，我们有IMAX、3D和CGI，但基本原理仍然相同：一系列静止图像快速显示创造了运动的幻觉。"}, {"en": "The film industry today is a global <span class=\"kw\" data-ipa=\"ˈfɔːrs\" data-def=\"力量\">force</span>. In 2023, the global box office <span class=\"kw\" data-ipa=\"rɪˈvɛnjuː\" data-def=\"收入\">revenue</span> reached over $33 billion. But the magic of cinema began with simple toys and a curious <span class=\"kw\" data-ipa=\"maɪnd\" data-def=\"思想\">mind</span>. Next time you watch a movie, remember the inventors who turned a flickering image into a world of stories.", "zh": "今天的电影产业是一股全球力量。2023年，全球票房收入超过330亿美元。但电影的魅力始于简单的玩具和好奇的心灵。下次你看电影时，请记住那些将闪烁图像变成故事世界的发明家们。"}], "questions": [{"q": "What is the main idea of the passage?", "options": ["A. How movies are made today.", "B. The technological evolution of cinema from its origins.", "C. The life of early film inventors.", "D. The economics of the film industry."], "answer": 1, "explain": "文章主要讲述了电影从早期光学玩具到现代技术的诞生和发展过程，因此B项（电影从起源的技术演变）是主旨。A项只涉及现代制作，C项是细节，D项是末段部分内容，非主旨。"}, {"q": "According to paragraph 2, what did Peter Mark Roget discover?", "options": ["A. The first motion picture camera.", "B. The principle of persistence of vision.", "C. How to project images onto a screen.", "D. The zoetrope device."], "answer": 1, "explain": "第二段明确提到Peter Mark Roget发现了“persistence of vision”（视觉暂留），因此B项正确。A、C、D均不是他的发现。"}, {"q": "What can be inferred from the last paragraph about the film industry?", "options": ["A. It has declined in revenue.", "B. It is less creative now.", "C. It remains economically significant.", "D. It relies only on modern technology."], "answer": 2, "explain": "末段提到2023年全球票房收入超过330亿美元，表明电影产业在经济上依然重要，因此C项正确。A项与数据相反，B项无依据，D项过于绝对。"}, {"q": "The word \"novelty\" in paragraph 3 is closest in meaning to:", "options": ["A. invention", "B. newness", "C. toy", "D. entertainment"], "answer": 1, "explain": "'novelty'在文中指一种新奇有趣的事物，强调新颖性，因此B项（new新的状态）最接近。A项侧重发明，C项是具体例子，D项范围太广。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; speechSynthesis.speak(u); }
+
+const clipCache=new Map(); let curAudio=null, token=0;
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({text,voice})});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl){
+  if(!text) return; stopAll(); const my=token;
+  if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.innerHTML='<div class="en">'+p.en+'</div>'+
+    '<div class="ptools"><button class="icbtn tz">中/英</button></div>'+
+    '<div class="zh">'+p.zh+'</div>';
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function tokAt(x,y){ const e=document.elementFromPoint(x,y);
+  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
+function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
+function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
+    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
+function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; selText=''; }
+function showBar(a,b){ selbar.style.display='flex';
+  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
+artEl.addEventListener('pointerdown', e=>{
+  sx=e.clientX; sy=e.clientY; moved=false;
+  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
+    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
+    selecting=true; anchor=head=i; hl(i,i);
+  }
+  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
+}, true);
+artEl.addEventListener('pointermove', e=>{
+  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
+  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
+  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
+}, {passive:false});
+window.addEventListener('pointerup', e=>{
+  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
+  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
+  if(moved) return;                     // 手机上是滚动手势，忽略
+  const i=tokAt(e.clientX,e.clientY);
+  if(i<0){ clearSel(); return; }        // 点空白=取消选择
+  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
+  else { anchor=head=i; }               // 否则 = 选这个词
+  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
+document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
+  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
+  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
+  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
+function showTransbox(enText, zhHtml){
+  const tb=document.getElementById('transbox'); const r=selRect();
+  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
+    '</div><div class="tb-zh">'+zhHtml+'</div>';
+  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
+    tb.style.top=(r.bottom+8)+'px'; }
+  tb.style.display='block'; }
+async function translate(text){
+  if(!text) return;
+  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
+  showTransbox(text,'翻译中…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'translate',text})});
+    const j=await r.json();
+    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
+  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
+}
+document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
+  selbar.style.display='none'; translate(t); } };
+document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; } }, true);
+
+</script>
+</body>
+</html>
