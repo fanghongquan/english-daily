@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>每日英语 · Spices and Silk: Stories from the Silk Road</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vrow{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .vrow:last-child{border-bottom:none}
+  .vrow .w{font-weight:700;color:var(--kw);min-width:120px;cursor:pointer}
+  .vrow .vipa{color:var(--sub);font-size:13px;min-width:140px}
+  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
+  .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
+    padding:3px 8px;font-size:12px;cursor:pointer}
+  .vrow .mini:hover{background:var(--accent-soft2)}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
+    max-width:300px;background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
+    box-shadow:0 6px 20px var(--shadow)}
+  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
+    max-height:34px;overflow:hidden}
+  #transbox .tb-zh{color:var(--zh)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
+  body{-webkit-touch-callout:none}
+  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  .en .tok{cursor:pointer}
+  .en .tok.sel{background:var(--selbg);border-radius:3px}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px 100px}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .vrow{flex-wrap:wrap;gap:6px 8px;padding:11px 12px}
+    .vrow .w{min-width:0;order:1;font-size:15px}
+    .vrow .vipa{min-width:0;flex:1;order:2;font-size:11.5px}
+    .vrow .pl{order:3}
+    .vrow .ad{order:4}
+    .vrow .vdef{order:5;flex-basis:100%;font-size:13.5px;color:var(--sub);margin-top:1px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh">显示中文翻译</button>
+    <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="tg-theme">🌙 夜间</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <span class="speed">语速
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed">嗓音
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+  </div>
+  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
+</div>
+
+<div id="selbar">
+  <button id="sel-play">🔊 播放</button>
+  <div class="sep"></div>
+  <button id="sel-add">＋ 生词</button>
+  <div class="sep"></div>
+  <button id="sel-translate">翻译</button>
+</div>
+<div id="transbox"></div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-06-29", "level": "CET-4", "title": "Spices and Silk: Stories from the Silk Road", "title_zh": "香料与丝绸：丝绸之路上的故事", "intro_zh": "本文约1000词，介绍丝绸之路上香料和丝绸贸易的生动故事，包括骆驼商队、沿途城市和不同文化的交流。", "paragraphs": [{"en": "The <span class=\"kw\" data-ipa=\"/ˈspaɪsiz/\" data-def=\"香料\">spices</span> we use today have traveled long distances. Over a thousand years ago, the Silk Road was not just a single path but a <span class=\"kw\" data-ipa=\"/ˈnetˌwɜːrk/\" data-def=\"网络\">network</span> of routes connecting East and West. It got its name from the precious silk that Chinese merchants traded, but many other goods were also <span class=\"kw\" data-ipa=\"/ˈeksˌtʃeɪndʒd/\" data-def=\"交换\">exchanged</span>. Among them, spices like cinnamon, pepper, and ginger were highly valued.", "zh": "我们今天使用的香料经历了漫长的旅程。一千多年前，丝绸之路不仅仅是一条单一的道路，而是一个连接东西方的路线网络。它因中国商人交易的珍贵丝绸而得名，但许多其他商品也被交换。其中，肉桂、胡椒和生姜等香料非常珍贵。"}, {"en": "Camels were the main <span class=\"kw\" data-ipa=\"/ˈviːɪklz/\" data-def=\"交通工具\">vehicles</span> for traveling across deserts. A typical caravan could have hundreds of camels carrying heavy loads. The journey was <span class=\"kw\" data-ipa=\"/ˈdeɪndʒərəs/\" data-def=\"危险的\">dangerous</span> due to extreme weather, thieves, and lack of water. Yet, traders were willing to take risks because the profits were enormous. A small bag of pepper could be worth a fortune in Europe.", "zh": "骆驼是穿越沙漠的主要交通工具。一个典型的商队可能有数百头骆驼驮着沉重的货物。由于极端天气、盗贼和缺水，旅程十分危险。然而，商人愿意冒险，因为利润巨大。一小袋胡椒在欧洲可能价值连城。"}, {"en": "One important stop on the Silk Road was the city of Samarkand. Located in present-day Uzbekistan, it was a <span class=\"kw\" data-ipa=\"/ˈhʌb/\" data-def=\"中心\">hub</span> where merchants from China, India, Persia, and Rome met. They not only traded goods but also shared ideas, religions, and technologies. For instance, the Chinese brought papermaking, while the Indians introduced Buddhism. This cultural <span class=\"kw\" data-ipa=\"/ɪkˈstʃeɪndʒ/\" data-def=\"交流\">exchange</span> changed the world.", "zh": "丝绸之路上的一个重要站点是撒马尔罕。位于今天的乌兹别克斯坦，它是中国、印度、波斯和罗马商人会面的中心。他们不仅交易商品，还分享思想、宗教和技术。例如，中国人带来了造纸术，而印度人介绍了佛教。这种文化交流改变了世界。"}, {"en": "Silk was not just a fabric; it was a symbol of wealth and power. Roman <span class=\"kw\" data-ipa=\"/ˈempərərz/\" data-def=\"皇帝\">emperors</span> wore silk robes, and the demand was so high that the Roman Senate tried to ban it because too much gold was flowing out. Chinese officials kept the secret of silk production for centuries. According to legend, a Chinese princess <span class=\"kw\" data-ipa=\"/ˈsmʌɡld/\" data-def=\"走私\">smuggled</span> silkworm eggs in her headdress, thus spreading sericulture to other lands.", "zh": "丝绸不仅仅是一种布料；它是财富和权力的象征。罗马皇帝穿着丝绸长袍，需求如此之高，以至于罗马元老院试图禁止它，因为太多黄金流出了。中国官员几个世纪都保守着丝绸生产的秘密。根据传说，一位中国公主将蚕卵藏在头饰中走私，从而将养蚕业传播到了其他地方。"}, {"en": "Spices were used not only for flavor but also for preserving food and making medicine. Before <span class=\"kw\" data-ipa=\"/rɪˈfrɪdʒəˌreɪtər/\" data-def=\"冰箱\">refrigeration</span>, people relied on salt and spices to keep meat from spoiling. Pepper was so valuable that it was sometimes used as money. The search for new spice routes led to the Age of Exploration. Christopher Columbus was actually trying to find a shorter way to the Spice Islands when he <span class=\"kw\" data-ipa=\"/dɪsˈkʌvərd/\" data-def=\"发现\">discovered</span> America.", "zh": "香料不仅用于调味，还用于保存食物和制药。在冰箱发明之前，人们依靠盐和香料防止肉类变质。胡椒非常珍贵，有时被用作货币。寻找新的香料路线导致了地理大发现时代。克里斯托弗·哥伦布实际上是在试图找到通往香料群岛的更短路线时发现了美洲。"}, {"en": "The Silk Road was not always peaceful. Wars and political changes often <span class=\"kw\" data-ipa=\"/ˌɪntəˈrʌptɪd/\" data-def=\"打断\">interrupted</span> trade. However, the connections it created lasted long after the routes themselves declined. Today, we can still see the influence in languages, food, and art. For example, the word 'pepper' comes from the Sanskrit 'pippali', showing how trade <span class=\"kw\" data-ipa=\"/ˈspreɪd/\" data-def=\"传播\">spread</span> words across continents.", "zh": "丝绸之路并非总是和平的。战争和政治变化常常中断贸易。然而，它所建立的连接在路线本身衰落之后仍然长期存在。今天，我们仍然可以在语言、食物和艺术中看到其影响。例如，'pepper'这个词来自梵语'pippali'，表明贸易如何将词汇传播到各大洲。"}, {"en": "One fascinating story involves a Chinese monk named Xuanzang. He traveled along the Silk Road to India to study Buddhism, facing many <span class=\"kw\" data-ipa=\"/ˈhɑːrdʃɪps/\" data-def=\"艰难\">hardships</span>. His journey took 17 years, and he brought back many Buddhist scriptures. His records provide valuable information about the regions he passed through. Today, his story is still told and even adapted into movies and TV shows.", "zh": "一个引人入胜的故事涉及一位名叫玄奘的中国僧人。他沿着丝绸之路前往印度学习佛教，面临许多艰难困苦。他的旅程历时17年，带回了许多佛经。他的记录提供了关于他经过地区的宝贵信息。今天，他的故事仍在流传，甚至被改编成电影和电视剧。"}, {"en": "In conclusion, the Silk Road was more than a trade route. It was a bridge between civilizations. The <span class=\"kw\" data-ipa=\"/ɪnˈkaʊntərz/\" data-def=\"相遇\">encounters</span> between different peoples led to <span class=\"kw\" data-ipa=\"/ɪnˈnoʊveɪʃənz/\" data-def=\"创新\">innovations</span> in science, art, and culture. Understanding this history helps us appreciate the connected world we live in today. Next time you use a spice or wear silk, remember the long journey it took to reach you.", "zh": "总之，丝绸之路不仅仅是一条贸易路线。它是文明之间的桥梁。不同民族之间的相遇导致了科学、艺术和文化的创新。理解这段历史有助于我们欣赏今天这个相互联系的世界。下次你使用香料或穿丝绸时，请记住它走过的那段漫长旅程。"}], "questions": [{"q": "What is the main idea of this passage?", "options": ["The Silk Road only traded silk and spices.", "The Silk Road was a network that facilitated trade and cultural exchange.", "Merchants on the Silk Road faced no dangers.", "The Silk Road declined because of wars."], "answer": 1, "explain": "文章主要讲述了丝绸之路作为连接东西方的贸易网络，不仅交易丝绸和香料，还促进了文化交流。选项A太片面，选项C与文中描述的dangerous不符，选项D不是主旨。"}, {"q": "According to the passage, why were spices highly valued?", "options": ["They were used only for flavor.", "They could preserve food and were used as medicine.", "They were easy to grow in Europe.", "They had no practical use."], "answer": 1, "explain": "文中提到‘Spices were used not only for flavor but also for preserving food and making medicine.’，因此选项B正确。选项A不完整，选项C和D错误。"}, {"q": "What can be inferred about the demand for silk in ancient Rome?", "options": ["It was low because silk was cheap.", "It was high enough to cause economic concerns.", "Roman emperors did not wear silk.", "The Roman Senate encouraged silk imports."], "answer": 1, "explain": "文中说‘the demand was so high that the Roman Senate tried to ban it because too much gold was flowing out’，可推断出需求高导致经济担忧。选项A、C、D与原文相反。"}, {"q": "The word 'smuggled' in paragraph 4 is closest in meaning to:", "options": ["bought legally", "carried secretly", "sold openly", "destroyed"], "answer": 1, "explain": "‘smuggled’意为‘走私’，即秘密携带。选项B‘秘密携带’符合。选项A‘合法购买’、C‘公开出售’、D‘破坏’都不对。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; speechSynthesis.speak(u); }
+
+const clipCache=new Map(); let curAudio=null, token=0;
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({text,voice})});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl){
+  if(!text) return; stopAll(); const my=token;
+  if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.innerHTML='<div class="en">'+p.en+'</div>'+
+    '<div class="ptools"><button class="icbtn tz">中/英</button></div>'+
+    '<div class="zh">'+p.zh+'</div>';
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function tokAt(x,y){ const e=document.elementFromPoint(x,y);
+  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
+function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
+function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
+    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
+function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; selText=''; }
+function showBar(a,b){ selbar.style.display='flex';
+  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
+artEl.addEventListener('pointerdown', e=>{
+  sx=e.clientX; sy=e.clientY; moved=false;
+  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
+    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
+    selecting=true; anchor=head=i; hl(i,i);
+  }
+  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
+}, true);
+artEl.addEventListener('pointermove', e=>{
+  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
+  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
+  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
+}, {passive:false});
+window.addEventListener('pointerup', e=>{
+  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
+  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
+  if(moved) return;                     // 手机上是滚动手势，忽略
+  const i=tokAt(e.clientX,e.clientY);
+  if(i<0){ clearSel(); return; }        // 点空白=取消选择
+  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
+  else { anchor=head=i; }               // 否则 = 选这个词
+  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
+document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
+  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
+  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
+  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
+function showTransbox(enText, zhHtml){
+  const tb=document.getElementById('transbox'); const r=selRect();
+  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
+    '</div><div class="tb-zh">'+zhHtml+'</div>';
+  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
+    tb.style.top=(r.bottom+8)+'px'; }
+  tb.style.display='block'; }
+async function translate(text){
+  if(!text) return;
+  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
+  showTransbox(text,'翻译中…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'translate',text})});
+    const j=await r.json();
+    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
+  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
+}
+document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
+  selbar.style.display='none'; translate(t); } };
+document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; } }, true);
+
+</script>
+</body>
+</html>
