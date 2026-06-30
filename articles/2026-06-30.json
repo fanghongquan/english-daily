@@ -1,0 +1,87 @@
+{
+  "date": "2026-06-30",
+  "level": "CET-4",
+  "title": "The Ancient Olympic Games: More Than Just a Race",
+  "title_zh": "古代奥林匹克运动会：不仅仅是赛跑",
+  "intro_zh": "本文约 1000 词，介绍古代奥运会的起源、项目、规则、文化意义及与现代奥运会的对比。",
+  "paragraphs": [
+    {
+      "en": "The <span class=\"kw\" data-ipa=\"/ˈeɪnʃənt/\" data-def=\"古代的\">ancient</span> Olympic Games were not just a sporting event; they were a <span class=\"kw\" data-ipa=\"/rɪˈlɪdʒəs/\" data-def=\"宗教的\">religious</span> festival held in honor of Zeus, the king of the Greek gods. The games took place every four years in Olympia, a <span class=\"kw\" data-ipa=\"/seɪkrɪd/\" data-def=\"神圣的\">sacred</span> site in ancient Greece. For centuries, they brought together athletes from various Greek city-states to compete in a series of athletic contests.",
+      "zh": "古代奥林匹克运动会不仅仅是一场体育赛事；它们是献给希腊众神之王宙斯的宗教节日。运动会每四年在古希腊的神圣之地奥林匹亚举行。几个世纪以来，它们将来自不同希腊城邦的运动员聚集在一起，参加一系列体育比赛。"
+    },
+    {
+      "en": "The first recorded Olympic Games were held in 776 BCE. According to <span class=\"kw\" data-ipa=\"/ˈliːdʒənd/\" data-def=\"传说\">legend</span>, the games were founded by Heracles (Hercules), though historians believe they <span class=\"kw\" data-ipa=\"/ˈɪriːzi/\" data-def=\"起源于\">originated</span> from earlier funeral games. Initially, the only event was a short <span class=\"kw\" data-ipa=\"/sprɪnt/\" data-def=\"短跑\">sprint</span> called the \"stadion\" (about 192 meters). Over time, more events were added.",
+      "zh": "有记载的第一届奥运会于公元前776年举行。根据传说，运动会是由赫拉克勒斯创立的，不过历史学家认为它们源自更早的葬礼比赛。最初，唯一的项目是名为“斯塔迪翁”的短跑（约192米）。随着时间的推移，增加了更多的比赛项目。"
+    },
+    {
+      "en": "By the 5th century BCE, the games had expanded to include wrestling, boxing, chariot racing, and the pentathlon (a combination of five events: running, jumping, discus, javelin, and wrestling). Athletes competed <span class=\"kw\" data-ipa=\"/neɪkɪd/\" data-def=\"裸体的\">naked</span>, which was considered a sign of <span class=\"kw\" data-ipa=\"/ˈkʌrɪdʒ/\" data-def=\"勇气\">courage</span> and <span class=\"kw\" data-ipa=\"/hɑːrˈmoʊni/\" data-def=\"和谐\">harmony</span> with nature. The games were so important that wars were paused to allow safe travel for participants.",
+      "zh": "到公元前5世纪，运动会已扩展到包括摔跤、拳击、战车赛和五项全能（包括跑步、跳远、铁饼、标枪和摔跤）。运动员裸体参赛，这被视为勇气和与自然和谐的象征。奥运会如此重要，以至于战争会暂停，以便参赛者安全通行。"
+    },
+    {
+      "en": "The <span class=\"kw\" data-ipa=\"/ˈɔːdiəns/\" data-def=\"观众\">audience</span> was huge; thousands of spectators from all over Greece gathered to watch. However, only men could compete and attend. Married women were <span class=\"kw\" data-ipa=\"/pɜːrˈmɪtɪd/\" data-def=\"允许\">permitted</span> to watch chariot races, but unmarried women could not. There were separate games for women, called the Heraea, held in honor of the goddess Hera.",
+      "zh": "观众规模庞大；成千上万来自希腊各地的观众聚集观看。然而，只有男性可以参赛和出席。已婚女性被允许观看战车赛，但未婚女性不可以。女性有单独的运动会，称为赫拉运动会，献给女神赫拉。"
+    },
+    {
+      "en": "Winners received a crown of olive leaves, known as a \"kotinos,\" which symbolized <span class=\"kw\" data-ipa=\"/ˈpiːs/\" data-def=\"和平\">peace</span> and victory. They also gained great <span class=\"kw\" data-ipa=\"/ˈɑːnər/\" data-def=\"荣誉\">honor</span> and often had statues erected in their hometowns. Some athletes became celebrities, and their achievements were recorded by poets and historians, <span class=\"kw\" data-ipa=\"/ɪnˈʃʊə/\" data-def=\"确保\">ensuring</span> their fame lasted for centuries.",
+      "zh": "获胜者获得一个由橄榄枝编成的花环，称为“科提诺斯”，象征着和平与胜利。他们还获得极大的荣誉，家乡常常为他们竖立雕像。一些运动员成为名人，他们的成就被诗人和历史学家记载，确保他们的名声流传数百年。"
+    },
+    {
+      "en": "The games also had a strong <span class=\"kw\" data-ipa=\"/ˌkʌltɪˈveɪʃən/\" data-def=\"培养\">cultivation</span> of <span class=\"kw\" data-ipa=\"/sɪˈvɪləti/\" data-def=\"文明\">civilization</span> and <span class=\"kw\" data-ipa=\"/trəˈdɪʃən/\" data-def=\"传统\">tradition</span>. They promoted a sense of shared Greek identity, as athletes from different city-states competed under the same rules. The Olympic Truce, or \"ekecheiria,\" was a <span class=\"kw\" data-ipa=\"/ˈsækrɪd/\" data-def=\"神圣的\">sacred</span> ceasefire that protected travelers and allowed the games to proceed peacefully.",
+      "zh": "运动会还大力培养文明和传统。它促进了共同的希腊身份认同，因为来自不同城邦的运动员在同一套规则下比赛。奥林匹克休战（“ekecheiria”）是一项神圣的停战协议，保护旅行者并确保运动会和平进行。"
+    },
+    {
+      "en": "However, the ancient games eventually declined. The Roman Empire conquered Greece, and the games lost their <span class=\"kw\" data-ipa=\"/rɪˈlɪdʒəs/\" data-def=\"宗教的\">religious</span> significance. In 393 CE, the Christian Roman emperor Theodosius I banned all pagan festivals, including the Olympics. The site of Olympia fell into ruin, and the games were <span class=\"kw\" data-ipa=\"/ˈfɔːrɡɑːtən/\" data-def=\"被遗忘的\">forgotten</span> for nearly 1,500 years.",
+      "zh": "然而，古代奥运会最终衰落了。罗马帝国征服了希腊，奥运会失去了宗教意义。公元393年，基督教罗马皇帝狄奥多西一世禁止所有异教节日，包括奥运会。奥林匹亚遗址沦为废墟，奥运会被遗忘了近1500年。"
+    },
+    {
+      "en": "Today, the modern Olympic Games, revived in 1896, draw <span class=\"kw\" data-ipa=\"/ɪnˈspɪrəˌreɪʃən/\" data-def=\"灵感\">inspiration</span> from the ancient ones. The torch relay, the oath, and the spirit of fair competition all have roots in ancient Greece. Understanding the ancient Olympics helps us <span class=\"kw\" data-ipa=\"/əˈpriːʃieɪt/\" data-def=\"欣赏\">appreciate</span> the deep history behind the global event we watch today.",
+      "zh": "如今，于1896年复兴的现代奥运会从古代奥运会中汲取灵感。火炬传递、宣誓以及公平竞赛的精神都源于古希腊。了解古代奥运会有助于我们欣赏今天观看的全球赛事背后的深厚历史。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What was the primary purpose of the ancient Olympic Games?",
+      "options": [
+        "To settle disputes between city-states",
+        "To honor the god Zeus with athletic contests",
+        "To select soldiers for the Greek army",
+        "To celebrate the harvest season"
+      ],
+      "answer": 1,
+      "explain": "细节题。第一段明确指出古代奥运会是献给宙斯的宗教节日，因此主要目的是通过体育竞赛来祭祀宙斯。选项A、C、D在文中未被提及。"
+    },
+    {
+      "q": "What does the word \"originated\" in paragraph 2 most likely mean?",
+      "options": [
+        "Ended",
+        "Began",
+        "Changed",
+        "Stopped"
+      ],
+      "answer": 1,
+      "explain": "词义推测题。根据上下文，传说中奥运会由赫拉克勒斯创立，但历史学家认为它们originated from更早的葬礼比赛，因此originated意为“起源于”，即“开始”。选项A、C、D均不符合语境。"
+    },
+    {
+      "q": "Why were wars paused during the Olympic Games?",
+      "options": [
+        "To allow athletes to train in peace",
+        "To ensure safe travel for participants and spectators",
+        "To give soldiers a break from fighting",
+        "To celebrate victories in war"
+      ],
+      "answer": 1,
+      "explain": "细节题。第三段提到战争暂停是为了让参与者安全通行。第六段也提到“ekecheiria”休战保护旅行者。选项A、C、D在文中无依据。"
+    },
+    {
+      "q": "What can be inferred about the status of women in ancient Greek society?",
+      "options": [
+        "Women had the same rights as men",
+        "Women were allowed to compete in the Olympics",
+        "Women's participation in public events was restricted",
+        "Women were the main organizers of the games"
+      ],
+      "answer": 2,
+      "explain": "推断题。第四段提到只有男性可以参赛和观看，已婚女性只能观看战车赛，未婚女性不能观看，说明女性参与公共活动受到限制。选项A、B、D都与原文矛盾。"
+    }
+  ]
+}
