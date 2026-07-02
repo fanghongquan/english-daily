@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>每日英语 · The Great Wall: A Millennia-Long Project of Unity and Defense</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vrow{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .vrow:last-child{border-bottom:none}
+  .vrow .w{font-weight:700;color:var(--kw);min-width:120px;cursor:pointer}
+  .vrow .vipa{color:var(--sub);font-size:13px;min-width:140px}
+  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
+  .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
+    padding:3px 8px;font-size:12px;cursor:pointer}
+  .vrow .mini:hover{background:var(--accent-soft2)}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
+    max-width:300px;background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
+    box-shadow:0 6px 20px var(--shadow)}
+  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
+    max-height:34px;overflow:hidden}
+  #transbox .tb-zh{color:var(--zh)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
+  body{-webkit-touch-callout:none}
+  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  .en .tok{cursor:pointer}
+  .en .tok.sel{background:var(--selbg);border-radius:3px}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px 100px}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .vrow{flex-wrap:wrap;gap:6px 8px;padding:11px 12px}
+    .vrow .w{min-width:0;order:1;font-size:15px}
+    .vrow .vipa{min-width:0;flex:1;order:2;font-size:11.5px}
+    .vrow .pl{order:3}
+    .vrow .ad{order:4}
+    .vrow .vdef{order:5;flex-basis:100%;font-size:13.5px;color:var(--sub);margin-top:1px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh">显示中文翻译</button>
+    <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="tg-theme">🌙 夜间</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <span class="speed">语速
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed">嗓音
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+  </div>
+  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
+</div>
+
+<div id="selbar">
+  <button id="sel-play">🔊 播放</button>
+  <div class="sep"></div>
+  <button id="sel-add">＋ 生词</button>
+  <div class="sep"></div>
+  <button id="sel-translate">翻译</button>
+</div>
+<div id="transbox"></div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-07-02", "level": "CET-4", "title": "The Great Wall: A Millennia-Long Project of Unity and Defense", "title_zh": "长城：千年防御与统一的工程", "intro_zh": "本文约1000词，介绍长城的建造历史、功能演变及其文化象征意义，适合CET-4水平阅读。", "paragraphs": [{"en": "The Great Wall of China is one of the most <span class=\"kw\" data-ipa=\"/ˈɪk.zn̩.ɪk/\" data-def=\"标志性的，象征性的\">iconic</span> structures in the world. Stretching over 21,000 kilometers, it was not built in a single <span class=\"kw\" data-ipa=\"/ˈpi.ri.əd/\" data-def=\"时期，阶段\">period</span> but over many centuries. The earliest walls date back to the 7th century BC, when various kingdoms erected separate barriers to protect their <span class=\"kw\" data-ipa=\"/ˈtɛr.əˌtɔr.i/\" data-def=\"领土，领域\">territories</span>.", "zh": "中国的长城是世界上最具有标志性的建筑之一。它绵延超过21000公里，并非在一个时期建成，而是历经多个世纪。最早的城墙可追溯到公元前7世纪，当时各诸侯国修筑了独立的屏障来保护自己的领土。"}, {"en": "The first <span class=\"kw\" data-ipa=\"/ˌjuː.nɪˈfɪk.ən/\" data-def=\"统一，联合\">unification</span> of these walls occurred under Qin Shi Huang, the first emperor of China, around 220 BC. He ordered the <span class=\"kw\" data-ipa=\"/kəˌnɛkˈtɪv.ə.ti/\" data-def=\"连接，连通性\">connectivity</span> of existing walls to form a continuous defense line against northern <span class=\"kw\" data-ipa=\"/ˈɪn.və.dərz/\" data-def=\"入侵者，侵略者\">invaders</span>. This massive project required enormous labor, with millions of workers, including soldiers, peasants, and prisoners.", "zh": "这些城墙的第一次统一发生在公元前220年左右，中国第一位皇帝秦始皇下令将已有的城墙连接起来，形成一道连续的防线以抵御北方入侵者。这一庞大的工程需要巨大的劳动力，数百万工人参与其中，包括士兵、农民和囚犯。"}, {"en": "Contrary to popular belief, the Wall was built using various <span class=\"kw\" data-ipa=\"/məˈtɪr.i.əlz/\" data-def=\"材料，原料\">materials</span>. In early periods, builders used <span class=\"kw\" data-ipa=\"/ræmd/\" data-def=\"夯实的，压实的\">rammed</span> earth, stones, and wood. Later, during the Ming Dynasty (1368–1644), bricks and <span class=\"kw\" data-ipa=\"/ˈmɔr.tər/\" data-def=\"灰浆，砂浆\">mortar</span> became common. The Ming sections, which are the best preserved today, used a special lime mortar that gave the wall extra strength.", "zh": "与普遍看法相反，长城使用了多种材料建造。早期，建筑者使用夯土、石块和木材。后来，在明朝（1368–1644年），砖块和灰浆变得普遍。今天保存最完好的明长城使用了特殊的石灰砂浆，使墙体更加坚固。"}, {"en": "The Wall served not only as a defense but also as a <span class=\"kw\" data-ipa=\"/ˈkɑː.mən.jəˌkeɪ.ʃən/\" data-def=\"通信，通讯\">communication</span> system. <span class=\"kw\" data-ipa=/ˈbiː.kənz/\" data-def=\"烽火台，信号台\">Beacon</span> towers were built at <span class=\"kw\" data-ipa=\"/ˈɪn.tər.vəlz/\" data-def=\"间隔，间距\">intervals</span>, where soldiers would light fires to warn of approaching enemies. This allowed messages to travel over hundreds of kilometers in just a few hours.", "zh": "长城不仅用于防御，还作为一个通信系统。烽火台按一定间距建造，士兵们点火警示敌人接近。这使得消息在短短几小时内就能传遍数百公里。"}, {"en": "Building the Wall was an <span class=\"kw\" data-ipa=\"/ɪˈnɔːr.məs/\" data-def=\"巨大的，庞大的\">enormous</span> <span class=\"kw\" data-ipa=\"/ˌɛn.dʒɪˈnɪr.ɪŋ/\" data-def=\"工程，工程学\">engineering</span> challenge. Workers had to carry materials up steep mountains and across rivers. Many <span class=\"kw\" data-ipa=/ˈsæk.rə.faɪst/\" data-def=\"牺牲的，献祭的\">sacrificed</span> their lives, which led to the Wall being called 'the longest cemetery on Earth.' However, recent studies suggest the actual death toll was lower than legends claim.", "zh": "建造长城是一个巨大的工程挑战。工人们必须将材料运上陡峭的山峰，跨过河流。许多人牺牲了生命，这使得长城被称为“地球上最长的墓地”。然而，最近的研究表明实际死亡人数低于传说中所述。"}, {"en": "Over time, the Wall's military <span class=\"kw\" data-ipa=/ˌsɪɡ.nɪ.fɪˈkeɪ.ʃən/\" data-def=\"重要性，意义\">significance</span> <span class=\"kw\" data-ipa=/dɪˈklaɪnd/\" data-def=\"下降，衰退\">declined</span>. With the expansion of China's borders and the invention of more advanced weapons, the Wall no longer served as a primary defense. By the Qing Dynasty (1644–1912), it became more of a <span class=\"kw\" data-ipa=/ˈsɪm.bəl/\" data-def=\"象征，标志\">symbol</span> of Chinese civilization than a practical military structure.", "zh": "随着时间的推移，长城的军事意义有所下降。随着中国疆域的扩展和更先进武器的发明，长城不再作为主要防御工事。到了清朝（1644–1912年），它更多成为中华文明的象征，而非实用的军事结构。"}, {"en": "Today, the Great Wall is a UNESCO World Heritage site and a major tourist <span class=\"kw\" data-ipa=/ˈætrækt/\" data-def=\"吸引力，具有吸引力的事物\">attract</span>ion. Millions of visitors walk its restored sections each year. However, many parts are in <span class=\"kw\" data-ipa=/rʌn/\" data-def=\"状况，状态（指破损）\">ruin</span> due to natural <span class=\"kw\" data-ipa=/ˈɛr.əʒ.ən/\" data-def=\"侵蚀，风化\">erosion</span> and human damage. Conservation efforts are ongoing to preserve this ancient wonder for future generations.", "zh": "今天，长城是联合国教科文组织世界遗产和主要旅游景点。每年有数百万游客参观其修复的段落。然而，由于自然侵蚀和人为破坏，许多部分已成废墟。保护工作正在进行，以为后代保存这一古代奇迹。"}, {"en": "The Great Wall represents the <span class=\"kw\" data-ipa=/rɪˈzaɪl.i.əns/\" data-def=\"韧性，弹力\">resilience</span> and <span class=\"kw\" data-ipa=/ˈkreɪ.ə.tɪv.ə.ti/\" data-def=\"创造力，创造性\">creativity</span> of the Chinese people. It is not just a wall; it is a <span class=\"kw\" data-ipa=/ˈmɒn.ə.mənt/\" data-def=\"纪念碑，历史遗迹\">monument</span> to human effort and determination. As the saying goes, 'He who has not climbed the Great Wall is not a true man.'", "zh": "长城象征着中国人民的韧性和创造力。它不仅仅是一道墙，更是人类努力和决心的纪念碑。俗话说：“不到长城非好汉”。"}], "questions": [{"q": "What is the main purpose of the first unified Great Wall under Qin Shi Huang?", "options": ["To connect existing walls for defense against northern invaders", "To create a trade route between east and west", "To serve as a symbol of wealth", "To mark the boundary of the empire"], "answer": 0, "explain": "文章第二段明确指出，秦始皇下令连接已有的城墙，形成连续的防御线以抵御北方入侵者。因此正确答案为A。"}, {"q": "Which material was commonly used in the Ming Dynasty sections of the Great Wall?", "options": ["Rammed earth", "Stones and wood", "Bricks and mortar", "Iron and steel"], "answer": 2, "explain": "文章第三段提到，明朝时期砖块和灰浆变得普遍，因此正确答案为C。"}, {"q": "What does the word 'beacon' in paragraph 4 most likely mean?", "options": ["A type of weapon", "A signal fire on a tower", "A small house", "A gate in the wall"], "answer": 1, "explain": "根据上下文，烽火台用于点火警示敌人接近，因此'beacon'在此指塔上的信号火，正确答案为B。"}, {"q": "Why did the military significance of the Great Wall decline?", "options": ["Because the wall collapsed in many places", "Because China's borders expanded and weapons advanced", "Because foreign invaders stopped attacking", "Because the Qing Dynasty destroyed parts of it"], "answer": 1, "explain": "文章第六段提到，随着中国疆域扩展和更先进武器的发明，长城不再作为主要防御工事，因此正确答案为B。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; speechSynthesis.speak(u); }
+
+const clipCache=new Map(); let curAudio=null, token=0;
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({text,voice})});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl){
+  if(!text) return; stopAll(); const my=token;
+  if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.innerHTML='<div class="en">'+p.en+'</div>'+
+    '<div class="ptools"><button class="icbtn tz">中/英</button></div>'+
+    '<div class="zh">'+p.zh+'</div>';
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function tokAt(x,y){ const e=document.elementFromPoint(x,y);
+  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
+function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
+function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
+  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
+    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
+function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; selText=''; }
+function showBar(a,b){ selbar.style.display='flex';
+  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
+artEl.addEventListener('pointerdown', e=>{
+  sx=e.clientX; sy=e.clientY; moved=false;
+  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
+    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
+    selecting=true; anchor=head=i; hl(i,i);
+  }
+  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
+}, true);
+artEl.addEventListener('pointermove', e=>{
+  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
+  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
+  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
+}, {passive:false});
+window.addEventListener('pointerup', e=>{
+  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
+  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
+  if(moved) return;                     // 手机上是滚动手势，忽略
+  const i=tokAt(e.clientX,e.clientY);
+  if(i<0){ clearSel(); return; }        // 点空白=取消选择
+  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
+  else { anchor=head=i; }               // 否则 = 选这个词
+  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
+document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
+  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
+  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
+  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
+function showTransbox(enText, zhHtml){
+  const tb=document.getElementById('transbox'); const r=selRect();
+  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
+    '</div><div class="tb-zh">'+zhHtml+'</div>';
+  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
+    tb.style.top=(r.bottom+8)+'px'; }
+  tb.style.display='block'; }
+async function translate(text){
+  if(!text) return;
+  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
+  showTransbox(text,'翻译中…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'translate',text})});
+    const j=await r.json();
+    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
+  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
+}
+document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
+  selbar.style.display='none'; translate(t); } };
+document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
+  document.getElementById('transbox').style.display='none'; } }, true);
+
+</script>
+</body>
+</html>
