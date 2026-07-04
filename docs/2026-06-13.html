@@ -3,13 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>每日英语 · Why We Procrastinate and How to Beat It</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <style>
   :root{
     --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
-    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
     --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
     --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -39,7 +56,7 @@
   .ptools{display:flex;gap:10px;margin-top:10px}
   .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
     padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
-  .icbtn:hover{background:#dce7ff}
+  .icbtn:hover{background:var(--accent-soft2)}
   .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
     font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
     margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
@@ -54,7 +71,7 @@
   .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
   .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
     padding:3px 8px;font-size:12px;cursor:pointer}
-  .vrow .mini:hover{background:#dce7ff}
+  .vrow .mini:hover{background:var(--accent-soft2)}
   /* 复习模块 */
   #review{margin-top:30px}
   .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
@@ -84,7 +101,6 @@
   #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
     padding:7px 12px;border-radius:8px;cursor:pointer}
   #selbar button:hover{background:rgba(255,255,255,.15)}
-  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
   /* toast */
   #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
     background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
@@ -92,12 +108,26 @@
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
-  .speaking{background:#fff3cd !important;border-radius:3px}
-  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
-  body{-webkit-touch-callout:none}
-  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
   .en .tok{cursor:pointer}
-  .en .tok.sel{background:#cfe0ff;border-radius:3px}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
     .wrap{padding:14px 12px 100px}
@@ -124,7 +154,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span></div>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
     <h1 id="m-title"></h1>
     <p class="h1zh" id="m-titlezh"></p>
     <div class="intro" id="m-intro"></div>
@@ -133,6 +163,7 @@
   <div class="toolbar">
     <button class="btn on" id="tg-zh">显示中文翻译</button>
     <button class="btn" id="tg-ipa">隐藏音标</button>
+    <button class="btn" id="tg-theme">🌙 夜间</button>
     <button class="btn" id="play-all">▶ 朗读全文</button>
     <button class="btn" id="stop">⏹ 停止</button>
     <span class="speed">语速
@@ -146,28 +177,20 @@
       </select>
     </span>
   </div>
-  <p class="tip">选中任意<strong>单词或句子</strong> → 弹出「🔊 播放 / ＋ 遗忘库」；加入遗忘库的内容会进入下方背单词模块复习。<span id="engine-note"></span></p>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
 
   <main id="article"></main>
 
-  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
-  <div class="vlist" id="vlist"></div>
-
-  <section id="review">
-    <h2 class="vh">📚 背单词 · 艾宾浩斯复习 <span class="cnt" id="rv-count"></span></h2>
-    <div class="rvcard" id="rv-card"></div>
-    <div class="syncbar"><span id="sync-status"></span><button id="sync-btn" class="btn">开启同步</button></div>
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
   </section>
 
-  <footer>美式发音 · 选中或点击实时合成 · 遗忘库与复习进度保存在本浏览器</footer>
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
 </div>
 
 <div id="selbar">
-  <button id="sel-play">🔊 播放</button>
-  <div class="sep"></div>
-  <button id="sel-add">＋ 遗忘库</button>
-  <div class="sep"></div>
-  <button id="sel-copy">复制</button>
+  <button id="sel-add">＋ 生词</button>
 </div>
 <div id="toast"></div>
 
@@ -220,26 +243,7 @@ async function play(text, hiEl){
   } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
 }
 
-/* ========== 遗忘库 + 艾宾浩斯 ========== */
-const LIB_KEY='forgetLib_v1';
-const INT=[1,2,4,7,15,30,60];     // 复习间隔(天)
-function today(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function addDays(base,n){ const t=new Date(base+'T00:00:00'); t.setDate(t.getDate()+n);
-  return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
-function loadLib(){ try{ return JSON.parse(localStorage.getItem(LIB_KEY))||[]; }catch(e){ return []; } }
-function saveLib(a){ localStorage.setItem(LIB_KEY, JSON.stringify(a)); }
-function addToLib(text){ text=(text||'').trim(); if(!text) return 'empty';
-  const lib=loadLib(); if(lib.some(x=>x.text.toLowerCase()===text.toLowerCase())) return 'dup';
-  lib.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),
-    text, type:/\s/.test(text)?'sentence':'word', stage:0, due:today(), added:today() });
-  saveLib(lib); return 'ok'; }
-function dueItems(){ const t=today();
-  return loadLib().filter(x=>x.due<=t).sort((a,b)=> a.due<b.due?-1:(a.due>b.due?1:0)).slice(0,30); }
-function grade(id, kind){ const lib=loadLib(); const it=lib.find(x=>x.id===id); if(!it) return;
-  if(kind==='know'){ it.stage=Math.min(it.stage+1, INT.length-1); it.due=addDays(today(), INT[it.stage]); }
-  else if(kind==='fuzzy'){ it.due=addDays(today(),1); }
-  else { it.stage=0; it.due=addDays(today(),1); }
-  it.last=today(); saveLib(lib); }
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
 
 /* ========== 渲染文章 ========== */
 document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
@@ -264,18 +268,39 @@ function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
   if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
   else if(b){ b.style.display='none'; } }); }
 applyIpa(true);
-/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
 
-/* 词汇表(播放 + 加入遗忘库) */
-const vl=document.getElementById('vlist');
-(ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
-  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
-    '</span><span class="vdef">'+v.def+'</span>'+
-    '<button class="mini pl">🔊</button><button class="mini ad">＋库</button>';
-  row.querySelector('.w').onclick=()=>play(v.w);
-  row.querySelector('.pl').onclick=()=>play(v.w);
-  row.querySelector('.ad').onclick=()=>doAdd(v.w);
-  vl.appendChild(row); });
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
@@ -283,6 +308,14 @@ tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'�
   document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
 const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
 tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标'; };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
 document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
   const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
   play(full,null); };
@@ -296,11 +329,18 @@ vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice'
 let toastT=null;
 function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
   clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
-function doAdd(text){ const r=addToLib(text);
-  if(r==='ok'){ toast('已加入遗忘库 ✓'); renderReview(); syncPush(); }
-  else if(r==='dup') toast('已经在遗忘库里了'); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({op:'maimemo',text})});
+    const j=await r.json();
+    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
 
-/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
 const selbar=document.getElementById('selbar');
 let selText='';
 const artEl=document.getElementById('article');
@@ -332,113 +372,26 @@ let TOKENS=[];
 function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
 indexTokens();
 
-function tokAt(x,y){ const e=document.elementFromPoint(x,y);
-  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
-function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
-  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
-function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
-  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
-    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
-function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none'; selText=''; }
-function showBar(a,b){ const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
-  selbar.style.left=(r.left+r.width/2)+'px'; selbar.style.top=(r.top-8)+'px'; selbar.style.display='flex'; }
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function clearSel(){ selbar.style.display='none'; selText=''; }
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
 
-let selecting=false, anchor=-1, head=-1, lpTimer=null, sx=0, sy=0, moved=false;
-artEl.addEventListener('pointerdown', e=>{
-  const i=tokAt(e.clientX,e.clientY); clearSel();
-  if(i<0) return;
-  sx=e.clientX; sy=e.clientY; moved=false;
-  lpTimer=setTimeout(()=>{ selecting=true; anchor=head=i; hl(i,i); }, 280);   // 长按进入选句
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
 }, true);
-artEl.addEventListener('pointermove', e=>{
-  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>10) moved=true;
-  if(!selecting){ if(moved) clearTimeout(lpTimer); return; }                   // 未进选择=允许滚动
-  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
-}, {passive:false});
-window.addEventListener('pointerup', e=>{
-  clearTimeout(lpTimer);
-  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head); } return; }
-  if(!moved){ const i=tokAt(e.clientX,e.clientY);                              // 轻点=选单词
-    if(i>=0){ anchor=head=i; hl(i,i); selText=(TOKENS[i].dataset.w||'').trim(); showBar(i,i); } }
-});
-selbar.addEventListener('pointerdown', e=>e.stopPropagation());
-document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
-document.getElementById('sel-copy').onclick=()=>{ if(selText){
-  const t=selText;
-  (navigator.clipboard&&navigator.clipboard.writeText
-    ? navigator.clipboard.writeText(t)
-    : Promise.reject()).then(()=>toast('已复制')).catch(()=>{
-      const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed';
-      ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); toast('已复制'); }catch(e){ toast('复制失败'); }
-      document.body.removeChild(ta); });
-  clearSel(); } };
-document.addEventListener('scroll',()=>{ if(!selecting) selbar.style.display='none'; }, true);
+document.addEventListener('click', e=>{ if(e.target.closest&&!e.target.closest('#selbar')) clearSel(); }, true);
+document.addEventListener('scroll',()=>{ selbar.style.display='none'; }, true);
 
-/* ========== 复习模块 ========== */
-let rvQueue=[], rvIdx=0;
-function renderReview(){
-  const card=document.getElementById('rv-card');
-  const cnt=document.getElementById('rv-count');
-  const total=loadLib().length;
-  if(rvIdx===0 || rvIdx>=rvQueue.length) rvQueue=dueItems();   // 进入/复习完后刷新队列
-  const remain=Math.max(rvQueue.length-rvIdx,0);
-  cnt.textContent='（今日待复习 '+remain+' · 库共 '+total+'）';
-  if(rvIdx>=rvQueue.length){
-    card.innerHTML = total===0
-      ? '<div class="rv-empty"><span class="big">📝</span>遗忘库还是空的。在上面文章里选中单词或句子，点「＋ 遗忘库」加进来吧。</div>'
-      : '<div class="rv-empty"><span class="big">🎉</span>今日复习完成！明天再来。</div>';
-    return;
-  }
-  const it=rvQueue[rvIdx];
-  card.innerHTML=
-    '<div class="rv-type">'+(it.type==='word'?'单词':'句子')+' · 第 '+(it.stage+1)+' 阶</div>'+
-    '<div class="rv-text'+(it.type==='sentence'?' sent':'')+'">'+it.text.replace(/</g,'&lt;')+'</div>'+
-    '<button class="rv-play">🔊 播放</button>'+
-    '<div class="rv-grade">'+
-      '<button class="g-know">认识</button>'+
-      '<button class="g-fuzzy">模糊</button>'+
-      '<button class="g-forget">忘记</button>'+
-    '</div>'+
-    '<div class="rv-progress">'+(rvIdx+1)+' / '+rvQueue.length+'</div>';
-  card.querySelector('.rv-play').onclick=()=>play(it.text,null);
-  const go=k=>{ grade(it.id,k); rvIdx++; renderReview(); syncPush(); };
-  card.querySelector('.g-know').onclick=()=>go('know');
-  card.querySelector('.g-fuzzy').onclick=()=>go('fuzzy');
-  card.querySelector('.g-forget').onclick=()=>go('forget');
-}
-renderReview();
-
-/* ========== 多设备同步(经云函数读写 COS) ========== */
-const SYNC_LS='syncKey';
-function getSyncKey(){ return localStorage.getItem(SYNC_LS)||''; }
-let pushTimer=null;
-function syncPush(){ const k=getSyncKey(); if(!k||!cloudOn) return;
-  clearTimeout(pushTimer); pushTimer=setTimeout(()=>{
-    fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({op:'put',key:k,lib:loadLib()})}).catch(()=>{}); },800); }
-function mergeLib(cloud){ const map={};
-  const put=x=>{ if(!x||!x.text) return; const id=x.text.toLowerCase(); const e=map[id];
-    if(!e || (x.last||x.added||'')>(e.last||e.added||'')) map[id]=x; };
-  loadLib().forEach(put); (cloud||[]).forEach(put);
-  const m=Object.values(map); saveLib(m); return m; }
-async function syncPull(){ const k=getSyncKey(); if(!k||!cloudOn) return;
-  try{ const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({op:'get',key:k})}); const j=await r.json();
-    if(j && j.lib){ mergeLib(j.lib); rvIdx=0; renderReview(); syncPush(); toast('已同步'); } }catch(e){} }
-function renderSync(){ const st=document.getElementById('sync-status'); const btn=document.getElementById('sync-btn');
-  const k=getSyncKey();
-  if(!cloudOn){ st.textContent='多设备同步：云函数部署后可用（当前本地保存）'; btn.style.display='none'; return; }
-  btn.style.display='';
-  if(k){ st.textContent='✅ 同步已开启 · 同步码 '+k; btn.textContent='关闭同步'; }
-  else { st.textContent='多设备同步：未开启（两台设备填相同同步码即可互通）'; btn.textContent='开启同步'; } }
-document.getElementById('sync-btn').onclick=()=>{
-  if(getSyncKey()){ localStorage.removeItem(SYNC_LS); renderSync(); toast('已关闭同步'); }
-  else { const k=(prompt('设置一个同步码（在你的手机和电脑上填相同的一串，相当于密码）：')||'').trim();
-    if(k){ localStorage.setItem(SYNC_LS,k); renderSync(); syncPull(); } } };
-renderSync();
-if(getSyncKey() && cloudOn) syncPull();
 </script>
 </body>
 </html>

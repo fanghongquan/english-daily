@@ -18,6 +18,7 @@
     --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
     --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
     --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
   }
   html[data-theme="dark"]{
     --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
@@ -25,6 +26,7 @@
     --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
     --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
     --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -99,27 +101,33 @@
   #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
     padding:7px 12px;border-radius:8px;cursor:pointer}
   #selbar button:hover{background:rgba(255,255,255,.15)}
-  #selbar .sep{width:1px;background:rgba(255,255,255,.2);margin:5px 0}
   /* toast */
   #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
     background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
     opacity:0;pointer-events:none;transition:.25s;z-index:60}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  #transbox{position:fixed;z-index:55;display:none;transform:translate(-50%,0);
-    max-width:300px;background:var(--card);color:var(--ink);border:1px solid var(--line);
-    border-radius:10px;padding:10px 13px;font-size:14.5px;line-height:1.5;
-    box-shadow:0 6px 20px var(--shadow)}
-  #transbox .tb-en{font-size:12px;color:var(--sub);margin-bottom:4px;
-    max-height:34px;overflow:hidden}
-  #transbox .tb-zh{color:var(--zh)}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
   .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
   .speaking{background:var(--speakbg) !important;border-radius:3px}
-  /* 禁用系统选中菜单(翻译/查询/Look Up)，改用自定义选择 */
-  body{-webkit-touch-callout:none}
-  .en,.vrow,.rvcard,.rv-text{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
   .en .tok{cursor:pointer}
-  .en .tok.sel{background:var(--selbg);border-radius:3px}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
     .wrap{padding:14px 12px 100px}
@@ -146,7 +154,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span></div>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
     <h1 id="m-title"></h1>
     <p class="h1zh" id="m-titlezh"></p>
     <div class="intro" id="m-intro"></div>
@@ -169,24 +177,21 @@
       </select>
     </span>
   </div>
-  <p class="tip"><strong>选词</strong>：点一个单词即选中；<strong>选整句</strong>：点句首的词、再点句末的词（电脑也可直接拖选）。弹出「🔊 播放 / ＋ 生词 / 翻译」，＋生词存入墨墨云词本。<span id="engine-note"></span></p>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
 
   <main id="article"></main>
 
-  <h2 class="vh">📒 重点词汇 Key Vocabulary</h2>
-  <div class="vlist" id="vlist"></div>
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+  </section>
 
-  <footer>美式发音 / 划词翻译 · 选中或点击实时合成 · 生词一键存入墨墨背单词</footer>
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
 </div>
 
 <div id="selbar">
-  <button id="sel-play">🔊 播放</button>
-  <div class="sep"></div>
   <button id="sel-add">＋ 生词</button>
-  <div class="sep"></div>
-  <button id="sel-translate">翻译</button>
 </div>
-<div id="transbox"></div>
 <div id="toast"></div>
 
 <script>
@@ -263,18 +268,39 @@ function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
   if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
   else if(b){ b.style.display='none'; } }); }
 applyIpa(true);
-/* 重点词的点击/朗读由下方“自定义选择”统一处理 */
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
 
-/* 词汇表(播放 + 加入遗忘库) */
-const vl=document.getElementById('vlist');
-(ARTICLE.vocab||[]).forEach(v=>{ const row=document.createElement('div'); row.className='vrow';
-  row.innerHTML='<span class="w">'+v.w+'</span><span class="vipa">'+v.ipa+
-    '</span><span class="vdef">'+v.def+'</span>'+
-    '<button class="mini pl">🔊</button><button class="mini ad">＋生词</button>';
-  row.querySelector('.w').onclick=()=>play(v.w);
-  row.querySelector('.pl').onclick=()=>play(v.w);
-  row.querySelector('.ad').onclick=()=>doAdd(v.w);
-  vl.appendChild(row); });
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
@@ -314,7 +340,7 @@ async function doAdd(text){ text=(text||'').trim(); if(!text) return;
     else { toast('加入失败'+(j.error?'：'+j.error:'')); }
   }catch(e){ toast('加入失败，请重试'); } }
 
-/* ========== 自定义选择(禁用系统翻译/查询菜单) ========== */
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
 const selbar=document.getElementById('selbar');
 let selText='';
 const artEl=document.getElementById('article');
@@ -346,73 +372,25 @@ let TOKENS=[];
 function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
 indexTokens();
 
-function tokAt(x,y){ const e=document.elementFromPoint(x,y);
-  if(!e||!e.closest) return -1; const t=e.closest('.tok'); return t?+t.dataset.i:-1; }
-function hl(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
-  TOKENS.forEach((t,i)=>t.classList.toggle('sel', i>=lo&&i<=hi)); }
-function selOf(a,b){ const lo=Math.min(a,b),hi=Math.max(a,b);
-  return TOKENS.slice(lo,hi+1).map(t=>(t.dataset.w||t.textContent).trim()).filter(Boolean)
-    .join(' ').replace(/\s+([,.;:!?])/g,'$1').trim(); }
-function clearSel(){ TOKENS.forEach(t=>t.classList.remove('sel')); selbar.style.display='none';
-  document.getElementById('transbox').style.display='none'; selText=''; }
-function showBar(a,b){ selbar.style.display='flex';
-  const r=TOKENS[Math.max(a,b)].getBoundingClientRect();
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function clearSel(){ selbar.style.display='none'; selText=''; }
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
   const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
   let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
   let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
   selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
 
-let selecting=false, anchor=-1, head=-1, sx=0, sy=0, moved=false;
-artEl.addEventListener('pointerdown', e=>{
-  sx=e.clientX; sy=e.clientY; moved=false;
-  if(e.pointerType==='mouse'){          // 电脑:按下即可拖选
-    const i=tokAt(e.clientX,e.clientY); clearSel(); if(i<0) return;
-    selecting=true; anchor=head=i; hl(i,i);
-  }
-  /* 手机:按下不动作，松手时再判定(点选 / 扩选 / 滚动) */
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
 }, true);
-artEl.addEventListener('pointermove', e=>{
-  if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>8) moved=true;
-  if(!selecting) return;                // 手机或未选中:允许页面正常滚动
-  const i=tokAt(e.clientX,e.clientY); if(i<0) return; head=i; hl(anchor,i); e.preventDefault();
-}, {passive:false});
-window.addEventListener('pointerup', e=>{
-  if(e.target.closest && (e.target.closest('#selbar') || e.target.closest('#transbox'))) return;
-  if(selecting){ selecting=false; const t=selOf(anchor,head); if(t){ selText=t; showBar(anchor,head);} return; }
-  if(moved) return;                     // 手机上是滚动手势，忽略
-  const i=tokAt(e.clientX,e.clientY);
-  if(i<0){ clearSel(); return; }        // 点空白=取消选择
-  if(selText && anchor>=0 && i!==anchor){ head=i; }   // 已选中再点另一个词 = 扩展成整句
-  else { anchor=head=i; }               // 否则 = 选这个词
-  hl(anchor,head); selText=selOf(anchor,head); showBar(anchor,head); });
-document.getElementById('sel-play').onclick=()=>{ if(selText) play(selText,null); };
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
-function selRect(){ if(anchor<0||!TOKENS[anchor])return null;
-  const lo=Math.min(anchor,head),hi=Math.max(anchor,head);
-  const a=TOKENS[lo].getBoundingClientRect(), b=TOKENS[hi].getBoundingClientRect();
-  return {cx:(a.left+b.right)/2, bottom:Math.max(a.bottom,b.bottom)}; }
-function showTransbox(enText, zhHtml){
-  const tb=document.getElementById('transbox'); const r=selRect();
-  tb.innerHTML='<div class="tb-en">'+(enText||'').replace(/</g,'&lt;')+
-    '</div><div class="tb-zh">'+zhHtml+'</div>';
-  if(r){ tb.style.left=Math.min(Math.max(r.cx,150),window.innerWidth-150)+'px';
-    tb.style.top=(r.bottom+8)+'px'; }
-  tb.style.display='block'; }
-async function translate(text){
-  if(!text) return;
-  if(!cloudOn){ showTransbox(text,'需云函数支持'); return; }
-  showTransbox(text,'翻译中…');
-  try{
-    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({op:'translate',text})});
-    const j=await r.json();
-    showTransbox(text, j.zh || ('翻译失败'+(j.error?'：'+j.error:'')));
-  }catch(e){ showTransbox(text,'翻译失败，请重试'); }
-}
-document.getElementById('sel-translate').onclick=()=>{ if(selText){ const t=selText;
-  selbar.style.display='none'; translate(t); } };
-document.addEventListener('scroll',()=>{ if(!selecting){ selbar.style.display='none';
-  document.getElementById('transbox').style.display='none'; } }, true);
+document.addEventListener('click', e=>{ if(e.target.closest&&!e.target.closest('#selbar')) clearSel(); }, true);
+document.addEventListener('scroll',()=>{ selbar.style.display='none'; }, true);
 
 </script>
 </body>
