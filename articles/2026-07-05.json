@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-05",
+  "level": "CET-4",
+  "title": "Coral Reefs: The Rainforests of the Sea",
+  "title_zh": "珊瑚礁：海洋中的热带雨林",
+  "intro_zh": "本文约1000词，介绍珊瑚礁的生态价值、面临的威胁以及保护措施，包含具体事例和数据。",
+  "paragraphs": [
+    {
+      "en": "Coral reefs are often called the rainforests of the sea. They cover less than 1% of the ocean floor, yet they support about 25% of all marine species. These <span class=\"kw\" data-ipa=\"/ˈvɑːst/\" data-def=\"巨大的\">vast</span> underwater ecosystems are built by tiny animals called coral polyps. Over thousands of years, their limestone skeletons accumulate, forming complex structures that provide <span class=\"kw\" data-ipa=\"/ˈʃɛltər/\" data-def=\"庇护所\">shelter</span> and food for countless creatures. From colorful fish to sharks and sea turtles, coral reefs are <span class=\"kw\" data-ipa=\"/ˈvaɪtəl/\" data-def=\"至关重要的\">vital</span> for ocean life.",
+      "zh": "珊瑚礁常被称为海洋中的热带雨林。它们覆盖不到1%的海底，却养育了约25%的海洋物种。这些庞大的水下生态系统由称为珊瑚虫的微小动物构建。数千年来，它们的石灰质骨骼不断积累，形成复杂的结构，为无数生物提供庇护所和食物。从色彩斑斓的鱼类到鲨鱼和海龟，珊瑚礁对海洋生命至关重要。"
+    },
+    {
+      "en": "Beyond supporting biodiversity, coral reefs protect coastlines from storms and erosion. They act as natural barriers, <span class=\"kw\" data-ipa=\"/əˈbzoːrb/\" data-def=\"吸收\">absorb</span> wave energy and reducing the impact of hurricanes and tsunamis. In many <span class=\"kw\" data-ipa=\"/ˈtraʊpɪkəl/\" data-def=\"热带的\">tropical</span> regions, coastal communities rely on reefs for their safety. For example, a study found that coral reefs reduce wave energy by an average of 97%, preventing billions of dollars in property damage. Without them, many low-lying islands would be <span class=\"kw\" data-ipa=\"/ˈvʌlnərəbl/\" data-def=\"脆弱的\">vulnerable</span> to flooding.",
+      "zh": "除了支持生物多样性，珊瑚礁还能保护海岸线免受风暴和侵蚀。它们充当天然屏障，吸收波浪能量，降低飓风和海啸的影响。在许多热带地区，沿海社区的安全依赖于珊瑚礁。例如，一项研究发现珊瑚礁平均减少97%的波浪能量，防止了数十亿美元的财产损失。如果没有它们，许多低洼岛屿将容易遭受洪水侵袭。"
+    },
+    {
+      "en": "Coral reefs also contribute <span class=\"kw\" data-ipa=\"/ˈsɪɡnɪfɪkəntli/\" data-def=\"显著地\">significantly</span> to local economies through tourism and fishing. Each year, millions of people visit coral reefs for diving, snorkeling, and sightseeing, generating billions of dollars. In countries like Australia, the Great Barrier Reef attracts over 2 million visitors annually and supports around 64,000 jobs. Moreover, reefs provide <span class=\"kw\" data-ipa=\"/ˈhæbɪtæt/\" data-def=\"栖息地\">habitat</span> for commercially important fish species, ensuring food and income for millions of people worldwide.",
+      "zh": "珊瑚礁还通过旅游和渔业为当地经济做出巨大贡献。每年，数百万人前往珊瑚礁潜水、浮潜和观光，带来数十亿美元的收入。在澳大利亚等国家，大堡礁每年吸引超过200万游客，支持约6.4万个工作岗位。此外，珊瑚礁为重要的商业鱼类提供栖息地，保障了全球数百万人的食物和收入。"
+    },
+    {
+      "en": "Despite their importance, coral reefs are facing <span class=\"kw\" data-ipa=\"/ˈsɪvɪr/\" data-def=\"严重的\">severe</span> threats from human activities. Climate change is the biggest danger, as rising sea temperatures cause coral bleaching. When water gets too warm, corals expel the algae living in their tissues, turning white and <span class=\"kw\" data-ipa=\"/ˈrɪskɪŋ/\" data-def=\"冒…的风险\">risking</span> death. The 2016 and 2017 bleaching events on the Great Barrier Reef killed nearly half of its corals. Other threats include pollution, overfishing, and destructive fishing practices like blast fishing.",
+      "zh": "尽管珊瑚礁很重要，但它们正面临人类活动带来的严重威胁。气候变化是最大的危险，因为海水温度上升会导致珊瑚白化。当水温过高时，珊瑚会排出组织中的藻类，变成白色并面临死亡风险。2016年和2017年大堡礁的白化事件杀死了近一半的珊瑚。其他威胁包括污染、过度捕捞以及炸鱼等破坏性捕鱼方式。"
+    },
+    {
+      "en": "Ocean acidification, caused by increased carbon dioxide absorption, also <span class=\"kw\" data-ipa=\"/ˈwɪkənz/\" data-def=\"削弱\">weakens</span> coral skeletons. As CO2 levels rise, the ocean becomes more acidic, making it harder for corals to build their calcium carbonate structures. This process <span class=\"kw\" data-ipa=\"/ˌθretns/\" data-def=\"威胁\">threatens</span> the very foundation of reef ecosystems. Scientists predict that if global temperatures rise by 1.5°C, 70-90% of coral reefs could disappear.",
+      "zh": "由二氧化碳吸收增加引起的海洋酸化也会削弱珊瑚骨骼。随着二氧化碳水平上升，海洋变得更酸，珊瑚更难构建其碳酸钙结构。这一过程威胁着珊瑚礁生态系统的根本。科学家预测，如果全球气温上升1.5°C，70-90%的珊瑚礁可能会消失。"
+    },
+    {
+      "en": "Efforts to protect coral reefs are underway worldwide. Marine protected areas (MPAs) have been established to <span class=\"kw\" data-ipa=\"/rɪˈstɔːr/\" data-def=\"恢复\">restore</span> and preserve reef habitats. In some regions, scientists are growing corals in nurseries and transplanting them to damaged reefs. For instance, the Coral Restoration Foundation in Florida has planted over 100,000 corals. Additionally, reducing carbon emissions and promoting <span class=\"kw\" data-ipa=\"/səˈsteɪnəbl/\" data-def=\"可持续的\">sustainable</span> fishing are crucial long-term solutions.",
+      "zh": "全球正在努力保护珊瑚礁。已经建立了海洋保护区（MPA）来恢复和保护珊瑚礁栖息地。在一些地区，科学家在苗圃中培育珊瑚，并将其移植到受损的礁石上。例如，佛罗里达的珊瑚修复基金会已经种植了超过10万株珊瑚。此外，减少碳排放和促进可持续捕捞是关键的长远解决方案。"
+    },
+    {
+      "en": "Individuals can also help. Simple actions like using reef-safe sunscreen, reducing plastic use, and choosing sustainable seafood can make a difference. When visiting coral reefs, never touch or stand on them, as this can damage the fragile polyps. Educating ourselves and others about the <span class=\"kw\" data-ipa=\"/ɪnˈvæljuəbl/\" data-def=\"无价的\">invaluable</span> role of coral reefs can foster a sense of <span class=\"kw\" data-ipa=\"/ˌstjuːˈɑːrdʃɪp/\" data-def=\"管理责任\">stewardship</span> for these underwater treasures.",
+      "zh": "个人也可以提供帮助。简单的行动，如使用对珊瑚安全的防晒霜、减少塑料使用以及选择可持续的海产品，都能带来改变。参观珊瑚礁时，切勿触摸或站在上面，因为这会伤害脆弱的珊瑚虫。教育自己和他人了解珊瑚礁的宝贵作用，可以培养对这些水下宝藏的管理意识。"
+    },
+    {
+      "en": "In conclusion, coral reefs are <span class=\"kw\" data-ipa=\"/ˌɪndɪˈspɛnsəbl/\" data-def=\"不可或缺的\">indispensable</span> for marine life, coastal protection, and human economies. However, they are under serious threat from climate change and human activities. Protecting them requires global cooperation and individual action. By understanding their importance and taking steps to reduce our impact, we can ensure that these vibrant ecosystems continue to thrive for future generations.",
+      "zh": "总之，珊瑚礁对海洋生物、海岸保护和人类经济都是不可或缺的。然而，它们正面临气候变化和人类活动的严重威胁。保护它们需要全球合作和个人行动。通过了解它们的重要性并采取措施减少我们的影响，我们可以确保这些充满活力的生态系统在未来继续繁荣。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain how coral reefs are formed",
+        "To highlight the importance of coral reefs and the threats they face",
+        "To describe the tourism industry related to coral reefs",
+        "To provide instructions on how to protect coral reefs"
+      ],
+      "answer": 1,
+      "explain": "主旨题。文章主要介绍了珊瑚礁的重要性（生物多样性、海岸保护、经济价值）以及面临的威胁（气候变化、污染等），因此选项B最全面。"
+    },
+    {
+      "q": "According to the passage, what is the biggest threat to coral reefs?",
+      "options": [
+        "Overfishing",
+        "Ocean acidification",
+        "Climate change",
+        "Pollution"
+      ],
+      "answer": 2,
+      "explain": "细节题。第四段明确指出'Climate change is the biggest danger'，因此气候变化是最大威胁。"
+    },
+    {
+      "q": "The word 'vulnerable' in paragraph 2 is closest in meaning to:",
+      "options": [
+        "strong",
+        "protected",
+        "weak",
+        "dangerous"
+      ],
+      "answer": 2,
+      "explain": "词义题。'vulnerable'意为'脆弱的、易受伤害的'，与'weak'（弱）最接近。文中描述没有珊瑚礁的低洼岛屿容易遭受洪水，即处于弱势。"
+    },
+    {
+      "q": "What can be inferred about coral reefs from the passage?",
+      "options": [
+        "They are only found in tropical areas.",
+        "They are not affected by human activities.",
+        "They provide both ecological and economic benefits.",
+        "They are easy to restore once damaged."
+      ],
+      "answer": 2,
+      "explain": "推断题。文章多处提到珊瑚礁的生态价值（支持海洋生物、保护海岸）和经济价值（旅游、渔业），因此可推断它们提供生态和经济双重效益。其他选项与文章内容相反。"
+    }
+  ]
+}
