@@ -15,6 +15,7 @@
 import os, json, datetime, argparse, re, glob, random
 from pathlib import Path
 import envload; envload.load()      # 自动读取 secret.env
+from article_validation import prepare_article
 
 ROOT = Path(__file__).parent
 SCHEMA_HINT = (ROOT / "articles" / "2026-06-13.json")
@@ -170,6 +171,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
 
     data = gen_ai(a.date) if a.source == "ai" else gen_scrape(a.date)
+    data = prepare_article(data, expected_date=a.date)
     out = ROOT / "articles" / f"{a.date}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -26,31 +26,23 @@
    - `COS_BUCKET` = 第一步的完整桶名（如 `english-daily-1300942703`）
    - `COS_REGION` = `ap-guangzhou`
    - `TTS_VOICE` = `101051`
+   - `APP_ACCESS_KEY` = 至少 32 字节的随机个人访问码，可用 `openssl rand -hex 32` 生成
+   - `ALLOW_ORIGIN` = `https://fanghongquan.github.io`（只写来源，不带路径和末尾 `/`）
+   - `RATE_BURST` = `20`
+   - `RATE_PER_MINUTE` = `30`
    （进阶可选：不填密钥，改给函数绑定一个有 **TTS + COS 读写** 权限的运行角色，更安全）
 5. 完成创建（这步可能要扫码 MFA）
 
-## 三、开启函数 URL（拿到调用地址）
+## 三、开启函数 URL并限制流量
 
-1. 函数详情 → **函数 URL** → 创建/开启 → 鉴权方式选 **公开访问（无鉴权）**
+1. 函数详情 → **函数 URL** → 创建/开启。URL 层可以公开，但应用代码会校验个人访问码的 HMAC 签名。
 2. 复制生成的 URL（形如 `https://xxxx.ap-guangzhou.tencentscf.com/`）——这就是要填给网页的地址
+3. 推荐在腾讯云 **API 网关**或函数 URL 配置中增加限流。代码里的限流只对单个函数实例有效，不能替代网关限流。
 
 ## 四、自测一下
 
-终端运行（把 URL 换成你的）：
-
-```bash
-curl -s -X POST "你的函数URL" -H "Content-Type: application/json" \
-  -d '{"op":"tts","text":"hello world","voice":101051}' | head -c 80
-```
-
-返回里有 `"audio":"..."` 即发音 OK。再测同步：
-
-```bash
-curl -s -X POST "你的函数URL" -H "Content-Type: application/json" -d '{"op":"put","key":"test","lib":[{"text":"hi"}]}'
-curl -s -X POST "你的函数URL" -H "Content-Type: application/json" -d '{"op":"get","key":"test"}'
-```
-
-第二条返回 `{"lib":[{"text":"hi"}]}` 即同步 OK。
+设置 `TTS_API_URL` 后重新构建页面。首次点击云端朗读或“＋生词”时，网页会要求输入
+`APP_ACCESS_KEY`，访问码只保存在当前浏览器的 `localStorage`。输入正确后能播放语音或写入墨墨即表示签名链路正常；访问码错误时服务器返回 401，网页会自动清除并要求重输。
 
 ## 五、把地址接到网页
 
@@ -61,3 +53,11 @@ curl -s -X POST "你的函数URL" -H "Content-Type: application/json" -d '{"op":
    - 背单词模块右下角「开启同步」→ 设个同步码，手机和电脑填同一个即可互通
 
 > 费用：个人用量很小，前 3 个月基本 0；之后约每月几毛到几元。
+
+## 六、安全维护与轮换
+
+- `ALLOW_ORIGIN` 必须是精确的 GitHub Pages 来源，不要配置成 `*`。
+- 怀疑访问码泄露时，在 SCF 中生成新的 `APP_ACCESS_KEY`；这就是访问码轮换。所有设备下次调用时会收到 401，然后输入新访问码。
+- 不要把 `APP_ACCESS_KEY`、腾讯云密钥或墨墨 Token 写进仓库、模板或 GitHub Variables。
+- 网关建议按个人用量配置每分钟请求上限，并开启异常流量告警。
+- 云函数返回 502 时查看 SCF 日志；浏览器只收到通用错误，不会看到上游密钥或详细响应。
