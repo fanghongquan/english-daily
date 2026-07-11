@@ -31,6 +31,20 @@ class WorkflowConfigTest(unittest.TestCase):
         for marker in ("secret.env", "secret.txt", "__pycache__/", "*.pyc", "scf/*.zip"):
             self.assertIn(marker, ignored)
 
+    def test_deployment_docs_cover_auth_throttling_rotation_and_recovery(self):
+        docs = ((ROOT / "SCF_DEPLOY.md").read_text(encoding="utf-8") + "\n" +
+                (ROOT / "README.md").read_text(encoding="utf-8"))
+        for marker in (
+            "APP_ACCESS_KEY",
+            "ALLOW_ORIGIN",
+            "API 网关",
+            "轮换",
+            "state/",
+            "飞书推送失败",
+            "浏览器内置语音",
+        ):
+            self.assertIn(marker, docs)
+
 
 if __name__ == "__main__":
     unittest.main()

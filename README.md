@@ -68,6 +68,16 @@ english-daily/
 如果你勾选了「签名校验」，把那串密钥配成 `FEISHU_SECRET`。
 卡片里的「开始阅读」按钮会直接跳转到当天的网页。
 
+### 自动任务的可靠性
+
+每日任务先生成并校验文章、提交到 GitHub Pages，确认当天页面可以访问后才推送飞书。
+飞书明确返回成功后，任务才会在 `state/YYYY-MM-DD.json` 记录完成。备用定时任务依据
+`state/` 去重，而不是依据 HTML 是否存在。
+
+如果飞书推送失败，Actions 会显示红色，且不会写成功状态；后续备用时段会继续重试。
+如果 AI 生成失败，任务同样会失败并等待下一次重试，不再静默推送旧文章。修复配置后也可在
+Actions 页面手动执行工作流恢复。
+
 ---
 
 ## 自然发音（可选 · 腾讯云 TTS）
@@ -102,6 +112,10 @@ python daily.py --source ai
 
 > 部署到 GitHub Actions 时，把 `TENCENT_SECRET_ID`/`TENCENT_SECRET_KEY` 配成 Secrets、
 > `TTS_VOICE` 配成 Variable 即可，workflow 已接好。生成的 mp3 会随 `site/` 一起提交。
+
+当前按需云端能力采用个人访问码保护。SCF 中配置 `APP_ACCESS_KEY` 和精确的
+`ALLOW_ORIGIN`；网页首次使用云端发音或墨墨时输入访问码。公开访客不输入访问码仍可阅读、
+答题并使用浏览器内置语音。完整部署、API 网关限流和访问码轮换方法见 `SCF_DEPLOY.md`。
 
 ---
 
