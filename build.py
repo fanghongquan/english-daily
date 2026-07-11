@@ -61,6 +61,7 @@ ARCHIVE_TMPL = """<!DOCTYPE html>
   .row .zh{font-size:13px;color:var(--sub)}
   .row.today .d::after{content:"今天";display:inline-block;margin-left:6px;font-size:11px;
     color:#fff;background:var(--accent);border-radius:6px;padding:1px 6px}
+  .done{margin-left:auto;color:#fff;background:#2ea043;border-radius:10px;padding:2px 7px;font-size:11px}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:26px}
   @media(max-width:480px){.row .d{min-width:0;flex-basis:100%}.row{flex-wrap:wrap;gap:4px 12px}}
 </style>
@@ -79,6 +80,11 @@ __ROWS__
 <script>
   (function(){var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.getElementById('tg').textContent=d?'☀️ 日间':'🌙 夜间';})();
+  document.querySelectorAll('.row[data-date]').forEach(function(row){
+    try{var p=JSON.parse(localStorage.getItem('englishDaily:progress:'+row.dataset.date)||'null');
+      if(p&&p.completed){var b=document.createElement('span');b.className='done';b.textContent='已读';row.appendChild(b);}}
+    catch(e){}
+  });
 </script>
 </body>
 </html>"""
@@ -104,7 +110,7 @@ def _write_archive():
         title_zh = html.escape(d.get("title_zh", "") or "")
         cls = "row today" if date == today else "row"
         rows.append(
-            f'    <a class="{cls}" href="./{date}.html">'
+            f'    <a class="{cls}" data-date="{date}" href="./{date}.html">'
             f'<span class="d">{date}</span>'
             f'<span class="t"><span class="en">{title}</span>'
             f'<span class="zh">{title_zh}</span></span></a>')
