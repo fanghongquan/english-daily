@@ -1,7 +1,10 @@
 # 密钥文件，绝不上传
 secret.env
+secret.txt
 
 __pycache__/
 *.pyc
 .DS_Store
 .worktrees/
+scf/*.zip
+scf/zibSzbxm

@@ -17,6 +17,10 @@ on:
 permissions:
   contents: write         # 允许把生成的网页提交回仓库（GitHub Pages 用）
 
+concurrency:
+  group: daily-english
+  cancel-in-progress: false
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -28,9 +32,14 @@ jobs:
           python-version: "3.11"
 
       - name: Install deps
-        run: pip install openai || true
+        run: pip install -r requirements.txt
 
-      - name: Build + push
+      - name: Verify
+        run: |
+          python -m unittest discover -v
+          python -m compileall -q *.py scf/index.py
+
+      - name: Generate + build
         env:
           SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
           TTS_API_URL:   ${{ vars.TTS_API_URL }}      # 腾讯云函数地址，注入网页
@@ -40,17 +49,42 @@ jobs:
           OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL:   ${{ vars.OPENAI_BASE_URL }}
           OPENAI_MODEL:      ${{ vars.OPENAI_MODEL }}
-        # 每天用 AI(DeepSeek)生成新文章；生成失败会自动回退到现有最新文章。
-        # 手动触发时勾选 force 可强制重做当天文章。
         run: |
           FORCE=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then FORCE="--force"; fi
-          python daily.py --source ai $FORCE
+          python daily.py --source ai --no-push $FORCE
+          if [ -n "$FORCE" ]; then rm -f "state/$(date -u +%F).json"; fi
 
       - name: Commit generated pages
         run: |
           git config user.name  "github-actions"
           git config user.email "actions@github.com"
-          git add articles docs
+          git add articles docs state
           git commit -m "daily: $(date -u +%F)" || echo "nothing to commit"
+          git push
+
+      - name: Wait for published page
+        env:
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+        run: |
+          PAGE="$SITE_BASE_URL/$(date -u +%F).html"
+          for attempt in 1 2 3 4 5 6; do
+            if curl --fail --silent --show-error "$PAGE" >/dev/null; then exit 0; fi
+            sleep 10
+          done
+          echo "Page was not published: $PAGE" >&2
+          exit 1
+
+      - name: Push Feishu after publish
+        env:
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          TTS_API_URL: ${{ vars.TTS_API_URL }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+        run: python daily.py --source ai
+
+      - name: Commit delivery state
+        run: |
+          git add state
+          git commit -m "delivery: $(date -u +%F)" || echo "nothing to commit"
           git push

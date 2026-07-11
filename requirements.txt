@@ -1,0 +1,3 @@
+# AI providers used by get_article.py. Keep exact versions for reproducible Actions runs.
+openai==2.45.0
+anthropic==0.116.0
