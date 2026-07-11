@@ -17,8 +17,53 @@ import os, json, datetime, argparse, subprocess, sys, glob
 from pathlib import Path
 import envload; envload.load()      # 自动读取 secret.env
 import build, push_feishu
+from delivery_state import is_pushed, mark_pushed
 
 ROOT = Path(__file__).parent
+
+
+def _generate(root, source, date):
+    subprocess.check_call([sys.executable, str(root / "get_article.py"),
+                           "--source", source, "--date", date])
+
+
+def run(a, *, root=ROOT, build_fn=build.build, push_fn=push_feishu.push,
+        state_dir=None, generate_fn=None):
+    root = Path(root)
+    state_dir = Path(state_dir) if state_dir else root / "state"
+    requested_date = a.date
+    if not a.no_push and not a.force and is_pushed(state_dir, requested_date):
+        print("今天已成功推送过，跳过本次（备用时段去重）")
+        return
+
+    if a.use_latest:
+        files = sorted(glob.glob(str(root / "articles" / "*.json")))
+        if not files:
+            raise SystemExit("articles/ 下没有文章")
+        art = Path(files[-1])
+        a.date = art.stem
+    else:
+        art = root / "articles" / f"{a.date}.json"
+        if a.force or not art.exists():
+            generator = generate_fn or _generate
+            generator(root, a.source, a.date)
+            if not art.exists():
+                raise RuntimeError(f"生成命令未创建文章：{art}")
+
+    build_fn(str(art))
+    if a.no_push:
+        print("已跳过推送（--no-push）")
+        return
+
+    data = json.loads(art.read_text(encoding="utf-8"))
+    base = os.environ.get("SITE_BASE_URL", "").rstrip("/")
+    if not base:
+        raise SystemExit("请设置 SITE_BASE_URL")
+    url = f"{base}/{a.date}.html"
+    webhook = os.environ["FEISHU_WEBHOOK"]
+    push_fn(webhook, os.environ.get("FEISHU_SECRET", ""),
+            push_feishu.card(a.date, data["title"], data.get("title_zh", ""), url))
+    mark_pushed(state_dir, requested_date, a.date, url)
 
 
 def main():
@@ -33,51 +78,7 @@ def main():
                     help="强制重新生成今天的文章并推送（即使已存在），用于手动重做当天内容")
     a = ap.parse_args()
 
-    # 幂等保护：若今天的页面已生成（说明今天已有一次成功运行+推送），跳过推送，
-    # 这样多个备用 cron 时段不会重复推送。备用时段只在主时段被 GitHub 丢弃时补位。
-    today_page = ROOT / "docs" / f"{datetime.date.today().isoformat()}.html"
-    already_done_today = today_page.exists()
-
-    if a.use_latest:
-        files = sorted(glob.glob(str(ROOT / "articles" / "*.json")))
-        if not files:
-            raise SystemExit("articles/ 下没有文章")
-        art = Path(files[-1])
-        a.date = art.stem                       # 用该文章自身的日期
-    else:
-        art = ROOT / "articles" / f"{a.date}.json"
-        if a.force or not art.exists():
-            try:
-                subprocess.check_call([sys.executable, str(ROOT / "get_article.py"),
-                                       "--source", a.source, "--date", a.date])
-            except Exception as e:
-                print("⚠️ AI 生成失败，回退到现有最新文章：", e)
-                files = sorted(glob.glob(str(ROOT / "articles" / "*.json")))
-                if not files:
-                    raise
-                art = Path(files[-1]); a.date = art.stem
-
-    # v2：不再构建时预生成音频。发音改为网页运行时按需调用腾讯云函数(见 scf/)。
-    build.build(str(art))
-
-    if a.no_push:
-        print("已跳过推送（--no-push）")
-        return
-
-    if already_done_today and not a.force:
-        print("今天已生成并推送过，跳过本次（备用时段去重）")
-        return
-
-    data = json.loads(art.read_text(encoding="utf-8"))
-    base = os.environ.get("SITE_BASE_URL", "").rstrip("/")
-    if not base:
-        raise SystemExit("请设置 SITE_BASE_URL")
-    url = f"{base}/{a.date}.html"
-
-    webhook = os.environ["FEISHU_WEBHOOK"]
-    push_feishu.push(webhook, os.environ.get("FEISHU_SECRET", ""),
-                     push_feishu.card(a.date, data["title"],
-                                      data.get("title_zh", ""), url))
+    run(a)
 
 
 if __name__ == "__main__":

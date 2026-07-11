@@ -55,7 +55,17 @@ def push(webhook, secret, payload):
         webhook, data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=15) as r:
-        print("飞书返回:", r.read().decode())
+        raw = r.read().decode()
+    print("飞书返回:", raw)
+    try:
+        response = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("飞书返回的不是合法 JSON") from exc
+    code = response.get("code", response.get("StatusCode"))
+    if code != 0:
+        message = response.get("msg", response.get("StatusMessage", "unknown error"))
+        raise RuntimeError(f"飞书返回错误码 {code}: {message}")
+    return response
 
 
 if __name__ == "__main__":
