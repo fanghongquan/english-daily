@@ -167,6 +167,7 @@
     <button class="btn" id="tg-theme">🌙 夜间</button>
     <button class="btn" id="play-all">▶ 朗读全文</button>
     <button class="btn" id="stop">⏹ 停止</button>
+    <button class="btn" id="access-key">🔑 访问码</button>
     <span class="speed">语速
       <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
       <span id="rateval">0.95×</span>
@@ -202,6 +203,35 @@ let rate = 0.95;
 let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
 const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
 
+/* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
+const encoder=new TextEncoder();
+function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function accessKey(){
+  let key=localStorage.getItem('APP_ACCESS_KEY')||'';
+  if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
+  if(key) localStorage.setItem('APP_ACCESS_KEY',key);
+  return key;
+}
+async function protectedFetch(payload){
+  const key=accessKey(); if(!key) throw new Error('未提供访问码');
+  const body=JSON.stringify(payload);
+  const timestamp=String(Math.floor(Date.now()/1000));
+  const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
+  const digest=hex(await crypto.subtle.digest('SHA-256',encoder.encode(body)));
+  const cryptoKey=await crypto.subtle.importKey('raw',encoder.encode(key),
+    {name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature=hex(await crypto.subtle.sign('HMAC',cryptoKey,
+    encoder.encode(timestamp+'\n'+nonce+'\n'+digest)));
+  const response=await fetch(TTS_API,{method:'POST',headers:{
+    'Content-Type':'application/json','X-App-Timestamp':timestamp,
+    'X-App-Nonce':nonce,'X-App-Signature':signature},body});
+  if(response.status===401||response.status===403){
+    localStorage.removeItem('APP_ACCESS_KEY');
+    throw new Error('访问码无效或已过期，请重新输入');
+  }
+  return response;
+}
+
 /* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
 let usVoice=null;
 function pickFallback(){ const vs=speechSynthesis.getVoices();
@@ -223,8 +253,7 @@ function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); co
   if(buf)out.push(buf); return out.length?out:[text.trim()]; }
 async function fetchClip(text){ const key=voice+'|'+text;
   if(clipCache.has(key))return clipCache.get(key);
-  const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({text,voice})});
+  const r=await protectedFetch({text,voice});
   if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
   if(!j.audio)throw new Error(j.error||'no audio');
   const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
@@ -328,6 +357,10 @@ const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
 rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
 const vEl=document.getElementById('voice'); vEl.value=String(voice);
 vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+document.getElementById('access-key').onclick=()=>{
+  localStorage.removeItem('APP_ACCESS_KEY');
+  if(accessKey()) toast('访问码已保存');
+};
 
 /* ========== toast ========== */
 let toastT=null;
@@ -337,8 +370,7 @@ async function doAdd(text){ text=(text||'').trim(); if(!text) return;
   if(!cloudOn){ toast('需云函数支持'); return; }
   toast('正在加入墨墨…');
   try{
-    const r=await fetch(TTS_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({op:'maimemo',text})});
+    const r=await protectedFetch({op:'maimemo',text});
     const j=await r.json();
     if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
     else { toast('加入失败'+(j.error?'：'+j.error:'')); }
