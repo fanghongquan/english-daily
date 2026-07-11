@@ -47,6 +47,15 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_quiz_scoring_review_and_persistence_contract(self):
+        html = self.template()
+        for marker in (
+            'id="quiz-summary"', "quizScore", "answeredCount", "incorrectQuestions",
+            "只看错题", "重新作答", "function updateQuizSummary",
+            "quizScore:quizScore", "saveProgress",
+        ):
+            self.assertIn(marker, html)
+
 
 if __name__ == "__main__":
     unittest.main()

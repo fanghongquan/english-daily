@@ -150,6 +150,9 @@
   .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
     background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
   .quiz .exp.show{display:block}
+  #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
+    background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
+  #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
   .en .tok{cursor:pointer}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
@@ -222,6 +225,9 @@
   <section id="quiz-sec">
     <h2 class="vh">📝 理解自测 Comprehension</h2>
     <div class="quiz" id="quiz"></div>
+    <div id="quiz-summary" aria-live="polite"><span id="quiz-result"></span>
+      <button class="icbtn" id="quiz-wrong">只看错题</button>
+      <button class="icbtn" id="quiz-reset">重新作答</button></div>
   </section>
 
   <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
@@ -409,6 +415,18 @@ function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;'
 const LAB=['A','B','C','D','E','F'];
 const quizEl=document.getElementById('quiz');
 const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+const quizSummary=document.getElementById('quiz-summary');
+let quizScore=0,answeredCount=0,incorrectQuestions=[];
+function updateQuizSummary(){
+  if(!QS.length)return;
+  if(answeredCount<QS.length){ document.getElementById('quiz-result').textContent=
+    '已完成 '+answeredCount+' / '+QS.length; return; }
+  const percent=Math.round(quizScore/QS.length*100);
+  document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
+    (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
+  quizSummary.classList.add('show');
+  saveProgress({quizScore:quizScore,quizTotal:QS.length,completed:true});
+}
 if(QS.length){
   QS.forEach((q,qi)=>{
     const opts=Array.isArray(q.options)?q.options:[];
@@ -420,11 +438,12 @@ if(QS.length){
     opts.forEach((o,oi)=>{
       const b=document.createElement('button'); b.className='opt'; b.type='button';
       b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
-      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1'; answeredCount++;
+        if(oi===ans)quizScore++; else{incorrectQuestions.push(qi);card.dataset.incorrect='true';}
         card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
           if(xi===ans) x.classList.add('correct');
           else if(xi===oi) x.classList.add('wrong'); });
-        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); };
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); updateQuizSummary(); };
       card.appendChild(b);
     });
     const exp=document.createElement('div'); exp.className='exp';
@@ -435,6 +454,21 @@ if(QS.length){
 } else {
   document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
 }
+if(QS.length&&progressState.quizScore!==null&&progressState.quizTotal===QS.length){
+  document.getElementById('quiz-result').textContent='上次得分 '+progressState.quizScore+' / '+QS.length;
+  quizSummary.classList.add('show');
+}
+let wrongOnly=false;
+document.getElementById('quiz-wrong').onclick=()=>{ wrongOnly=!wrongOnly;
+  document.querySelectorAll('.quiz .q').forEach(card=>card.style.display=
+    wrongOnly&&card.dataset.incorrect!=='true'?'none':'');
+  document.getElementById('quiz-wrong').textContent=wrongOnly?'显示全部':'只看错题'; };
+document.getElementById('quiz-reset').onclick=()=>{
+  quizScore=0;answeredCount=0;incorrectQuestions=[];wrongOnly=false;
+  document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
+    delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
+      b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:0,completed:false}); };
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
