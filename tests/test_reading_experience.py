@@ -21,6 +21,15 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_local_reading_progress_and_resume_contract(self):
+        html = self.template()
+        for marker in (
+            "englishDaily:progress:", "function loadProgress", "function saveProgress",
+            "requestAnimationFrame", 'id="continue-reading"', "继续阅读", "从头开始",
+            "ratio>=.92", "lastParagraph", "aria-valuenow", "scrollTo",
+        ):
+            self.assertIn(marker, html)
+
 
 if __name__ == "__main__":
     unittest.main()

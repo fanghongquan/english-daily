@@ -113,6 +113,9 @@
   .speaking{background:var(--speakbg) !important;border-radius:3px}
   #read-progress{position:fixed;z-index:90;top:0;left:0;width:0;height:3px;
     background:var(--accent);transition:width .12s linear}
+  #continue-reading{display:none;align-items:center;gap:8px;margin:10px 0;padding:9px 11px;
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
+  #continue-reading.show{display:flex} #continue-reading span{flex:1}
   .advanced{display:contents}
   #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
     transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
@@ -176,6 +179,9 @@
     <h1 id="m-title"></h1>
     <p class="h1zh" id="m-titlezh"></p>
     <div class="intro" id="m-intro"></div>
+    <div id="continue-reading"><span>继续上次阅读？</span>
+      <button class="icbtn" id="resume-reading">继续阅读</button>
+      <button class="icbtn" id="restart-reading">从头开始</button></div>
   </header>
 
   <div class="toolbar">
@@ -227,6 +233,18 @@ const TTS_API = __TTS_API__;
 let rate = 0.95;
 let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
 const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+const progressKey='englishDaily:progress:'+(ARTICLE.date||'unknown');
+function loadProgress(){
+  try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
+    return value&&value.version===1?value:null; }catch(e){ return null; }
+}
+let progressState=loadProgress()||{version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,updatedAt:null};
+function saveProgress(patch){
+  progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
+  try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
+  return progressState;
+}
 
 /* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
 const encoder=new TextEncoder();
@@ -328,6 +346,38 @@ function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
 applyIpa(true);
 /* 重点词的正文交互由下方“双击加生词”统一处理 */
 
+/* ========== 本机阅读进度 ========== */
+const progressBar=document.getElementById('read-progress');
+const resumeBox=document.getElementById('continue-reading');
+const mobilePanel=document.getElementById('mobile-panel');
+function nearestParagraph(){
+  const paras=[...document.querySelectorAll('.para')]; let best=0,dist=Infinity;
+  paras.forEach((p,i)=>{ const d=Math.abs(p.getBoundingClientRect().top-innerHeight*.42);
+    if(d<dist){dist=d;best=i;} }); return best;
+}
+function updateReadingProgress(){
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
+  progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
+  const lastParagraph=nearestParagraph();
+  saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  const toolbar=document.querySelector('.toolbar');
+  document.getElementById('mobile-float').classList.toggle('visible',
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0&&!mobilePanel.classList.contains('open'));
+}
+let progressFrame=0;
+addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{
+  progressFrame=0; updateReadingProgress(); }); },{passive:true});
+addEventListener('resize',updateReadingProgress);
+if(progressState.ratio>.05&&!progressState.completed) resumeBox.classList.add('show');
+document.getElementById('resume-reading').onclick=()=>{
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+document.getElementById('restart-reading').onclick=()=>{
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null,quizTotal:0});
+  scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+updateReadingProgress();
+
 /* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 const LAB=['A','B','C','D','E','F'];
@@ -389,7 +439,6 @@ document.getElementById('access-key').onclick=()=>{
   localStorage.removeItem('APP_ACCESS_KEY');
   if(accessKey()) toast('访问码已保存');
 };
-const mobilePanel=document.getElementById('mobile-panel');
 function toggleMore(){ const open=mobilePanel.classList.toggle('open');
   document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
 document.getElementById('toolbar-more').onclick=toggleMore;
