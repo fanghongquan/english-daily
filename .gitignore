@@ -6,5 +6,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .worktrees/
+.superpowers/
 scf/*.zip
 scf/zibSzbxm
