@@ -65,18 +65,6 @@
   .para.show-zh .zh{display:block}
   h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
-  .vlist{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .vrow{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
-  .vrow:last-child{border-bottom:none}
-  .vrow .w{font-weight:700;color:var(--kw);min-width:120px;cursor:pointer}
-  .vrow .vipa{color:var(--sub);font-size:13px;min-width:140px}
-  .vrow .vdef{color:var(--ink);font-size:14px;flex:1}
-  .vrow .mini{border:none;background:var(--accent-soft);color:var(--accent);border-radius:6px;
-    padding:3px 8px;font-size:12px;cursor:pointer}
-  .vrow .mini:hover{background:var(--accent-soft2)}
-  .vocab-tools{display:flex;gap:8px;align-items:center;margin-bottom:10px}
-  #vocab-filter{flex:1;border:1px solid var(--line);border-radius:9px;padding:8px 10px;
-    background:var(--card);color:var(--ink)}
   /* 复习模块 */
   #review{margin-top:30px}
   .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
@@ -168,12 +156,6 @@
     h2.vh{font-size:16.5px;margin:24px 0 10px}
     .toolbar{gap:6px}
     .btn{padding:6px 11px;font-size:12.5px}
-    .vrow{flex-wrap:wrap;gap:6px 8px;padding:11px 12px}
-    .vrow .w{min-width:0;order:1;font-size:15px}
-    .vrow .vipa{min-width:0;flex:1;order:2;font-size:11.5px}
-    .vrow .pl{order:3}
-    .vrow .ad{order:4}
-    .vrow .vdef{order:5;flex-basis:100%;font-size:13.5px;color:var(--sub);margin-top:1px}
     .rvcard{padding:22px 14px}
     .rv-text{font-size:22px}
     .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
@@ -217,13 +199,6 @@
   <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
 
   <main id="article"></main>
-
-  <section id="vocab-sec">
-    <h2 class="vh">📚 重点词汇 <span class="cnt" id="vocab-count"></span></h2>
-    <div class="vocab-tools"><label for="vocab-filter">筛选</label>
-      <input id="vocab-filter" type="search" placeholder="输入单词或释义"></div>
-    <div class="vlist" id="vocab-list"></div>
-  </section>
 
   <section id="quiz-sec">
     <h2 class="vh">📝 理解自测 Comprehension</h2>
@@ -522,41 +497,6 @@ async function doAdd(text){ text=(text||'').trim(); if(!text) return;
     if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
     else { toast('加入失败'+(j.error?'：'+j.error:'')); }
   }catch(e){ toast('加入失败，请重试'); } }
-
-/* ========== 从正文自动汇总重点词 ========== */
-function collectVocabulary(){
-  const map=new Map();
-  document.querySelectorAll('.en .kw').forEach(node=>{
-    const word=(node.firstChild?.textContent||'').trim(); if(!word)return;
-    const key=word.toLowerCase(); let entry=map.get(key);
-    if(entry)entry.count++;
-    else{ entry={word,ipa:node.dataset.ipa||'',definition:node.dataset.def||'',count:1}; map.set(key,entry); }
-  });
-  return [...map.values()];
-}
-const vocabulary=collectVocabulary();
-const vocabList=document.getElementById('vocab-list');
-function renderVocabulary(query){
-  const needle=(query||'').trim().toLowerCase(); vocabList.textContent='';
-  vocabulary.filter(entry=>!needle||(entry.word+' '+entry.definition).toLowerCase().includes(needle))
-    .forEach(entry=>{
-      const row=document.createElement('div'); row.className='vrow';
-      const word=document.createElement('span'); word.className='w'; word.textContent=entry.word;
-      const ipa=document.createElement('span'); ipa.className='vipa'; ipa.textContent=entry.ipa;
-      const definition=document.createElement('span'); definition.className='vdef';
-      definition.textContent=entry.definition+(entry.count>1?' · ×'+entry.count:'');
-      const speak=document.createElement('button'); speak.className='mini vocab-play';
-      speak.textContent='🔊'; speak.setAttribute('aria-label','朗读 '+entry.word);
-      speak.onclick=()=>play(entry.word,row,null);
-      const add=document.createElement('button'); add.className='mini vocab-add';
-      add.textContent='＋'; add.setAttribute('aria-label','加入墨墨 '+entry.word);
-      add.onclick=()=>doAdd(entry.word);
-      row.append(word,ipa,definition,speak,add); vocabList.appendChild(row);
-    });
-}
-document.getElementById('vocab-count').textContent=vocabulary.length+' 个';
-document.getElementById('vocab-filter').oninput=e=>renderVocabulary(e.target.value);
-if(vocabulary.length)renderVocabulary(''); else document.getElementById('vocab-sec').style.display='none';
 
 /* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
 const selbar=document.getElementById('selbar');
