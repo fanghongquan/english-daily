@@ -38,14 +38,15 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
-    def test_automatic_vocabulary_list_contract(self):
+    def test_standalone_vocabulary_list_is_removed(self):
         html = self.template()
         for marker in (
             'id="vocab-sec"', 'id="vocab-filter"', "function collectVocabulary",
-            "toLowerCase()", "entry.count++", "vocab-play", "vocab-add",
-            "doAdd(entry.word)",
+            "vocab-play", "vocab-add",
         ):
-            self.assertIn(marker, html)
+            self.assertNotIn(marker, html)
+        self.assertIn('.en .kw', html)
+        self.assertIn('function applyIpa', html)
 
     def test_quiz_scoring_review_and_persistence_contract(self):
         html = self.template()
