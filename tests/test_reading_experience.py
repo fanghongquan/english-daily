@@ -56,6 +56,11 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_archive_marks_completed_articles_from_local_progress(self):
+        build = (ROOT / "build.py").read_text(encoding="utf-8")
+        for marker in ('data-date="{date}"', "englishDaily:progress:", "completed", "已读"):
+            self.assertIn(marker, build)
+
 
 if __name__ == "__main__":
     unittest.main()
