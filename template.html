@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self' data: blob:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
 <title>每日英语 · __TITLE__</title>
 <script>
 /* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
@@ -196,7 +197,7 @@
 
 <script>
 const ARTICLE = __ARTICLE_DATA__;
-const TTS_API = "__TTS_API__";
+const TTS_API = __TTS_API__;
 let rate = 0.95;
 let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
 const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
@@ -257,9 +258,12 @@ document.getElementById('engine-note').textContent=
 const art=document.getElementById('article');
 ARTICLE.paragraphs.forEach((p,i)=>{
   const div=document.createElement('div'); div.className='para show-zh';
-  div.innerHTML='<div class="en">'+p.en+'</div>'+
-    '<div class="ptools"><button class="icbtn tz">中/英</button></div>'+
-    '<div class="zh">'+p.zh+'</div>';
+  const en=document.createElement('div'); en.className='en'; en.innerHTML=p.en;
+  const tools=document.createElement('div'); tools.className='ptools';
+  const toggle=document.createElement('button'); toggle.className='icbtn tz';
+  toggle.textContent='中/英'; tools.appendChild(toggle);
+  const zh=document.createElement('div'); zh.className='zh'; zh.textContent = p.zh;
+  div.append(en,tools,zh);
   art.appendChild(div);
   div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
 });
