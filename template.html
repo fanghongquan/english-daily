@@ -120,15 +120,18 @@
     background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
   #continue-reading.show{display:flex} #continue-reading span{flex:1}
   .advanced{display:contents}
+  #toolbar-more{display:none}
   #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
     transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
     box-shadow:0 5px 18px var(--shadow);gap:3px}
   #mobile-float button{border:0;background:transparent;color:#fff;border-radius:18px;padding:8px 13px}
   @media (max-width:640px){
     .wrap{padding-bottom:calc(105px + env(safe-area-inset-bottom))}
+    #toolbar-more{display:inline-flex}
     .toolbar .advanced{display:none;flex-basis:100%;padding:9px;border:1px solid var(--line);
       border-radius:12px;background:var(--card);gap:8px;align-items:center;flex-wrap:wrap}
-    .toolbar .advanced.open{display:flex}
+    .toolbar .advanced.open{display:flex;position:fixed;z-index:44;left:12px;right:12px;
+      bottom:calc(62px + env(safe-area-inset-bottom));box-shadow:0 5px 18px var(--shadow)}
     #mobile-float.visible{display:flex}
   }
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -156,7 +159,7 @@
   .en .tok{cursor:pointer}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
-    .wrap{padding:14px 12px 100px}
+    .wrap{padding:14px 12px calc(105px + env(safe-area-inset-bottom))}
     h1{font-size:21px}
     .h1zh{font-size:14px}
     .intro{font-size:12.5px}
@@ -395,7 +398,7 @@ function updateReadingProgress(){
   saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
   const toolbar=document.querySelector('.toolbar');
   document.getElementById('mobile-float').classList.toggle('visible',
-    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0&&!mobilePanel.classList.contains('open'));
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
 }
 let progressFrame=0;
 addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{

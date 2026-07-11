@@ -36,6 +36,7 @@
   .row .zh{font-size:13px;color:var(--sub)}
   .row.today .d::after{content:"今天";display:inline-block;margin-left:6px;font-size:11px;
     color:#fff;background:var(--accent);border-radius:6px;padding:1px 6px}
+  .done{margin-left:auto;color:#fff;background:#2ea043;border-radius:10px;padding:2px 7px;font-size:11px}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:26px}
   @media(max-width:480px){.row .d{min-width:0;flex-basis:100%}.row{flex-wrap:wrap;gap:4px 12px}}
 </style>
@@ -47,41 +48,46 @@
     <button class="tg" id="tg" onclick="(function(){var d=document.documentElement.getAttribute('data-theme')==='dark';var n=d?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}document.getElementById('tg').textContent=n==='dark'?'☀️ 日间':'🌙 夜间';})()">🌙 夜间</button>
   </header>
   <div class="list">
-    <a class="row today" href="./2026-07-11.html"><span class="d">2026-07-11</span><span class="t"><span class="en">Building Your Financial Foundation: A Young Adult&#x27;s Guide to Saving and Investing</span><span class="zh">打下财务基础：年轻人储蓄与投资指南</span></span></a>
-    <a class="row" href="./2026-07-10.html"><span class="d">2026-07-10</span><span class="t"><span class="en">Beyond Helping Others: The Unexpected Gains from Volunteering</span><span class="zh">超越助人：从志愿服务中获得的意外收获</span></span></a>
-    <a class="row" href="./2026-07-09.html"><span class="d">2026-07-09</span><span class="t"><span class="en">Why a Jog Can Lift Your Spirits: The Science of Exercise and Mood</span><span class="zh">为什么慢跑能提振精神：运动与情绪的科学</span></span></a>
-    <a class="row" href="./2026-07-08.html"><span class="d">2026-07-08</span><span class="t"><span class="en">Why Eating the Rainbow Matters: The Science Behind Colorful Plates</span><span class="zh">为什么吃“彩虹”很重要：彩色餐盘背后的科学</span></span></a>
-    <a class="row" href="./2026-07-07.html"><span class="d">2026-07-07</span><span class="t"><span class="en">From Trash to Treasure: How Smart Recycling Works in Our Daily Lives</span><span class="zh">从垃圾到宝藏：智能回收如何融入日常生活</span></span></a>
-    <a class="row" href="./2026-07-06.html"><span class="d">2026-07-06</span><span class="t"><span class="en">National Parks: Preserving Natural Heritage for Future Generations</span><span class="zh">国家公园：为子孙后代守护自然遗产</span></span></a>
-    <a class="row" href="./2026-07-05.html"><span class="d">2026-07-05</span><span class="t"><span class="en">Coral Reefs: The Rainforests of the Sea</span><span class="zh">珊瑚礁：海洋中的热带雨林</span></span></a>
-    <a class="row" href="./2026-07-04.html"><span class="d">2026-07-04</span><span class="t"><span class="en">Concrete Jungles Need Breathing Room: The Value of Urban Green Spaces</span><span class="zh">水泥丛林需要呼吸空间：城市绿色空间的价值</span></span></a>
-    <a class="row" href="./2026-07-03.html"><span class="d">2026-07-03</span><span class="t"><span class="en">Plastic Tide: How Our Waste Is Choking the Ocean</span><span class="zh">塑料潮：我们的垃圾如何窒息海洋</span></span></a>
-    <a class="row" href="./2026-07-02.html"><span class="d">2026-07-02</span><span class="t"><span class="en">The Great Wall: A Millennia-Long Project of Unity and Defense</span><span class="zh">长城：千年防御与统一的工程</span></span></a>
-    <a class="row" href="./2026-07-01.html"><span class="d">2026-07-01</span><span class="t"><span class="en">From Clay Tablets to Electric Pages: How Printing Transformed the World</span><span class="zh">从泥板到电子书：印刷术如何改变世界</span></span></a>
-    <a class="row" href="./2026-06-30.html"><span class="d">2026-06-30</span><span class="t"><span class="en">The Ancient Olympic Games: More Than Just a Race</span><span class="zh">古代奥林匹克运动会：不仅仅是赛跑</span></span></a>
-    <a class="row" href="./2026-06-29.html"><span class="d">2026-06-29</span><span class="t"><span class="en">Spices and Silk: Stories from the Silk Road</span><span class="zh">香料与丝绸：丝绸之路上的故事</span></span></a>
-    <a class="row" href="./2026-06-28.html"><span class="d">2026-06-28</span><span class="t"><span class="en">The Birth of Cinema: How Movies Came to Life</span><span class="zh">电影的诞生：电影如何活起来</span></span></a>
-    <a class="row" href="./2026-06-27.html"><span class="d">2026-06-27</span><span class="t"><span class="en">Keeping Traditions Alive: The Journey of Chinese Handicrafts</span><span class="zh">传承活态：中国传统手工艺的旅程</span></span></a>
-    <a class="row" href="./2026-06-26.html"><span class="d">2026-06-26</span><span class="t"><span class="en">Street Food: A Taste of Local Culture and Community</span><span class="zh">街头美食：本地文化与社区的味道</span></span></a>
-    <a class="row" href="./2026-06-25.html"><span class="d">2026-06-25</span><span class="t"><span class="en">The Explosive History: How Fireworks Became a New Year Tradition</span><span class="zh">爆炸性的历史：烟花如何成为新年传统</span></span></a>
-    <a class="row" href="./2026-06-24.html"><span class="d">2026-06-24</span><span class="t"><span class="en">Tea Traditions Across Continents: From Japanese Matcha to Moroccan Mint</span><span class="zh">各大洲的茶传统：从日本抹茶到摩洛哥薄荷茶</span></span></a>
-    <a class="row" href="./2026-06-23.html"><span class="d">2026-06-23</span><span class="t"><span class="en">From Ethiopian Highlands to Global Cups: How Coffee Conquered the World</span><span class="zh">从埃塞俄比亚高地到全球杯子：咖啡如何征服世界</span></span></a>
-    <a class="row" href="./2026-06-22.html"><span class="d">2026-06-22</span><span class="t"><span class="en">Why the Sky Appears Blue: The Science Behind the Colors of Our World</span><span class="zh">为什么天空是蓝色的：我们世界色彩背后的科学</span></span></a>
-    <a class="row" href="./2026-06-21.html"><span class="d">2026-06-21</span><span class="t"><span class="en">The Power of Habit: How Small Changes Can Transform Your Life</span><span class="zh">习惯的力量：小改变如何改变你的生活</span></span></a>
-    <a class="row" href="./2026-06-20.html"><span class="d">2026-06-20</span><span class="t"><span class="en">The Power of Daily Habits: Small Steps, Big Changes</span><span class="zh">日常习惯的力量：小步前行，巨大改变</span></span></a>
-    <a class="row" href="./2026-06-19.html"><span class="d">2026-06-19</span><span class="t"><span class="en">The Power of Smiling</span><span class="zh">微笑的力量</span></span></a>
-    <a class="row" href="./2026-06-18.html"><span class="d">2026-06-18</span><span class="t"><span class="en">The Power of Reading: How Books Shape Our Lives</span><span class="zh">阅读的力量：书籍如何塑造我们的人生</span></span></a>
-    <a class="row" href="./2026-06-17.html"><span class="d">2026-06-17</span><span class="t"><span class="en">The Power of Small Actions</span><span class="zh">小行动的力量</span></span></a>
-    <a class="row" href="./2026-06-16.html"><span class="d">2026-06-16</span><span class="t"><span class="en">The Power of Daily Reading</span><span class="zh">日常阅读的力量</span></span></a>
-    <a class="row" href="./2026-06-15.html"><span class="d">2026-06-15</span><span class="t"><span class="en">Small Acts, Big Impact: The Power of Volunteering</span><span class="zh">小行动，大影响：志愿活动的力量</span></span></a>
-    <a class="row" href="./2026-06-14.html"><span class="d">2026-06-14</span><span class="t"><span class="en">Can You Multitask? The Brain Says No</span><span class="zh">你能多任务处理吗？大脑说不</span></span></a>
-    <a class="row" href="./2026-06-13.html"><span class="d">2026-06-13</span><span class="t"><span class="en">Why We Procrastinate and How to Beat It</span><span class="zh">我们为什么拖延，又该如何战胜它</span></span></a>
+    <a class="row today" data-date="2026-07-11" href="./2026-07-11.html"><span class="d">2026-07-11</span><span class="t"><span class="en">Building Your Financial Foundation: A Young Adult&#x27;s Guide to Saving and Investing</span><span class="zh">打下财务基础：年轻人储蓄与投资指南</span></span></a>
+    <a class="row" data-date="2026-07-10" href="./2026-07-10.html"><span class="d">2026-07-10</span><span class="t"><span class="en">Beyond Helping Others: The Unexpected Gains from Volunteering</span><span class="zh">超越助人：从志愿服务中获得的意外收获</span></span></a>
+    <a class="row" data-date="2026-07-09" href="./2026-07-09.html"><span class="d">2026-07-09</span><span class="t"><span class="en">Why a Jog Can Lift Your Spirits: The Science of Exercise and Mood</span><span class="zh">为什么慢跑能提振精神：运动与情绪的科学</span></span></a>
+    <a class="row" data-date="2026-07-08" href="./2026-07-08.html"><span class="d">2026-07-08</span><span class="t"><span class="en">Why Eating the Rainbow Matters: The Science Behind Colorful Plates</span><span class="zh">为什么吃“彩虹”很重要：彩色餐盘背后的科学</span></span></a>
+    <a class="row" data-date="2026-07-07" href="./2026-07-07.html"><span class="d">2026-07-07</span><span class="t"><span class="en">From Trash to Treasure: How Smart Recycling Works in Our Daily Lives</span><span class="zh">从垃圾到宝藏：智能回收如何融入日常生活</span></span></a>
+    <a class="row" data-date="2026-07-06" href="./2026-07-06.html"><span class="d">2026-07-06</span><span class="t"><span class="en">National Parks: Preserving Natural Heritage for Future Generations</span><span class="zh">国家公园：为子孙后代守护自然遗产</span></span></a>
+    <a class="row" data-date="2026-07-05" href="./2026-07-05.html"><span class="d">2026-07-05</span><span class="t"><span class="en">Coral Reefs: The Rainforests of the Sea</span><span class="zh">珊瑚礁：海洋中的热带雨林</span></span></a>
+    <a class="row" data-date="2026-07-04" href="./2026-07-04.html"><span class="d">2026-07-04</span><span class="t"><span class="en">Concrete Jungles Need Breathing Room: The Value of Urban Green Spaces</span><span class="zh">水泥丛林需要呼吸空间：城市绿色空间的价值</span></span></a>
+    <a class="row" data-date="2026-07-03" href="./2026-07-03.html"><span class="d">2026-07-03</span><span class="t"><span class="en">Plastic Tide: How Our Waste Is Choking the Ocean</span><span class="zh">塑料潮：我们的垃圾如何窒息海洋</span></span></a>
+    <a class="row" data-date="2026-07-02" href="./2026-07-02.html"><span class="d">2026-07-02</span><span class="t"><span class="en">The Great Wall: A Millennia-Long Project of Unity and Defense</span><span class="zh">长城：千年防御与统一的工程</span></span></a>
+    <a class="row" data-date="2026-07-01" href="./2026-07-01.html"><span class="d">2026-07-01</span><span class="t"><span class="en">From Clay Tablets to Electric Pages: How Printing Transformed the World</span><span class="zh">从泥板到电子书：印刷术如何改变世界</span></span></a>
+    <a class="row" data-date="2026-06-30" href="./2026-06-30.html"><span class="d">2026-06-30</span><span class="t"><span class="en">The Ancient Olympic Games: More Than Just a Race</span><span class="zh">古代奥林匹克运动会：不仅仅是赛跑</span></span></a>
+    <a class="row" data-date="2026-06-29" href="./2026-06-29.html"><span class="d">2026-06-29</span><span class="t"><span class="en">Spices and Silk: Stories from the Silk Road</span><span class="zh">香料与丝绸：丝绸之路上的故事</span></span></a>
+    <a class="row" data-date="2026-06-28" href="./2026-06-28.html"><span class="d">2026-06-28</span><span class="t"><span class="en">The Birth of Cinema: How Movies Came to Life</span><span class="zh">电影的诞生：电影如何活起来</span></span></a>
+    <a class="row" data-date="2026-06-27" href="./2026-06-27.html"><span class="d">2026-06-27</span><span class="t"><span class="en">Keeping Traditions Alive: The Journey of Chinese Handicrafts</span><span class="zh">传承活态：中国传统手工艺的旅程</span></span></a>
+    <a class="row" data-date="2026-06-26" href="./2026-06-26.html"><span class="d">2026-06-26</span><span class="t"><span class="en">Street Food: A Taste of Local Culture and Community</span><span class="zh">街头美食：本地文化与社区的味道</span></span></a>
+    <a class="row" data-date="2026-06-25" href="./2026-06-25.html"><span class="d">2026-06-25</span><span class="t"><span class="en">The Explosive History: How Fireworks Became a New Year Tradition</span><span class="zh">爆炸性的历史：烟花如何成为新年传统</span></span></a>
+    <a class="row" data-date="2026-06-24" href="./2026-06-24.html"><span class="d">2026-06-24</span><span class="t"><span class="en">Tea Traditions Across Continents: From Japanese Matcha to Moroccan Mint</span><span class="zh">各大洲的茶传统：从日本抹茶到摩洛哥薄荷茶</span></span></a>
+    <a class="row" data-date="2026-06-23" href="./2026-06-23.html"><span class="d">2026-06-23</span><span class="t"><span class="en">From Ethiopian Highlands to Global Cups: How Coffee Conquered the World</span><span class="zh">从埃塞俄比亚高地到全球杯子：咖啡如何征服世界</span></span></a>
+    <a class="row" data-date="2026-06-22" href="./2026-06-22.html"><span class="d">2026-06-22</span><span class="t"><span class="en">Why the Sky Appears Blue: The Science Behind the Colors of Our World</span><span class="zh">为什么天空是蓝色的：我们世界色彩背后的科学</span></span></a>
+    <a class="row" data-date="2026-06-21" href="./2026-06-21.html"><span class="d">2026-06-21</span><span class="t"><span class="en">The Power of Habit: How Small Changes Can Transform Your Life</span><span class="zh">习惯的力量：小改变如何改变你的生活</span></span></a>
+    <a class="row" data-date="2026-06-20" href="./2026-06-20.html"><span class="d">2026-06-20</span><span class="t"><span class="en">The Power of Daily Habits: Small Steps, Big Changes</span><span class="zh">日常习惯的力量：小步前行，巨大改变</span></span></a>
+    <a class="row" data-date="2026-06-19" href="./2026-06-19.html"><span class="d">2026-06-19</span><span class="t"><span class="en">The Power of Smiling</span><span class="zh">微笑的力量</span></span></a>
+    <a class="row" data-date="2026-06-18" href="./2026-06-18.html"><span class="d">2026-06-18</span><span class="t"><span class="en">The Power of Reading: How Books Shape Our Lives</span><span class="zh">阅读的力量：书籍如何塑造我们的人生</span></span></a>
+    <a class="row" data-date="2026-06-17" href="./2026-06-17.html"><span class="d">2026-06-17</span><span class="t"><span class="en">The Power of Small Actions</span><span class="zh">小行动的力量</span></span></a>
+    <a class="row" data-date="2026-06-16" href="./2026-06-16.html"><span class="d">2026-06-16</span><span class="t"><span class="en">The Power of Daily Reading</span><span class="zh">日常阅读的力量</span></span></a>
+    <a class="row" data-date="2026-06-15" href="./2026-06-15.html"><span class="d">2026-06-15</span><span class="t"><span class="en">Small Acts, Big Impact: The Power of Volunteering</span><span class="zh">小行动，大影响：志愿活动的力量</span></span></a>
+    <a class="row" data-date="2026-06-14" href="./2026-06-14.html"><span class="d">2026-06-14</span><span class="t"><span class="en">Can You Multitask? The Brain Says No</span><span class="zh">你能多任务处理吗？大脑说不</span></span></a>
+    <a class="row" data-date="2026-06-13" href="./2026-06-13.html"><span class="d">2026-06-13</span><span class="t"><span class="en">Why We Procrastinate and How to Beat It</span><span class="zh">我们为什么拖延，又该如何战胜它</span></span></a>
   </div>
   <footer>每天 12:13 自动更新 · 选词发音 / 划词翻译 / 一键存墨墨</footer>
 </div>
 <script>
   (function(){var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.getElementById('tg').textContent=d?'☀️ 日间':'🌙 夜间';})();
+  document.querySelectorAll('.row[data-date]').forEach(function(row){
+    try{var p=JSON.parse(localStorage.getItem('englishDaily:progress:'+row.dataset.date)||'null');
+      if(p&&p.completed){var b=document.createElement('span');b.className='done';b.textContent='已读';row.appendChild(b);}}
+    catch(e){}
+  });
 </script>
 </body>
 </html>
