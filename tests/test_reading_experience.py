@@ -30,6 +30,14 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_paragraph_narration_contract(self):
+        html = self.template()
+        for marker in (
+            "朗读本段", "data-paragraph", "activeParagraph", "function setSpeakingState",
+            "aria-current", "nearestParagraph()", "startParagraph", "mobile-play",
+        ):
+            self.assertIn(marker, html)
+
 
 if __name__ == "__main__":
     unittest.main()

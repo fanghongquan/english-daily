@@ -281,13 +281,22 @@ function pickFallback(){ const vs=speechSynthesis.getVoices();
   usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
         ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
 pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
-function speakFallback(text){ speechSynthesis.cancel();
+function speakFallback(text){ return new Promise(resolve=>{ speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
-  if(usVoice)u.voice=usVoice; speechSynthesis.speak(u); }
+  if(usVoice)u.voice=usVoice; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); }); }
 
-const clipCache=new Map(); let curAudio=null, token=0;
+const clipCache=new Map(); let curAudio=null, token=0, activeParagraph=-1;
+function setSpeakingState(index){
+  activeParagraph=typeof index==='number'?index:-1;
+  document.querySelectorAll('.para').forEach((p,i)=>{
+    p.classList.toggle('speaking',i===activeParagraph);
+    if(i===activeParagraph)p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
+  const mobile=document.getElementById('mobile-play');
+  mobile.textContent=activeParagraph>=0?'⏹ 停止':'▶ 朗读';
+  mobile.setAttribute('aria-pressed',String(activeParagraph>=0));
+}
 function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
-  document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+  setSpeakingState(-1); }
 function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
   for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
     out.push(s.slice(0,c)); s=s.slice(c).trim(); }
@@ -303,17 +312,18 @@ async function fetchClip(text){ const key=voice+'|'+text;
 function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
   a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
   a.play().catch(rej); }); }
-async function play(text, hiEl){
+async function play(text, hiEl, paragraphIndex){
   if(!text) return; stopAll(); const my=token;
-  if(hiEl)hiEl.classList.add('speaking');
+  if(typeof paragraphIndex==='number')setSpeakingState(paragraphIndex);
+  else if(hiEl)hiEl.classList.add('speaking');
   try{
-    if(!cloudOn){ speakFallback(text); return; }
+    if(!cloudOn){ await speakFallback(text); return; }
     const parts=splitClient(text);
     for(let i=0;i<parts.length;i++){ if(my!==token)return;
       const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
-      let url; try{ url=await cur; }catch(e){ speakFallback(parts.slice(i).join(' ')); return; }
+      let url; try{ url=await cur; }catch(e){ await speakFallback(parts.slice(i).join(' ')); return; }
       if(my!==token)return; await playClip(url); }
-  } finally { if(my===token&&hiEl)hiEl.classList.remove('speaking'); }
+  } finally { if(my===token){ if(hiEl)hiEl.classList.remove('speaking'); setSpeakingState(-1); } }
 }
 
 /* 生词直接存入墨墨背单词，见下方 doAdd() */
@@ -330,15 +340,21 @@ document.getElementById('engine-note').textContent=
 const art=document.getElementById('article');
 ARTICLE.paragraphs.forEach((p,i)=>{
   const div=document.createElement('div'); div.className='para show-zh';
+  div.setAttribute('data-paragraph',String(i));
   const en=document.createElement('div'); en.className='en'; en.lang='en-US'; en.innerHTML=p.en;
   const tools=document.createElement('div'); tools.className='ptools';
   const toggle=document.createElement('button'); toggle.className='icbtn tz';
   toggle.textContent='中/英'; tools.appendChild(toggle);
+  const speak=document.createElement('button'); speak.className='icbtn para-play';
+  speak.textContent='🔊 朗读本段'; speak.setAttribute('aria-label','朗读第 '+(i+1)+' 段');
+  speak.onclick=()=>startParagraph(i); tools.appendChild(speak);
   const zh=document.createElement('div'); zh.className='zh'; zh.lang='zh-CN'; zh.textContent = p.zh;
   div.append(en,tools,zh);
   art.appendChild(div);
   div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
 });
+function paragraphText(index){ return document.querySelectorAll('.para')[index]?.querySelector('.en')?.textContent||''; }
+function startParagraph(index){ play(paragraphText(index),document.querySelectorAll('.para')[index],index); }
 function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
   let b=k.querySelector('.ipa');
   if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
@@ -429,7 +445,7 @@ tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-the
   try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
 document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
   const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
-  play(full,null); };
+  play(full,null,null); };
 document.getElementById('stop').onclick=stopAll;
 const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
 rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
@@ -443,6 +459,8 @@ function toggleMore(){ const open=mobilePanel.classList.toggle('open');
   document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
 document.getElementById('toolbar-more').onclick=toggleMore;
 document.getElementById('mobile-more').onclick=toggleMore;
+document.getElementById('mobile-play').onclick=()=>{
+  if(activeParagraph>=0)stopAll(); else startParagraph(nearestParagraph()); };
 
 /* ========== toast ========== */
 let toastT=null;
