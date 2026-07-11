@@ -38,6 +38,15 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_automatic_vocabulary_list_contract(self):
+        html = self.template()
+        for marker in (
+            'id="vocab-sec"', 'id="vocab-filter"', "function collectVocabulary",
+            "toLowerCase()", "entry.count++", "vocab-play", "vocab-add",
+            "doAdd(entry.word)",
+        ):
+            self.assertIn(marker, html)
+
 
 if __name__ == "__main__":
     unittest.main()
