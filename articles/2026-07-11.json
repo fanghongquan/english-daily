@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-11",
+  "level": "CET-4",
+  "title": "Building Your Financial Foundation: A Young Adult's Guide to Saving and Investing",
+  "title_zh": "打下财务基础：年轻人储蓄与投资指南",
+  "intro_zh": "本文约1000词，介绍年轻人如何开始理财，包括预算、储蓄和基础投资概念。",
+  "paragraphs": [
+    {
+      "en": "Many young adults view <span class=\"kw\" data-ipa=\"ˈmʌni\" data-def=\"钱，货币\">money</span> management as a distant concern, something to worry about after landing a 'real job' or buying a house. However, the truth is that the habits you form in your early twenties can have an enormous impact on your future <span class=\"kw\" data-ipa=\"ˈfɪnænʃl\" data-def=\"财政的，金融的\">financial</span> freedom. Think of your finances like a <span class=\"kw\" data-ipa=\"ˈɡɑrdn\" data-def=\"花园\">garden</span>: the seeds you plant today determine what you can harvest years later. The earlier you start, the more time your money has to grow through the power of compounding.",
+      "zh": "许多年轻人认为理财是遥远的事，要等到找到“真正的工作”或买房后才需要担心。然而，事实是你在二十岁出头养成的习惯对未来财务自由的影响巨大。把你的财务想象成一个花园：你今天播下的种子决定了多年后你能收获什么。你开始得越早，你的钱就有越多时间通过复利的力量增长。"
+    },
+    {
+      "en": "The first step toward financial health is understanding where your money goes. A simple way is to keep a <span class=\"kw\" data-ipa=\"ˈbʌdʒɪt\" data-def=\"预算\">budget</span> for one month — write down every coffee, snack, and subscription. You might be surprised to find that small, regular <span class=\"kw\" data-ipa=\"ɪksˈpɛnsɪz\" data-def=\"费用，开支\">expenses</span> like a daily latte can add up to hundreds of dollars each month. Once you see the pattern, you can decide what truly matters to you and cut back on the rest. This doesn't mean giving up all fun — it means being <span class=\"kw\" data-ipa=\"maɪndfl\" data-def=\"留心的，注意的\">mindful</span> about your spending choices.",
+      "zh": "迈向财务健康的第一步是了解你的钱去了哪里。一个简单的方法是做一个月的预算——记下每一杯咖啡、零食和订阅。你可能会惊讶地发现，像每天一杯拿铁这样的小额定期开支每月能累计到几百美元。一旦你看到模式，就可以决定什么对你真正重要，并削减其他开支。这并不意味着放弃所有乐趣——而是对你的消费选择保持留意。"
+    },
+    {
+      "en": "After tracking your spending, create a realistic budget using the popular 50/30/20 rule. According to this <span class=\"kw\" data-ipa=\"ˈgaɪdlaɪn\" data-def=\"指导方针\">guideline</span>, 50% of your after-tax income goes to needs (rent, food, transport), 30% to wants (entertainment, dining out), and 20% to savings and debt repayment. Even if you cannot save the full 20% at first, saving anything — even 5% — is a good start. The key is to make saving a <span class=\"kw\" data-ipa=\"ˈreɡjələr\" data-def=\"有规律的，定期的\">regular</span> habit, like paying a bill to your future self.",
+      "zh": "在追踪支出后，使用流行的50/30/20规则创建一个现实的预算。根据这一指导方针，税后收入的50%用于需求（房租、食物、交通），30%用于想要的东西（娱乐、外出就餐），20%用于储蓄和偿还债务。即使一开始无法存够20%，存任何比例——哪怕5%——也是一个好的开始。关键是把储蓄变成一个定期习惯，就像给未来的自己付账单一样。"
+    },
+    {
+      "en": "Once you have some savings, consider opening a separate <span class=\"kw\" data-ipa=\"ˈsɪŋɪŋz əˈkaʊnt\" data-def=\"储蓄账户\">savings account</span> for your emergency fund. This account should cover three to six months of living expenses for unexpected events like car repairs or medical bills. Having this safety net gives you peace of mind and prevents you from going into debt when life throws a <span class=\"kw\" data-ipa=\"ˈkɜrvbɔl\" data-def=\"曲线球，意外\">curveball</span>. Financial experts often stress that an emergency fund is the foundation of any solid financial plan.",
+      "zh": "当你有了储蓄后，考虑开一个单独的储蓄账户作为应急基金。这个账户应覆盖三到六个月的生活开支，用于应对修车或医疗账单等意外事件。拥有这个安全网能让你安心，并防止在生活出现意外时负债。财务专家常常强调，应急基金是任何坚实财务计划的基础。"
+    },
+    {
+      "en": "Beyond saving, investing is the engine that builds long-term wealth. Many young people mistakenly believe investing requires a lot of money or expert knowledge. In fact, you can start with as little as $50 using <span class=\"kw\" data-ipa=\"ˈrɒbɑts\" data-def=\"机器人\">robots</span> called robo-advisors, which create a <span class=\"kw\" data-ipa=\"daɪvərsəˌfaɪd\" data-def=\"多样化的\">diversified</span> portfolio based on your goals and risk tolerance. The stock market has historically returned about 7-10% per year on average over the long run, far outpacing the interest from a typical savings account. Time is your greatest asset when investing.",
+      "zh": "除了储蓄，投资是积累长期财富的引擎。许多年轻人错误地认为投资需要很多钱或专业知识。事实上，你可以用低至50美元通过名为智能投顾的机器人开始，它们会根据你的目标和风险承受能力创建一个多样化的投资组合。从长期来看，股市历史平均年回报率约为7-10%，远超普通储蓄账户的利息。投资时，时间是你最大的资产。"
+    },
+    {
+      "en": "If the idea of investing feels overwhelming, start with an <span class=\"kw\" data-ipa=\"ɪnˈdɛks fʌnd\" data-def=\"指数基金\">index fund</span> that tracks the entire stock market, like one that follows the S&P 500. This approach gives you instant diversification across hundreds of companies without needing to pick individual stocks. It's a low-cost, passive strategy that has consistently outperformed most active fund managers over time. Remember, investing is a marathon, not a sprint — stay <span class=\"kw\" data-ipa=\"ˈpeɪʃnt\" data-def=\"耐心的\">patient</span> and avoid making emotional decisions based on short-term market ups and downs.",
+      "zh": "如果投资想法令人不知所措，可以开始投资一只追踪整个股市的指数基金，比如追踪标普500指数的基金。这种方法让你立即分散投资于数百家公司，而无需挑选个股。这是一种低成本、被动的策略，长期来看其表现一直优于大多数主动型基金经理。记住，投资是一场马拉松，而不是短跑——保持耐心，避免基于短期市场波动做出情绪化决策。"
+    },
+    {
+      "en": "Another powerful concept is compound interest, which Albert Einstein supposedly called the 'eighth wonder of the world.' Compound interest means you earn interest not only on your original money but also on the interest you've already earned. For example, if you invest $1,000 at an 8% annual return, after 40 years it grows to over $21,700 — without adding a single extra dollar. This <span class=\"kw\" data-ipa=\"ˈmædʒɪk\" data-def=\"魔法，魔力\">magic</span> only works if you give it enough time, which is exactly why starting early is so crucial.",
+      "zh": "另一个强大的概念是复利，据说爱因斯坦称其为“世界第八大奇迹”。复利意味着你不仅从原始本金上赚取利息，还能从已赚取的利息上获得利息。例如，如果你投资1000美元，年回报率为8%，40年后它将增长到超过21700美元——而且没有额外投入一分钱。这种魔力只有在你给予足够时间时才有效，这正是尽早开始如此关键的原因。"
+    },
+    {
+      "en": "Finally, educate yourself continuously. Read books like 'The Simple Path to Wealth' or follow reputable personal finance blogs. Be cautious of get-rich-quick schemes — if something sounds too good to be true, it probably is. Building financial <span class=\"kw\" data-ipa=\"ˈseɪfɡɑrd\" data-def=\"保护，预防措施\">safeguard</span> takes time and discipline, but every small step you take today moves you closer to a future where you have the <span class=\"kw\" data-ipa=\"friːdəm\" data-def=\"自由\">freedom</span> to choose what you want to do with your life.",
+      "zh": "最后，持续自我教育。阅读《通往财富的简单路径》等书籍，或关注信誉良好的个人理财博客。对快速致富的计划保持谨慎——如果某件事听起来好得令人难以置信，它很可能就是假的。建立财务保障需要时间和纪律，但你今天迈出的每一小步都会让你更接近一个未来，一个你可以自由选择如何度过一生的未来。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Young people should invest in stocks to become rich quickly.",
+        "It is important for young adults to start managing money early through budgeting, saving, and investing.",
+        "Saving 20% of income is the only way to achieve financial freedom.",
+        "Young people should avoid all expenses to save money."
+      ],
+      "answer": 1,
+      "explain": "主旨题。文章主要介绍年轻人应尽早开始理财，包括预算、储蓄和投资。选项A（快速致富）过于片面且不准确；选项C（唯一方法）太绝对；选项D（避免所有支出）不符合原文'保持留意'的建议。因此B正确。"
+    },
+    {
+      "q": "According to the 50/30/20 budget rule, what percentage of after-tax income should go to savings and debt repayment?",
+      "options": [
+        "50%",
+        "30%",
+        "20%",
+        "10%"
+      ],
+      "answer": 2,
+      "explain": "细节题。第三段明确说明'20% to savings and debt repayment'，因此答案是20%，对应选项C。"
+    },
+    {
+      "q": "What does the author imply about investing in an index fund?",
+      "options": [
+        "It requires picking individual stocks.",
+        "It is a high-risk, active strategy.",
+        "It provides diversification at low cost.",
+        "It guarantees high returns in the short term."
+      ],
+      "answer": 2,
+      "explain": "推断题。第六段提到指数基金'gives you instant diversification'且是'low-cost, passive strategy'，因此选项C正确。A与原文'without needing to pick individual stocks'相反；B说'high-risk'未提及；D说'guarantees high returns'过于绝对，原文强调长期表现。"
+    },
+    {
+      "q": "The word 'diversified' in paragraph 5 most nearly means:",
+      "options": [
+        "concentrated",
+        "varied",
+        "risky",
+        "simple"
+      ],
+      "answer": 1,
+      "explain": "词义题。'diversified portfolio'指投资于多种资产以分散风险，因此'varied'（多样的）符合。'concentrated'（集中的）是反义；'risky'（有风险的）和'simple'（简单的）不匹配。"
+    }
+  ]
+}
