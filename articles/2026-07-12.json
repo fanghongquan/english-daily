@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-12",
+  "level": "CET-4",
+  "title": "How Public Transit Paves the Way for a Smarter City",
+  "title_zh": "公共交通如何为智慧城市铺路",
+  "intro_zh": "本文约1000词，探讨公共交通对城市生活、经济和环境的积极影响，包含具体数据和事例。",
+  "paragraphs": [
+    {
+      "en": "Every morning, millions of city dwellers make a choice: drive alone in their cars or take the bus, subway, or train. While private cars offer comfort and privacy, they also bring traffic jams, air pollution, and parking <span class=\"kw\" data-ipa=\"ˈdɪfɪkəltiz\" data-def=\"困难\">difficulties</span>. Public transportation, on the other hand, provides an <span class=\"kw\" data-ipa=\"ɪˈfɪʃənt\" data-def=\"高效的\">efficient</span> way to move large numbers of people. Trains and buses can carry dozens or even hundreds of passengers at once, reducing the number of vehicles on the road. This not only saves time but also cuts down on fuel consumption. For students and workers, a reliable transit system means they can <span class=\"kw\" data-ipa=\"kəmˈpjuːt\" data-def=\"通勤\">commute</span> without worrying about traffic.",
+      "zh": "每天早晨，数百万城市居民面临选择：独自开车，还是乘坐公交车、地铁或火车。私家车提供舒适和私密性，但也带来交通堵塞、空气污染和停车困难。另一方面，公共交通提供了一种高效的方式运送大量人群。火车和公交车一次可搭载数十甚至数百名乘客，减少了路上的车辆数量。这不仅节省时间，还减少了燃料消耗。对于学生和上班族来说，可靠的公交系统意味着他们可以通勤而不必担心交通。"
+    },
+    {
+      "en": "Beyond convenience, public transit is a key driver of economic growth. Cities with well-developed transit systems attract more businesses and <span class=\"kw\" data-ipa=\"ˈtʊrɪsts\" data-def=\"游客\">tourists</span>. For example, New York City's subway network supports millions of daily trips, enabling people to reach jobs, schools, and shops quickly. Studies show that every dollar invested in public transportation generates approximately four dollars in economic returns. This is because transit creates jobs in construction, maintenance, and operation. Moreover, it gives low-income residents <span class=\"kw\" data-ipa=\"ækˈses\" data-def=\"使用/进入的权利\">access</span> to employment opportunities that might otherwise be out of reach. A robust public transit system is truly an <span class=\"kw\" data-ipa=\"ɪnˈvestmənt\" data-def=\"投资\">investment</span> in a city's future.",
+      "zh": "除了便利，公共交通是经济增长的关键驱动力。拥有发达公交系统的城市能吸引更多企业和游客。例如，纽约市的地铁网络每天支持数百万次出行，使人们能快速到达工作地点、学校和商店。研究表明，每投资一美元于公共交通，大约产生四美元的经济回报。这是因为公交系统在建设、维护和运营方面创造了就业机会。此外，它使低收入居民能够获得原本难以企及的就业机会。一个强大的公交系统确实是对城市未来的投资。"
+    },
+    {
+      "en": "Public transportation also plays a vital role in protecting the environment. Cars are a major source of carbon dioxide and other <span class=\"kw\" data-ipa=\"pəˈluːtənts\" data-def=\"污染物\">pollutants</span>. By shifting trips from private cars to buses or trains, cities can significantly reduce greenhouse gas emissions. For instance, a full bus can replace up to 40 cars on the road. According to the American Public Transportation Association, using public transit instead of driving can cut an individual's carbon footprint by 30% or more. Additionally, transit systems that run on electricity or natural gas produce even fewer <span class=\"kw\" data-ipa=\"ˈiːmɪʃənz\" data-def=\"排放物\">emissions</span>. Choosing the bus or subway over a car is a simple but effective way to <span class=\"kw\" data-ipa=\"kənˈtrɪbjuːt\" data-def=\"贡献\">contribute</span> to a cleaner planet.",
+      "zh": "公共交通在保护环境方面也发挥着至关重要的作用。汽车是二氧化碳和其他污染物的主要来源。将出行方式从私家车转向公交车或火车，城市可以显著减少温室气体排放。例如，一辆满载的公交车可以替代路上多达40辆汽车。根据美国公共交通协会的数据，使用公共交通而非开车可以将个人的碳足迹减少30%或更多。此外，使用电力或天然气的公交系统产生的排放更少。选择公交车或地铁代替私家车是一种简单而有效的方式，为更清洁的地球做出贡献。"
+    },
+    {
+      "en": "Another important benefit of public transit is improved social equity. Not everyone can afford a car, especially young people, the elderly, and those with low incomes. A good transit system ensures that all citizens can travel to work, school, hospitals, and other essential services. This <span class=\"kw\" data-ipa=\"ˈfostərz\" data-def=\"促进\">fosters</span> a sense of community and reduces social isolation. For example, in many European cities, public transport is designed to be accessible to people with <span class=\"kw\" data-ipa=\"dɪsəˈbɪlətiz\" data-def=\"残疾\">disabilities</span>, with low-floor buses and audio announcements. Such inclusive design helps everyone participate fully in society. Public transit thus acts as a great <span class=\"kw\" data-ipa=\"iˈkwɑːlɪzər\" data-def=\"平衡器\">equalizer</span>, bridging the gap between rich and poor.",
+      "zh": "公共交通的另一个重要好处是改善社会公平。并非每个人都买得起车，尤其是年轻人、老年人和低收入人群。良好的公交系统确保所有公民都能前往工作、学校、医院和其他基本服务场所。这促进了社区意识，减少了社会孤立。例如，在许多欧洲城市，公共交通设计为方便残疾人使用，设有低地板公交车和语音播报。这种包容性设计帮助每个人都充分参与社会生活。公共交通因此充当了伟大的平衡器，缩小了贫富差距。"
+    },
+    {
+      "en": "Safety is another advantage worth mentioning. Traveling by public transit is statistically much safer than driving a car. Trains and buses are operated by trained professionals, and they follow strict safety rules. In the United States, the fatality rate per passenger mile is about 30 times lower for buses and 100 times lower for trains than for cars. Furthermore, transit stations and vehicles are often equipped with <span class=\"kw\" data-ipa=\"ˈsɜːrvəˌlɑːns\" data-def=\"监控\">surveillance</span> cameras and emergency buttons, enhancing <span class=\"kw\" data-ipa=\"sɪˈkjʊrəti\" data-def=\"安全\">security</span>. For students who travel at odd hours, the presence of other passengers and staff provides a sense of safety. Therefore, public transportation is a <span class=\"kw\" data-ipa=\"ˈreɪlɪəbl\" data-def=\"可靠的\">reliable</span> choice for daily travel.",
+      "zh": "安全是另一个值得一提的优势。统计显示，乘坐公共交通比开车安全得多。火车和公交车由经过培训的专业人员操作，并遵守严格的安全规定。在美国，每乘客英里的死亡率，公交车比汽车低约30倍，火车低约100倍。此外，公交站和车辆通常配备监控摄像头和紧急按钮，增强了安全性。对于在非高峰时段出行的学生来说，其他乘客和工作人员的存在提供了安全感。因此，公共交通是日常出行的可靠选择。"
+    },
+    {
+      "en": "Public transit also encourages a healthier lifestyle. Walking to and from bus stops or train stations adds physical activity to daily routines. A study in the UK found that people who use public transport walk an average of 19 minutes per day, while car users walk only 8 minutes. This extra exercise can reduce the risk of heart disease, obesity, and other health problems. Additionally, less car use means less air pollution, which leads to better respiratory health for everyone. By <span class=\"kw\" data-ipa=\"ɪnˈkɔːrɪdʒɪŋ\" data-def=\"鼓励\">encouraging</span> walking and reducing pollution, public transit makes our cities healthier places to live. So next time you step onto a bus, remember you are not just saving money — you are also improving your health.",
+      "zh": "公共交通还鼓励更健康的生活方式。步行往返公交站或火车站为日常生活增加了体力活动。英国一项研究发现，使用公共交通的人平均每天步行19分钟，而开车的人仅步行8分钟。这种额外的运动可以降低心脏病、肥胖和其他健康问题的风险。此外，汽车使用减少意味着空气污染减少，从而改善每个人的呼吸健康。通过鼓励步行和减少污染，公共交通使我们的城市成为更健康的居住地。所以，下次你踏上公交车时，记住你不仅是在省钱——你也在改善健康。"
+    },
+    {
+      "en": "Of course, public transit systems face <span class=\"kw\" data-ipa=\"ˈtʃælɪndʒɪz\" data-def=\"挑战\">challenges</span> such as overcrowding, delays, and outdated infrastructure. However, many cities are investing in <span class=\"kw\" data-ipa=\"ɪˈnɑːvətɪv\" data-def=\"创新的\">innovative</span> solutions. For example, real-time tracking apps allow passengers to see exactly when the next bus arrives, reducing waiting time. Some cities are introducing electric buses and driverless trains to improve efficiency and reduce pollution. Others are expanding bike-sharing and ride-hailing services that connect with transit hubs, creating a seamless travel experience. These improvements show that public transportation is continuously evolving to meet the needs of modern urban life.",
+      "zh": "当然，公共交通系统面临拥挤、延误和基础设施老化等挑战。然而，许多城市正在投资创新解决方案。例如，实时跟踪应用程序让乘客准确知道下一班公交车何时到达，减少等待时间。一些城市正在引入电动公交车和无人驾驶列车，以提高效率并减少污染。其他城市则扩大与交通枢纽相连的共享单车和网约车服务，创造无缝的出行体验。这些改进表明，公共交通在不断演变，以满足现代城市生活的需求。"
+    },
+    {
+      "en": "In conclusion, public transportation offers numerous benefits: it is <span class=\"kw\" data-ipa=\"ɪˈfɪʃnt\" data-def=\"高效的\">efficient</span>, boosts the economy, protects the environment, promotes social equity, improves safety, and encourages healthy habits. While there are still problems to solve, the overall impact of public transit on our cities is overwhelmingly positive. As students and future leaders, we should support the development of public transportation and make it a priority in urban planning. Remember, every ride on a bus or train brings us one step closer to a smarter, greener, and more <span class=\"kw\" data-ipa=\"ˈkɑːnɛktɪd\" data-def=\"连接的\">connected</span> world.",
+      "zh": "总之，公共交通带来了诸多好处：高效、促进经济、保护环境、促进社会公平、提高安全性并鼓励健康习惯。虽然仍有问题需要解决，但公共交通对我们城市的整体影响是非常积极的。作为学生和未来的领导者，我们应该支持公共交通的发展，并将其作为城市规划的优先事项。记住，每一次乘坐公交车或火车，都让我们离一个更智能、更绿色、更互联的世界更近一步。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "A. Private cars should be banned in cities.",
+        "B. Public transportation has many positive effects on cities and individuals.",
+        "C. Public transit systems face too many challenges to be useful.",
+        "D. Walking is the best way to stay healthy."
+      ],
+      "answer": 1,
+      "explain": "文章从多个方面论述了公共交通的好处，包括效率、经济、环境、社会公平、安全和健康，因此主旨是公共交通对城市和个人有许多积极影响。选项A过于极端，选项C与文章最后一段提到的改进矛盾，选项D只是细节之一。"
+    },
+    {
+      "q": "According to the passage, how does public transit benefit the economy?",
+      "options": [
+        "A. It creates jobs and generates economic returns.",
+        "B. It reduces the cost of building roads.",
+        "C. It increases the number of private cars.",
+        "D. It lowers the price of fuel."
+      ],
+      "answer": 0,
+      "explain": "第二段明确指出，投资公共交通能创造就业机会（construction, maintenance, operation）并产生经济回报（every dollar invested generates about four dollars in economic returns）。选项B、C、D文中未提及。"
+    },
+    {
+      "q": "What does the word \"equalizer\" in paragraph 4 most likely mean?",
+      "options": [
+        "A. Something that makes people equal.",
+        "B. A device that measures noise.",
+        "C. A type of vehicle.",
+        "D. A person who fixes things."
+      ],
+      "answer": 0,
+      "explain": "第四段提到公共交通让买不起车的人也能出行，从而缩小贫富差距，因此equalizer在这里指“使人们平等的事物”。选项B、C、D不符合上下文。"
+    },
+    {
+      "q": "What can be inferred about the future of public transit from the passage?",
+      "options": [
+        "A. It will become less popular due to challenges.",
+        "B. It will continue to improve with new technology.",
+        "C. It will be replaced by private cars.",
+        "D. It will remain the same as today."
+      ],
+      "answer": 1,
+      "explain": "倒数第二段提到许多城市正在投资创新解决方案，如实时追踪应用、电动公交车、无人驾驶列车等，表明公共交通在未来会随着技术进步不断改进。选项A、C、D与原文信息相反。"
+    }
+  ]
+}
