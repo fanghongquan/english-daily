@@ -21,8 +21,29 @@ class InteractionTemplateTest(unittest.TestCase):
         self.assertNotIn("pointerup", html)
         self.assertNotIn("function translate", html)
 
+    def assert_phrase_collection(self, html):
+        self.assertIn('id="sel-phrase"', html)
+        self.assertIn('id="phrase-add"', html)
+        self.assertIn('id="phrase-cancel"', html)
+        self.assertIn("function enterPhraseMode", html)
+        self.assertIn("function selectPhraseEnd", html)
+        self.assertIn("function phraseFromTokens", html)
+        self.assertIn("start.closest('.en')!==end.closest('.en')", html)
+        self.assertIn("selected.length<2", html)
+        self.assertIn("selected.length>10", html)
+        self.assertIn("replace(/^[^A-Za-z]+|[^A-Za-z]+$/g", html)
+        self.assertIn("短语需在同一段内", html)
+        self.assertIn("短语最多 10 个词", html)
+        self.assertIn("function exitPhraseMode", html)
+        self.assertIn("doAdd(selText)", html)
+        self.assertIn("env(safe-area-inset-bottom)", html)
+        self.assertNotIn("window.getSelection", html)
+
     def test_template_uses_double_click_vocab_only(self):
         self.assert_double_click_vocab_only(self.read("template.html"))
+
+    def test_template_supports_phrase_collection(self):
+        self.assert_phrase_collection(self.read("template.html"))
 
     def test_latest_built_page_uses_double_click_vocab_only(self):
         self.assert_double_click_vocab_only(self.read("docs/2026-07-03.html"))
