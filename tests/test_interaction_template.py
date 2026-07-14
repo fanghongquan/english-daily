@@ -45,8 +45,10 @@ class InteractionTemplateTest(unittest.TestCase):
     def test_template_supports_phrase_collection(self):
         self.assert_phrase_collection(self.read("template.html"))
 
-    def test_latest_built_page_uses_double_click_vocab_only(self):
-        self.assert_double_click_vocab_only(self.read("docs/2026-07-03.html"))
+    def test_latest_built_page_supports_word_and_phrase_collection(self):
+        html = self.read("docs/2026-07-11.html")
+        self.assert_double_click_vocab_only(html)
+        self.assert_phrase_collection(html)
 
 
 if __name__ == "__main__":
