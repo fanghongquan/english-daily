@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-14",
+  "level": "CET-4",
+  "title": "Smartphones: The Remote Control for Modern Life",
+  "title_zh": "智能手机：现代生活的遥控器",
+  "intro_zh": "本文约1000词，探讨智能手机如何从通讯工具演变为生活遥控器，覆盖社交、支付、健康、出行、工作学习等场景，并讨论其利弊。",
+  "paragraphs": [
+    {
+      "en": "Two decades ago, a mobile phone was simply a device to make calls. Today, the <span class=\"kw\" data-ipa=\"/ˈsmaːrtfoʊn/\" data-def=\"智能手机\">smartphone</span> has become an <span class=\"kw\" data-ipa=\"/ɪnˈspɛnsəbl/\" data-def=\"不可或缺的\">indispensable</span> tool that controls nearly every aspect of our lives. From waking us up in the morning to guiding us home at night, it functions like a remote control for the modern world. This <span class=\"kw\" data-ipa=\"/rɪˈmɑːrkəbl/\" data-def=\"显著的\">remarkable</span> transformation has not only changed how we communicate but also reshaped our habits, relationships, and daily routines.",
+      "zh": "二十年前，手机仅仅是一个通话设备。如今，智能手机已成为不可或缺的工具，掌控着我们生活的几乎每个方面。从早晨唤醒我们到夜晚引导我们回家，它就像现代世界的遥控器。这一显著的转变不仅改变了我们的沟通方式，也重塑了我们的习惯、人际关系和日常生活。"
+    },
+    {
+      "en": "One of the most obvious changes is in social interaction. Before smartphones, people arranged meetups by landline or in person. Now, with <span class=\"kw\" data-ipa=\"/ˈɪnstənt/\" data-def=\"即时的\">instant</span> messaging apps like WeChat, we can <span class=\"kw\" data-ipa=\"/kəˈmyuːnɪkeɪt/\" data-def=\"交流\">communicate</span> anytime, anywhere. However, this <span class=\"kw\" data-ipa=\"/kənˈviːniənt/\" data-def=\"方便的\">convenient</span> connectivity has a downside. A 2019 study found that the average person checks their phone 96 times a day. Many people feel anxious if they cannot respond immediately, leading to a phenomenon called 'phubbing' — snubbing someone in favor of your phone.",
+      "zh": "最明显的变化之一是社会交往。在智能手机出现之前，人们通过座机或当面安排聚会。如今，有了微信等即时通讯应用，我们可以随时随地交流。然而，这种便捷的连通性也有弊端。2019年的一项研究发现，普通人每天查看手机96次。许多人如果无法立即回复会感到焦虑，导致一种称为'低头族'的现象——因为手机而冷落他人。"
+    },
+    {
+      "en": "Smartphones have also revolutionized how we handle money. Mobile payment <span class=\"kw\" data-ipa=\"/ˌæplɪˈkeɪʃən/\" data-def=\"应用\">applications</span> such as Alipay and WeChat Pay allow users to pay bills, transfer money, and even invest with a few taps. This shift has made transactions faster and more <span class=\"kw\" data-ipa=\"/ˈsɪkjər/\" data-def=\"安全的\">secure</span>, reducing the need to carry cash. In China, mobile payment volume exceeded 347 trillion yuan in 2022, showing how deeply embedded these services are in everyday life. Yet, it also raises concerns about <span class=\"kw\" data-ipa=\"/ˌpraɪvəˈsiː/\" data-def=\"隐私\">privacy</span> and data security, as every purchase leaves a digital footprint.",
+      "zh": "智能手机也彻底改变了我们处理金钱的方式。支付宝和微信支付等移动支付应用让用户只需轻点几下就能支付账单、转账甚至投资。这一转变使交易更快更安全，减少了携带现金的需要。在中国，2022年移动支付金额超过347万亿元，显示了这些服务在日常生活中的深入程度。然而，这也引发了隐私和数据安全的担忧，因为每笔消费都会留下数字足迹。"
+    },
+    {
+      "en": "Health and fitness tracking is another area transformed by smartphones. With built-in sensors and dedicated apps, phones can count steps, monitor heart rate, and even analyze sleep patterns. Many people now use their smartphones as personal <span class=\"kw\" data-ipa=\"/ˈtreɪnər/\" data-def=\"教练\">trainers</span>, setting daily exercise goals and receiving reminders to move. A 2020 survey indicated that 45% of smartphone users in the US use health apps. While this encourages a more active <span class=\"kw\" data-ipa=\"/ˈlaɪfstaɪl/\" data-def=\"生活方式\">lifestyle</span>, experts warn against over-reliance, as the accuracy of some <span class=\"kw\" data-ipa=\"/ˈsensərz/\" data-def=\"传感器\">sensors</span> can be questionable.",
+      "zh": "健康和健身追踪是智能手机改变的另一个领域。借助内置传感器和专用应用，手机可以计步、监测心率甚至分析睡眠模式。许多人现在将智能手机用作私人教练，设定每日运动目标并接收活动提醒。2020年的一项调查显示，45%的美国智能手机用户使用健康应用。虽然这鼓励了更积极的生活方式，但专家警告不要过度依赖，因为某些传感器的准确性可能存疑。"
+    },
+    {
+      "en": "Navigation has become effortless thanks to smartphones. Gone are the days of folding paper maps; now, <span class=\"kw\" data-ipa=\"/ˌnævɪˈɡeɪʃən/ \" data-def=\"导航\">navigation</span> apps like Gaode or Google Maps provide real-time traffic updates and route suggestions. This technology has not only saved time but also reduced the stress of getting lost. For example, a study by the University of Tokyo found that using GPS-based apps can improve <span class=\"kw\" data-ipa=\"/ˌspeɪʃəl/\" data-def=\"空间的\">spatial</span> awareness in unfamiliar environments. However, over-reliance may weaken our natural sense of direction, as our brains no longer need to <span class=\"kw\" data-ipa=\"/rɪˈmembər/\" data-def=\"记住\">remember</span> routes.",
+      "zh": "得益于智能手机，导航变得毫不费力。折叠纸质地图的日子已经一去不复返；现在，高德或谷歌地图等导航应用提供实时交通更新和路线建议。这项技术不仅节省了时间，还减少了迷路的压力。例如，东京大学的一项研究发现，使用基于GPS的应用可以提高在陌生环境中的空间意识。然而，过度依赖可能会削弱我们的自然方向感，因为我们的大脑不再需要记住路线。"
+    },
+    {
+      "en": "Smartphones have also transformed education and work. With <span class=\"kw\" data-ipa=\"/ˈməʊbaɪl/\" data-def=\"移动的\">mobile</span> learning platforms, students can access courses, take quizzes, and collaborate with classmates anytime. Similarly, remote work tools like DingTalk enable employees to hold meetings and share files on the go. This <span class=\"kw\" data-ipa=\"/flɛksəˈbɪləti/\" data-def=\"灵活性\">flexibility</span> has broken traditional boundaries, allowing people to learn and work at their own pace. Yet, the constant connectivity can blur the line between work and personal life, leading to <span class=\"kw\" data-ipa=\"/ˈbɜːrnaʊt/\" data-def=\"倦怠\">burnout</span> if not managed properly.",
+      "zh": "智能手机也改变了教育和工作的方式。借助移动学习平台，学生可以随时访问课程、参加测验并与同学协作。同样，钉钉等远程工作工具使员工能够随时开会和共享文件。这种灵活性打破了传统界限，让人们可以按照自己的节奏学习和工作。然而，持续连接可能会模糊工作与个人生活的界限，如果管理不当会导致倦怠。"
+    },
+    {
+      "en": "Despite these benefits, the <span class=\"kw\" data-ipa=\"/dɪˈpendəns/\" data-def=\"依赖\">dependence</span> on smartphones has its dark side. Studies show that excessive use can lead to sleep disorders, eye strain, and reduced face-to-face interaction. A 2021 report indicated that teenagers who spend more than three hours a day on their phones are more likely to report symptoms of depression. It is important to find a <span class=\"kw\" data-ipa=\"/ˈbæləns/\" data-def=\"平衡\">balance</span> between utilizing technology and maintaining real-world connections. Setting screen time limits and having phone-free zones can help <span class=\"kw\" data-ipa=\"/ˈmɪtɪɡeɪt/\" data-def=\"缓解\">mitigate</span> these negative effects.",
+      "zh": "尽管有这些好处，对智能手机的依赖也有其阴暗面。研究表明，过度使用会导致睡眠障碍、眼睛疲劳和面对面交流减少。2021年的一份报告指出，每天在手机上花费超过三小时的青少年更有可能报告抑郁症状。在利用技术和保持真实世界联系之间找到平衡非常重要。设置屏幕使用时间和无手机区域有助于缓解这些负面影响。"
+    },
+    {
+      "en": "In conclusion, the smartphone has truly become the remote control of modern life, offering unprecedented <span class=\"kw\" data-ipa=\"/kənˈviːniəns/\" data-def=\"便利\">convenience</span> and efficiency. From communication and payment to health and navigation, its impact is profound. However, as we embrace this technology, we must remain aware of its potential drawbacks and strive for a healthy <span class=\"kw\" data-ipa=\"/ɪnˈtɛɡreɪʃən/\" data-def=\"整合\">integration</span> into our lives. The key lies in using smartphones as tools, not allowing them to control us.",
+      "zh": "总之，智能手机确实已成为现代生活的遥控器，提供了前所未有的便利和效率。从通讯和支付到健康和导航，其影响深远。然而，在拥抱这项技术时，我们必须意识到其潜在弊端，并努力将其健康地融入我们的生活。关键在于将智能手机作为工具使用，而不是让它们控制我们。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Smartphones have completely replaced traditional communication devices.",
+        "Smartphones bring both convenience and challenges to modern life.",
+        "People should stop using smartphones to avoid negative effects.",
+        "Smartphones are mainly used for entertainment purposes."
+      ],
+      "answer": 1,
+      "explain": "文章主旨：智能手机带来便利（社交、支付、健康等）但也带来挑战（依赖、隐私、健康问题），因此B项准确概括了正反两方面。A过于绝对，C偏激，D片面。"
+    },
+    {
+      "q": "According to the passage, what is 'phubbing'?",
+      "options": [
+        "Checking your phone 96 times a day.",
+        "Using a smartphone to pay for goods.",
+        "Ignoring someone in favor of your phone.",
+        "Feeling anxious when not using your phone."
+      ],
+      "answer": 2,
+      "explain": "细节题。第二段末尾解释phubbing为'snubbing someone in favor of your phone'，即冷落他人而关注手机，故选C。A是检查频率，B是移动支付，D是焦虑情绪，均不符。"
+    },
+    {
+      "q": "What concern about mobile payment does the author mention?",
+      "options": [
+        "It is too slow compared to cash.",
+        "It may lead to overspending.",
+        "It raises privacy and data security issues.",
+        "It requires carrying a phone at all times."
+      ],
+      "answer": 2,
+      "explain": "细节题。第三段最后一句：'it also raises concerns about privacy and data security'，故选C。A与文中'faster'矛盾，B未提及，D不是担忧而是事实。"
+    },
+    {
+      "q": "What does the word 'mitigate' in paragraph 7 most likely mean?",
+      "options": [
+        "Increase",
+        "Reduce",
+        "Cause",
+        "Ignore"
+      ],
+      "answer": 1,
+      "explain": "词义推断题。前文提到过度使用手机的负面影响，而后一句说设置屏幕时间限制等做法可以mitigate这些负面影响，根据语境，mitigate应为'减轻、缓解'，与reduce同义，故选B。"
+    }
+  ]
+}
