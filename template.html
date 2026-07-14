@@ -94,6 +94,18 @@
   #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
     padding:7px 12px;border-radius:8px;cursor:pointer}
   #selbar button:hover{background:rgba(255,255,255,.15)}
+  .tok.phrase-selected{background:var(--selbg);border-radius:4px}
+  #phrase-preview,#phrase-hint,#phrase-add,#phrase-cancel{display:none}
+  #selbar.phrase-mode{left:50%!important;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    width:min(calc(100vw - 24px),520px);flex-wrap:wrap;justify-content:center;
+    align-items:center;white-space:normal}
+  #selbar.phrase-mode #sel-add,#selbar.phrase-mode #sel-phrase{display:none}
+  #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
+  #selbar.phrase-ready #phrase-hint{display:none}
+  #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
   /* toast */
   #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
     background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
@@ -216,8 +228,13 @@
   <button id="mobile-more" aria-expanded="false">•••</button>
 </div>
 
-<div id="selbar">
-  <button id="sel-add">＋ 生词</button>
+<div id="selbar" role="toolbar" aria-live="polite">
+  <span id="phrase-preview"></span>
+  <span id="phrase-hint"></span>
+  <button id="sel-add">＋ 单词</button>
+  <button id="sel-phrase">选择短语</button>
+  <button id="phrase-add">＋ 短语</button>
+  <button id="phrase-cancel">取消</button>
 </div>
 <div id="toast"></div>
 
