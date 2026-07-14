@@ -104,6 +104,7 @@
   #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
   #selbar.phrase-ready #phrase-hint{display:none}
   #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview,#phrase-hint{color:#fff;font-size:13px}
   #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
     color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
   /* toast */
@@ -518,6 +519,7 @@ async function doAdd(text){ text=(text||'').trim(); if(!text) return;
 /* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
 const selbar=document.getElementById('selbar');
 let selText='';
+let phraseStart=null, phraseEnd=null, phraseTokens=[];
 const artEl=document.getElementById('article');
 
 function tokenize(){
@@ -548,7 +550,49 @@ function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEa
 indexTokens();
 
 function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
-function clearSel(){ selbar.style.display='none'; selText=''; }
+function cleanPhraseEdge(text){
+  return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,'');
+}
+function phraseFromTokens(tokens){
+  return cleanPhraseEdge(tokens.map(t=>cleanPhraseEdge(t.dataset.w||t.textContent))
+    .filter(Boolean).join(' '));
+}
+function clearPhraseHighlight(){
+  phraseTokens.forEach(t=>t.classList.remove('phrase-selected'));
+  phraseTokens=[];
+}
+function clearSel(){
+  clearPhraseHighlight(); phraseStart=null; phraseEnd=null; selText='';
+  selbar.classList.remove('phrase-mode','phrase-ready');
+  document.getElementById('phrase-preview').textContent='';
+  document.getElementById('phrase-hint').textContent='';
+  selbar.style.display='none';
+}
+function exitPhraseMode(){ clearSel(); }
+function enterPhraseMode(){
+  if(!phraseStart) return;
+  clearPhraseHighlight(); phraseTokens=[phraseStart];
+  phraseStart.classList.add('phrase-selected'); selText='';
+  selbar.classList.add('phrase-mode'); selbar.classList.remove('phrase-ready');
+  document.getElementById('phrase-hint').textContent='请选择短语最后一个词';
+  selbar.style.display='flex';
+}
+function selectPhraseEnd(end){
+  const start=phraseStart;
+  if(!start||start.closest('.en')!==end.closest('.en')){
+    toast('短语需在同一段内'); exitPhraseMode(); return;
+  }
+  const siblings=[...start.closest('.en').querySelectorAll('.tok')];
+  const a=siblings.indexOf(start), b=siblings.indexOf(end);
+  const selected=siblings.slice(Math.min(a,b),Math.max(a,b)+1);
+  if(selected.length<2){ toast('请再选择一个词'); return; }
+  if(selected.length>10){ toast('短语最多 10 个词'); return; }
+  clearPhraseHighlight(); phraseTokens=selected; phraseEnd=end;
+  phraseTokens.forEach(t=>t.classList.add('phrase-selected'));
+  selText=phraseFromTokens(phraseTokens);
+  document.getElementById('phrase-preview').textContent=selText;
+  selbar.classList.add('phrase-ready');
+}
 function showBar(tok){ selbar.style.display='flex';
   const r=tok.getBoundingClientRect();
   const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
@@ -559,13 +603,31 @@ function showBar(tok){ selbar.style.display='flex';
 artEl.addEventListener('dblclick', e=>{
   const tok=e.target.closest&&e.target.closest('.tok');
   if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  clearSel(); phraseStart=tok;
   selText=cleanToken(tok.dataset.w||tok.textContent);
   if(!selText){ clearSel(); return; }
   showBar(tok);
 }, true);
+artEl.addEventListener('click',e=>{
+  if(!selbar.classList.contains('phrase-mode')) return;
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok) return;
+  e.preventDefault(); e.stopPropagation(); selectPhraseEnd(tok);
+},true);
 document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
-document.addEventListener('click', e=>{ if(e.target.closest&&!e.target.closest('#selbar')) clearSel(); }, true);
-document.addEventListener('scroll',()=>{ selbar.style.display='none'; }, true);
+document.getElementById('sel-phrase').onclick=e=>{ e.stopPropagation(); enterPhraseMode(); };
+document.getElementById('phrase-add').onclick=e=>{
+  e.stopPropagation(); if(selText){ doAdd(selText); exitPhraseMode(); }
+};
+document.getElementById('phrase-cancel').onclick=e=>{ e.stopPropagation(); exitPhraseMode(); };
+document.addEventListener('click',e=>{
+  if(!e.target.closest||e.target.closest('#selbar')) return;
+  if(selbar.classList.contains('phrase-mode')&&e.target.closest('.tok')) return;
+  clearSel();
+},true);
+document.addEventListener('scroll',()=>{
+  if(!selbar.classList.contains('phrase-mode')) clearSel();
+},true);
 
 </script>
 </body>
