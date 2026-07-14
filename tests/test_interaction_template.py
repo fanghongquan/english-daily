@@ -46,7 +46,7 @@ class InteractionTemplateTest(unittest.TestCase):
         self.assert_phrase_collection(self.read("template.html"))
 
     def test_latest_built_page_supports_word_and_phrase_collection(self):
-        html = self.read("docs/2026-07-11.html")
+        html = self.read("docs/2026-07-13.html")
         self.assert_double_click_vocab_only(html)
         self.assert_phrase_collection(html)
 
