@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-16",
+  "level": "CET-4",
+  "title": "The Quiet Revolution: How Electric Cars Are Reshaping Our Roads",
+  "title_zh": "静悄悄的革命：电动汽车如何重塑我们的道路",
+  "intro_zh": "本文约1000词，介绍电动汽车的普及如何改变交通、环境与日常生活，包括技术进步、充电设施、经济影响和未来展望。",
+  "paragraphs": [
+    {
+      "en": "Picture this: you are walking down a busy city street, and all you hear is the rustle of tires and the hum of conversation. No roaring engines, no <span class=\"kw\" data-ipa=\"/ɪɡˈzɔːst/\" data-def=\"排气管\">exhaust</span> fumes. This is becoming a reality as electric vehicles (EVs) quietly take over our roads. In 2025, global EV sales hit a record 17 million, a number that is expected to double by 2030. The shift is not just about cars; it is a <span class=\"kw\" data-ipa=\"/ˈtrænsfɔːrm/\" data-def=\"改变\">transform</span>ation of how we move, breathe, and live.",
+      "zh": "想象一下：你走在繁忙的城市街道上，只听到轮胎的沙沙声和谈话的嗡嗡声。没有轰鸣的发动机，没有排气管的废气。随着电动汽车悄然接管我们的道路，这正在成为现实。2025年，全球电动汽车销量创下1700万辆的纪录，预计到2030年将翻一番。这种转变不仅仅是关于汽车；它改变了我们的出行、呼吸和生活方式。"
+    },
+    {
+      "en": "One major reason for the EV boom is the rapid improvement in battery technology. Modern lithium-ion batteries can now store enough energy to drive over 400 miles on a single <span class=\"kw\" data-ipa=\"/tʃɑːrdʒ/\" data-def=\"充电\">charge</span>. That is farther than many gasoline cars can go on a full tank. Moreover, the cost of batteries has dropped by 90% since 2010, making EVs <span class=\"kw\" data-ipa=\"/əˈfɔːrdəbl/\" data-def=\"负担得起的\">affordable</span> for ordinary families. In China, a basic EV can cost as little as $10,000 after government subsidies.",
+      "zh": "电动汽车繁荣的一个主要原因是电池技术的快速进步。现代锂离子电池一次充电可储存足够行驶400多英里的能量。这比许多汽油车加满一箱油能跑的距离还远。此外，自2010年以来，电池成本下降了90%，使普通家庭也能买得起电动汽车。在中国，政府补贴后，一辆基础款电动车可能只需1万美元。"
+    },
+    {
+      "en": "Charging infrastructure is also expanding rapidly. In cities like Shenzhen, you can find a charging station every few blocks. Many companies install chargers in parking lots, so you can top up your car while you shop or work. The time to fully charge an EV has shrunk from hours to under 30 minutes with fast-charging technology. This <span class=\"kw\" data-ipa=\"/ɪˈlɪmɪneɪt/\" data-def=\"消除\">eliminate</span>s the worry about running out of power on a long trip.",
+      "zh": "充电基础设施也在迅速扩展。在深圳这样的城市，每隔几个街区就能找到一个充电站。许多公司在停车场安装充电器，这样你可以在购物或工作时给汽车充电。借助快速充电技术，充满电的时间已从几小时缩短到不到30分钟。这消除了长途旅行中电量耗尽的担忧。"
+    },
+    {
+      "en": "The environmental benefits are significant. EVs produce zero tailpipe emissions, which helps reduce air pollution in crowded cities. A study shows that replacing a gasoline car with an EV can cut carbon dioxide emissions by about 1.5 tons per year. However, the production of batteries does have an environmental <span class=\"kw\" data-ipa=\"/ɪmˈpækt/\" data-def=\"影响\">impact</span>, particularly from mining lithium and cobalt. Companies are now working to make batteries more sustainable through recycling and using alternative materials.",
+      "zh": "环境效益显著。电动汽车零尾气排放，有助于减少拥挤城市的空气污染。一项研究表明，用电动汽车替换汽油车每年可减少约1.5吨二氧化碳排放。然而，电池生产确实对环境有影响，尤其是开采锂和钴。公司现在正努力通过回收和替代材料使电池更可持续。"
+    },
+    {
+      "en": "Driving an EV offers a unique experience. The instant <span class=\"kw\" data-ipa=\"/ˈtɔːrkw/\" data-def=\"扭矩\">torque</span> from the electric motor gives smooth and quick acceleration. Many drivers describe the ride as quiet and relaxing. EVs also have fewer moving parts, so they need less <span class=\"kw\" data-ipa=\"/ˌmeɪntəˈnəns/\" data-def=\"维护\">maintenance</span> — no oil changes, no transmission repairs. The savings on fuel and repairs can amount to hundreds of dollars each year.",
+      "zh": "驾驶电动汽车提供独特体验。电动机的瞬时扭矩带来平顺而快速的加速。许多司机形容行驶过程安静而放松。电动汽车的移动部件更少，因此维护需求更少——无需换油，无需变速箱维修。每年节省的燃料和维修费用可达数百美元。"
+    },
+    {
+      "en": "However, challenges remain. The current power grid in many countries is not ready for millions of EVs charging at the same time. If everyone plugs in their car after work, it could cause blackouts. To solve this, <span class=\"kw\" data-ipa=\"/ˈjuːtɪləti/\" data-def=\"公用事业\">utility</span> companies are developing smart charging systems that schedule charging during off-peak hours. Some are even experimenting with vehicle-to-grid (V2G) technology, where EVs can send electricity back to the grid during peak demand.",
+      "zh": "然而，挑战依然存在。许多国家目前的电网还没有准备好让数百万辆电动汽车同时充电。如果每个人下班后都插上汽车充电，可能会导致停电。为了解决这个问题，公用事业公司正在开发智能充电系统，在非高峰时段安排充电。有些公司甚至正在试验车到电网技术，允许电动汽车在高峰需求时向电网回馈电力。"
+    },
+    {
+      "en": "The economic ripple effects are huge. The rise of EVs has created millions of jobs in battery manufacturing, charging infrastructure, and software development. Traditional auto <span class=\"kw\" data-ipa=\"/ˈsʌplaɪər/\" data-def=\"供应商\">supplier</span>s are retooling their factories to produce EV parts. Meanwhile, oil demand is expected to peak by 2030, as more drivers switch to electricity. This shift is reshaping global energy markets and national economies.",
+      "zh": "经济涟漪效应巨大。电动汽车的兴起在电池制造、充电基础设施和软件开发领域创造了数百万个就业机会。传统汽车供应商正在改造工厂以生产电动汽车零部件。与此同时，随着更多司机转向电力，石油需求预计将在2030年达到峰值。这一转变正在重塑全球能源市场和国民经济。"
+    },
+    {
+      "en": "Looking ahead, the future of transportation is electric. Major carmakers have announced plans to go fully electric within a decade. Governments are offering tax breaks and building more charging stations. The technology is still evolving: solid-state batteries, which promise even longer range and faster charging, are on the horizon. As one engineer puts it, We are just at the <span class=\"kw\" data-ipa=\"/ˈdeɪnɪŋ/\" data-def=\"黎明\">dawn</span> of the electric age. The road ahead is bright and quiet.",
+      "zh": "展望未来，交通的未来是电动的。主要汽车制造商已宣布在未来十年内全面电动化的计划。政府正在提供税收减免并建设更多充电站。这项技术仍在发展：固态电池有望提供更长的续航和更快的充电速度，即将问世。正如一位工程师所说，我们正处于电动时代的黎明。前方的道路光明而安静。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Electric cars are too expensive for most people.",
+        "The rise of electric vehicles is transforming transportation, economy, and environment.",
+        "Battery technology has stopped improving.",
+        "Charging stations are only available in big cities."
+      ],
+      "answer": 1,
+      "explain": "主旨题。文章主要讨论电动汽车如何改变交通、环境和经济，包括技术、基础设施、环境效益和挑战等。选项1、3、4与文章内容相悖或片面，选项2正确概括了主旨。"
+    },
+    {
+      "q": "According to the passage, what is one challenge for the widespread use of EVs?",
+      "options": [
+        "Lack of government support.",
+        "High battery cost.",
+        "The power grid may not handle charging demand.",
+        "Drivers dislike the quiet ride."
+      ],
+      "answer": 2,
+      "explain": "细节题。第六段指出‘The current power grid in many countries is not ready for millions of EVs charging at the same time’，即电网可能无法同时处理大量充电需求。选项1、2、4与文章信息不符。"
+    },
+    {
+      "q": "What can be inferred about the cost of EV batteries?",
+      "options": [
+        "It has increased since 2010.",
+        "It remains the same as before.",
+        "It has decreased significantly, making EVs more affordable.",
+        "It is still the main obstacle for EV adoption."
+      ],
+      "answer": 2,
+      "explain": "推断题。第二段提到‘the cost of batteries has dropped by 90% since 2010, making EVs affordable’，因此可以推断电池成本大幅下降。选项1、2、4与原文相悖。"
+    },
+    {
+      "q": "The word \"transform\" in Paragraph 1 is closest in meaning to:",
+      "options": [
+        "keep",
+        "change",
+        "destroy",
+        "ignore"
+      ],
+      "answer": 1,
+      "explain": "词义题。根据上下文，‘transform’意为‘改变、转变’。选项1‘保持’、3‘破坏’、4‘忽视’均不符合。"
+    }
+  ]
+}
