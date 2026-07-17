@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-17",
+  "level": "CET-4",
+  "title": "When Machines Learn to Serve: The Quiet Rise of Domestic Robots",
+  "title_zh": "当机器学会服务：家用机器人的悄然兴起",
+  "intro_zh": "本文约1000词，探讨机器人如何从工厂走进家庭，改变我们的日常生活，涵盖清洁、陪伴、教育等领域，并带来新的机遇与挑战。",
+  "paragraphs": [
+    {
+      "en": "Once confined to factory floors and science fiction, robots are now quietly entering our homes. From vacuum cleaners that navigate around furniture to lawn mowers that trim grass on schedule, these intelligent machines are becoming familiar <span class=\"kw\" data-ipa=\"/ˈkʌm.pən.jənz/\" data-def=\"同伴，伙伴\">companions</span> in daily life. According to the International Federation of Robotics, global sales of household robots reached over 18 million units in 2023, a figure that continues to grow rapidly. This <span class=\"kw\" data-ipa=\"/trænd/\" data-def=\"趋势，趋向\">trend&lt;/n&gt; suggests that the era of living with robots is no longer a distant dream but a present reality.</span>",
+      "zh": "机器人一度局限于工厂车间和科幻小说，如今正悄然进入我们的家庭。从能在家具间穿行的吸尘器到按时修剪草坪的割草机，这些智能机器正成为日常生活中熟悉的伙伴。据国际机器人联合会统计，2023年全球家用机器人销量超过1800万台，并且这一数字还在迅速增长。这一趋势表明，与机器人一起生活的时代已不再是遥远的梦想，而是当下的现实。"
+    },
+    {
+      "en": "The most recognizable household robot is the robotic vacuum cleaner, such as Roomba. These devices use sensors and <span class=\"kw\" data-ipa=\"/ˈæl.ɡə.rɪð.əmz/\" data-def=\"算法\">algorithms</span> to map rooms, avoid obstacles, and clean <span class=\"kw\" data-ipa=\"/ɪˈfɪʃ.ənt.li/\" data-def=\"高效地\">efficiently</span>. A typical model can clean a three-bedroom apartment in about 90 minutes, saving users hours each week. Moreover, many models can be controlled via smartphone apps, allowing users to start or schedule cleaning even when they are not at home. The convenience they offer has made them one of the best-selling home appliances of the decade.",
+      "zh": "最广为人知的家用机器人是像Roomba这样的扫地机器人。这些设备利用传感器和算法来绘制房间地图、避开障碍物并高效清洁。一个典型型号大约90分钟就能清扫完一套三居室的公寓，每周为用户节省数小时。此外，许多型号可通过智能手机应用控制，用户即使不在家也能启动或预约清洁。它们提供的便利使其成为十年来最畅销的家电之一。"
+    },
+    {
+      "en": "Beyond cleaning, robots are also taking on more <span class=\"kw\" data-ipa=\"/ˈsəʊ.ʃəl/\" data-def=\"社交的，社会的\">social</span> roles. Companion robots like Sony's Aibo or the humanoid Pepper can recognize faces, <span class=\"kw\" data-ipa=\"/rɪˈspɑːnd/\" data-def=\"回应，作出反应\">respond</span> to voice commands, and even express emotions. In Japan, Pepper has been used in schools to teach English and in nursing homes to entertain the elderly. Research shows that interaction with such robots can reduce feelings of loneliness and improve mood in older adults. These machines are not just tools; they are becoming interactive partners that enrich our emotional lives.",
+      "zh": "除了清洁，机器人还在扮演更具社交性的角色。像索尼Aibo或人形机器人Pepper这样的陪伴型机器人能够识别人脸、回应语音指令，甚至表达情感。在日本，Pepper被用于学校教英语，在养老院为老人提供娱乐。研究表明，与这类机器人互动可以减少孤独感、改善老年人的情绪。这些机器不仅仅是工具，它们正在成为丰富我们情感生活的互动伙伴。"
+    },
+    {
+      "en": "In the field of education, robots are increasingly used as teaching assistants. For example, the robot NAO has been deployed in classrooms to help children learn programming and languages. Its humanoid appearance and interactive <span class=\"kw\" data-ipa=\"/ˈkæp.ə.bɪl.ə.tiz/\" data-def=\"能力\">capabilities</span> engage students more effectively than traditional software. A study in South Korea found that students who learned English with a robot showed a 20% improvement in speaking skills compared to those who only used textbooks. By making learning more fun and <span class=\"kw\" data-ipa=\"/ɪnˈter.ək.tɪv/\" data-def=\"交互的，互动的\">interactive</span>, robots are changing the way we educate the next generation.",
+      "zh": "在教育领域，机器人越来越多地被用作教学助手。例如，机器人NAO已被部署在教室里，帮助儿童学习编程和语言。它的人形外观和互动能力比传统软件更能吸引学生。韩国的一项研究发现，与机器人一起学英语的学生在口语技能上比仅使用课本的学生提高了20%。通过使学习更有趣、更具互动性，机器人正在改变我们教育下一代的方式。"
+    },
+    {
+      "en": "However, the rise of household robots also brings challenges. One major concern is <span class=\"kw\" data-ipa=\"/praɪˈveɪ.si/\" data-def=\"隐私\">privacy</span>. Many robots are equipped with cameras and microphones to function properly, but this also means they can collect sensitive personal data. If not <span class=\"kw\" data-ipa=\"/prəˈtek.tɪd/\" data-def=\"保护\">protected</span> properly, this data could be misused. For instance, a 2022 report revealed that some robot vacuum cleaner brands had been sharing users' floor plans with third parties without consent. Therefore, manufacturers must prioritize security measures to earn consumers' trust.",
+      "zh": "然而，家用机器人的兴起也带来了挑战。一个主要担忧是隐私。许多机器人配备了摄像头和麦克风以便正常工作，但这意味着它们可以收集敏感的个人数据。如果保护不当，这些数据可能被滥用。例如，2022年的一份报告显示，一些扫地机器人品牌在未经同意的情况下将用户的房屋平面图分享给第三方。因此，制造商必须优先考虑安全措施以赢得消费者的信任。"
+    },
+    {
+      "en": "Another issue is the potential impact on employment. While robots create new jobs in design, programming, and maintenance, they may also <span class=\"kw\" data-ipa=\"/rɪˈpleɪs/\" data-def=\"取代\">replace</span> some low-skilled labor. For example, autonomous cleaning robots could reduce the demand for human janitors. However, many economists argue that automation tends to shift jobs rather than eliminate them entirely. As with previous technological revolutions, humans need to adapt by learning new <span class=\"kw\" data-ipa=\"/skɪlz/\" data-def=\"技能\">skills</span> and embracing lifelong education.",
+      "zh": "另一个问题是对就业的潜在影响。虽然机器人在设计、编程和维护方面创造了新的工作岗位，但它们也可能取代一些低技能劳动力。例如，自动清洁机器人可能会减少对人工清洁工的需求。然而，许多经济学家认为，自动化往往会转移工作岗位，而非完全消除。像以往的技术革命一样，人类需要通过学习新技能和接受终身教育来适应。"
+    },
+    {
+      "en": "Looking ahead, the future of home robotics is promising. Scientists are developing robots that can cook, do laundry, and even provide medical care. With advances in artificial intelligence, robots will become smarter, more <span class=\"kw\" data-ipa=\"/əˈdæp.tə.bəl/\" data-def=\"可适应的\">adaptable</span>, and more affordable. By 2030, it is estimated that one in five households in developed countries will own a robot. As these machines become more integrated into our lives, we must consider the ethical and social <span class=\"kw\" data-ipa=\"/rɪˈzʌlts/\" data-def=\"结果\">results</span> carefully.",
+      "zh": "展望未来，家用机器人的前景一片光明。科学家们正在开发能够烹饪、洗衣甚至提供医疗护理的机器人。随着人工智能的进步，机器人将变得更智能、更具适应性、更实惠。据估计，到2030年，发达国家五分之一的家庭将拥有机器人。随着这些机器更深入地融入我们的生活，我们必须认真考虑其伦理和社会后果。"
+    },
+    {
+      "en": "In conclusion, the presence of robots in our daily lives is growing, bringing both convenience and new questions. They help us save time, learn better, and even feel less lonely. Yet we must address issues like privacy and job displacement. The key is to embrace the <span class=\"kw\" data-ipa=\"/tekˈnɑː.lə.dʒi/\" data-def=\"技术\">technology</span> wisely, ensuring that it serves humanity's best interests. The <span class=\"kw\" data-ipa=\"/rɪˈvɑː.luː.ʃən/\" data-def=\"革命\">revolution</span> is already here; it is up to us to guide its path.",
+      "zh": "总之，机器人在我们日常生活中的存在正在增长，既带来了便利，也带来了新的问题。它们帮助我们节省时间、更好地学习，甚至减轻孤独感。然而，我们必须解决隐私和岗位替代等问题。关键在于明智地拥抱技术，确保它为人类的最大利益服务。革命已经到来；我们负责引导其方向。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Robots are replacing human workers in all industries.",
+        "Household robots are becoming common and bring both benefits and challenges.",
+        "Robot vacuum cleaners are the most popular household appliance.",
+        "The future of robots is uncertain and potentially dangerous."
+      ],
+      "answer": 1,
+      "explain": "文章主要讨论了家用机器人日益普及的现状，以及它们带来的便利（如清洁、陪伴、教育）和挑战（如隐私、就业影响），因此选项B最准确。选项A过于极端，C以偏概全，D不符合文章积极但谨慎的基调。"
+    },
+    {
+      "q": "According to paragraph 2, how do robotic vacuum cleaners navigate rooms?",
+      "options": [
+        "By following a pre-programmed path.",
+        "By using sensors and algorithms.",
+        "By communicating with other robots.",
+        "By relying on human remote control."
+      ],
+      "answer": 1,
+      "explain": "第二段明确提到：“These devices use sensors and algorithms to map rooms, avoid obstacles, and clean efficiently.” 因此选项B正确。其他选项在文中未提及或不符合描述。"
+    },
+    {
+      "q": "What does the word \"companions\" in paragraph 1 most likely mean?",
+      "options": [
+        "Servants.",
+        "Friends or partners.",
+        "Tools.",
+        "Enemies."
+      ],
+      "answer": 1,
+      "explain": "根据上下文，机器人被描述为“familiar companions in daily life”，且后文提到它们陪伴人类、减轻孤独感，因此“companions”意为“伙伴、同伴”，选项B最接近。选项A（仆人）和C（工具）过于负面或中性，D（敌人）完全错误。"
+    },
+    {
+      "q": "What challenge do household robots bring according to the passage?",
+      "options": [
+        "They are too expensive for most families.",
+        "They may invade users' privacy.",
+        "They break down easily.",
+        "They make people lazy."
+      ],
+      "answer": 1,
+      "explain": "第五段明确指出“One major concern is privacy”，并举例说明机器人可能泄露用户数据，因此选项B正确。其他选项在文中未作为主要挑战提及。"
+    }
+  ]
+}
