@@ -1,0 +1,91 @@
+{
+  "date": "2026-07-19",
+  "level": "CET-4",
+  "title": "From Garage to Globe: How Inventors Reshape Our World",
+  "title_zh": "从车库到全球：发明家如何重塑世界",
+  "intro_zh": "本文约1000词，讲述了改变世界的发明家们的故事，包括他们的创新历程、失败经历以及对人类生活的深远影响。文章通过具体事例和数据，展现了发明家们的创造力、坚持精神和对社会的贡献。",
+  "paragraphs": [
+    {
+      "en": "When we think of inventors, names like Thomas Edison or Alexander Graham Bell often come to mind. But behind every <span class=\"kw\" data-ipa=\"ˈgrændɪoʊs\" data-def=\"宏伟的，壮丽的\">grandiose</span> invention lies a story of <span class=\"kw\" data-ipa=\"ˈkɜrjəsəti\" data-def=\"好奇心\">curiosity</span>, failure, and persistence. These individuals didn't just create new gadgets; they fundamentally changed how we live, work, and connect with one another. From the light bulb to the smartphone, each breakthrough represents years of <span class=\"kw\" data-ipa=\"ɪˈfɔrt\" data-def=\"努力\">effort</span> and a willingness to see the world differently.",
+      "zh": "当我们想到发明家时，脑海中常常浮现出托马斯·爱迪生或亚历山大·格雷厄姆·贝尔这样的名字。但在每一项宏伟的发明背后，都隐藏着一个关于好奇心、失败和坚持的故事。这些人不仅仅是创造了新工具；他们从根本上改变了我们的生活、工作以及彼此联系的方式。从灯泡到智能手机，每一项突破都代表着多年的努力和一种以不同视角看待世界的意愿。"
+    },
+    {
+      "en": "Take, for example, the story of James Dyson, the inventor of the bagless vacuum cleaner. In the 1970s, Dyson noticed that traditional vacuum cleaners quickly lost <span class=\"kw\" data-ipa=\"ˈsʌkʃən\" data-def=\"吸力\">suction</span> because their bags got clogged. For five years, he built over 5,000 <span class=\"kw\" data-ipa=\"ˈprɒtətaɪp\" data-def=\"原型，样机\">prototypes</span> before perfecting his cyclonic separation technology. His <span class=\"kw\" data-ipa=\"dɪˈtɜrmɪˈneɪʃən\" data-def=\"决心\">determination</span> paid off: today, Dyson is a global brand, and his invention has made cleaning more efficient for millions.",
+      "zh": "以无袋吸尘器的发明者詹姆斯·戴森为例。在20世纪70年代，戴森注意到传统吸尘器因为集尘袋堵塞而迅速失去吸力。他花了五年时间，制作了超过5000个原型，才最终完善了他的气旋分离技术。他的决心得到了回报：如今，戴森已成为全球品牌，他的发明使数百万人的清洁工作更加高效。"
+    },
+    {
+      "en": "Inventing often requires <span class=\"kw\" data-ipa=\"ˈreɪkələs\" data-def=\"鲁莽的\">reckless</span> <span class=\"kw\" data-ipa=\"ˈɔptɪmɪzəm\" data-def=\"乐观主义\">optimism</span>. The Wright brothers, Orville and Wilbur, were bicycle mechanics with no formal engineering training. Yet they <span class=\"kw\" data-ipa=\"ˈdɛərd\" data-def=\"敢于\">dared</span> to dream of flight. After countless failed attempts, their first powered flight in 1903 lasted just 12 seconds. But that short moment launched the aviation industry, shrinking the world and connecting continents like never before.",
+      "zh": "发明常常需要鲁莽的乐观主义。莱特兄弟——奥维尔和威尔伯——是自行车修理工，没有接受过正规的工程学训练。然而，他们敢于梦想飞行。在无数次失败的尝试之后，1903年他们的首次动力飞行仅持续了12秒。但那个短暂的时刻开启了航空业，缩小了世界，以前所未有的方式连接了各大洲。"
+    },
+    {
+      "en": "Not all inventions are physical objects. Some are <span class=\"kw\" data-ipa=\"ˈsɪstəmz\" data-def=\"系统\">systems</span> or ideas that <span class=\"kw\" data-ipa=\"rɪˈvɒljuːʃənaɪz\" data-def=\"彻底改变\">revolutionize</span> entire industries. For instance, Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN. He wanted to help scientists share information more easily, so he created a system of hyperlinks and protocols. His <span class=\"kw\" data-ipa=\"ˈɪnəveɪʃən\" data-def=\"创新\">innovation</span> was given away for free, and today, the web is an essential part of daily life for billions.",
+      "zh": "并非所有发明都是有形的物体。有些是彻底改变整个行业的系统或想法。例如，蒂姆·伯纳斯-李在1989年于欧洲核子研究中心工作时发明了万维网。他希望帮助科学家更轻松地共享信息，于是创建了一套超链接和协议系统。他的创新被免费提供，如今，网络已成为数十亿人日常生活中不可或缺的一部分。"
+    },
+    {
+      "en": "Female inventors have also made <span class=\"kw\" data-ipa=\"ˈmaɪlstoʊn\" data-def=\"里程碑\">milestone</span> contributions. Hedy Lamarr, a Hollywood actress, co-invented a frequency-hopping communication system during World War II. Her work laid the <span class=\"kw\" data-ipa=\"ˈfaʊndeɪʃən\" data-def=\"基础\">foundation</span> for modern Wi-Fi and Bluetooth technologies. Despite being largely unrecognized in her time, her <span class=\"kw\" data-ipa=\"ˈɪnʤənjuəti\" data-def=\"独创性，聪明才智\">ingenuity</span> now benefits millions of wireless devices worldwide.",
+      "zh": "女性发明家也做出了里程碑式的贡献。好莱坞女演员海蒂·拉玛在二战期间共同发明了跳频通信系统。她的工作为现代Wi-Fi和蓝牙技术奠定了基础。尽管当时很大程度上未获认可，但她的独创性如今惠及全球数百万无线设备。"
+    },
+    {
+      "en": "Failure is a common thread among inventors. Thomas Edison famously said, 'I have not failed. I've just found 10,000 ways that won't work.' This <span class=\"kw\" data-ipa=\"ˈmaɪndˌsɛt\" data-def=\"心态\">mindset</span> is crucial. Inventors often face <span class=\"kw\" data-ipa=\"skɛpˈtɪsɪzəm\" data-def=\"怀疑主义\">skepticism</span> from others and must overcome technical and financial <span class=\"kw\" data-ipa=\"ˈbærɪərz\" data-def=\"障碍\">barriers</span>. Yet their resilience turns setbacks into stepping stones.",
+      "zh": "失败是发明家的共同主线。托马斯·爱迪生有句名言：“我没有失败。我只是找到了1万种行不通的方法。”这种心态至关重要。发明家常常面临他人的怀疑，并且必须克服技术和财务障碍。然而，他们的韧性将挫折转化为垫脚石。"
+    },
+    {
+      "en": "Today's inventors continue to push boundaries in fields like renewable energy, medicine, and artificial intelligence. For example, scientists are developing <span class=\"kw\" data-ipa=\"ˈsɑlər\" data-def=\"太阳的\">solar</span> panels that are more <span class=\"kw\" data-ipa=\"ɪˈfɪʃənt\" data-def=\"高效的\">efficient</span> and affordable, aiming to combat climate change. Meanwhile, biomedical engineers are creating <span class=\"kw\" data-ipa=\"ˈprɒsthəsɪs\" data-def=\"假肢\">prosthetic</span> limbs controlled by the user's thoughts, restoring mobility to amputees.",
+      "zh": "今天的发明家继续在可再生能源、医学和人工智能等领域突破界限。例如，科学家们正在开发更高效、更实惠的太阳能电池板，旨在应对气候变化。与此同时，生物医学工程师正在制造由用户思维控制的假肢，为截肢者恢复活动能力。"
+    },
+    {
+      "en": "What drives these inventors? Often, it is a desire to solve a personal <span class=\"kw\" data-ipa=\"ˈprɒbləm\" data-def=\"问题\">problem</span> or to make the world a better place. They possess an <span class=\"kw\" data-ipa=\"ɪnˈsɛtɪŋ\" data-def=\"永不满足的\">insatiable</span> curiosity and a belief that things can be improved. As we look to the future, we can all be inspired by their stories to <span class=\"kw\" data-ipa=\"ˈkʌltɪveɪt\" data-def=\"培养\">cultivate</span> our own creativity, no matter how small the idea.",
+      "zh": "是什么驱动着这些发明家？通常，是解决个人问题的愿望，或是让世界变得更美好的渴望。他们拥有永不满足的好奇心和相信事物可以改进的信念。当我们展望未来时，我们都可以从他们的故事中获得启发，去培养自己的创造力，无论想法多么微小。"
+    },
+    {
+      "en": "In conclusion, inventors are not just historical figures; they are among us today, tinkering in garages and labs. Their work reminds us that <span class=\"kw\" data-ipa=\"ɪnˈveɪʒən\" data-def=\"发明，创造\">invention</span> is a <span class=\"kw\" data-ipa=\"ˈkɒləˌbreɪtɪv\" data-def=\"合作的\">collaborative</span> process, building on the ideas of those before us. By celebrating their achievements, we encourage the next generation of thinkers and doers to change the world.",
+      "zh": "总之，发明家不仅仅是历史人物；他们就在我们中间，在车库和实验室里修修补补。他们的工作提醒我们，发明是一个合作的过程，建立在前人想法的基础上。通过庆祝他们的成就，我们鼓励下一代思考者和实干家去改变世界。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Inventors are always successful in their first attempt.",
+        "Inventions are only physical objects like light bulbs.",
+        "Inventors change the world through curiosity, failure, and persistence.",
+        "Only famous inventors like Edison have made contributions."
+      ],
+      "answer": 2,
+      "explain": "文章主旨是发明家通过好奇心、失败和坚持改变世界。选项A、B、D均与文章内容不符。"
+    },
+    {
+      "q": "How many prototypes did James Dyson build before perfecting his vacuum cleaner?",
+      "options": [
+        "500",
+        "1,000",
+        "5,000",
+        "10,000"
+      ],
+      "answer": 2,
+      "explain": "根据第二段，戴森制作了超过5000个原型（over 5,000 prototypes），因此正确答案是5,000。"
+    },
+    {
+      "q": "What does the word 'skepticism' in paragraph 6 most likely mean?",
+      "options": [
+        "Support",
+        "Doubt",
+        "Enthusiasm",
+        "Fear"
+      ],
+      "answer": 1,
+      "explain": "'Skepticism'意为怀疑或质疑，与doubt意思最接近。文章提到发明家面临他人的怀疑，因此选项B正确。"
+    },
+    {
+      "q": "Which of the following is TRUE according to the passage?",
+      "options": [
+        "The Wright brothers had formal engineering training.",
+        "Hedy Lamarr's invention was immediately recognized.",
+        "Tim Berners-Lee sold the World Wide Web for profit.",
+        "Modern inventors work in areas like renewable energy and AI."
+      ],
+      "answer": 3,
+      "explain": "根据最后两段，现代发明家在可再生能源和人工智能等领域工作，选项D正确。A项错误，莱特兄弟没有正式训练；B项错误，海蒂·拉玛当时未获认可；C项错误，伯纳斯-李免费提供了万维网。"
+    }
+  ]
+}
