@@ -83,7 +83,7 @@ jobs:
           set -o pipefail
           PAGE="$SITE_BASE_URL/$RUN_DATE.html"
           EXPECTED_SHA="$(sha256sum "docs/$RUN_DATE.html" | awk '{print $1}')"
-          for attempt in 1 2 3 4 5 6; do
+          for attempt in {1..18}; do
             if ACTUAL_SHA="$(curl --fail --silent --show-error "$PAGE" | sha256sum | awk '{print $1}')"; then
               if [ "$ACTUAL_SHA" = "$EXPECTED_SHA" ]; then exit 0; fi
             fi

@@ -29,6 +29,7 @@ class WorkflowConfigTest(unittest.TestCase):
         self.assertIn('EXPECTED_SHA="$(sha256sum "docs/$RUN_DATE.html"', workflow)
         self.assertIn('ACTUAL_SHA="$(curl --fail --silent --show-error "$PAGE"', workflow)
         self.assertIn('"$ACTUAL_SHA" = "$EXPECTED_SHA"', workflow)
+        self.assertIn("for attempt in {1..18}", workflow)
         self.assertIn('state/$RUN_DATE.json', workflow)
 
     def test_dependencies_are_exactly_pinned(self):
