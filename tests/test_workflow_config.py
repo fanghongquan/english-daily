@@ -19,6 +19,19 @@ class WorkflowConfigTest(unittest.TestCase):
         self.assertIn("git add articles docs state", workflow)
         self.assertNotIn("git pull --rebase origin main 2>/dev/null || true", workflow)
 
+    def test_manual_workflow_can_backfill_a_specific_date(self):
+        workflow = (ROOT / ".github/workflows/daily.yml").read_text(encoding="utf-8")
+        self.assertIn("补发日期（YYYY-MM-DD）", workflow)
+        self.assertIn("TZ=Asia/Taipei date +%F", workflow)
+        self.assertIn('RUN_DATE="$REQUESTED_DATE"', workflow)
+        self.assertIn('--date "$RUN_DATE"', workflow)
+        self.assertIn('PAGE="$SITE_BASE_URL/$RUN_DATE.html"', workflow)
+        self.assertIn('EXPECTED_SHA="$(sha256sum "docs/$RUN_DATE.html"', workflow)
+        self.assertIn('ACTUAL_SHA="$(curl --fail --silent --show-error "$PAGE"', workflow)
+        self.assertIn('"$ACTUAL_SHA" = "$EXPECTED_SHA"', workflow)
+        self.assertIn("for attempt in {1..18}", workflow)
+        self.assertIn('state/$RUN_DATE.json', workflow)
+
     def test_dependencies_are_exactly_pinned(self):
         requirements = (ROOT / "requirements.txt").read_text(encoding="utf-8").splitlines()
         packages = [line for line in requirements if line and not line.startswith("#")]
