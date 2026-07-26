@@ -22,9 +22,13 @@ class WorkflowConfigTest(unittest.TestCase):
     def test_manual_workflow_can_backfill_a_specific_date(self):
         workflow = (ROOT / ".github/workflows/daily.yml").read_text(encoding="utf-8")
         self.assertIn("补发日期（YYYY-MM-DD）", workflow)
+        self.assertIn("TZ=Asia/Taipei date +%F", workflow)
         self.assertIn('RUN_DATE="$REQUESTED_DATE"', workflow)
         self.assertIn('--date "$RUN_DATE"', workflow)
         self.assertIn('PAGE="$SITE_BASE_URL/$RUN_DATE.html"', workflow)
+        self.assertIn('EXPECTED_SHA="$(sha256sum "docs/$RUN_DATE.html"', workflow)
+        self.assertIn('ACTUAL_SHA="$(curl --fail --silent --show-error "$PAGE"', workflow)
+        self.assertIn('"$ACTUAL_SHA" = "$EXPECTED_SHA"', workflow)
         self.assertIn('state/$RUN_DATE.json', workflow)
 
     def test_dependencies_are_exactly_pinned(self):

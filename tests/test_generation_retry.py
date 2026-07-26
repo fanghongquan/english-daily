@@ -31,6 +31,19 @@ class GenerationRetryTest(unittest.TestCase):
         self.assertEqual(2, call_model.call_count)
         self.assertEqual(valid["title"], result["title"])
 
+    def test_retries_when_model_returns_non_object_json(self):
+        valid = valid_article()
+
+        with patch.object(
+            get_article,
+            "_call_model",
+            side_effect=[json.dumps([]), json.dumps(valid)],
+        ) as call_model:
+            result = get_article.gen_ai("2026-07-11")
+
+        self.assertEqual(2, call_model.call_count)
+        self.assertEqual(valid["title"], result["title"])
+
     def test_retries_temporary_model_api_errors(self):
         valid = valid_article()
 

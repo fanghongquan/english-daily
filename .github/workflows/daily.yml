@@ -39,7 +39,7 @@ jobs:
         env:
           REQUESTED_DATE: ${{ github.event.inputs.date }}
         run: |
-          if [ -z "$REQUESTED_DATE" ]; then REQUESTED_DATE="$(date -u +%F)"; fi
+          if [ -z "$REQUESTED_DATE" ]; then REQUESTED_DATE="$(TZ=Asia/Taipei date +%F)"; fi
           python -c 'import datetime, os; datetime.date.fromisoformat(os.environ["REQUESTED_DATE"])'
           RUN_DATE="$REQUESTED_DATE"
           echo "RUN_DATE=$RUN_DATE" >> "$GITHUB_ENV"
@@ -80,12 +80,16 @@ jobs:
         env:
           SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
         run: |
+          set -o pipefail
           PAGE="$SITE_BASE_URL/$RUN_DATE.html"
+          EXPECTED_SHA="$(sha256sum "docs/$RUN_DATE.html" | awk '{print $1}')"
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error "$PAGE" >/dev/null; then exit 0; fi
+            if ACTUAL_SHA="$(curl --fail --silent --show-error "$PAGE" | sha256sum | awk '{print $1}')"; then
+              if [ "$ACTUAL_SHA" = "$EXPECTED_SHA" ]; then exit 0; fi
+            fi
             sleep 10
           done
-          echo "Page was not published: $PAGE" >&2
+          echo "The newly generated page was not published: $PAGE" >&2
           exit 1
 
       - name: Push Feishu after publish

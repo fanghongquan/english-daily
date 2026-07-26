@@ -149,6 +149,8 @@ def gen_ai(date: str) -> dict:
         temp = 0.9 if attempt == 0 else 0.5   # 首次多样优先，重试时稳健优先
         try:
             data = _parse_json(_call_model(prompt, temp))
+            if not isinstance(data, dict):
+                raise ArticleValidationError("article must be an object")
             data["date"] = date
             return prepare_article(data, expected_date=date)
         except (json.JSONDecodeError, AttributeError, KeyError,
