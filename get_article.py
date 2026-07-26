@@ -12,10 +12,10 @@
   2. 把最近若干天已用过的标题喂给模型，要求它另选完全不同的领域；
   3. 调高 temperature，提升用词与结构的多样性。
 """
-import os, json, datetime, argparse, re, glob, random
+import os, json, datetime, argparse, re, glob, random, time
 from pathlib import Path
 import envload; envload.load()      # 自动读取 secret.env
-from article_validation import prepare_article
+from article_validation import ArticleValidationError, prepare_article
 
 ROOT = Path(__file__).parent
 SCHEMA_HINT = (ROOT / "articles" / "2026-06-13.json")
@@ -76,7 +76,7 @@ PROMPT_TMPL = """请生成一篇适合中国大学英语四级(CET-4)水平的�
 %(avoid)s
 
 要求：
-1. 文章总长约 1000 词，内容贴近生活/科普/文化，积极正向、信息丰富、有具体事例和数据；
+1. 英文正文必须达到 800-1200 词，绝不能少于 500 词；内容贴近生活/科普/文化，积极正向、信息丰富、有具体事例和数据；
 2. 拆成 7-9 个自然段；
 3. 每段挑 2-3 个四级核心词作为重点词，用 <span class="kw" data-ipa="美式音标" data-def="中文释义">单词</span> 包裹（音标用美式 IPA）；
 4. 每段配一段地道的中文翻译；
@@ -132,9 +132,17 @@ def _parse_json(text: str) -> dict:
     return json.loads(m.group(0) if m else t)
 
 
+def _is_retryable_model_error(error: Exception) -> bool:
+    status_code = getattr(error, "status_code", None)
+    return (
+        status_code in (408, 409, 429)
+        or isinstance(status_code, int) and status_code >= 500
+        or error.__class__.__name__ in ("APIConnectionError", "APITimeoutError")
+    )
+
+
 def gen_ai(date: str) -> dict:
-    """用大模型生成。模型偶尔会返回非法 JSON（正文里有未转义引号等），
-    所以重试若干次，并逐步降低 temperature 提高稳定性。"""
+    """用大模型生成，并在临时接口错误或内容不合格时有限重试。"""
     prompt = _build_prompt(date)
     last_err = None
     for attempt in range(4):
@@ -142,11 +150,19 @@ def gen_ai(date: str) -> dict:
         try:
             data = _parse_json(_call_model(prompt, temp))
             data["date"] = date
-            return data
-        except (json.JSONDecodeError, AttributeError, KeyError) as e:
+            return prepare_article(data, expected_date=date)
+        except (json.JSONDecodeError, AttributeError, KeyError,
+                ArticleValidationError) as e:
             last_err = e
-            print(f"⚠️ 第 {attempt + 1} 次生成 JSON 解析失败，重试中：{e}")
-    raise SystemExit(f"模型多次返回非法 JSON，放弃本次生成：{last_err}")
+            print(f"⚠️ 第 {attempt + 1} 次生成内容不合格，重试中：{e}")
+        except Exception as e:
+            if not _is_retryable_model_error(e):
+                raise
+            last_err = e
+            print(f"⚠️ 第 {attempt + 1} 次模型接口临时失败，重试中：{e}")
+            if attempt < 3:
+                time.sleep(2 ** attempt)
+    raise SystemExit(f"模型多次生成失败，放弃本次生成：{last_err}")
 
 
 def gen_scrape(date: str) -> dict:
