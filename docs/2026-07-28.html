@@ -157,6 +157,20 @@
   #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
     background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
   #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
+  .feedback-card{position:relative;overflow:hidden;margin:22px 0 4px;padding:18px 16px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .feedback-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--know),var(--accent),var(--fuzzy))}
+  .feedback-title{font-size:17px;font-weight:700;margin:0 0 3px}
+  .feedback-copy{font-size:12.5px;color:var(--sub);margin:0 0 13px}
+  .difficulty-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .difficulty-scale button{min-height:48px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:600;padding:7px 5px;
+    cursor:pointer;transition:.15s}
+  .difficulty-scale button:hover{border-color:var(--accent)}
+  .difficulty-scale button[aria-pressed="true"]{color:#fff;background:var(--accent);
+    border-color:var(--accent);box-shadow:0 3px 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+  #feedback-status{min-height:20px;margin:10px 1px 0;color:var(--sub);font-size:12.5px}
   .en .tok{cursor:pointer}
   /* ---- 手机端排版优化 ---- */
   @media (max-width:480px){
@@ -172,6 +186,9 @@
     .rvcard{padding:22px 14px}
     .rv-text{font-size:22px}
     .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+    .feedback-card{padding:16px 12px}
+    .difficulty-scale{gap:5px}
+    .difficulty-scale button{font-size:13px;padding:6px 3px}
   }
 </style>
 </head>
@@ -221,6 +238,17 @@
       <button class="icbtn" id="quiz-reset">重新作答</button></div>
   </section>
 
+  <section id="difficulty-feedback" class="feedback-card" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="feedback-title">这篇文章对你来说？</h2>
+    <p class="feedback-copy">凭第一感觉选择即可，之后也可以修改</p>
+    <div class="difficulty-scale" role="group" aria-label="文章阅读难度">
+      <button type="button" data-value="easy" aria-pressed="false">有点简单</button>
+      <button type="button" data-value="balanced" aria-pressed="false">刚刚好</button>
+      <button type="button" data-value="hard" aria-pressed="false">有点吃力</button>
+    </div>
+    <p id="feedback-status" aria-live="polite">完成阅读或答题后，系统也会参考客观数据</p>
+  </section>
+
   <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
 </div>
 
@@ -250,8 +278,12 @@ function loadProgress(){
   try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
     return value&&value.version===1?value:null; }catch(e){ return null; }
 }
-let progressState=loadProgress()||{version:1,ratio:0,lastParagraph:0,completed:false,
-  quizScore:null,quizTotal:0,updatedAt:null};
+const progressDefaults={version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,quizFirstScore:null,wordActionCount:0,
+  phraseActionCount:0,learningActionKeys:[],difficultyFeedback:null,
+  feedbackSyncState:null,updatedAt:null};
+let progressState=Object.assign({},progressDefaults,loadProgress()||{});
+if(!Array.isArray(progressState.learningActionKeys))progressState.learningActionKeys=[];
 function saveProgress(patch){
   progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
   try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
@@ -261,14 +293,16 @@ function saveProgress(patch){
 /* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
 const encoder=new TextEncoder();
 function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function storedAccessKey(){ return localStorage.getItem('APP_ACCESS_KEY')||''; }
 function accessKey(){
-  let key=localStorage.getItem('APP_ACCESS_KEY')||'';
+  let key=storedAccessKey();
   if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
   if(key) localStorage.setItem('APP_ACCESS_KEY',key);
   return key;
 }
-async function protectedFetch(payload){
-  const key=accessKey(); if(!key) throw new Error('未提供访问码');
+async function protectedFetch(payload,options={}){
+  const key=options.allowPrompt===false?storedAccessKey():accessKey();
+  if(!key) throw new Error('未提供访问码');
   const body=JSON.stringify(payload);
   const timestamp=String(Math.floor(Date.now()/1000));
   const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
@@ -286,6 +320,98 @@ async function protectedFetch(payload){
   }
   return response;
 }
+
+/* ========== 自适应难度反馈：只上传聚合计数 ========== */
+const feedbackQueueKey='englishDaily:feedback:pending';
+const feedbackStatus=document.getElementById('feedback-status');
+const feedbackButtons=[...document.querySelectorAll('.difficulty-scale button')];
+function readFeedbackQueue(){
+  try{ const queue=JSON.parse(localStorage.getItem(feedbackQueueKey)||'{}');
+    return queue&&typeof queue==='object'&&!Array.isArray(queue)?queue:{}; }
+  catch(e){ return {}; }
+}
+function writeFeedbackQueue(queue){
+  try{ localStorage.setItem(feedbackQueueKey,JSON.stringify(queue)); }catch(e){}
+}
+function learningFeedbackPayload(){
+  return {op:'feedback_put',article_date:ARTICLE.date,
+    difficulty:progressState.difficultyFeedback||null,
+    completed:!!progressState.completed,
+    quiz_first_score:Number.isInteger(progressState.quizFirstScore)?progressState.quizFirstScore:null,
+    quiz_total:Number.isInteger(progressState.quizFirstScore)?Number(progressState.quizTotal||0):0,
+    word_action_count:Number(progressState.wordActionCount||0),
+    phrase_action_count:Number(progressState.phraseActionCount||0)};
+}
+function queueLearningFeedback(payload){
+  const queue=readFeedbackQueue(); queue[ARTICLE.date]=payload; writeFeedbackQueue(queue);
+  saveProgress({feedbackSyncState:'pending'});
+}
+function renderDifficultyFeedback(){
+  feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
+    String(button.dataset.value===progressState.difficultyFeedback)));
+}
+function trendText(trend){
+  return trend==='harder'?'后续会稍微提高难度':
+    trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
+}
+async function syncLearningFeedback(interactive=false){
+  const payload=learningFeedbackPayload();
+  queueLearningFeedback(payload);
+  if(!interactive&&!storedAccessKey()){
+    feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
+    return false;
+  }
+  if(!cloudOn){
+    feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
+    return false;
+  }
+  feedbackStatus.textContent='正在记录…';
+  try{
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const queue=readFeedbackQueue(); delete queue[ARTICLE.date]; writeFeedbackQueue(queue);
+    saveProgress({feedbackSyncState:'synced'});
+    feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(result.profile&&result.profile.trend);
+    return true;
+  }catch(e){
+    queueLearningFeedback(payload);
+    feedbackStatus.textContent=storedAccessKey()?
+      '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
+    return false;
+  }
+}
+let feedbackSyncTimer=0;
+function scheduleLearningFeedbackSync(){
+  clearTimeout(feedbackSyncTimer);
+  feedbackSyncTimer=setTimeout(()=>syncLearningFeedback(false),700);
+}
+function recordLearningAction(text){
+  const normalized=(text||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!normalized)return;
+  const type=/\s/.test(normalized)?'phrase':'word';
+  const key=type+':'+normalized;
+  const keys=progressState.learningActionKeys.slice(0,199);
+  if(keys.includes(key))return;
+  keys.push(key);
+  saveProgress({learningActionKeys:keys,
+    wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
+    phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  scheduleLearningFeedbackSync();
+}
+feedbackButtons.forEach(button=>button.onclick=()=>{
+  saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
+  renderDifficultyFeedback(); syncLearningFeedback(true);
+});
+renderDifficultyFeedback();
+const initialFeedbackQueue=readFeedbackQueue();
+if(initialFeedbackQueue[ARTICLE.date]){
+  feedbackStatus.textContent='上次记录正在等待同步';
+  scheduleLearningFeedbackSync();
+}
+addEventListener('online',scheduleLearningFeedbackSync);
 
 /* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
 let usVoice=null;
@@ -388,7 +514,9 @@ function updateReadingProgress(){
   const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
   progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
   const lastParagraph=nearestParagraph();
+  const justCompleted=!progressState.completed&&ratio>=.92;
   saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  if(justCompleted)scheduleLearningFeedbackSync();
   const toolbar=document.querySelector('.toolbar');
   document.getElementById('mobile-float').classList.toggle('visible',
     innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
@@ -421,7 +549,9 @@ function updateQuizSummary(){
   document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
     (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
   quizSummary.classList.add('show');
-  saveProgress({quizScore:quizScore,quizTotal:QS.length,completed:true});
+  const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
+  saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  scheduleLearningFeedbackSync();
 }
 if(QS.length){
   QS.forEach((q,qi)=>{
@@ -464,7 +594,7 @@ document.getElementById('quiz-reset').onclick=()=>{
   document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
     delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
       b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
-  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:0,completed:false}); };
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:QS.length}); };
 
 /* ========== 工具条 ========== */
 const tgZh=document.getElementById('tg-zh');
@@ -512,7 +642,8 @@ async function doAdd(text){ text=(text||'').trim(); if(!text) return;
   try{
     const r=await protectedFetch({op:'maimemo',text});
     const j=await r.json();
-    if(j.ok){ toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    if(j.ok){ recordLearningAction(text);
+      toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
     else { toast('加入失败'+(j.error?'：'+j.error:'')); }
   }catch(e){ toast('加入失败，请重试'); } }
 
