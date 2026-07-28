@@ -23,6 +23,16 @@ class FrontendAuthContractTest(unittest.TestCase):
         self.assertIn("protectedFetch({text,voice})", template)
         self.assertIn("protectedFetch({op:'maimemo',text})", template)
 
+    def test_automatic_feedback_sync_does_not_prompt_for_access_key(self):
+        template = (ROOT / "template.html").read_text(encoding="utf-8")
+        for marker in (
+            "function storedAccessKey",
+            "async function syncLearningFeedback(interactive=false)",
+            "if(!interactive&&!storedAccessKey())",
+            "protectedFetch(payload,{allowPrompt:interactive})",
+        ):
+            self.assertIn(marker, template)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -57,6 +57,34 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_mobile_difficulty_feedback_and_pending_queue_contract(self):
+        html = self.template()
+        for marker in (
+            'id="difficulty-feedback"',
+            'data-value="easy"',
+            'data-value="balanced"',
+            'data-value="hard"',
+            'aria-pressed="false"',
+            'id="feedback-status" aria-live="polite"',
+            "min-height:48px",
+            "englishDaily:feedback:pending",
+            "quizFirstScore",
+            "wordActionCount",
+            "phraseActionCount",
+            "learningActionKeys",
+            "function syncLearningFeedback",
+            "word_action_count",
+            "phrase_action_count",
+        ):
+            self.assertIn(marker, html)
+
+    def test_quiz_reset_preserves_first_diagnostic_score(self):
+        html = self.template()
+        self.assertIn("quizFirstScore==null?quizScore", html)
+        reset = html[html.index("document.getElementById('quiz-reset').onclick"):
+                     html.index("/* ========== 工具条 ========== */")]
+        self.assertNotIn("quizFirstScore:null", reset)
+
     def test_archive_marks_completed_articles_from_local_progress(self):
         build = (ROOT / "build.py").read_text(encoding="utf-8")
         for marker in ('data-date="{date}"', "englishDaily:progress:", "completed", "已读"):
