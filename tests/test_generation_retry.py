@@ -32,6 +32,8 @@ class GenerationRetryTest(unittest.TestCase):
             "近期趋势：可以稍微提高难度",
         ):
             self.assertIn(marker, prompt)
+        self.assertNotIn("每段挑 2-3 个", prompt)
+        self.assertIn("重点词总量服从后面的个人阅读难度目标", prompt)
 
     def test_retries_when_generated_article_fails_validation(self):
         short = copy.deepcopy(valid_article())
