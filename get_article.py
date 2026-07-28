@@ -16,6 +16,7 @@ import os, json, datetime, argparse, re, glob, random, time
 from pathlib import Path
 import envload; envload.load()      # 自动读取 secret.env
 from article_validation import ArticleValidationError, prepare_article
+import profile_client
 
 ROOT = Path(__file__).parent
 SCHEMA_HINT = (ROOT / "articles" / "2026-06-13.json")
@@ -92,11 +93,34 @@ PROMPT_TMPL = """请生成一篇适合中国大学英语四级(CET-4)水平的�
 }"""
 
 
-def _build_prompt(date: str) -> str:
+def _build_prompt(date: str, profile=None) -> str:
     topic = _pick_topic(date)
     recent = _recent_titles()
     avoid = "\n".join(f"- {t}" for t in recent) if recent else "（暂无历史记录）"
-    return PROMPT_TMPL % {"date": date, "topic": topic, "avoid": avoid}
+    profile = profile or profile_client.load_profile_from_env()
+    trend = {
+        "harder": "可以稍微提高难度",
+        "easier": "需要稍微降低难度",
+        "stable": "保持当前难度",
+    }.get(profile.get("trend"), "保持当前难度")
+    learner_target = """
+
+【个人阅读难度目标（优先于上面的通用字数范围，但仍不得少于 500 词）】
+- 正文目标：约 %(target_words)s 词（允许上下浮动 10%%）
+- 新词目标：约 %(target_new_words)s 个真正影响理解的 CET-4 核心词
+- 句子复杂度：%(sentence_level)s / 5
+- 理解目标：%(target_comprehension)s
+- 近期趋势：%(trend)s
+请只调整语言难度，不降低内容的信息量，也不要在文章或 JSON 中提到学习档案。""" % {
+        "target_words": profile["target_words"],
+        "target_new_words": profile["target_new_words"],
+        "sentence_level": profile["sentence_level"],
+        "target_comprehension": profile["target_comprehension"],
+        "trend": trend,
+    }
+    return (PROMPT_TMPL % {
+        "date": date, "topic": topic, "avoid": avoid
+    }) + learner_target
 
 
 def _call_model(prompt: str, temperature: float) -> str:
