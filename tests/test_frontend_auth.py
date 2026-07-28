@@ -33,6 +33,13 @@ class FrontendAuthContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, template)
 
+    def test_saving_access_key_retries_pending_feedback(self):
+        template = (ROOT / "template.html").read_text(encoding="utf-8")
+        handler = template[
+            template.index("document.getElementById('access-key').onclick"):
+            template.index("function toggleMore")]
+        self.assertIn("scheduleLearningFeedbackSync()", handler)
+
 
 if __name__ == "__main__":
     unittest.main()

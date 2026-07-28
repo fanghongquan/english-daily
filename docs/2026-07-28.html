@@ -623,7 +623,7 @@ const vEl=document.getElementById('voice'); vEl.value=String(voice);
 vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
 document.getElementById('access-key').onclick=()=>{
   localStorage.removeItem('APP_ACCESS_KEY');
-  if(accessKey()) toast('访问码已保存');
+  if(accessKey()){ toast('访问码已保存'); scheduleLearningFeedbackSync(); }
 };
 function toggleMore(){ const open=mobilePanel.classList.toggle('open');
   document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
