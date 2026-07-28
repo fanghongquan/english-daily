@@ -1,0 +1,162 @@
+name: deploy-existing-scf
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-existing-scf
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      REGION: ap-guangzhou
+      TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+      TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+      PROFILE_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
+      PROFILE_API_URL: ${{ vars.TTS_API_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify deployment inputs
+        id: verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s scf/index.py
+          test -n "$TENCENTCLOUD_SECRET_ID"
+          test -n "$TENCENTCLOUD_SECRET_KEY"
+          test "${#PROFILE_READ_TOKEN}" -ge 32
+          test -n "$PROFILE_API_URL"
+          python -m compileall -q scf/index.py
+          (cd scf && zip -q -X function.zip index.py)
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Update the existing function only
+        id: deploy
+        if: steps.verify.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -eEuo pipefail
+          trap 'echo "::warning::Existing-function deployment stopped before verification"; echo "result=failed" >> "$GITHUB_OUTPUT"; exit 0' ERR
+          python -m pip install --disable-pip-version-check -q tccli==3.1.135.1
+
+          list_json="$(tccli scf ListFunctions --Region "$REGION" --Limit 100)"
+          candidates=()
+          while IFS=$'\t' read -r function_name namespace; do
+            [ -n "$function_name" ] || continue
+            detail="$(tccli scf GetFunction \
+              --Region "$REGION" \
+              --FunctionName "$function_name" \
+              --Namespace "${namespace:-default}")"
+            if jq -e '
+              ((.Response // .).Environment.Variables // [] | map(.Key)) as $keys
+              | ($keys | index("APP_ACCESS_KEY")) != null
+                and ($keys | index("COS_BUCKET")) != null
+            ' <<< "$detail" >/dev/null; then
+              candidates+=("$function_name"$'\t'"${namespace:-default}")
+            fi
+          done < <(jq -r '
+            ((.Response // .).Functions // [])[]
+            | [.FunctionName, (.Namespace // "default")] | @tsv
+          ' <<< "$list_json")
+
+          if [ "${#candidates[@]}" -ne 1 ]; then
+            echo "::warning::Expected exactly one existing English function; found ${#candidates[@]}"
+            echo "result=ambiguous" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          IFS=$'\t' read -r function_name namespace <<< "${candidates[0]}"
+          detail="$(tccli scf GetFunction \
+            --Region "$REGION" \
+            --FunctionName "$function_name" \
+            --Namespace "$namespace")"
+          environment="$(jq -c --arg token "$PROFILE_READ_TOKEN" '
+            (((.Response // .).Environment.Variables // [])
+              | map(select(.Key != "PROFILE_READ_TOKEN"))
+              + [{"Key":"PROFILE_READ_TOKEN","Value":$token}])
+            | {"Variables":.}
+          ' <<< "$detail")"
+
+          tccli scf UpdateFunctionConfiguration \
+            --Region "$REGION" \
+            --FunctionName "$function_name" \
+            --Namespace "$namespace" \
+            --Environment "$environment" >/dev/null
+
+          zip_file="$(base64 < scf/function.zip | tr -d '\n')"
+          tccli scf UpdateFunctionCode \
+            --Region "$REGION" \
+            --FunctionName "$function_name" \
+            --Namespace "$namespace" \
+            --Handler index.main_handler \
+            --CodeSource ZipFile \
+            --ZipFile "$zip_file" >/dev/null
+
+          active=false
+          for _ in $(seq 1 24); do
+            status="$(tccli scf GetFunction \
+              --Region "$REGION" \
+              --FunctionName "$function_name" \
+              --Namespace "$namespace" \
+              | jq -r '(.Response // .).Status // empty')"
+            if [ "$status" = "Active" ]; then active=true; break; fi
+            if [ "$status" = "Failed" ]; then break; fi
+            sleep 5
+          done
+          test "$active" = true
+          echo "function=$function_name" >> "$GITHUB_OUTPUT"
+          echo "namespace=$namespace" >> "$GITHUB_OUTPUT"
+          echo "result=deployed" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke test private profile read
+        id: smoke
+        if: steps.deploy.outputs.result == 'deployed'
+        shell: bash
+        run: |
+          response="$(curl --fail --silent --show-error \
+            -H 'content-type: application/json' \
+            -H "x-profile-token: $PROFILE_READ_TOKEN" \
+            --data '{"op":"profile_get"}' \
+            "$PROFILE_API_URL")" || {
+              echo "::warning::Function deployed, but profile smoke test failed"
+              echo "result=failed" >> "$GITHUB_OUTPUT"
+              exit 0
+            }
+          if jq -e '
+            .profile.target_mode == "balanced"
+            and (.profile.target_words | type == "number")
+            and (.profile.target_new_words | type == "number")
+          ' <<< "$response" >/dev/null; then
+            echo "result=passed" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Function returned an invalid profile response"
+            echo "result=failed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deployment summary
+        if: always()
+        shell: bash
+        env:
+          DEPLOY_RESULT: ${{ steps.deploy.outputs.result }}
+          FUNCTION_NAME: ${{ steps.deploy.outputs.function }}
+          NAMESPACE: ${{ steps.deploy.outputs.namespace }}
+          SMOKE_RESULT: ${{ steps.smoke.outputs.result }}
+        run: |
+          {
+            echo "## Existing SCF deployment"
+            echo "- Deploy: ${DEPLOY_RESULT:-not-run}"
+            echo "- Function: ${FUNCTION_NAME:-not-selected}"
+            echo "- Namespace: ${NAMESPACE:-not-selected}"
+            echo "- Private profile smoke test: ${SMOKE_RESULT:-not-run}"
+            echo "- New cloud resources created: no"
+          } >> "$GITHUB_STEP_SUMMARY"
