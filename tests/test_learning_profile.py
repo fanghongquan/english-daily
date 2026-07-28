@@ -346,6 +346,21 @@ class LearningProfilePersistenceTest(unittest.TestCase):
         })
         self.assertFalse(scf._snapshot_covers(candidate, cached))
 
+    def test_equal_count_with_different_latest_event_is_not_a_superset(self):
+        cached = scf._default_profile()
+        cached.update({
+            "observation_count": 8,
+            "source_event_count": 8,
+            "source_latest_at": "2026-07-28T12:00:00Z",
+        })
+        candidate = scf._default_profile()
+        candidate.update({
+            "observation_count": 8,
+            "source_event_count": 8,
+            "source_latest_at": "2026-07-28T12:00:00.500000Z",
+        })
+        self.assertFalse(scf._snapshot_covers(candidate, cached))
+
     def test_feedback_put_does_not_overwrite_fresher_cache_with_partial_list(self):
         cached = scf._default_profile()
         cached.update({

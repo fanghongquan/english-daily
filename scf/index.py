@@ -406,8 +406,13 @@ def _snapshot_covers(candidate, cached, expected_new_events=0):
     if isinstance(cached_source, int):
         if candidate_source < cached_source + expected_new_events:
             return False
-        if _event_time(candidate.get("source_latest_at")) < _event_time(
-                cached.get("source_latest_at")):
+        candidate_latest = _event_time(candidate.get("source_latest_at"))
+        cached_latest = _event_time(cached.get("source_latest_at"))
+        if candidate_latest < cached_latest:
+            return False
+        if (expected_new_events == 0
+                and candidate_source == cached_source
+                and candidate_latest != cached_latest):
             return False
     return True
 
