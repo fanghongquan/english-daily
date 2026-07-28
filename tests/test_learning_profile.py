@@ -1,4 +1,6 @@
 import unittest
+import urllib.error
+from unittest.mock import call, patch
 
 from scf import index as scf
 
@@ -155,6 +157,47 @@ class LearningProfileTest(unittest.TestCase):
         self.assertLessEqual(profile["target_words"], 1100)
         self.assertLessEqual(profile["target_new_words"], 8)
         self.assertLessEqual(profile["sentence_level"], 5)
+
+
+class LearningProfilePersistenceTest(unittest.TestCase):
+    def test_cos_json_get_returns_none_on_missing_object(self):
+        missing = urllib.error.HTTPError(
+            "https://cos.test/object", 404, "missing", {}, None)
+        with patch.object(scf, "_cos_req", side_effect=missing):
+            self.assertIsNone(
+                scf._cos_json_get("missing.json", "sid", "skey", "token"))
+
+    def test_feedback_put_merges_event_then_persists_event_and_profile(self):
+        incoming = feedback(difficulty="easy")
+        default = scf._default_profile()
+        with patch.object(scf, "_cos_json_get",
+                          side_effect=[None, default]), \
+                patch.object(scf, "_cos_json_put") as put:
+            result = scf.do_feedback_put(
+                "sid", "skey", "token", incoming, now=NOW)
+        self.assertTrue(result["ok"])
+        self.assertEqual("harder", result["profile"]["trend"])
+        event = put.call_args_list[0].args[1]
+        profile = put.call_args_list[1].args[1]
+        self.assertEqual("easy", event["difficulty"])
+        self.assertEqual(1, profile["observation_count"])
+        self.assertEqual([
+            call(scf._feedback_key("2026-07-28"), event,
+                 "sid", "skey", "token"),
+            call(scf.PROFILE_KEY, profile, "sid", "skey", "token"),
+        ], put.call_args_list)
+
+    def test_profile_get_returns_only_derived_fields(self):
+        stored = scf._default_profile()
+        stored["observation_count"] = 1
+        stored["recent"] = [{
+            "article_date": "2026-07-28", "signal": 0.5, "step": 1.0}]
+        with patch.object(scf, "_cos_json_get", return_value=stored):
+            result = scf.do_profile_get("sid", "skey", "token")
+        self.assertNotIn("recent", result["profile"])
+        self.assertEqual(1, result["profile"]["observation_count"])
+        self.assertEqual("85%-90%",
+                         result["profile"]["target_comprehension"])
 
 
 if __name__ == "__main__":

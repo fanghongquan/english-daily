@@ -360,6 +360,60 @@ def _cos_req(method, objkey, sid, skey, token, body=None):
         return r.read()
 
 
+PROFILE_KEY = "learning-profile/profile.json"
+
+
+def _feedback_key(article_date):
+    return "learning-profile/events/%s.json" % article_date
+
+
+def _cos_json_get(objkey, sid, skey, token):
+    try:
+        raw = _cos_req("GET", objkey, sid, skey, token)
+    except urllib.error.HTTPError as error:
+        if error.code == 404:
+            return None
+        raise
+    data = json.loads(raw.decode())
+    if not isinstance(data, dict):
+        raise ValueError("stored JSON must be an object")
+    return data
+
+
+def _cos_json_put(objkey, data, sid, skey, token):
+    body = json.dumps(
+        data, ensure_ascii=False, separators=(",", ":")).encode()
+    _cos_req("PUT", objkey, sid, skey, token, body)
+
+
+def _public_profile(profile):
+    allowed = (
+        "profile_version", "target_mode", "ability_score",
+        "observation_count", "target_words", "target_new_words",
+        "sentence_level", "target_comprehension", "trend", "updated_at",
+    )
+    return {key: profile[key] for key in allowed if key in profile}
+
+
+def do_feedback_put(sid, skey, token, payload, now=None):
+    now = now or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    normalized = _normalize_feedback(payload, now)
+    article_date = normalized["article_date"]
+    event_key = _feedback_key(article_date)
+    existing = _cos_json_get(event_key, sid, skey, token)
+    merged = _merge_feedback(existing, normalized, now)
+    profile = _cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile()
+    updated = _update_profile(profile, merged, now)
+    _cos_json_put(event_key, merged, sid, skey, token)
+    _cos_json_put(PROFILE_KEY, updated, sid, skey, token)
+    return {"ok": True, "profile": _public_profile(updated)}
+
+
+def do_profile_get(sid, skey, token):
+    profile = _cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile()
+    return {"profile": _public_profile(profile)}
+
+
 def _objkey(key):
     return "forgetlib/" + hashlib.sha256(("fl:" + key).encode()).hexdigest() + ".json"
 
@@ -416,6 +470,16 @@ def _authorize(event, raw_body, now=None):
     return None
 
 
+def _authorize_profile(event):
+    configured = os.environ.get("PROFILE_READ_TOKEN", "")
+    if len(configured) < 32:
+        return 500, "server authentication is not configured"
+    supplied = _headers(event).get("x-profile-token", "")
+    if not supplied or not hmac.compare_digest(configured, supplied):
+        return 401, "invalid server token"
+    return None
+
+
 def _source_ip(event):
     context = event.get("requestContext") or {}
     return (context.get("sourceIp") or (context.get("http") or {}).get("sourceIp")
@@ -459,17 +523,25 @@ def main_handler(event, context):
         return _resp(400, {"error": "invalid request body"}, origin=origin)
     if len(body.encode()) > MAX_BODY:
         return _resp(413, {"error": "request body too large"}, origin=origin)
-    auth_error = _authorize(event, body)
+    try:
+        parsed = json.loads(body) if body else {}
+    except (json.JSONDecodeError, TypeError):
+        parsed = None
+    op = parsed.get("op", "tts") if isinstance(parsed, dict) else None
+    auth_error = (
+        _authorize_profile(event) if op == "profile_get"
+        else _authorize(event, body))
     if auth_error:
         code, message = auth_error
         return _resp(code, {"error": message}, origin=origin)
-    if not _rate_allowed(_source_ip(event)):
+    rate_key = ("profile:" if op == "profile_get" else "browser:") + _source_ip(event)
+    if not _rate_allowed(rate_key):
         return _resp(429, {"error": "too many requests"}, origin=origin)
-    try:
-        d = json.loads(body) if body else {}
-    except (json.JSONDecodeError, TypeError):
+    if parsed is None:
         return _resp(400, {"error": "invalid JSON"}, origin=origin)
-    op = d.get("op", "tts")
+    if not isinstance(parsed, dict):
+        return _resp(400, {"error": "JSON body must be an object"}, origin=origin)
+    d = parsed
     sid, skey, token = _creds()
     if not sid or not skey:
         return _resp(500, {"error": "missing credentials"})
@@ -492,6 +564,15 @@ def main_handler(event, context):
         if op == "put":
             if not d.get("key"): return _resp(400, {"error": "no key"})
             return _resp(200, do_put(sid, skey, token, d["key"], d.get("lib", [])))
+        if op == "feedback_put":
+            try:
+                _normalize_feedback(
+                    d, time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+            except ValueError as error:
+                return _resp(400, {"error": str(error)[:160]}, origin=origin)
+            return _resp(200, do_feedback_put(sid, skey, token, d))
+        if op == "profile_get":
+            return _resp(200, do_profile_get(sid, skey, token))
         return _resp(400, {"error": "bad op"})
     except Exception as e:
         print("provider operation failed:", type(e).__name__, str(e)[:300])

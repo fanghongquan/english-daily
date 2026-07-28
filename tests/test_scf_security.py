@@ -9,6 +9,7 @@ from scf import index as scf
 
 
 ACCESS_KEY = "a" * 32
+PROFILE_TOKEN = "p" * 32
 ORIGIN = "https://fanghongquan.github.io"
 
 
@@ -39,6 +40,7 @@ class ScfSecurityTest(unittest.TestCase):
             "TENCENT_SECRET_ID": "sid",
             "TENCENT_SECRET_KEY": "skey",
             "MAIMEMO_TOKEN": "maimemo-token",
+            "PROFILE_READ_TOKEN": PROFILE_TOKEN,
         })
         self.env.start()
         self.allowed = patch.object(scf, "ALLOW_ORIGIN", ORIGIN)
@@ -97,6 +99,73 @@ class ScfSecurityTest(unittest.TestCase):
             )
         self.assertEqual(200, response["statusCode"])
         operation.assert_called_once_with("maimemo-token", "reliable")
+
+    def test_feedback_put_uses_browser_signature_route(self):
+        payload = {
+            "op": "feedback_put",
+            "article_date": "2026-07-28",
+            "difficulty": "balanced",
+            "completed": True,
+            "quiz_first_score": 3,
+            "quiz_total": 4,
+            "word_action_count": 6,
+            "phrase_action_count": 1,
+        }
+        with patch.object(scf, "do_feedback_put",
+                          return_value={"ok": True}) as operation:
+            response = scf.main_handler(signed_event(payload), None)
+        self.assertEqual(200, response["statusCode"])
+        operation.assert_called_once()
+
+    def test_profile_get_uses_server_token_without_browser_origin(self):
+        event = {
+            "httpMethod": "POST",
+            "body": json.dumps({"op": "profile_get"}),
+            "headers": {"x-profile-token": PROFILE_TOKEN},
+            "requestContext": {"sourceIp": "198.51.100.8"},
+        }
+        with patch.object(scf, "do_profile_get",
+                          return_value={"profile": {"target_words": 900}}) as operation:
+            response = scf.main_handler(event, None)
+        self.assertEqual(200, response["statusCode"])
+        operation.assert_called_once()
+
+    def test_profile_get_rejects_missing_or_bad_server_token(self):
+        for token in (None, "bad-token"):
+            headers = {} if token is None else {"x-profile-token": token}
+            event = {
+                "httpMethod": "POST",
+                "body": json.dumps({"op": "profile_get"}),
+                "headers": headers,
+            }
+            with self.subTest(token=token):
+                self.assertEqual(401, scf.main_handler(event, None)["statusCode"])
+
+    def test_profile_storage_format_error_is_an_upstream_failure(self):
+        event = {
+            "httpMethod": "POST",
+            "body": json.dumps({"op": "profile_get"}),
+            "headers": {"x-profile-token": PROFILE_TOKEN},
+        }
+        with patch.object(scf, "do_profile_get",
+                          side_effect=ValueError("stored JSON is corrupt")):
+            response = scf.main_handler(event, None)
+        self.assertEqual(502, response["statusCode"])
+        self.assertNotIn("corrupt", response["body"])
+
+    def test_invalid_feedback_returns_bad_request(self):
+        payload = {
+            "op": "feedback_put",
+            "article_date": "2026-07-28",
+            "difficulty": "impossible",
+            "completed": True,
+            "quiz_first_score": 3,
+            "quiz_total": 4,
+            "word_action_count": 6,
+            "phrase_action_count": 1,
+        }
+        self.assertEqual(
+            400, scf.main_handler(signed_event(payload), None)["statusCode"])
 
 
 if __name__ == "__main__":
