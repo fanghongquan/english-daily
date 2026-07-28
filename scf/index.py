@@ -22,6 +22,7 @@
   RATE_PER_MINUTE 单实例每分钟补充令牌数，默认 30
 """
 import os, json, time, hmac, hashlib, base64, re, urllib.request, urllib.parse, urllib.error
+from datetime import date
 
 TTS_HOST = "tts.tencentcloudapi.com"
 DEFAULT_VOICE = int(os.environ.get("TTS_VOICE", "101051"))
@@ -137,6 +138,202 @@ def do_maimemo(token, word):
     path = "/notepads/" + notebook_id if notebook_id else "/notepads"
     _mm_req("POST", path, token, body)
     return {"ok": True, "total": len(words) + 1}
+
+
+# ---------------- 阅读反馈与难度档案（纯函数） ----------------
+DIFFICULTIES = {"easy", "balanced", "hard"}
+
+
+def _default_profile():
+    return {
+        "profile_version": 1,
+        "target_mode": "balanced",
+        "ability_score": 50.0,
+        "base_score": 50.0,
+        "observation_count": 0,
+        "target_words": 900,
+        "target_new_words": 6,
+        "sentence_level": 3,
+        "target_comprehension": "85%-90%",
+        "trend": "stable",
+        "recent": [],
+        "updated_at": None,
+    }
+
+
+def _bounded_int(value, name, low, high, allow_none=False):
+    if allow_none and value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError("%s must be an integer" % name)
+    if value < low or value > high:
+        raise ValueError("%s out of range" % name)
+    return value
+
+
+def _normalize_feedback(payload, now):
+    if not isinstance(payload, dict):
+        raise ValueError("feedback must be an object")
+    article_date = payload.get("article_date")
+    if not isinstance(article_date, str):
+        raise ValueError("invalid article_date")
+    try:
+        if date.fromisoformat(article_date).isoformat() != article_date:
+            raise ValueError
+    except ValueError:
+        raise ValueError("invalid article_date")
+    difficulty = payload.get("difficulty")
+    if difficulty is not None and difficulty not in DIFFICULTIES:
+        raise ValueError("invalid difficulty")
+    completed = payload.get("completed", False)
+    if not isinstance(completed, bool):
+        raise ValueError("completed must be boolean")
+    quiz_total = _bounded_int(payload.get("quiz_total", 0),
+                              "quiz_total", 0, 10)
+    quiz_score = _bounded_int(payload.get("quiz_first_score"),
+                              "quiz_first_score", 0, quiz_total,
+                              allow_none=True)
+    if (quiz_score is None and quiz_total != 0) or (
+            quiz_score is not None and quiz_total == 0):
+        raise ValueError("quiz score and total do not match")
+    return {
+        "article_date": article_date,
+        "difficulty": difficulty,
+        "completed": completed,
+        "quiz_first_score": quiz_score,
+        "quiz_total": quiz_total,
+        "word_action_count": _bounded_int(
+            payload.get("word_action_count", 0),
+            "word_action_count", 0, 100),
+        "phrase_action_count": _bounded_int(
+            payload.get("phrase_action_count", 0),
+            "phrase_action_count", 0, 100),
+        "updated_at": now,
+    }
+
+
+def _merge_feedback(existing, incoming, now):
+    new = _normalize_feedback(incoming, now)
+    if not existing:
+        return new
+    old = _normalize_feedback(existing, existing.get("updated_at") or now)
+    if old["article_date"] != new["article_date"]:
+        raise ValueError("article dates do not match")
+    return {
+        "article_date": new["article_date"],
+        "difficulty": (new["difficulty"] if new["difficulty"] is not None
+                       else old["difficulty"]),
+        "completed": old["completed"] or new["completed"],
+        "quiz_first_score": (
+            old["quiz_first_score"] if old["quiz_first_score"] is not None
+            else new["quiz_first_score"]),
+        "quiz_total": (
+            old["quiz_total"] if old["quiz_first_score"] is not None
+            else new["quiz_total"]),
+        "word_action_count": max(old["word_action_count"],
+                                 new["word_action_count"]),
+        "phrase_action_count": max(old["phrase_action_count"],
+                                   new["phrase_action_count"]),
+        "updated_at": now,
+    }
+
+
+def _vocabulary_signal(total):
+    if total <= 3:
+        return 1.0
+    if total == 4:
+        return 0.5
+    if total <= 8:
+        return 0.0
+    if total <= 10:
+        return -0.5
+    return -1.0
+
+
+def _event_signal(event):
+    signal = 0.0
+    difficulty = event.get("difficulty")
+    if difficulty is not None:
+        signal += {"easy": 1.0, "balanced": 0.0, "hard": -1.0}[difficulty] * 0.5
+    score, total = event.get("quiz_first_score"), event.get("quiz_total", 0)
+    if score is not None and total:
+        ratio = score / float(total)
+        signal += (1.0 if ratio >= 0.85 else -1.0 if ratio < 0.6 else 0.0) * 0.25
+    actions = event.get("word_action_count", 0) + event.get("phrase_action_count", 0)
+    signal += _vocabulary_signal(actions) * 0.2
+    signal += (1.0 if event.get("completed") else -1.0) * 0.05
+    return max(-1.0, min(1.0, round(signal, 6)))
+
+
+def _clamp(value, low, high):
+    return max(low, min(high, value))
+
+
+def _apply_profile_targets(profile):
+    score = profile["ability_score"]
+    profile["target_words"] = int(_clamp(
+        round((900 + (score - 50) * 25) / 50) * 50, 700, 1100))
+    profile["target_new_words"] = int(_clamp(
+        round(6 + (score - 50) / 10), 5, 8))
+    profile["sentence_level"] = int(_clamp(
+        round(3 + (score - 50) / 10), 1, 5))
+    recent = profile["recent"]
+    if recent:
+        weights = list(range(1, len(recent) + 1))
+        weighted = sum(item["signal"] * weight
+                       for item, weight in zip(recent, weights)) / sum(weights)
+    else:
+        weighted = 0.0
+    profile["trend"] = (
+        "harder" if weighted > 0.2 else
+        "easier" if weighted < -0.2 else "stable")
+    return profile
+
+
+def _update_profile(profile, event, now):
+    source = profile if isinstance(profile, dict) else {}
+    base = float(source.get("base_score", 50.0))
+    count = int(source.get("observation_count", 0))
+    recent = [
+        {
+            "article_date": item["article_date"],
+            "signal": float(item["signal"]),
+            "step": float(item["step"]),
+        }
+        for item in source.get("recent", [])
+        if isinstance(item, dict)
+        and isinstance(item.get("article_date"), str)
+        and isinstance(item.get("signal"), (int, float))
+        and isinstance(item.get("step"), (int, float))
+    ]
+    signal = _event_signal(event)
+    matching = next((item for item in recent
+                     if item["article_date"] == event["article_date"]), None)
+    if matching:
+        matching["signal"] = signal
+    else:
+        recent.append({
+            "article_date": event["article_date"],
+            "signal": signal,
+            "step": 1.0 if count < 3 else 2.0,
+        })
+        recent.sort(key=lambda item: item["article_date"])
+        count += 1
+    while len(recent) > 7:
+        oldest = recent.pop(0)
+        base = _clamp(base + oldest["signal"] * oldest["step"], 20.0, 80.0)
+    ability = base
+    for item in recent:
+        ability = _clamp(ability + item["signal"] * item["step"], 20.0, 80.0)
+    result = _default_profile()
+    result.update({
+        "base_score": round(base, 3),
+        "ability_score": round(ability, 3),
+        "observation_count": count,
+        "recent": recent,
+        "updated_at": now,
+    })
+    return _apply_profile_targets(result)
 
 
 # ---------------- COS 读写 (q-signature, 用于同步) ----------------
