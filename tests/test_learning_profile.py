@@ -331,6 +331,21 @@ class LearningProfilePersistenceTest(unittest.TestCase):
         self.assertEqual(8, result["profile"]["observation_count"])
         self.assertEqual(63.0, result["profile"]["ability_score"])
 
+    def test_more_visible_events_cannot_replace_a_newer_cache_watermark(self):
+        cached = scf._default_profile()
+        cached.update({
+            "observation_count": 8,
+            "source_event_count": 8,
+            "source_latest_at": "2026-07-28T12:00:00Z",
+        })
+        candidate = scf._default_profile()
+        candidate.update({
+            "observation_count": 9,
+            "source_event_count": 9,
+            "source_latest_at": "2026-07-28T11:59:59.999999Z",
+        })
+        self.assertFalse(scf._snapshot_covers(candidate, cached))
+
     def test_feedback_put_does_not_overwrite_fresher_cache_with_partial_list(self):
         cached = scf._default_profile()
         cached.update({
