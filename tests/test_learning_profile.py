@@ -145,6 +145,45 @@ class LearningProfileTest(unittest.TestCase):
         self.assertEqual("2026-07-02", profile["recent"][0]["article_date"])
         self.assertGreater(profile["base_score"], 50.0)
 
+    def test_resubmitting_rolled_out_date_is_idempotent(self):
+        profile = scf._default_profile()
+        events = []
+        for day in range(1, 9):
+            event = scf._normalize_feedback(feedback(
+                article_date=f"2026-07-{day:02d}", difficulty="easy",
+                quiz_first_score=4, word_action_count=1,
+                phrase_action_count=0), NOW)
+            events.append(event)
+            profile = scf._update_profile(profile, event, NOW)
+        before_count = profile["observation_count"]
+        before_ability = profile["ability_score"]
+        replayed = scf._update_profile(
+            profile, events[0], NOW, previous_event=events[0])
+        self.assertEqual(before_count, replayed["observation_count"])
+        self.assertEqual(before_ability, replayed["ability_score"])
+
+    def test_revising_rolled_out_date_adjusts_base_once(self):
+        profile = scf._default_profile()
+        events = []
+        for day in range(1, 9):
+            event = scf._normalize_feedback(feedback(
+                article_date=f"2026-07-{day:02d}", difficulty="easy",
+                quiz_first_score=4, word_action_count=1,
+                phrase_action_count=0), NOW)
+            events.append(event)
+            profile = scf._update_profile(profile, event, NOW)
+        revised = scf._normalize_feedback(feedback(
+            article_date="2026-07-01", difficulty="hard",
+            quiz_first_score=1, word_action_count=10,
+            phrase_action_count=2), NOW)
+        changed = scf._update_profile(
+            profile, revised, NOW, previous_event=events[0])
+        self.assertEqual(8, changed["observation_count"])
+        self.assertLess(changed["base_score"], profile["base_score"])
+        replayed = scf._update_profile(
+            changed, revised, NOW, previous_event=revised)
+        self.assertEqual(changed["ability_score"], replayed["ability_score"])
+
     def test_targets_remain_in_product_bounds(self):
         profile = scf._default_profile()
         for day in range(1, 20):
@@ -167,11 +206,18 @@ class LearningProfilePersistenceTest(unittest.TestCase):
             self.assertIsNone(
                 scf._cos_json_get("missing.json", "sid", "skey", "token"))
 
+    def test_existing_cos_object_requires_etag_for_safe_update(self):
+        with patch.object(scf, "_cos_req",
+                          return_value=(b"{}", None)):
+            with self.assertRaises(RuntimeError):
+                scf._cos_json_get_with_etag(
+                    "profile.json", "sid", "skey", "token")
+
     def test_feedback_put_merges_event_then_persists_event_and_profile(self):
         incoming = feedback(difficulty="easy")
         default = scf._default_profile()
-        with patch.object(scf, "_cos_json_get",
-                          side_effect=[None, default]), \
+        with patch.object(scf, "_cos_json_get_with_etag",
+                          side_effect=[(None, None), (default, "profile-v1")]), \
                 patch.object(scf, "_cos_json_put") as put:
             result = scf.do_feedback_put(
                 "sid", "skey", "token", incoming, now=NOW)
@@ -181,11 +227,14 @@ class LearningProfilePersistenceTest(unittest.TestCase):
         profile = put.call_args_list[1].args[1]
         self.assertEqual("easy", event["difficulty"])
         self.assertEqual(1, profile["observation_count"])
-        self.assertEqual([
+        self.assertEqual(
             call(scf._feedback_key("2026-07-28"), event,
-                 "sid", "skey", "token"),
-            call(scf.PROFILE_KEY, profile, "sid", "skey", "token"),
-        ], put.call_args_list)
+                 "sid", "skey", "token", etag=None),
+            put.call_args_list[0])
+        self.assertEqual(
+            call(scf.PROFILE_KEY, profile, "sid", "skey", "token",
+                 etag="profile-v1"),
+            put.call_args_list[1])
 
     def test_profile_get_returns_only_derived_fields(self):
         stored = scf._default_profile()
@@ -198,6 +247,54 @@ class LearningProfilePersistenceTest(unittest.TestCase):
         self.assertEqual(1, result["profile"]["observation_count"])
         self.assertEqual("85%-90%",
                          result["profile"]["target_comprehension"])
+
+    def test_feedback_put_retries_profile_precondition_conflict(self):
+        incoming = feedback(difficulty="easy")
+        stored_event = scf._normalize_feedback(incoming, NOW)
+        other_profile = scf._update_profile(
+            scf._default_profile(),
+            scf._normalize_feedback(feedback(
+                article_date="2026-07-27", difficulty="balanced"), NOW),
+            NOW)
+        precondition = urllib.error.HTTPError(
+            "https://cos.test/profile", 412, "precondition", {}, None)
+        reads = [
+            (None, None), (scf._default_profile(), "profile-v1"),
+            (stored_event, "event-v2"), (other_profile, "profile-v2"),
+        ]
+        writes = [None, precondition, None, None]
+        with patch.object(scf, "_cos_json_get_with_etag",
+                          side_effect=reads) as get, \
+                patch.object(scf, "_cos_json_put",
+                             side_effect=writes) as put:
+            result = scf.do_feedback_put(
+                "sid", "skey", "token", incoming, now=NOW)
+        self.assertEqual(4, get.call_count)
+        self.assertEqual(4, put.call_count)
+        self.assertEqual(2, result["profile"]["observation_count"])
+
+    def test_same_date_retry_preserves_first_score_and_max_counts(self):
+        incoming = feedback(
+            difficulty="hard", completed=False, quiz_first_score=4,
+            word_action_count=2, phrase_action_count=1)
+        concurrent = scf._normalize_feedback(feedback(
+            difficulty="easy", completed=True, quiz_first_score=2,
+            word_action_count=8, phrase_action_count=3), NOW)
+        profile = scf._update_profile(
+            scf._default_profile(), concurrent, NOW)
+        with patch.object(scf, "_cos_json_get_with_etag",
+                          side_effect=[
+                              (concurrent, "event-v2"),
+                              (profile, "profile-v2"),
+                          ]), \
+                patch.object(scf, "_cos_json_put") as put:
+            scf.do_feedback_put(
+                "sid", "skey", "token", incoming, now=NOW)
+        merged = put.call_args_list[0].args[1]
+        self.assertEqual(2, merged["quiz_first_score"])
+        self.assertTrue(merged["completed"])
+        self.assertEqual(8, merged["word_action_count"])
+        self.assertEqual(3, merged["phrase_action_count"])
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@
 
 import json
 import os
+import sys
 import urllib.request
 from urllib.parse import urlparse
 
@@ -88,7 +89,12 @@ def fetch_profile(url, token):
         with urllib.request.urlopen(request, timeout=10) as response:
             data = json.loads(response.read().decode())
         return _validated_profile(data)
-    except Exception:
+    except Exception as error:
+        print(
+            "⚠️ 学习档案读取失败（%s），使用默认平衡档案"
+            % type(error).__name__,
+            file=sys.stderr,
+        )
         return fallback
 
 

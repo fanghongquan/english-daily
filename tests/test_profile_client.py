@@ -1,7 +1,9 @@
 import json
+import io
 import os
 import unittest
 import urllib.error
+from contextlib import redirect_stderr
 from unittest.mock import patch
 
 import profile_client
@@ -68,12 +70,28 @@ class ProfileClientTest(unittest.TestCase):
             TimeoutError("slow"),
         )
         for failure in failures:
+            warning = io.StringIO()
             with self.subTest(failure=type(failure).__name__), \
-                    patch("urllib.request.urlopen", side_effect=failure):
+                    patch("urllib.request.urlopen", side_effect=failure), \
+                    redirect_stderr(warning):
                 self.assertEqual(
                     900,
                     profile_client.fetch_profile(
                         "https://profile.test", TOKEN)["target_words"])
+
+    def test_fallback_warning_is_sanitized(self):
+        warning = io.StringIO()
+        with patch("urllib.request.urlopen",
+                   return_value=FakeResponse(b"private-invalid-body")), \
+                redirect_stderr(warning):
+            profile = profile_client.fetch_profile(
+                "https://private-profile.test/path", TOKEN)
+        output = warning.getvalue()
+        self.assertEqual(900, profile["target_words"])
+        self.assertIn("默认平衡档案", output)
+        self.assertNotIn(TOKEN, output)
+        self.assertNotIn("private-profile.test", output)
+        self.assertNotIn("private-invalid-body", output)
 
         malformed = (
             b"not-json",
@@ -84,9 +102,11 @@ class ProfileClientTest(unittest.TestCase):
             valid_response(trend="unknown"),
         )
         for body in malformed:
+            ignored_warning = io.StringIO()
             with self.subTest(body=body[:40]), \
                     patch("urllib.request.urlopen",
-                          return_value=FakeResponse(body)):
+                          return_value=FakeResponse(body)), \
+                    redirect_stderr(ignored_warning):
                 self.assertEqual(
                     900,
                     profile_client.fetch_profile(

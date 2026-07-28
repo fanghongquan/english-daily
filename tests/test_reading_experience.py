@@ -78,9 +78,29 @@ class ReadingExperienceContractTest(unittest.TestCase):
         ):
             self.assertIn(marker, html)
 
+    def test_feedback_queue_drains_all_dates_without_synthesizing_retries(self):
+        html = self.template()
+        for marker in (
+            "function hasMeaningfulFeedback",
+            "function queueCurrentLearningFeedback",
+            "Object.keys(queue).sort()",
+            "feedbackSyncPromise",
+            "JSON.stringify(latest)===JSON.stringify(payload)",
+            "if(!dates.length)return true",
+        ):
+            self.assertIn(marker, html)
+        sync = html[
+            html.index("async function syncLearningFeedback"):
+            html.index("function scheduleLearningFeedbackSync")]
+        self.assertNotIn("learningFeedbackPayload();", sync)
+
     def test_quiz_reset_preserves_first_diagnostic_score(self):
         html = self.template()
         self.assertIn("quizFirstScore==null?quizScore", html)
+        restart = html[
+            html.index("document.getElementById('restart-reading').onclick"):
+            html.index("/* 理解自测：")]
+        self.assertNotIn("quizTotal:0", restart)
         reset = html[html.index("document.getElementById('quiz-reset').onclick"):
                      html.index("/* ========== 工具条 ========== */")]
         self.assertNotIn("quizFirstScore:null", reset)

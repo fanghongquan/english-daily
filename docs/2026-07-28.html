@@ -342,9 +342,19 @@ function learningFeedbackPayload(){
     word_action_count:Number(progressState.wordActionCount||0),
     phrase_action_count:Number(progressState.phraseActionCount||0)};
 }
+function hasMeaningfulFeedback(payload){
+  return !!(payload&&(payload.difficulty||payload.completed||
+    Number.isInteger(payload.quiz_first_score)||
+    Number(payload.word_action_count)>0||Number(payload.phrase_action_count)>0));
+}
 function queueLearningFeedback(payload){
-  const queue=readFeedbackQueue(); queue[ARTICLE.date]=payload; writeFeedbackQueue(queue);
-  saveProgress({feedbackSyncState:'pending'});
+  if(!hasMeaningfulFeedback(payload))return false;
+  const queue=readFeedbackQueue(); queue[payload.article_date]=payload; writeFeedbackQueue(queue);
+  if(payload.article_date===ARTICLE.date)saveProgress({feedbackSyncState:'pending'});
+  return true;
+}
+function queueCurrentLearningFeedback(){
+  return queueLearningFeedback(learningFeedbackPayload());
 }
 function renderDifficultyFeedback(){
   feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
@@ -354,9 +364,39 @@ function trendText(trend){
   return trend==='harder'?'后续会稍微提高难度':
     trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
 }
+let feedbackSyncPromise=null;
+async function drainLearningFeedback(interactive){
+  let sentCurrent=false,lastProfile=null;
+  while(true){
+    const queue=readFeedbackQueue();
+    const dates=Object.keys(queue).sort();
+    if(!dates.length)return true;
+    const articleDate=dates[0],payload=queue[articleDate];
+    if(!hasMeaningfulFeedback(payload)){
+      delete queue[articleDate]; writeFeedbackQueue(queue); continue;
+    }
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    interactive=false;
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const latestQueue=readFeedbackQueue();
+    const latest=latestQueue[articleDate];
+    if(latest&&JSON.stringify(latest)===JSON.stringify(payload)){
+      delete latestQueue[articleDate]; writeFeedbackQueue(latestQueue);
+      if(articleDate===ARTICLE.date){
+        sentCurrent=true; lastProfile=result.profile||null;
+        saveProgress({feedbackSyncState:'synced'});
+      }
+    }
+    if(sentCurrent)feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(lastProfile&&lastProfile.trend);
+    else feedbackStatus.textContent='历史待同步记录已补传';
+  }
+}
 async function syncLearningFeedback(interactive=false){
-  const payload=learningFeedbackPayload();
-  queueLearningFeedback(payload);
+  const queued=readFeedbackQueue();
+  if(!Object.keys(queued).length)return true;
   if(!interactive&&!storedAccessKey()){
     feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
     return false;
@@ -365,22 +405,19 @@ async function syncLearningFeedback(interactive=false){
     feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
     return false;
   }
+  if(feedbackSyncPromise)return feedbackSyncPromise;
   feedbackStatus.textContent='正在记录…';
-  try{
-    const response=await protectedFetch(payload,{allowPrompt:interactive});
-    if(!response.ok)throw new Error('http '+response.status);
-    const result=await response.json();
-    if(!result.ok)throw new Error(result.error||'sync failed');
-    const queue=readFeedbackQueue(); delete queue[ARTICLE.date]; writeFeedbackQueue(queue);
-    saveProgress({feedbackSyncState:'synced'});
-    feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
-      trendText(result.profile&&result.profile.trend);
-    return true;
-  }catch(e){
-    queueLearningFeedback(payload);
+  feedbackSyncPromise=drainLearningFeedback(interactive);
+  try{ return await feedbackSyncPromise; }
+  catch(e){
     feedbackStatus.textContent=storedAccessKey()?
       '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
     return false;
+  }finally{
+    feedbackSyncPromise=null;
+    if(Object.keys(readFeedbackQueue()).length&&storedAccessKey()){
+      scheduleLearningFeedbackSync();
+    }
   }
 }
 let feedbackSyncTimer=0;
@@ -399,15 +436,16 @@ function recordLearningAction(text){
   saveProgress({learningActionKeys:keys,
     wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
     phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  queueCurrentLearningFeedback();
   scheduleLearningFeedbackSync();
 }
 feedbackButtons.forEach(button=>button.onclick=()=>{
   saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
-  renderDifficultyFeedback(); syncLearningFeedback(true);
+  queueCurrentLearningFeedback(); renderDifficultyFeedback(); syncLearningFeedback(true);
 });
 renderDifficultyFeedback();
 const initialFeedbackQueue=readFeedbackQueue();
-if(initialFeedbackQueue[ARTICLE.date]){
+if(Object.keys(initialFeedbackQueue).length){
   feedbackStatus.textContent='上次记录正在等待同步';
   scheduleLearningFeedbackSync();
 }
@@ -516,7 +554,7 @@ function updateReadingProgress(){
   const lastParagraph=nearestParagraph();
   const justCompleted=!progressState.completed&&ratio>=.92;
   saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
-  if(justCompleted)scheduleLearningFeedbackSync();
+  if(justCompleted){queueCurrentLearningFeedback();scheduleLearningFeedbackSync();}
   const toolbar=document.querySelector('.toolbar');
   document.getElementById('mobile-float').classList.toggle('visible',
     innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
@@ -530,7 +568,7 @@ document.getElementById('resume-reading').onclick=()=>{
   const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
   scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
 document.getElementById('restart-reading').onclick=()=>{
-  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null,quizTotal:0});
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null});
   scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
 updateReadingProgress();
 
@@ -551,6 +589,7 @@ function updateQuizSummary(){
   quizSummary.classList.add('show');
   const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
   saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  queueCurrentLearningFeedback();
   scheduleLearningFeedbackSync();
 }
 if(QS.length){

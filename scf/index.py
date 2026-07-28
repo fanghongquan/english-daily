@@ -151,6 +151,7 @@ def _default_profile():
         "ability_score": 50.0,
         "base_score": 50.0,
         "observation_count": 0,
+        "observed_dates": [],
         "target_words": 900,
         "target_new_words": 6,
         "sentence_level": 3,
@@ -290,7 +291,7 @@ def _apply_profile_targets(profile):
     return profile
 
 
-def _update_profile(profile, event, now):
+def _update_profile(profile, event, now, previous_event=None):
     source = profile if isinstance(profile, dict) else {}
     base = float(source.get("base_score", 50.0))
     count = int(source.get("observation_count", 0))
@@ -306,12 +307,26 @@ def _update_profile(profile, event, now):
         and isinstance(item.get("signal"), (int, float))
         and isinstance(item.get("step"), (int, float))
     ]
+    observed_dates = []
+    for article_date in source.get("observed_dates", []):
+        if isinstance(article_date, str) and article_date not in observed_dates:
+            observed_dates.append(article_date)
+    if not observed_dates and count <= len(recent):
+        observed_dates = [item["article_date"] for item in recent]
     signal = _event_signal(event)
     matching = next((item for item in recent
                      if item["article_date"] == event["article_date"]), None)
     if matching:
         matching["signal"] = signal
+    elif event["article_date"] in observed_dates:
+        if previous_event is not None:
+            old_signal = _event_signal(previous_event)
+            date_index = observed_dates.index(event["article_date"])
+            step = 1.0 if date_index < 3 else 2.0
+            base = _clamp(
+                base + (signal - old_signal) * step, 20.0, 80.0)
     else:
+        observed_dates.append(event["article_date"])
         recent.append({
             "article_date": event["article_date"],
             "signal": signal,
@@ -319,6 +334,7 @@ def _update_profile(profile, event, now):
         })
         recent.sort(key=lambda item: item["article_date"])
         count += 1
+    count = max(count, len(observed_dates))
     while len(recent) > 7:
         oldest = recent.pop(0)
         base = _clamp(base + oldest["signal"] * oldest["step"], 20.0, 80.0)
@@ -330,6 +346,7 @@ def _update_profile(profile, event, now):
         "base_score": round(base, 3),
         "ability_score": round(ability, 3),
         "observation_count": count,
+        "observed_dates": observed_dates,
         "recent": recent,
         "updated_at": now,
     })
@@ -347,7 +364,8 @@ def _cos_auth(method, path, sid, skey):
             "&q-header-list=&q-url-param-list=&q-signature=%s") % (sid, kt, kt, sig)
 
 
-def _cos_req(method, objkey, sid, skey, token, body=None):
+def _cos_req(method, objkey, sid, skey, token, body=None,
+             extra_headers=None, with_meta=False):
     bucket = os.environ.get("COS_BUCKET"); region = os.environ.get("COS_REGION", "ap-guangzhou")
     if not bucket: raise RuntimeError("COS_BUCKET not set")
     host = "%s.cos.%s.myqcloud.com" % (bucket, region)
@@ -355,9 +373,11 @@ def _cos_req(method, objkey, sid, skey, token, body=None):
     h = {"Authorization": _cos_auth(method, path, sid, skey), "Host": host}
     if token: h["x-cos-security-token"] = token
     if body is not None: h["Content-Type"] = "application/json"
+    h.update(extra_headers or {})
     req = urllib.request.Request("https://" + host + path, data=body, headers=h, method=method)
     with urllib.request.urlopen(req, timeout=15) as r:
-        return r.read()
+        data = r.read()
+        return (data, r.headers.get("ETag")) if with_meta else data
 
 
 PROFILE_KEY = "learning-profile/profile.json"
@@ -367,23 +387,40 @@ def _feedback_key(article_date):
     return "learning-profile/events/%s.json" % article_date
 
 
-def _cos_json_get(objkey, sid, skey, token):
+def _cos_json_get_with_etag(objkey, sid, skey, token):
     try:
-        raw = _cos_req("GET", objkey, sid, skey, token)
+        raw, etag = _cos_req(
+            "GET", objkey, sid, skey, token, with_meta=True)
     except urllib.error.HTTPError as error:
         if error.code == 404:
-            return None
+            return None, None
         raise
     data = json.loads(raw.decode())
     if not isinstance(data, dict):
         raise ValueError("stored JSON must be an object")
-    return data
+    if not etag:
+        raise RuntimeError("COS response missing ETag")
+    return data, etag
 
 
-def _cos_json_put(objkey, data, sid, skey, token):
+def _cos_json_get(objkey, sid, skey, token):
+    return _cos_json_get_with_etag(objkey, sid, skey, token)[0]
+
+
+_NO_PRECONDITION = object()
+
+
+def _cos_json_put(objkey, data, sid, skey, token,
+                  etag=_NO_PRECONDITION):
     body = json.dumps(
         data, ensure_ascii=False, separators=(",", ":")).encode()
-    _cos_req("PUT", objkey, sid, skey, token, body)
+    headers = {}
+    if etag is None:
+        headers["If-None-Match"] = "*"
+    elif etag is not _NO_PRECONDITION:
+        headers["If-Match"] = etag
+    _cos_req("PUT", objkey, sid, skey, token, body,
+             extra_headers=headers)
 
 
 def _public_profile(profile):
@@ -400,13 +437,25 @@ def do_feedback_put(sid, skey, token, payload, now=None):
     normalized = _normalize_feedback(payload, now)
     article_date = normalized["article_date"]
     event_key = _feedback_key(article_date)
-    existing = _cos_json_get(event_key, sid, skey, token)
-    merged = _merge_feedback(existing, normalized, now)
-    profile = _cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile()
-    updated = _update_profile(profile, merged, now)
-    _cos_json_put(event_key, merged, sid, skey, token)
-    _cos_json_put(PROFILE_KEY, updated, sid, skey, token)
-    return {"ok": True, "profile": _public_profile(updated)}
+    for _attempt in range(5):
+        existing, event_etag = _cos_json_get_with_etag(
+            event_key, sid, skey, token)
+        merged = _merge_feedback(existing, normalized, now)
+        profile, profile_etag = _cos_json_get_with_etag(
+            PROFILE_KEY, sid, skey, token)
+        updated = _update_profile(
+            profile or _default_profile(), merged, now,
+            previous_event=existing)
+        try:
+            _cos_json_put(
+                event_key, merged, sid, skey, token, etag=event_etag)
+            _cos_json_put(
+                PROFILE_KEY, updated, sid, skey, token, etag=profile_etag)
+            return {"ok": True, "profile": _public_profile(updated)}
+        except urllib.error.HTTPError as error:
+            if error.code not in (409, 412):
+                raise
+    raise RuntimeError("feedback update conflict")
 
 
 def do_profile_get(sid, skey, token):

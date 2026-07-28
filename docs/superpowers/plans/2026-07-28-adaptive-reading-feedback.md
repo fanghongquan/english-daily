@@ -70,6 +70,7 @@ def _default_profile():
         "profile_version": 1, "target_mode": "balanced",
         "ability_score": 50.0, "base_score": 50.0,
         "observation_count": 0,
+        "observed_dates": [],
         "target_words": 900, "target_new_words": 6,
         "sentence_level": 3, "target_comprehension": "85%-90%",
         "trend": "stable", "recent": [], "updated_at": None,
