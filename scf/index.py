@@ -21,8 +21,9 @@
   RATE_BURST      单实例突发请求数，默认 20
   RATE_PER_MINUTE 单实例每分钟补充令牌数，默认 30
 """
-import os, json, time, hmac, hashlib, base64, re, urllib.request, urllib.parse, urllib.error
-from datetime import date
+import os, json, time, hmac, hashlib, base64, binascii, re, urllib.request, urllib.parse, urllib.error
+import xml.etree.ElementTree as ET
+from datetime import date, datetime, timezone
 
 TTS_HOST = "tts.tencentcloudapi.com"
 DEFAULT_VOICE = int(os.environ.get("TTS_VOICE", "101051"))
@@ -151,7 +152,6 @@ def _default_profile():
         "ability_score": 50.0,
         "base_score": 50.0,
         "observation_count": 0,
-        "observed_dates": [],
         "target_words": 900,
         "target_new_words": 6,
         "sentence_level": 3,
@@ -307,26 +307,15 @@ def _update_profile(profile, event, now, previous_event=None):
         and isinstance(item.get("signal"), (int, float))
         and isinstance(item.get("step"), (int, float))
     ]
-    observed_dates = []
-    for article_date in source.get("observed_dates", []):
-        if isinstance(article_date, str) and article_date not in observed_dates:
-            observed_dates.append(article_date)
-    if not observed_dates and count <= len(recent):
-        observed_dates = [item["article_date"] for item in recent]
     signal = _event_signal(event)
     matching = next((item for item in recent
                      if item["article_date"] == event["article_date"]), None)
     if matching:
         matching["signal"] = signal
-    elif event["article_date"] in observed_dates:
-        if previous_event is not None:
-            old_signal = _event_signal(previous_event)
-            date_index = observed_dates.index(event["article_date"])
-            step = 1.0 if date_index < 3 else 2.0
-            base = _clamp(
-                base + (signal - old_signal) * step, 20.0, 80.0)
+    elif previous_event is not None and count > len(recent):
+        old_signal = _event_signal(previous_event)
+        base = _clamp(base + (signal - old_signal) * 2.0, 20.0, 80.0)
     else:
-        observed_dates.append(event["article_date"])
         recent.append({
             "article_date": event["article_date"],
             "signal": signal,
@@ -334,7 +323,6 @@ def _update_profile(profile, event, now, previous_event=None):
         })
         recent.sort(key=lambda item: item["article_date"])
         count += 1
-    count = max(count, len(observed_dates))
     while len(recent) > 7:
         oldest = recent.pop(0)
         base = _clamp(base + oldest["signal"] * oldest["step"], 20.0, 80.0)
@@ -346,81 +334,183 @@ def _update_profile(profile, event, now, previous_event=None):
         "base_score": round(base, 3),
         "ability_score": round(ability, 3),
         "observation_count": count,
-        "observed_dates": observed_dates,
         "recent": recent,
         "updated_at": now,
     })
     return _apply_profile_targets(result)
 
 
+def _profile_from_events(events, now):
+    """Deterministically rebuild the bounded profile from immutable events."""
+    by_date = {}
+    ordered = sorted(
+        events,
+        key=lambda item: (
+            str(item.get("updated_at") or ""),
+            str(item.get("article_date") or ""),
+        ),
+    )
+    for event in ordered:
+        normalized = _normalize_feedback(
+            event, event.get("updated_at") or now)
+        article_date = normalized["article_date"]
+        by_date[article_date] = _merge_feedback(
+            by_date.get(article_date), normalized,
+            normalized["updated_at"])
+    profile = _default_profile()
+    for article_date in sorted(by_date):
+        profile = _update_profile(profile, by_date[article_date], now)
+    return profile
+
+
 # ---------------- COS 读写 (q-signature, 用于同步) ----------------
-def _cos_auth(method, path, sid, skey):
+def _canonical_query(query):
+    items = []
+    for key, value in (query or {}).items():
+        encoded_key = urllib.parse.quote(str(key).lower(), safe="-_.~")
+        encoded_value = urllib.parse.quote(str(value), safe="-_.~")
+        items.append((encoded_key, encoded_value))
+    items.sort()
+    return (
+        "&".join("%s=%s" % item for item in items),
+        ";".join(item[0] for item in items),
+    )
+
+
+def _cos_auth(method, path, sid, skey, query=None):
     now = int(time.time()); kt = "%d;%d" % (now, now + 600)
     signkey = hmac.new(skey.encode(), kt.encode(), hashlib.sha1).hexdigest()
-    httpstr = "%s\n%s\n\n%s\n" % (method.lower(), path, "")  # 无 query、不签 header
+    canonical_query, query_names = _canonical_query(query)
+    httpstr = "%s\n%s\n%s\n%s\n" % (
+        method.lower(), path, canonical_query, "")  # 不签 header
     s2s = "sha1\n%s\n%s\n" % (kt, hashlib.sha1(httpstr.encode()).hexdigest())
     sig = hmac.new(signkey.encode(), s2s.encode(), hashlib.sha1).hexdigest()
     return ("q-sign-algorithm=sha1&q-ak=%s&q-sign-time=%s&q-key-time=%s"
-            "&q-header-list=&q-url-param-list=&q-signature=%s") % (sid, kt, kt, sig)
+            "&q-header-list=&q-url-param-list=%s&q-signature=%s") % (
+                sid, kt, kt, query_names, sig)
 
 
 def _cos_req(method, objkey, sid, skey, token, body=None,
-             extra_headers=None, with_meta=False):
+             extra_headers=None, query=None):
     bucket = os.environ.get("COS_BUCKET"); region = os.environ.get("COS_REGION", "ap-guangzhou")
     if not bucket: raise RuntimeError("COS_BUCKET not set")
     host = "%s.cos.%s.myqcloud.com" % (bucket, region)
     path = "/" + objkey
-    h = {"Authorization": _cos_auth(method, path, sid, skey), "Host": host}
+    h = {"Authorization": _cos_auth(
+        method, path, sid, skey, query=query), "Host": host}
     if token: h["x-cos-security-token"] = token
     if body is not None: h["Content-Type"] = "application/json"
     h.update(extra_headers or {})
-    req = urllib.request.Request("https://" + host + path, data=body, headers=h, method=method)
+    url = "https://" + host + path
+    if query:
+        url += "?" + urllib.parse.urlencode(
+            sorted(query.items()), quote_via=urllib.parse.quote,
+            safe="-_.~")
+    req = urllib.request.Request(url, data=body, headers=h, method=method)
     with urllib.request.urlopen(req, timeout=15) as r:
-        data = r.read()
-        return (data, r.headers.get("ETag")) if with_meta else data
+        return r.read()
 
 
 PROFILE_KEY = "learning-profile/profile.json"
+LEGACY_EVENT_PREFIX = "learning-profile/events/"
+OBSERVATION_PREFIX = "learning-profile/observations/"
 
 
 def _feedback_key(article_date):
-    return "learning-profile/events/%s.json" % article_date
+    return LEGACY_EVENT_PREFIX + "%s.json" % article_date
 
 
-def _cos_json_get_with_etag(objkey, sid, skey, token):
+def _observation_key(event):
+    raw = json.dumps(
+        event, ensure_ascii=False, sort_keys=True,
+        separators=(",", ":")).encode()
+    encoded = base64.urlsafe_b64encode(raw).decode().rstrip("=")
+    return "%s%s/%s.json" % (
+        OBSERVATION_PREFIX, event["article_date"], encoded)
+
+
+def _observation_from_key(key):
+    prefix = OBSERVATION_PREFIX
+    if not key.startswith(prefix) or not key.endswith(".json"):
+        return None
+    encoded = key.rsplit("/", 1)[-1][:-5]
     try:
-        raw, etag = _cos_req(
-            "GET", objkey, sid, skey, token, with_meta=True)
+        padded = encoded + "=" * (-len(encoded) % 4)
+        data = json.loads(base64.urlsafe_b64decode(padded).decode())
+        if not isinstance(data, dict):
+            return None
+        return data
+    except (ValueError, UnicodeDecodeError, binascii.Error):
+        return None
+
+
+def _cos_json_get(objkey, sid, skey, token):
+    try:
+        raw = _cos_req("GET", objkey, sid, skey, token)
     except urllib.error.HTTPError as error:
         if error.code == 404:
-            return None, None
+            return None
         raise
     data = json.loads(raw.decode())
     if not isinstance(data, dict):
         raise ValueError("stored JSON must be an object")
-    if not etag:
-        raise RuntimeError("COS response missing ETag")
-    return data, etag
+    return data
 
 
-def _cos_json_get(objkey, sid, skey, token):
-    return _cos_json_get_with_etag(objkey, sid, skey, token)[0]
-
-
-_NO_PRECONDITION = object()
-
-
-def _cos_json_put(objkey, data, sid, skey, token,
-                  etag=_NO_PRECONDITION):
+def _cos_json_put(objkey, data, sid, skey, token):
     body = json.dumps(
         data, ensure_ascii=False, separators=(",", ":")).encode()
-    headers = {}
-    if etag is None:
-        headers["If-None-Match"] = "*"
-    elif etag is not _NO_PRECONDITION:
-        headers["If-Match"] = etag
-    _cos_req("PUT", objkey, sid, skey, token, body,
-             extra_headers=headers)
+    _cos_req("PUT", objkey, sid, skey, token, body)
+
+
+def _xml_text(parent, name):
+    for element in parent.iter():
+        if element.tag.rsplit("}", 1)[-1] == name:
+            return element.text or ""
+    return ""
+
+
+def _cos_list_keys(prefix, sid, skey, token):
+    keys, marker = [], ""
+    while True:
+        query = {
+            "max-keys": "1000",
+            "prefix": prefix,
+        }
+        if marker:
+            query["marker"] = marker
+        root = ET.fromstring(_cos_req(
+            "GET", "", sid, skey, token, query=query))
+        page = []
+        for content in root.iter():
+            if content.tag.rsplit("}", 1)[-1] != "Contents":
+                continue
+            key = _xml_text(content, "Key")
+            if key:
+                page.append(key)
+        keys.extend(page)
+        if _xml_text(root, "IsTruncated").lower() != "true":
+            return keys
+        marker = _xml_text(root, "NextMarker")
+        if not marker and page:
+            marker = page[-1]
+        if not marker:
+            raise RuntimeError("COS object listing was truncated without marker")
+
+
+def _load_feedback_events(sid, skey, token):
+    events = []
+    for key in _cos_list_keys(LEGACY_EVENT_PREFIX, sid, skey, token):
+        event = _cos_json_get(key, sid, skey, token)
+        if event is not None:
+            events.append(event)
+    for key in _cos_list_keys(OBSERVATION_PREFIX, sid, skey, token):
+        event = _observation_from_key(key)
+        if event is None:  # Compatibility with a short-lived hash-key format.
+            event = _cos_json_get(key, sid, skey, token)
+        if event is not None:
+            events.append(event)
+    return events
 
 
 def _public_profile(profile):
@@ -433,33 +523,28 @@ def _public_profile(profile):
 
 
 def do_feedback_put(sid, skey, token, payload, now=None):
-    now = now or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    now = now or datetime.now(timezone.utc).isoformat(
+        timespec="microseconds").replace("+00:00", "Z")
     normalized = _normalize_feedback(payload, now)
-    article_date = normalized["article_date"]
-    event_key = _feedback_key(article_date)
-    for _attempt in range(5):
-        existing, event_etag = _cos_json_get_with_etag(
-            event_key, sid, skey, token)
-        merged = _merge_feedback(existing, normalized, now)
-        profile, profile_etag = _cos_json_get_with_etag(
-            PROFILE_KEY, sid, skey, token)
-        updated = _update_profile(
-            profile or _default_profile(), merged, now,
-            previous_event=existing)
-        try:
-            _cos_json_put(
-                event_key, merged, sid, skey, token, etag=event_etag)
-            _cos_json_put(
-                PROFILE_KEY, updated, sid, skey, token, etag=profile_etag)
-            return {"ok": True, "profile": _public_profile(updated)}
-        except urllib.error.HTTPError as error:
-            if error.code not in (409, 412):
-                raise
-    raise RuntimeError("feedback update conflict")
+    _cos_json_put(
+        _observation_key(normalized), normalized, sid, skey, token)
+    events = _load_feedback_events(sid, skey, token)
+    # GET Bucket is eventually consistent, so include this request explicitly.
+    events.append(normalized)
+    updated = _profile_from_events(events, now)
+    # This is a disposable cache only. profile_get always rebuilds from events.
+    _cos_json_put(PROFILE_KEY, updated, sid, skey, token)
+    return {"ok": True, "profile": _public_profile(updated)}
 
 
 def do_profile_get(sid, skey, token):
-    profile = _cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile()
+    events = _load_feedback_events(sid, skey, token)
+    profile = (
+        _profile_from_events(
+            events, time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+        if events else
+        (_cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile())
+    )
     return {"profile": _public_profile(profile)}
 
 

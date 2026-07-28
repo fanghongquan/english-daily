@@ -93,6 +93,19 @@ if(sent[1].difficulty!=='hard')throw new Error('newer difficulty was lost');
 if(Object.keys(readFeedbackQueue()).length)throw new Error('latest payload remains queued');
 """)
 
+    def test_failed_drain_stays_pending_without_retry_loop(self):
+        self.run_scenario(r"""
+let scheduled=0;
+global.setTimeout=(callback,delay)=>{ scheduled+=1; return scheduled; };
+requestHandler=async()=>({ok:false,status:502,json:async()=>({})});
+queueLearningFeedback({op:'feedback_put',article_date:'2026-07-28',difficulty:'hard',
+  completed:true,quiz_first_score:2,quiz_total:4,word_action_count:8,phrase_action_count:1});
+const result=await syncLearningFeedback(false);
+if(result!==false)throw new Error('failed sync must return false');
+if(scheduled!==0)throw new Error('failed sync scheduled an automatic retry');
+if(Object.keys(readFeedbackQueue()).length!==1)throw new Error('failed payload was lost');
+""")
+
 
 if __name__ == "__main__":
     unittest.main()

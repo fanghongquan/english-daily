@@ -72,7 +72,7 @@ class WorkflowConfigTest(unittest.TestCase):
                 (ROOT / "README.md").read_text(encoding="utf-8"))
         for marker in (
             "PROFILE_READ_TOKEN",
-            "learning-profile/events/",
+            "learning-profile/observations/",
             "learning-profile/profile.json",
             "默认平衡档案",
             "不上传具体单词或短语",

@@ -36,7 +36,8 @@
    - `ALLOW_ORIGIN` = `https://fanghongquan.github.io`（只写来源，不带路径和末尾 `/`）
    - `RATE_BURST` = `20`
    - `RATE_PER_MINUTE` = `30`
-   （进阶可选：不填密钥，改给函数绑定一个有 **TTS + COS 读写** 权限的运行角色，更安全）
+   （进阶可选：不填密钥，改给函数绑定一个有 **TTS + COS 对象读写 + GetBucket
+   列举对象** 权限的运行角色，更安全）
 5. 完成创建（这步可能要扫码 MFA）
 
 ## 三、开启函数 URL并限制流量
@@ -65,12 +66,14 @@
 
 ## 六、阅读反馈的私有数据
 
-- `learning-profile/events/YYYY-MM-DD.json`：单篇合并后的三级反馈和客观计数。
-- `learning-profile/profile.json`：派生后的能力分、下一篇目标和最近趋势。
+- `learning-profile/observations/YYYY-MM-DD/<encoded_observation>.json`：带服务端时间的不可变反馈观察；不同设备请求互不覆盖。
+- `learning-profile/events/YYYY-MM-DD.json`：升级前的旧格式，继续只读兼容。
+- `learning-profile/profile.json`：派生后的能力分、下一篇目标和最近趋势缓存；读取时会从观察记录重算，不依赖缓存正确性。
 - 网页只上传完成状态、首次答题得分、单词操作数和短语操作数；**不上传具体单词或短语**，
   也不上传文章正文。
 - `profile_get` 只返回生成任务需要的派生参数，不返回最近事件明细。
 - COS 必须保持私有，函数运行角色只需对现有桶具备对象读写权限。
+- 档案重算还需要现有桶的 `cos:GetBucket`（按前缀列举对象）权限；这只是权限调整，不创建新资源。
 
 ## 七、安全维护、轮换与恢复
 

@@ -70,7 +70,6 @@ def _default_profile():
         "profile_version": 1, "target_mode": "balanced",
         "ability_score": 50.0, "base_score": 50.0,
         "observation_count": 0,
-        "observed_dates": [],
         "target_words": 900, "target_new_words": 6,
         "sentence_level": 3, "target_comprehension": "85%-90%",
         "trend": "stable", "recent": [], "updated_at": None,
@@ -134,12 +133,13 @@ Add fixed private keys:
 
 ```python
 PROFILE_KEY = "learning-profile/profile.json"
+OBSERVATION_PREFIX = "learning-profile/observations/"
 
 def _feedback_key(article_date):
     return "learning-profile/events/%s.json" % article_date
 ```
 
-Implement `_cos_json_get`, `_cos_json_put`, `do_feedback_put`, and `do_profile_get`. A missing event or profile returns `None`/the default; other provider errors propagate to the existing sanitized 502 response.
+Implement `_cos_json_get`, `_cos_json_put`, COS prefix listing, immutable observation keys, `do_feedback_put`, and `do_profile_get`. New feedback writes a self-contained encoded observation key, then the bounded profile is deterministically rebuilt from all legacy events and observations. A missing profile returns the default; other provider errors propagate to the existing sanitized 502 response.
 
 - [ ] **Step 4: Implement separate server authentication**
 
