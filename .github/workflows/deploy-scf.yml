@@ -57,7 +57,18 @@ jobs:
               --Region "$REGION" \
               --FunctionName "$function_name" \
               --Namespace "${namespace:-default}")"
-            if jq -e '
+            triggers="$(tccli scf ListTriggers \
+              --Region "$REGION" \
+              --FunctionName "$function_name" \
+              --Namespace "${namespace:-default}" \
+              --Limit 100)"
+            if jq -e --arg expected "${PROFILE_API_URL%/}" '
+              [((.Response // .).Triggers // [])[]
+                | select(.Type == "http")
+                | (.TriggerDesc | fromjson? // {})
+                | ((.NetConfig.ExtranetUrl // "") | rtrimstr("/"))]
+              | index($expected) != null
+            ' <<< "$triggers" >/dev/null || jq -e '
               ((.Response // .).Environment.Variables // [] | map(.Key)) as $keys
               | ($keys | index("APP_ACCESS_KEY")) != null
                 and ($keys | index("COS_BUCKET")) != null
