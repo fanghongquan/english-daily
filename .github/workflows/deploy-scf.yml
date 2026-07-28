@@ -49,18 +49,16 @@ jobs:
           trap 'echo "::warning::Existing-function deployment stopped before verification"; echo "result=failed" >> "$GITHUB_OUTPUT"; exit 0' ERR
           python -m pip install --disable-pip-version-check -q tccli==3.1.135.1
 
-          list_json="$(tccli scf ListFunctions --Region "$REGION" --Limit 100)"
+          list_json="$(tccli --region "$REGION" scf ListFunctions --Limit 100)"
           candidates=()
           all_functions=()
           while IFS=$'\t' read -r function_name namespace; do
             [ -n "$function_name" ] || continue
             all_functions+=("$function_name"$'\t'"${namespace:-default}")
-            detail="$(tccli scf GetFunction \
-              --Region "$REGION" \
+            detail="$(tccli --region "$REGION" scf GetFunction \
               --FunctionName "$function_name" \
               --Namespace "${namespace:-default}")"
-            triggers="$(tccli scf ListTriggers \
-              --Region "$REGION" \
+            triggers="$(tccli --region "$REGION" scf ListTriggers \
               --FunctionName "$function_name" \
               --Namespace "${namespace:-default}" \
               --Limit 100)"
@@ -92,8 +90,7 @@ jobs:
           fi
 
           IFS=$'\t' read -r function_name namespace <<< "${candidates[0]}"
-          detail="$(tccli scf GetFunction \
-            --Region "$REGION" \
+          detail="$(tccli --region "$REGION" scf GetFunction \
             --FunctionName "$function_name" \
             --Namespace "$namespace")"
           environment="$(jq -c --arg token "$PROFILE_READ_TOKEN" '
@@ -103,15 +100,13 @@ jobs:
             | {"Variables":.}
           ' <<< "$detail")"
 
-          tccli scf UpdateFunctionConfiguration \
-            --Region "$REGION" \
+          tccli --region "$REGION" scf UpdateFunctionConfiguration \
             --FunctionName "$function_name" \
             --Namespace "$namespace" \
             --Environment "$environment" >/dev/null
 
           zip_file="$(base64 < scf/function.zip | tr -d '\n')"
-          tccli scf UpdateFunctionCode \
-            --Region "$REGION" \
+          tccli --region "$REGION" scf UpdateFunctionCode \
             --FunctionName "$function_name" \
             --Namespace "$namespace" \
             --Handler index.main_handler \
@@ -120,8 +115,7 @@ jobs:
 
           active=false
           for _ in $(seq 1 24); do
-            status="$(tccli scf GetFunction \
-              --Region "$REGION" \
+            status="$(tccli --region "$REGION" scf GetFunction \
               --FunctionName "$function_name" \
               --Namespace "$namespace" \
               | jq -r '(.Response // .).Status // empty')"
