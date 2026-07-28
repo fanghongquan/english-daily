@@ -68,7 +68,7 @@
 
 - `learning-profile/observations/YYYY-MM-DD/<encoded_observation>.json`：带服务端时间的不可变反馈观察；不同设备请求互不覆盖。
 - `learning-profile/events/YYYY-MM-DD.json`：升级前的旧格式，继续只读兼容。
-- `learning-profile/profile.json`：派生后的能力分、下一篇目标和最近趋势缓存；读取时会从观察记录重算，不依赖缓存正确性。
+- `learning-profile/profile.json`：派生后的能力分、下一篇目标和最近趋势缓存；包含源记录数量和 UTC 时间水位，读取时从观察记录重算，列表短暂不完整时不会让档案倒退。
 - 网页只上传完成状态、首次答题得分、单词操作数和短语操作数；**不上传具体单词或短语**，
   也不上传文章正文。
 - `profile_get` 只返回生成任务需要的派生参数，不返回最近事件明细。

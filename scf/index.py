@@ -340,14 +340,33 @@ def _update_profile(profile, event, now, previous_event=None):
     return _apply_profile_targets(result)
 
 
+def _event_time(value):
+    if not isinstance(value, str) or not value:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    try:
+        parsed = datetime.fromisoformat(
+            value[:-1] + "+00:00" if value.endswith("Z") else value)
+    except ValueError:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def _event_identity(event):
+    return json.dumps(
+        event, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
 def _profile_from_events(events, now):
     """Deterministically rebuild the bounded profile from immutable events."""
     by_date = {}
     ordered = sorted(
         events,
         key=lambda item: (
-            str(item.get("updated_at") or ""),
+            _event_time(item.get("updated_at")),
             str(item.get("article_date") or ""),
+            _event_identity(item),
         ),
     )
     for event in ordered:
@@ -360,7 +379,38 @@ def _profile_from_events(events, now):
     profile = _default_profile()
     for article_date in sorted(by_date):
         profile = _update_profile(profile, by_date[article_date], now)
+    identities = {
+        _event_identity(event)
+        for event in events if isinstance(event, dict)
+    }
+    latest = max(
+        (_event_time(event.get("updated_at"))
+         for event in events if isinstance(event, dict)),
+        default=datetime.min.replace(tzinfo=timezone.utc),
+    )
+    profile["source_event_count"] = len(identities)
+    profile["source_latest_at"] = (
+        latest.isoformat(timespec="microseconds").replace("+00:00", "Z")
+        if identities else None)
     return profile
+
+
+def _snapshot_covers(candidate, cached, expected_new_events=0):
+    if not isinstance(cached, dict):
+        return True
+    if int(candidate.get("observation_count", 0)) < int(
+            cached.get("observation_count", 0)):
+        return False
+    cached_source = cached.get("source_event_count")
+    candidate_source = candidate.get("source_event_count", 0)
+    if isinstance(cached_source, int):
+        if candidate_source < cached_source + expected_new_events:
+            return False
+        if candidate_source == cached_source:
+            if _event_time(candidate.get("source_latest_at")) < _event_time(
+                    cached.get("source_latest_at")):
+                return False
+    return True
 
 
 # ---------------- COS 读写 (q-signature, 用于同步) ----------------
@@ -526,25 +576,32 @@ def do_feedback_put(sid, skey, token, payload, now=None):
     now = now or datetime.now(timezone.utc).isoformat(
         timespec="microseconds").replace("+00:00", "Z")
     normalized = _normalize_feedback(payload, now)
+    cached = _cos_json_get(PROFILE_KEY, sid, skey, token)
     _cos_json_put(
         _observation_key(normalized), normalized, sid, skey, token)
     events = _load_feedback_events(sid, skey, token)
     # GET Bucket is eventually consistent, so include this request explicitly.
     events.append(normalized)
     updated = _profile_from_events(events, now)
-    # This is a disposable cache only. profile_get always rebuilds from events.
-    _cos_json_put(PROFILE_KEY, updated, sid, skey, token)
-    return {"ok": True, "profile": _public_profile(updated)}
+    if _snapshot_covers(updated, cached, expected_new_events=1):
+        # Disposable cache; source watermarks prevent a partial list rollback.
+        _cos_json_put(PROFILE_KEY, updated, sid, skey, token)
+        selected = updated
+    else:
+        selected = cached
+    return {"ok": True, "profile": _public_profile(selected)}
 
 
 def do_profile_get(sid, skey, token):
+    cached = _cos_json_get(PROFILE_KEY, sid, skey, token)
     events = _load_feedback_events(sid, skey, token)
-    profile = (
-        _profile_from_events(
+    if events:
+        rebuilt = _profile_from_events(
             events, time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
-        if events else
-        (_cos_json_get(PROFILE_KEY, sid, skey, token) or _default_profile())
-    )
+        profile = rebuilt if _snapshot_covers(
+            rebuilt, cached) else cached
+    else:
+        profile = cached or _default_profile()
     return {"profile": _public_profile(profile)}
 
 

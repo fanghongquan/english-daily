@@ -181,6 +181,14 @@ class LearningProfileTest(unittest.TestCase):
         self.assertLess(changed["ability_score"], original["ability_score"])
         self.assertEqual(changed["ability_score"], replayed["ability_score"])
 
+    def test_rebuild_orders_second_and_microsecond_timestamps_correctly(self):
+        old = scf._normalize_feedback(
+            feedback(difficulty="hard"), "2026-07-28T00:00:00Z")
+        new = scf._normalize_feedback(
+            feedback(difficulty="easy"), "2026-07-28T00:00:00.500000Z")
+        rebuilt = scf._profile_from_events([new, old], NOW)
+        self.assertGreater(rebuilt["recent"][0]["signal"], 0)
+
     def test_targets_remain_in_product_bounds(self):
         profile = scf._default_profile()
         for day in range(1, 20):
@@ -250,6 +258,7 @@ class LearningProfilePersistenceTest(unittest.TestCase):
             feedback(article_date="2026-07-27"), NOW)
         with patch.object(scf, "_load_feedback_events",
                           return_value=[prior]), \
+                patch.object(scf, "_cos_json_get", return_value=None), \
                 patch.object(scf, "_cos_json_put") as put:
             result = scf.do_feedback_put(
                 "sid", "skey", "token", incoming, now=NOW)
@@ -269,7 +278,8 @@ class LearningProfilePersistenceTest(unittest.TestCase):
     def test_profile_get_returns_only_derived_fields(self):
         stored_event = scf._normalize_feedback(feedback(), NOW)
         with patch.object(scf, "_load_feedback_events",
-                          return_value=[stored_event]):
+                          return_value=[stored_event]), \
+                patch.object(scf, "_cos_json_get", return_value=None):
             result = scf.do_profile_get("sid", "skey", "token")
         self.assertNotIn("recent", result["profile"])
         self.assertEqual(1, result["profile"]["observation_count"])
@@ -285,6 +295,7 @@ class LearningProfilePersistenceTest(unittest.TestCase):
             word_action_count=8, phrase_action_count=3), NOW)
         with patch.object(scf, "_load_feedback_events",
                           return_value=[concurrent]), \
+                patch.object(scf, "_cos_json_get", return_value=None), \
                 patch.object(scf, "_cos_json_put") as put:
             result = scf.do_feedback_put(
                 "sid", "skey", "token", incoming, now=NOW)
@@ -302,6 +313,43 @@ class LearningProfilePersistenceTest(unittest.TestCase):
                 patch.object(scf, "_cos_json_get", return_value=legacy):
             result = scf.do_profile_get("sid", "skey", "token")
         self.assertEqual(8, result["profile"]["observation_count"])
+
+    def test_profile_get_uses_cache_when_list_snapshot_is_partial(self):
+        cached = scf._default_profile()
+        cached.update({
+            "observation_count": 8,
+            "ability_score": 63.0,
+            "source_event_count": 8,
+            "source_latest_at": "2026-07-28T00:00:00Z",
+        })
+        partial = scf._normalize_feedback(
+            feedback(article_date="2026-07-21"), NOW)
+        with patch.object(scf, "_load_feedback_events",
+                          return_value=[partial]), \
+                patch.object(scf, "_cos_json_get", return_value=cached):
+            result = scf.do_profile_get("sid", "skey", "token")
+        self.assertEqual(8, result["profile"]["observation_count"])
+        self.assertEqual(63.0, result["profile"]["ability_score"])
+
+    def test_feedback_put_does_not_overwrite_fresher_cache_with_partial_list(self):
+        cached = scf._default_profile()
+        cached.update({
+            "observation_count": 8,
+            "ability_score": 63.0,
+            "source_event_count": 8,
+            "source_latest_at": "2026-07-27T00:00:00Z",
+        })
+        partial = scf._normalize_feedback(
+            feedback(article_date="2026-07-27"), NOW)
+        with patch.object(scf, "_load_feedback_events",
+                          return_value=[partial]), \
+                patch.object(scf, "_cos_json_get", return_value=cached), \
+                patch.object(scf, "_cos_json_put") as put:
+            result = scf.do_feedback_put(
+                "sid", "skey", "token",
+                feedback(article_date="2026-07-28"), now=NOW)
+        self.assertEqual(63.0, result["profile"]["ability_score"])
+        self.assertEqual(1, put.call_count)
 
 
 if __name__ == "__main__":
