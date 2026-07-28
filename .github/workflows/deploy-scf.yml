@@ -51,8 +51,10 @@ jobs:
 
           list_json="$(tccli scf ListFunctions --Region "$REGION" --Limit 100)"
           candidates=()
+          all_functions=()
           while IFS=$'\t' read -r function_name namespace; do
             [ -n "$function_name" ] || continue
+            all_functions+=("$function_name"$'\t'"${namespace:-default}")
             detail="$(tccli scf GetFunction \
               --Region "$REGION" \
               --FunctionName "$function_name" \
@@ -80,8 +82,11 @@ jobs:
             | [.FunctionName, (.Namespace // "default")] | @tsv
           ' <<< "$list_json")
 
+          if [ "${#candidates[@]}" -eq 0 ] && [ "${#all_functions[@]}" -eq 1 ]; then
+            candidates=("${all_functions[0]}")
+          fi
           if [ "${#candidates[@]}" -ne 1 ]; then
-            echo "::warning::Expected exactly one existing English function; found ${#candidates[@]}"
+            echo "::warning::Could not safely select one existing English function; matched ${#candidates[@]} of ${#all_functions[@]}"
             echo "result=ambiguous" >> "$GITHUB_OUTPUT"
             exit 0
           fi
