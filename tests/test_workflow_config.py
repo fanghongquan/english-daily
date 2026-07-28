@@ -58,6 +58,28 @@ class WorkflowConfigTest(unittest.TestCase):
         ):
             self.assertIn(marker, docs)
 
+    def test_profile_credentials_are_scoped_to_generation_and_documented(self):
+        workflow = (ROOT / ".github/workflows/daily.yml").read_text(encoding="utf-8")
+        generate = workflow[
+            workflow.index("- name: Generate + build"):
+            workflow.index("- name: Commit generated pages")]
+        self.assertIn("PROFILE_API_URL: ${{ vars.TTS_API_URL }}", generate)
+        self.assertIn(
+            "PROFILE_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}", generate)
+        self.assertEqual(1, workflow.count("secrets.PROFILE_READ_TOKEN"))
+
+        docs = ((ROOT / "SCF_DEPLOY.md").read_text(encoding="utf-8") + "\n" +
+                (ROOT / "README.md").read_text(encoding="utf-8"))
+        for marker in (
+            "PROFILE_READ_TOKEN",
+            "learning-profile/events/",
+            "learning-profile/profile.json",
+            "默认平衡档案",
+            "不上传具体单词或短语",
+            "零新增预算",
+        ):
+            self.assertIn(marker, docs)
+
 
 if __name__ == "__main__":
     unittest.main()

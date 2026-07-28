@@ -62,6 +62,8 @@ jobs:
           OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL:   ${{ vars.OPENAI_BASE_URL }}
           OPENAI_MODEL:      ${{ vars.OPENAI_MODEL }}
+          PROFILE_API_URL: ${{ vars.TTS_API_URL }}
+          PROFILE_READ_TOKEN: ${{ secrets.PROFILE_READ_TOKEN }}
         run: |
           FORCE=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then FORCE="--force"; fi
