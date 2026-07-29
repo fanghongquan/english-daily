@@ -1,0 +1,87 @@
+{
+  "date": "2026-07-29",
+  "level": "CET-4",
+  "title": "Where Did the Day Go? A Scientific Approach to Managing Your 24 Hours",
+  "title_zh": "时间都去哪儿了？科学管理你的24小时",
+  "intro_zh": "本文约900词，探讨如何通过理解时间感知和实用技巧来高效安排一天，避免常见的时间陷阱。",
+  "paragraphs": [
+    {
+      "en": "Have you ever felt that the day slips away before you’ve accomplished anything meaningful? You’re not alone. A 2023 survey by the American Psychological Association found that 65% of adults report feeling <span class=\"kw\" data-ipa=\"ˈoʊvərˌwɛlmd\" data-def=\"不知所措的；压垮的\">overwhelmed</span> by their daily schedules. The problem isn’t that we have too little time; it’s that we often lose track of where it goes. Understanding the psychology of time perception can help us take back control.",
+      "zh": "你是否曾感到一天悄然流逝，却未完成任何有意义的事？你并不孤单。美国心理学会2023年的一项调查发现，65%的成年人表示被日常安排压得喘不过气。问题不在于时间太少，而在于我们常常不知道时间花在了哪里。理解时间感知的心理学可以帮助我们重新掌控生活。"
+    },
+    {
+      "en": "Our brain doesn’t measure time like a clock. Instead, it <span class=\"kw\" data-ipa=\"rɪˈlaɪ ɒn\" data-def=\"依赖；依靠\">relies on</span> mental ‘time markers’ – such as completing a task or noticing a change in environment. When we multitask or switch between activities frequently, these markers become blurred, making time feel like it’s flying. A famous study at the University of Illinois showed that people who check email every five minutes perceive the same hour as 20% shorter than those who focus on a single task.",
+      "zh": "我们的大脑不像时钟那样测量时间。相反，它依赖心理‘时间标记’——比如完成一项任务或注意到环境的变化。当我们频繁地同时处理多项任务或在活动间切换时，这些标记变得模糊，让时间感觉飞逝。伊利诺伊大学一项著名研究表明，每五分钟查看一次电子邮件的人认为同一小时比专注于单一任务的人短20%。"
+    },
+    {
+      "en": "One practical way to fight this time illusion is the <span class=\"kw\" data-ipa=\"pəˈmɒdəroʊ\" data-def=\"番茄工作法（一种时间管理方法）\">Pomodoro</span> Technique. Developed by Francesco Cirillo in the late 1980s, it involves working for 25 minutes, then taking a 5-minute break. Each 25-minute block is called a ‘pomodoro’ (Italian for tomato). After four pomodoros, you take a longer break of 15–30 minutes. This method leverages our brain’s natural attention span and helps create clear time markers. Users report a 30% increase in productivity, according to Cirillo’s own data.",
+      "zh": "对抗这种时间错觉的一个实用方法是番茄工作法。由弗朗西斯科·西里洛在20世纪80年代末开发，它要求工作25分钟，然后休息5分钟。每个25分钟的时间块被称为一个‘番茄’（意大利语意为番茄）。完成四个番茄后，休息15-30分钟。这种方法利用了我们大脑自然的注意力持续时间，并帮助创造清晰的时间标记。根据西里洛自己的数据，用户报告生产力提高了30%。"
+    },
+    {
+      "en": "Another powerful tool is time blocking. Instead of a to-do list, you schedule specific tasks into fixed time slots on your calendar. For example, 9:00–10:30 for writing, 10:30–10:45 for email, and so on. This <span class=\"kw\" data-ipa=\"ɪˈlɪmɪneɪt\" data-def=\"消除；排除\">eliminates</span> the decision fatigue of choosing what to do next. A 2019 study in the Journal of Experimental Psychology found that people who used time blocking completed 40% more tasks than those who simply made a list. The key is to be realistic: leave gaps for unexpected interruptions.",
+      "zh": "另一个强大的工具是时间块管理。你不是列待办事项列表，而是将特定任务安排到日历上的固定时间段。例如，9:00-10:30写作，10:30-10:45查看邮件，等等。这消除了选择下一步做什么的决策疲劳。2019年《实验心理学杂志》的一项研究发现，使用时间块的人比仅列清单的人多完成40%的任务。关键是要现实：为意外中断留出空隙。"
+    },
+    {
+      "en": "But even the best schedule can fail if we don’t recognize our personal energy cycles. Everyone has a ‘chronotype’ – a natural preference for when to be active or sleepy. Morning larks peak in the early hours, while night owls are most alert in the evening. Trying to do deep work during your low-energy period is like swimming against the current. Dr. Michael Breus, a sleep specialist, recommends scheduling your most <span class=\"kw\" data-ipa=\"ˈkɒgnɪtɪv\" data-def=\"认知的\">cognitive</span> tasks – like problem-solving or creative writing – during your peak energy window.",
+      "zh": "但如果我们不认识自己的个人能量周期，即使最好的计划也会失败。每个人都有‘时间类型’——对何时活跃或困倦的自然偏好。‘早鸟型’在清晨达到高峰，而‘夜猫型’在晚上最警觉。试图在低能量期进行深度工作，就像逆水行舟。睡眠专家迈克尔·布鲁斯博士建议，将最需要认知能力的任务——如解决问题或创意写作——安排在你的能量高峰期。"
+    },
+    {
+      "en": "Technology can be both a thief and a tool. Smartphone <span class=\"kw\" data-ipa=\"ˈnoʊtɪfɪˌkeɪʃənz\" data-def=\"通知；提醒\">notifications</span> are designed to grab our attention, and on average, we pick up our phones 96 times a day. That’s nearly once every 10 minutes. However, the same device can help: use apps that track your screen time and set limits. A study by Moment, a screen-time app, found that people who set a 30-minute daily limit on social media saved an average of 1.5 hours per day – time that could be redirected to hobbies, exercise, or rest.",
+      "zh": "技术既是小偷也是工具。智能手机通知旨在吸引我们的注意力，平均而言，我们每天拿起手机96次，几乎每10分钟一次。然而，同一设备也可以提供帮助：使用追踪屏幕使用时间并设置限制的应用程序。屏幕时间应用Moment的一项研究发现，将社交媒体每日使用时间限制在30分钟的人平均每天节省1.5小时——这些时间可以重新用于爱好、锻炼或休息。"
+    },
+    {
+      "en": "Sometimes the biggest time drain is our own reluctance to start. This is called ‘procrastination’ – the act of delaying a task despite knowing it will cause negative consequences. One effective <span class=\"kw\" data-ipa=\"ˌkɒʊɡˈnɪʃən\" data-def=\"认知；认识\">cognition</span>-based strategy is the ‘five-minute rule’: commit to work on a task for just five minutes. Usually, once you start, the initial resistance fades, and you continue longer. In a 2020 study, 80% of participants who used this approach completed at least half of a dreaded task.",
+      "zh": "有时最大的时间消耗者是我们自己不愿开始。这被称为‘拖延’——明知会产生负面后果却推迟任务的行为。一种基于认知的有效策略是‘五分钟法则’：承诺只工作五分钟。通常，一旦开始，最初的抵触情绪就会消退，你会继续更久。在2020年的一项研究中，80%使用此方法的参与者至少完成了一半他们害怕的任务。"
+    },
+    {
+      "en": "Finally, don’t forget to schedule <span class=\"kw\" data-ipa=\"riˈdʒuvəˌneɪt\" data-def=\"使恢复活力；使更新\">rejuvenate</span> breaks. Our brains are not designed for continuous focus. Research from the University of California, Irvine, shows that a 5-minute walk outdoors can restore concentration and improve mood. Even a brief period of daydreaming allows the brain to consolidate memories. So, when you plan your day, intentionally include white space – time to do nothing. Paradoxically, this can make you more productive in the long run.",
+      "zh": "最后，别忘了安排恢复精力的休息时间。我们的大脑并非为持续专注而设计。加州大学欧文分校的研究表明，户外散步5分钟就能恢复注意力并改善情绪。即使是短暂的做白日梦时间也让大脑整理记忆。因此，在规划一天时，有意留出空白——什么都不做的时间。矛盾的是，从长远来看，这反而会让你更有效率。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain why people feel time slips away and offer practical methods to manage daily schedules.",
+        "To argue that multitasking is the main cause of time waste.",
+        "To recommend the Pomodoro Technique as the only effective time management tool.",
+        "To describe how smartphones negatively affect our productivity."
+      ],
+      "answer": 0,
+      "explain": "文章第一段提出问题（时间流逝感），随后给出科学解释和多种实用方法（番茄工作法、时间块、能量周期等），因此主旨是解释原因并提供方法。选项2过于片面，选项3错误（不只一种方法），选项4只是其中一个方面。"
+    },
+    {
+      "q": "According to the study mentioned in paragraph 2, people who check email every five minutes ______.",
+      "options": [
+        "complete more tasks than those who focus on a single task",
+        "perceive time as shorter compared to those who focus on a single task",
+        "are better at multitasking than others",
+        "have more mental time markers"
+      ],
+      "answer": 1,
+      "explain": "第二段最后一句明确说‘think the same hour is 20% shorter than those who focus on a single task’，即感知时间更短。选项1无依据，选项2正确，选项3文中未提是否擅长，选项4相反（频繁切换会模糊标记）。"
+    },
+    {
+      "q": "The word ‘chronotype’ in paragraph 5 most likely means ______.",
+      "options": [
+        "a type of clock",
+        "a person's natural inclination regarding when they are most active or sleepy",
+        "a method of time management",
+        "a schedule for sleeping"
+      ],
+      "answer": 1,
+      "explain": "第五段中‘chronotype’后面紧跟着破折号解释‘a natural preference for when to be active or sleepy’，因此正确答案是个人活跃或困倦的自然倾向。选项1字面意思错误，选项3和4不匹配。"
+    },
+    {
+      "q": "What does the ‘five-minute rule’ help with?",
+      "options": [
+        "Reducing smartphone usage",
+        "Overcoming the difficulty of starting a task",
+        "Improving the ability to concentrate for long periods",
+        "Increasing the number of time markers"
+      ],
+      "answer": 1,
+      "explain": "第七段说明五分鐘法是為了克服拖延，即开始任务的困难。选项2正确。选项1与手机无关，选项3不是规则直接目的，选项4文中未提。"
+    }
+  ]
+}
