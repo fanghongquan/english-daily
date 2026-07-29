@@ -100,10 +100,30 @@ jobs:
             | {"Variables":.}
           ' <<< "$detail")"
 
-          tccli --region "$REGION" scf UpdateFunctionConfiguration \
-            --FunctionName "$function_name" \
-            --Namespace "$namespace" \
-            --Environment "$environment" >/dev/null
+          wait_until_active() {
+            local current
+            for _ in $(seq 1 36); do
+              current="$(tccli --region "$REGION" scf GetFunction \
+                --FunctionName "$function_name" \
+                --Namespace "$namespace" \
+                | jq -r '(.Response // .).Status // empty')"
+              if [ "$current" = "Active" ]; then return 0; fi
+              if [ "$current" = "Failed" ]; then return 1; fi
+              sleep 5
+            done
+            return 1
+          }
+
+          if ! jq -e --arg token "$PROFILE_READ_TOKEN" '
+            ((.Response // .).Environment.Variables // [])
+            | any(.Key == "PROFILE_READ_TOKEN" and .Value == $token)
+          ' <<< "$detail" >/dev/null; then
+            tccli --region "$REGION" scf UpdateFunctionConfiguration \
+              --FunctionName "$function_name" \
+              --Namespace "$namespace" \
+              --Environment "$environment" >/dev/null
+          fi
+          wait_until_active
 
           zip_file="$(base64 < scf/function.zip | tr -d '\n')"
           tccli --region "$REGION" scf UpdateFunctionCode \
@@ -113,17 +133,7 @@ jobs:
             --CodeSource ZipFile \
             --ZipFile "$zip_file" >/dev/null
 
-          active=false
-          for _ in $(seq 1 24); do
-            status="$(tccli --region "$REGION" scf GetFunction \
-              --FunctionName "$function_name" \
-              --Namespace "$namespace" \
-              | jq -r '(.Response // .).Status // empty')"
-            if [ "$status" = "Active" ]; then active=true; break; fi
-            if [ "$status" = "Failed" ]; then break; fi
-            sleep 5
-          done
-          test "$active" = true
+          wait_until_active
           echo "function=$function_name" >> "$GITHUB_OUTPUT"
           echo "namespace=$namespace" >> "$GITHUB_OUTPUT"
           echo "result=deployed" >> "$GITHUB_OUTPUT"
