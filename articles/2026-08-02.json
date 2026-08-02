@@ -1,0 +1,83 @@
+{
+  "date": "2026-08-02",
+  "level": "CET-4",
+  "title": "Survival on the Wing: The Hidden Logic of Bird Migration",
+  "title_zh": "翅膀上的生存：鸟类迁徙的隐藏逻辑",
+  "intro_zh": "本文约900词，难度适合CET-4，重点词汇包括迁徙、后代、本能、导航、捕食者、栖息地等。",
+  "paragraphs": [
+    {
+      "en": "Every autumn, breathtaking flocks of birds streak across the sky on journeys that seem impossibly long. These seasonal movements, known as <span class=\"kw\" data-ipa=\"/maɪˈɡreɪʃənz/\" data-def=\"迁徙\">migrations</span>, are one of nature's greatest wonders. Take the Arctic tern, an unassuming bird weighing less than a pencil. Each year, it flies from the Arctic to the Antarctic and back, covering roughly 70,000 kilometers — the longest migration of any animal. Along the way, it crosses oceans, mountains, and storms. But why would such a tiny creature risk everything for a journey of this magnitude? The answer lies in a complex mix of biology, food supply, and ancient instincts.",
+      "zh": "每年秋天，壮观的鸟群划过天空，进行着看似不可能的旅程。这些季节性的移动被称为迁徙，是大自然最伟大的奇观之一。以北极燕鸥为例，这种不起眼的鸟重量不到一支铅笔。每年，它从北极飞到南极再返回，行程约7万公里，是任何动物中最长的迁徙。途中，它跨越海洋、山脉和风暴。但为什么这样微小的生物要冒着一切风险进行如此长途的旅行呢？答案隐藏在生物学、食物供应和古老本能的复杂组合中。"
+    },
+    {
+      "en": "The most immediate reason for migration is the fight against hunger. In the Arctic, summer is a period of plenty, with insects and plants blooming under the midnight sun. Birds such as the barn swallow gorge themselves, building up fat reserves. But when winter approaches, insects vanish and the ground freezes. To avoid starvation, these birds are forced to fly south, where food remains abundant. One study found that a swallow needs to eat about 2,000 insects per day during winter, something impossible in a frozen landscape. This simple math makes migration a matter of life and death.",
+      "zh": "迁徙最直接的原因是为生存而战。在北极，夏季是丰饶时期，昆虫和植物在午夜阳光下绽放。家燕等鸟儿大快朵颐，积累脂肪储备。但当冬天临近，昆虫消失，地面封冻。为了避免饿死，这些鸟被迫南飞，那里食物仍然丰富。一项研究发现，燕子冬天每天需要吃掉约2000只昆虫，这在冰天雪地里是不可能的。这笔简单的账让迁徙成为生死攸关的问题。"
+    },
+    {
+      "en": "Beyond food, reproduction shapes the migration calendar. Many birds fly north specifically to breed in places where summer days last nearly 24 hours. This extended daylight allows parent birds to deliver food to their <span class=\"kw\" data-ipa=\"/ˈɔːfsprɪŋ/\" data-def=\"后代\">offspring</span> from morning until night. For example, a sandpiper can make hundreds of feeding trips a day when the sun never sets. The rich supply of insects also gives chicks the protein they need to grow quickly. But this perfect nursery exists for only a few short months. Hence, birds must move on once the breeding season ends, sealing the cycle of migration.",
+      "zh": "除了食物，繁殖也决定了迁徙的日程。许多鸟儿飞到北方，专门为了在夏季日照近24小时的地方繁殖。这种延长的白昼让亲鸟从早到晚地给后代喂食。例如，当太阳不落时，矶鹬一天可以往返数百次喂食。丰富的昆虫也给雏鸟提供了快速生长所需蛋白质。但这个完美的育婴室只存在短短几个月。因此，鸟在繁殖季结束后必须离开，从而完成迁徙的循环。"
+    },
+    {
+      "en": "Migration also has ancient roots. During the ice ages, sheets of ice covered much of the Northern Hemisphere, forcing birds to retreat to warmer southern areas. As the ice retreated, birds returned north, following the green edge of melting glaciers. Repeated cycles over millions of years engineered these seasonal paths into the birds' DNA. Today, every bird inherits a powerful <span class=\"kw\" data-ipa=\"/ˈɪnstɪŋkt/\" data-def=\"本能\">instinct</span> to move at certain times of year, even if it has never made the trip before. This genetic map explains why a young cuckoo can fly thousands of miles alone to a winter home it has never seen.",
+      "zh": "迁徙也有古老的根源。在冰河时期，巨大的冰盖覆盖了北半球大部分地区，迫使鸟类撤退到更温暖的南方地区。随着冰层退缩，鸟儿又回到北方，跟随冰川融化的绿色边缘。数百万年的重复循环将这些季节性路径编入了鸟类的DNA。今天，每只鸟都继承了一种强大本能，在一年中的某些时候移动，即使它从未走过这条路。这种基因图谱解释了为什么一只幼小杜鹃能独自飞行数千英里，到达一个从未见过的越冬地。"
+    },
+    {
+      "en": "How birds <span class=\"kw\" data-ipa=\"/ˈnævɪɡeɪt/\" data-def=\"导航；指引方向\">navigate</span> such epic distances is another miracle. They use the sun by day and the stars by night, compensating for the earth's rotation. Many species can detect the earth's magnetic field through tiny iron particles in their beaks. Others memorize landmarks or follow wind patterns. Scientists have discovered that young birds learn the general direction genetically, but they must refine their skills through practice. One experiment showed that pigeons with an attached magnet lost their way on cloudy days, proving the role of magnetism. This combination of inborn tricks and learned experience makes navigation remarkably precise.",
+      "zh": "鸟类如何在如此遥远的距离上导航是另一个奇迹。它们白天用太阳，夜晚用星星，并补偿地球自转。许多物种通过嘴中的微小铁粒探测地球磁场。其他鸟则记住地标或跟随风型。科学家发现，幼鸟在基因上学会大致方向，但必须通过练习完善技能。一个实验表明，绑上磁铁的鸽子在多云天气迷路，证明了磁性的作用。这种天生本领与学习经验的结合使导航异常精确。"
+    },
+    {
+      "en": "But migration sits at a crossroads of risk and reward. The journey drains precious energy, and birds may lose half their body weight before arrival. Along the way, they face <span class=\"kw\" data-ipa=\"/ˈpredətər/\" data-def=\"捕食者\">predators</span> such as falcons, foxes, and even domestic cats. In 2021, a massive storm over the Gulf of Mexico killed thousands of migrating songbirds in one night. Yet the survivors gain enormous advantages: access to abundant food and a safe place to raise their young. On balance, the benefits of migration far outweigh the costs, which is why this expensive journey has persisted for millions of years.",
+      "zh": "但迁徙处于风险与回报的十字路口。旅途消耗宝贵的能量，鸟儿在到达前可能失去一半体重。途中，它们面临鹰隼、狐狸甚至家猫等捕食者。2021年，墨西哥湾一场大风暴一夜之间杀死了数千只迁徙的鸣鸟。然而幸存者获得了巨大优势：获得丰富的食物和安全的育雏地。总体上，迁徙的益处远大于代价，这就是为什么这种昂贵的旅行持续了数百万年。"
+    },
+    {
+      "en": "Today, understanding migration is more important than ever. Globally, many migratory bird populations are in decline. Loss of wetlands and forests removes vital stopover sites; bright city lights and glass buildings lead to fatal collisions. Climate change is shifting the timing of seasons, making the birds' internal calendars less reliable. However, there is hope. Conservationists have successfully restored some <span class=\"kw\" data-ipa=\"/ˈhæbɪtæts/\" data-def=\"栖息地\">habitats</span> and protected flyways used by millions of birds. By respecting these amazing creatures and the reasons they travel, we can help ensure that the world remains full of the sight and sound of birds in flight.",
+      "zh": "今天，理解迁徙比以往任何时候都重要。全球范围内，许多候鸟种群正在减少。湿地和森林的丧失移除了关键的停歇地；明亮的城市灯光和玻璃建筑导致致命的碰撞。气候变化正在改变季节时机，使鸟类的内部日历变得不太可靠。然而，还有希望。环保人士成功恢复了一些栖息地，保护了数百万鸟使用的迁徙通道。通过尊重这些神奇生物及其迁徙的原因，我们可以帮助确保世界仍然充满飞鸟的景象和声音。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main reason for birds to migrate according to the passage?",
+      "options": [
+        "To escape from predators.",
+        "To find sufficient food and suitable breeding places.",
+        "To follow the earth's magnetic field.",
+        "To enjoy warmer climates."
+      ],
+      "answer": 1,
+      "explain": "文章指出迁徙的核心原因是食物短缺和繁殖需求，虽然选项D有一定关联，但食物和繁殖是根本原因。A只是代价之一，C是导航方式。"
+    },
+    {
+      "q": "Which bird makes the longest regular migration in the world?",
+      "options": [
+        "The barn swallow.",
+        "The sandpiper.",
+        "The Arctic tern.",
+        "The cuckoo."
+      ],
+      "answer": 2,
+      "explain": "第一段明确提到北极燕鸥每年飞行7万公里，是任何动物中最长的规律迁徙。"
+    },
+    {
+      "q": "What can be inferred about the navigation skills of young birds?",
+      "options": [
+        "They are perfect from birth without any practice.",
+        "They improve with experience.",
+        "They only rely on the magnetic field.",
+        "They are learned solely from other birds."
+      ],
+      "answer": 1,
+      "explain": "第五段说幼鸟遗传了大致方向，但必须通过实践完善技能，说明导航能力会因经验而增强。"
+    },
+    {
+      "q": "The word refine in paragraph 5 is closest in meaning to ______.",
+      "options": [
+        "Improve",
+        "Create",
+        "Copy",
+        "Forget"
+      ],
+      "answer": 0,
+      "explain": "refine在此意为“完善、改进”，即通过练习使技能更精确，故选improve。"
+    }
+  ]
+}
