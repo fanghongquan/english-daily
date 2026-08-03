@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-03",
+  "level": "CET-4",
+  "title": "How Volcanoes Form: A Journey from Mantle to Crater",
+  "title_zh": "火山如何形成：从地幔到火山口的旅程",
+  "intro_zh": "本文约900词，介绍火山的形成过程及影响，适合CET-4水平。",
+  "paragraphs": [
+    {
+      "en": "Volcanoes are among the most powerful forces on Earth. They can create new land in the ocean, or wipe out entire towns in a matter of minutes. For example, in 1883, the explosion of Krakatoa in Indonesia was so powerful that it was heard over 3,000 miles away. Yet few people understand what really makes a volcano. A volcano forms when melted rock, known as <span class=\"kw\" data-ipa=\"/ˈmæɡmə/\" data-def=\"岩浆\">magma</span>, travels from deep inside the planet up to the surface. When magma reaches the surface, it is called lava, and an <span class=\"kw\" data-ipa=\"/ɪˈrʌpʃn/\" data-def=\"喷发，爆发\">eruption</span> takes place. This simple journey is the foundation of every volcano on Earth, from the quiet hills of Hawaii to the explosive peaks of Japan.",
+      "zh": "火山是地球上最强大的力量之一。它们可以在海洋中创造新的陆地，也能在几分钟内摧毁整个城镇。例如，1883年印度尼西亚喀拉喀托火山爆发的声音在3000英里外都能听到。然而，很少有人真正了解是什么造就了火山。火山形成于熔化的岩石（即岩浆）从地球深处上升到地表时。当岩浆到达地表，它被称为熔岩，并发生喷发。这简单的旅程构成了地球上每一座火山的基础，从夏威夷宁静的山丘到日本爆炸性的山峰。"
+    },
+    {
+      "en": "To understand how magma is made, we must first look inside the Earth. Our planet has three main layers: the solid outer <span class=\"kw\" data-ipa=\"/krʌst/\" data-def=\"地壳\">crust</span>, the hot, rocky <span class=\"kw\" data-ipa=\"/ˈmæntl/\" data-def=\"地幔\">mantle</span>, and the metallic core. The crust is a thin shell, only about 40 kilometers thick on land. Beneath it lies the mantle, which extends nearly 3,000 kilometers down. The metallic core, made of iron and nickel, has a temperature as high as 5,000°C. The mantle is mostly solid, but under extreme heat and pressure, some areas of it partially melt. This melted rock, which is lighter than the surrounding solid rock, becomes magma. Over time, magma can collect in large underground pools, waiting for a chance to rise.",
+      "zh": "为了理解岩浆是如何形成的，我们必须首先看一看地球内部。我们的行星有三个主要层：固体的外部地壳、炽热的岩石地幔和金属核心。地壳是薄的壳层，在陆地上只有约40公里厚。在它下面的是地幔，向下延伸近3000公里。金属核心由铁和镍组成，温度高达5000摄氏度。地幔大部分是固体，但在极端的温度和压力下，部分区域会部分熔化。这种熔化的岩石比周围固体岩石更轻，成为岩浆。随着时间的推移，岩浆可以聚集在巨大的地下池中，等待上升的机会。"
+    },
+    {
+      "en": "The engine driving this process is plate <span class=\"kw\" data-ipa=\"/tekˈtɑːnɪk/\" data-def=\"地壳构造的\">tectonics</span>. The Earth’s crust is not one solid piece; it is made up of about a dozen major plates. These plates float on the semi-fluid mantle below, moving a few centimeters each year. This motion, called plate drift, is caused by heat rising from the depths of the Earth. They move toward, away from, or past each other. Most earthquakes and volcanoes happen along these plate boundaries. When plates move apart, or diverge, the mantle beneath them rises, melting as the pressure drops. This creates new magma that fills the gap, forming mid-oceanic ridges or, on land, rift valleys like the one in East Africa.",
+      "zh": "驱动这一过程的引擎是板块构造。地球的地壳不是一块完整的固体；它由大约十二个主要板块组成。这些板块漂浮在下方半流体的地幔上，每年移动几厘米。这种运动被称为板块漂移，是由地球深处的热量上升引起的。它们彼此靠近、远离或相互擦过。大多数地震和火山发生在这板块边界。当板块分开（即离散）时，下方的地幔上升，随着压力降低而熔化。这产生新的岩浆填补空隙，形成大洋中脊，或在陆地上形成如东非大裂谷的裂谷。"
+    },
+    {
+      "en": "In other places, plates <span class=\"kw\" data-ipa=\"/kəˈlaɪd/\" data-def=\"碰撞，相撞\">collide</span> with each other. This happens along the Pacific Ring of Fire, where about 75% of the world’s active and dormant volcanoes are found. When an oceanic plate and a continental plate collide, the heavier oceanic plate sinks beneath the lighter continental plate. As it sinks into the hot mantle, it heats up and releases water. The water lowers the melting point of the rock above, producing magma. This magma rises up through the crust and forms chains of volcanic mountains, such as the Andes. This is why the Pacific region has so many explosive volcanoes, as the sinking plates release large amounts of water.",
+      "zh": "在其他地方，板块相互碰撞。这发生在太平洋火环，那里拥有世界上约75%的活火山和休眠火山。当一个大洋板块和一个大陆板块碰撞时，较重的大洋板块俯冲到较轻的大陆板块下方。当它下沉到炽热的地幔时，它会加热并释放水。这些水降低了上方岩石的熔点，产生岩浆。岩浆上升穿过地壳，形成如安第斯山脉这样的火山链。这就是为什么太平洋地区有如此多爆炸性火山，因为下沉的板块释放了大量的水。"
+    },
+    {
+      "en": "Not all volcanoes form at plate boundaries. Some, like the volcanoes of Hawaii, sit in the middle of a plate. These are created by hot spots, which are unusually hot columns of rock rising from deep in the mantle. As the plate moves slowly over such a hot spot, a series of volcanoes erupts one after another. The oldest volcanoes are the most eroded, while the youngest are still active. Yellowstone, for example, sits on a hot spot and has had three gigantic eruptions in the past two million years. This is why the Hawaiian island chain stretches across the Pacific, with each island having formed as the plate drifted over the hot spot.",
+      "zh": "并非所有火山都形成在板块边界。像夏威夷的火山，有些位于板块中部。这些火山由热点造成，热点是从地幔深处升起的异常炽热的岩石柱。随着板块缓慢移动经过这样一个热点，一系列火山一个接一个喷发。最古老的火山侵蚀最严重，而最年轻的仍然活跃。例如，黄石公园位于一个热点之上，在过去两百万年里发生了三次巨大的喷发。这就是为什么夏威夷群岛链横跨太平洋，每个岛屿都是板块漂移过热点时形成的。"
+    },
+    {
+      "en": "What exactly happens during an eruption? As magma rises, it accumulates in a underground chamber. The pressure in the chamber builds until the rock above it can no longer hold it. Then, with a violent force, the magma bursts through cracks and creates an opening, or vent. The ash, gas, and rock that shoot out are called a volcanic eruption. The style of the eruption depends on the richness of silica and gas in the magma. If the magma is thin and has little gas, it flows out gently as lava. If it is thick and sticky, the gas builds up and erupts explosively, like at Mount Vesuvius in 79 AD. Mount Pinatubo’s 1991 eruption, which was one of the largest in the 20th century, showed how dangerous a thick-magma eruption can be.",
+      "zh": "喷发时究竟发生了什么？当岩浆上升时，它聚集在地下岩浆房。岩浆房中的压力不断增大，直到其上方的岩石再也无法承受。然后，在猛烈的力量下，岩浆冲破裂缝，形成一个开口（即火山口）。喷出的火山灰、气体和岩石被称为火山喷发。喷发的风格取决于岩浆中二氧化硅和气体的含量。如果岩浆薄而气体少，它会像熔岩一样缓缓流出。如果岩浆又厚又粘，气体会积累并爆炸性喷发，如公元79年的维苏威火山。1991年皮纳图博火山的喷发是20世纪最大的喷发之一，显示了厚岩浆喷发有多么危险。"
+    },
+    {
+      "en": "Volcanoes also have a huge impact on the environment and on human life. Eruptions can destroy cities, as when Vesuvius buried Pompeii. But they can also create fertile soil. Volcanic ash is rich in minerals and nutrients, which makes the surrounding land excellent for farming. There are about 1,500 active volcanoes on Earth, and with over 500 million people living near them, prediction is critical. Over millions of years, volcanic activity has built the very continents we live on. Even the air we breathe has been shaped by volcanoes, which released early Earth’s atmosphere. Today, scientists study volcanoes using high-tech tools such as satellites and sensors, hoping to predict future eruptions and save lives.",
+      "zh": "火山还对环境和人类生活产生巨大影响。喷发可以摧毁城市，如维苏威火山掩埋了庞贝。但它们也能创造肥沃的土壤。火山灰富含矿物质和营养物质，使周围的土地非常适合耕种。地球上约有1500座活火山，而超过5亿人生活在火山附近，因此预测至关重要。数百万年来，火山活动造就了我们居住的大陆。甚至我们呼吸的空气也受到火山的影响，火山释放了早期地球大气。今天，科学家使用卫星和传感器等高科技工具研究火山，希望能预测未来的喷发并拯救生命。"
+    },
+    {
+      "en": "From the dark mantle thousands of kilometers below to the bright glow of a lava flow, the story of a volcano is a story of transformation. It reminds us that the ground beneath our feet is not solid and still, but alive with movement and change. Volcanoes are not just destroyers; they are builders, constantly shaping our planet in ways we are only beginning to understand. The next time you see a volcano, whether on a map or in person, remember that it is a sign of the living Earth, always in motion.",
+      "zh": "从数千公里以下黑暗的地幔到熔岩流明亮的光芒，火山的故事就是变化的故事。它提醒我们，脚下的土地并非坚实静止，而是充满运动和变化。火山不仅仅是毁灭者；它们是建设者，不断以我们刚刚开始理解的方式塑造我们的星球。下次你看到火山时，无论是在地图上还是亲身所见，请记住它是活生生的地球的标志，永远在运动。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "The destructive power of volcanoes.",
+        "The formation and impact of volcanoes.",
+        "The different types of volcanic eruptions.",
+        "The role of hot spots in creating islands."
+      ],
+      "answer": 1,
+      "explain": "文章主要介绍火山的形成过程及其对环境和人类的影响，因此选B。A只提到破坏性，不全面；C文章未分类；D只是部分内容。"
+    },
+    {
+      "q": "At divergent plate boundaries, magma forms because...",
+      "options": [
+        "Pressure drops as plates move apart, causing the mantle to melt.",
+        "Plates collide, releasing water.",
+        "Hot spots rise from the core.",
+        "The crust becomes thinner."
+      ],
+      "answer": 0,
+      "explain": "根据文章第三段，当板块分离时，压力降低导致地幔熔化，因此A正确。B是汇聚边界的情况；C是热点；D不是主要原因。"
+    },
+    {
+      "q": "What can be inferred about Yellowstone?",
+      "options": [
+        "It is a shield volcano.",
+        "It is an example of a hot spot volcano.",
+        "It has never erupted in history.",
+        "It is located near a plate boundary."
+      ],
+      "answer": 1,
+      "explain": "从文章第五段可知，黄石公园位于热点上，因此可推断出它属于热点火山，B正确。A文中未提；C错误，应有过大喷发；D错误，它在中部。"
+    },
+    {
+      "q": "The word 'eroded' in the passage is closest in meaning to...",
+      "options": [
+        "destroyed completely",
+        "worn away by wind or water",
+        "changed into magma",
+        "covered by lava"
+      ],
+      "answer": 1,
+      "explain": "“eroded”意为“被侵蚀的”，与“worn away”同义，因此B正确。A过于彻底，C、D不对。"
+    }
+  ]
+}
