@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-04",
+  "level": "CET-4",
+  "title": "Memory's Blueprint: How Your Brain Builds and Rebuilds the Past",
+  "title_zh": "记忆蓝图：大脑如何构建与重建过去",
+  "intro_zh": "本文约900词，围绕人类记忆的运作原理，介绍编码、巩固、检索、遗忘与重建等关键概念，语言难度适合CET-4。",
+  "paragraphs": [
+    {
+      "en": "Have you ever wondered why a song from your childhood can instantly bring back vivid images, yet you can barely remember what you ate for lunch last Tuesday? Memory seems to be a messy and selective process. Scientists once compared human memory to a video camera that faithfully records everything. However, modern research reveals that memory is not a faithful recording. Instead, it is a constructive process that can <span class=\"kw\" data-ipa=\"feɪd\" data-def=\"逐渐消失\">fade</span> and shift over time. Our past experiences are not stored as fixed copies; they are constantly being rebuilt. Understanding this basic fact can help us learn more effectively and even trust our memories less.",
+      "zh": "你是否曾好奇，为什么一首童年歌曲能立刻带回生动的画面，而你却几乎不记得上周二午餐吃了什么？记忆似乎是一个混乱且具有选择性的过程。科学家曾将人类记忆比作忠实记录一切的摄像机。然而，现代研究表明，记忆并非忠实的录像。相反，它是一个建构过程，会随时间逐渐消退和变化。我们过去的经历并非作为固定副本存储；它们不断被重建。理解这一基本事实可以帮助我们更有效地学习，甚至对记忆持更审慎的态度。"
+    },
+    {
+      "en": "To understand memory, we first need to look at its three main stages: encoding, storage, and retrieval. The first stage is encoding. When you meet someone new, your brain will <span class=\"kw\" data-ipa=\"ɪnˈkoʊd\" data-def=\"编码\">encode</span> their face, voice, and name. If you pay full attention, the encoding is stronger; if you are distracted, the memory trace becomes weak. The next stage is storage, where the brain keeps the encoded information. But storage is not like putting a file in a cabinet. It is an active process that requires time and energy to build lasting connections.",
+      "zh": "要理解记忆，我们首先需要了解三个主要阶段：编码、存储和检索。第一阶段是编码。当你遇到一个陌生人时，你的大脑会编码他们的面孔、声音和名字。如果你全神贯注，编码就更强；如果你分心，记忆痕迹就变弱。下一个阶段是存储，即大脑保留已编码的信息。但存储不像把文件放入抽屉。它是一个主动过程，需要时间和能量来建立持久的连接。"
+    },
+    {
+      "en": "Where does new information go first? Psychologists describe a short-term memory that holds a small amount of information for about 15 to 30 seconds. Think about trying to remember a phone number from a directory. You repeat it to yourself over and over, which keeps it alive in your mind. This is called maintenance rehearsal. However, without further processing, the number quickly slips away. To keep it longer, you need to link it to something meaningful or group the digits into patterns. When you later want to remember that number, your brain must <span class=\"kw\" data-ipa=\"rɪˈtriːv\" data-def=\"检索\">retrieve</span> it from storage. Successful retrieval depends on the cues available at that moment. For instance, if you hear the first part of the number, the rest may automatically come back.",
+      "zh": "新信息首先去哪里？心理学家描述了短时记忆，它能保持约15到30秒的少量信息。想想试着记住电话簿里的一个电话号码。你一遍又一遍地重复它，这使它在脑海中保持活跃。这被称为维持性复述。然而，如果没有进一步加工，这个号码很快就会溜走。为了保留更长时间，你需要将其与有意义的事物联系起来，或将数字分成模式。当你之后想要记住那个号码时，你的大脑必须从存储中检索它。成功的检索取决于当时可用的提示。例如，如果你听到号码的第一部分，其余部分可能会自动回来。"
+    },
+    {
+      "en": "How does a short-term memory become a long-term one? The answer lies in a process called <span class=\"kw\" data-ipa=\"kənˌsɑːlɪˈdeɪʃən\" data-def=\"巩固\">consolidation</span>. During consolidation, the brain connects the new information with existing knowledge and stabilizes the memory traces. This process often happens during sleep. Studies show that sleep, especially deep sleep, plays a key role in moving information from the hippocampus, a temporary storage area, to the cortex for long-term storage. Without adequate sleep, your ability to consolidate what you learned during the day is weakened. That is why pulling an all-nighter before an exam is usually a bad idea. Instead, a good night's sleep after studying can help you remember the material far better.",
+      "zh": "短时记忆如何变成长期记忆？答案在于一个称为巩固的过程。在巩固过程中，大脑将新信息与现有知识连接起来，并稳定记忆痕迹。这个过程常常发生在睡眠中。研究表明，睡眠，尤其是深度睡眠，在将信息从临时存储区海马体转移到大脑皮层进行长期存储方面起着关键作用。睡眠不足，白天的学习巩固能力就会减弱。这就是为什么考前熬夜通常不是一个好主意。相反，学习后一夜好眠能帮助你更好地记住材料。"
+    },
+    {
+      "en": "If memory is so powerful, why do we forget? One well-known explanation is the forgetting curve proposed by Hermann Ebbinghaus in the 19th century. He found that forgetting happens rapidly after learning, then levels off. Information in short-term memory decays quickly if not rehearsed. This phenomenon is called memory trace fading. Memories may <span class=\"kw\" data-ipa=\"feɪd\" data-def=\"逐渐消失\">fade</span> because they are never strengthened or because new learning interferes with old memories. Have you ever forgotten an old password because you kept using a new one? That is interference. Forgetting is not always a failure; it is often the brain's way of filtering out unimportant details to make room for more relevant information.",
+      "zh": "如果记忆如此强大，为什么我们会忘记？一个著名的解释是19世纪赫尔曼·艾宾浩斯提出的遗忘曲线。他发现遗忘在学习后迅速发生，然后趋于平缓。如果不加以复述，短时记忆中的信息会迅速衰减。这种现象称为记忆痕迹消退。记忆可能因为从未被强化而消退，也可能由于新学习干扰了旧记忆。你是否曾因为一直使用新密码而忘记了旧密码？这就是干扰。遗忘并不总是失败；它常常是大脑过滤掉不重要的细节，为更相关的信息腾出空间的方式。"
+    },
+    {
+      "en": "Now here is the surprising part: memories are not fixed recordings. Each time we recall an event, we <span class=\"kw\" data-ipa=\"ˌriːkənˈstrʌkt\" data-def=\"重建\">reconstruct</span> it. The brain fills in missing details based on our expectations, beliefs, and current mood. This can lead to distortion. For example, in a famous study, people who watched a car accident were asked, 'How fast were the cars going when they hit each other?' Another group was asked, 'How fast were the cars going when they smashed into each other?' Those who heard the word 'smashed' later reported higher speeds and even claimed to have seen broken glass. Their memories had been subtly changed by the wording of the question. This shows that memory is more like a story that we rewrite every time we tell it.",
+      "zh": "现在令人惊讶的部分是：记忆并不是固定的录像。每次我们回忆一个事件，我们都会重建它。大脑根据我们的期望、信念和当前情绪填补缺失的细节。这可能导致扭曲。例如，在一项著名研究中，观看车祸的人被问到：“当车撞到一起时，它们的速度有多快？”另一组被问到：“当它们猛撞在一起时，速度有多快？”听到“猛撞”一词的人后来报告了更高的速度，甚至声称看到了碎玻璃。他们的记忆被问题的措辞微妙地改变了。这表明记忆更像一个我们每次讲述时都重写的故事。"
+    },
+    {
+      "en": "What can we do to make our memories more reliable? One practical method is to use retrieval cues. A <span class=\"kw\" data-ipa=\"kjuː\" data-def=\"提示\">cue</span> is any stimulus that helps you access a memory. For instance, the smell of a certain perfume might remind you of a person you knew. This is why studying in the same environment where you will take the test can improve your performance. The context acts as a cue. Another powerful technique is to generate your own cues by asking questions and making connections. Instead of rereading your notes passively, try to recall key points without looking. The effort involved in retrieval strengthens the memory and makes it resistant to fading. In other words, testing yourself is one of the most effective learning strategies.",
+      "zh": "我们能做些什么使记忆更可靠？一个实用的方法是使用检索线索。线索是任何帮助你获取记忆的刺激。例如，某种香水的味道可能让你想起认识的人。这就是为什么在考试相同的环境中学习可以提高成绩。情境可以作为线索。另一个强大的技巧是通过提问和建立联系来生成自己的线索。不要被动重读笔记，试着不看书回忆关键点。检索所付出的努力会强化记忆，使其不易消退。换句话说，自我测试是最有效的学习策略之一。"
+    },
+    {
+      "en": "In addition to cues, the order and timing of study matter. Research suggests that spacing out study sessions, rather than cramming, produces better long-term results. This is called the spacing effect. When you review material after a break, your brain has to work harder to <span class=\"kw\" data-ipa=\"rɪˈtriːv\" data-def=\"检索\">retrieve</span> it, and this effort consolidates the memory further. Furthermore, mixing related topics can help you distinguish between them, making your knowledge more flexible. These strategies do not require special talent; they simply use the natural mechanics of memory. Everyone can apply them to learn languages, science, or any subject.",
+      "zh": "除了线索，学习的顺序和时间也很重要。研究表明，分散学习时间而不是临时抱佛脚能产生更好的长期效果。这称为间隔效应。当你休息后复习材料时，你的大脑必须更努力地检索它，而这种努力会进一步巩固记忆。此外，混合相关主题可以帮助你区分它们，使你的知识更灵活。这些策略不需要特殊天赋；它们只是利用记忆的自然机制。每个人都可以用它们来学习语言、科学或任何学科。"
+    },
+    {
+      "en": "Memory is a remarkable ability, but it is also a creative one. Our brains are not designed to record every moment perfectly; they are designed to capture what is useful for our survival and well-being. The same mechanisms that cause forgetting and distortion also allow us to learn, adapt, and imagine the future. By understanding how memory works—through encoding, consolidation, and retrieval—we can become better learners and also more aware of our own limitations. So the next time you confidently recall something, remember that you are not just playing a video; you are actively building the past.",
+      "zh": "记忆是一种非凡的能力，但也是创造性的能力。我们的大脑不是为了完美记录每一个瞬间而设计的；它们是为了捕捉对生存和幸福有用的内容。正是导致遗忘和扭曲的机制也使我们能够学习、适应和想象未来。通过理解记忆如何运作——通过编码、巩固和检索——我们可以成为更好的学习者，也更清楚自己的局限。所以下次你自信地回忆某事时，记住你不仅仅是在播放视频；你在主动构建过去。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the author's main point about human memory?",
+      "options": [
+        "It works like a video camera.",
+        "It is a creative process that changes every time we recall.",
+        "It is mostly unreliable.",
+        "It only works during sleep."
+      ],
+      "answer": 1,
+      "explain": "主旨题。文章第一段即指出记忆不是忠实录像，而是建构过程，其后多次强调记忆会重建和改变，因此B正确。A是传统观点，C过于绝对，D不符合。"
+    },
+    {
+      "q": "According to the passage, what is the role of sleep in memory?",
+      "options": [
+        "It erases unimportant memories.",
+        "It helps consolidate short-term memories into long-term ones.",
+        "It makes memories less accurate.",
+        "It prevents any forgetting."
+      ],
+      "answer": 1,
+      "explain": "细节题。第四段明确说明睡眠期间巩固过程将信息从海马体转移到皮层，帮助长期记忆，因此B正确。A、C、D均未提及或与原文相反。"
+    },
+    {
+      "q": "The word 'cue' in Paragraph 7 is closest in meaning to ______.",
+      "options": [
+        "a hint or signal that triggers memory",
+        "a type of memory test",
+        "a mistake in recall",
+        "a period of forgetting"
+      ],
+      "answer": 0,
+      "explain": "词义题。第七段中“cue”定义为“any stimulus that helps you access a memory”，即触发记忆的提示，因此A正确。"
+    },
+    {
+      "q": "What can be inferred from the car accident study?",
+      "options": [
+        "People's memory for fast movement is always reliable.",
+        "The choice of words in a question can influence a person's memory.",
+        "Eyewitnesses should never be trusted.",
+        "People enjoy watching car accidents."
+      ],
+      "answer": 1,
+      "explain": "推断题。第六段车祸研究表明，问题措辞(“撞”vs“猛撞”)改变了目击者的记忆，因此B正确。A、C、D过度推断或无关。"
+    }
+  ]
+}
