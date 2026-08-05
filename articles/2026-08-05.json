@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-05",
+  "level": "CET-4",
+  "title": "From Fossil Fuels to Sunlight: The Renewable Energy Revolution",
+  "title_zh": "从化石燃料到阳光：可再生能源革命",
+  "intro_zh": "本文约900词，介绍可再生能源的发展现状、主要类型、技术挑战以及未来前景，适合CET-4水平阅读。",
+  "paragraphs": [
+    {
+      "en": "Modern civilization runs on energy. For over a century, coal, oil, and natural gas have powered factories, homes, and transportation. However, burning these fossil fuels releases greenhouse gases, which are warming the planet rapidly. Temperatures have risen by 1.2°C since pre-industrial times, and extreme weather events are now more common. To escape this crisis, the world is undergoing a dramatic <span class=\"kw\" data-ipa=\"trænˈzɪʃən\" data-def=\"过渡\">transition</span> to cleaner energy. <span class=\"kw\" data-ipa=\"rɪˈnuːəbəl\" data-def=\"可再生的\">Renewable</span> sources such as solar, wind, and water produce little or no pollution. They are naturally replenished and never run out. With falling costs and advancing technology, this shift is becoming not only necessary but also practical.",
+      "zh": "现代文明离不开能源。一个多世纪以来，煤炭、石油和天然气为工厂、家庭和交通提供动力。然而，燃烧这些化石燃料会释放温室气体，导致全球迅速变暖。自前工业化时代以来，气温已上升1.2°C，极端天气事件也更加频繁。为了摆脱这场危机，世界正在经历向清洁能源的巨大转变。太阳能、风能和水能等可再生资源几乎不产生污染，而且会自然补充、永不枯竭。随着成本下降和技术进步，这种转变不仅必要，而且切实可行。"
+    },
+    {
+      "en": "Among renewable options, solar power is growing fastest. The idea is to <span class=\"kw\" data-ipa=\"hɑːrnɪs\" data-def=\"利用\">harness</span> sunlight and convert it into electricity using photovoltaic panels. Over the past decade, solar panel prices have dropped by over 80%, making solar the cheapest electricity source in many sunny countries. China has built massive solar farms in deserts, such as the Tengger Desert Solar Park, which covers 1,200 square kilometers. Rooftop panels are also spreading, allowing homes to generate their own power and even sell surplus back to the grid. Even in cloudy nations like Germany, solar energy supplies around 10% of electricity. This shows that sunlight is a reliable, clean source for both rich and developing countries.",
+      "zh": "在所有可再生能源中，太阳能发展最快。其原理是利用光伏板将阳光转化为电能。过去十年间，太阳能电池板价格下降了80%以上，使太阳能在许多阳光充足的国家成为最便宜的电力来源。中国已在沙漠中建造了大规模的太阳能电站，例如占地1200平方公里的腾格里沙漠太阳能电站。屋顶太阳能板也日益普及，让家庭可以自行发电，甚至将多余电力卖回电网。即使在德国这样多云的国家，太阳能也提供了约10%的电力。这表明阳光是一种可靠、清洁的能源，既适合发达国家，也适合发展中国家。"
+    },
+    {
+      "en": "Wind power is another success story. Large turbines catch the breeze and turn it into electricity. Offshore wind farms, built in shallow seas, are expanding quickly because winds at sea are stronger and more constant. Unlike fossil fuels, wind energy releases no harmful <span class=\"kw\" data-ipa=\"ɪˈmɪʃən\" data-def=\"排放\">emissions</span> and uses no water. Denmark already gets about half of its electricity from wind, while the United Kingdom has installed so many offshore turbines that they can power every household. However, the wind does not always blow, so wind power needs backup from storage or other sources. This is a challenge that engineers are working hard to solve.",
+      "zh": "风能是另一个成功典范。大型涡轮机捕捉风力并转化为电能。由于海上风速更强更稳定，海上风电场正迅速扩张。与化石燃料不同，风能不排放有害物质，也不消耗水。丹麦有大约一半的电力来自风能，而英国安装的海上涡轮机已能为每个家庭供电。然而，风并不总是刮，因此风能需要储能或其他能源作为备用。这是工程师们正在努力解决的难题。"
+    },
+    {
+      "en": "Besides solar and wind, other renewables play important roles. Hydropower, using dams and river currents, has been used for over a century. It provides steady and <span class=\"kw\" data-ipa=\"səˈsteɪnəbəl\" data-def=\"可持续的\">sustainable</span> power, but large dams can disrupt ecosystems. Geothermal energy taps into natural heat inside the Earth, while biomass converts organic waste into fuel. These sources are less visible but valuable, especially in areas with rich natural resources. Together, solar, wind, hydro, geothermal, and biomass contribute about 30% of global electricity today. The number is climbing as more countries realize the benefits of clean, locally produced energy.",
+      "zh": "除太阳能和风能外，其他可再生能源也发挥着重要作用。利用水坝和河流水流的水力发电已有一个多世纪的历史。它提供稳定且可持续的电力，但大型水坝可能破坏生态系统。地热能利用地球内部的热量，生物质能将有机废物转化为燃料。这些能源不太起眼，但很有价值，尤其是在自然资源丰富的地区。如今，太阳能、风能、水力、地热和生物质能共提供约30%的全球电力。随着更多国家意识到清洁本地能源的好处，这一比例还在不断上升。"
+    },
+    {
+      "en": "One major challenge for renewable energy is its intermittent nature. The sun does not shine at night, and the wind may stop for days. To maintain a stable supply, we need efficient energy storage. Battery <span class=\"kw\" data-ipa=\"kəˈpæsəti\" data-def=\"容量\">capacity</span> has improved dramatically, and the price of lithium-ion batteries fell by 90% between 2010 and 2020. Pumped-storage hydropower, which stores energy by pumping water uphill, is the most common large-scale solution. New technologies like compressed air and hydrogen storage are also being developed. In addition, smart grids can balance electricity use and generation automatically. These tools help renewable energy become a reliable foundation for our power needs.",
+      "zh": "可再生能源面临的一大挑战是其间歇性。太阳在夜间不发光，风也可能连续几天停止。为保持稳定的电力供应，我们需要高效的储能系统。电池容量已大大提高，锂离子电池的价格在2010年至2020年间下降了90%。抽水蓄能是最常见的大规模储能方式，它通过将水泵到高处来储存能量。压缩空气和氢储能等新技术也在开发中。此外，智能电网可以自动平衡电力使用与发电。这些工具有助于可再生能源成为可靠的电力基础。"
+    },
+    {
+      "en": "Government policies are pushing the <span class=\"kw\" data-ipa=\"rɪˈnuːəbəl\" data-def=\"可再生的\">renewable</span> energy transition forward. The Paris Agreement, signed by nearly 200 countries, sets clear targets to cut greenhouse gas emissions. Many governments offer tax breaks and subsidies for solar, wind, and other clean projects. The European Union has promised to become climate-neutral by 2050. China, as the world's largest energy consumer, invests more money in renewable energy than any other nation. It leads in solar panel production and has more wind and solar capacity than the rest of the world combined. Such strong support accelerates the shift and creates millions of green jobs globally.",
+      "zh": "政府政策正在推动可再生能源转型。近200个国家签署的《巴黎协定》设定了明确的温室气体减排目标。许多政府为太阳能、风能等清洁项目提供税收减免和补贴。欧盟承诺到2050年实现气候中和。中国作为全球最大能源消费国，对可再生能源的投资超过任何其他国家。中国在太阳能电池板生产方面领先全球，其风电和太阳能装机容量超过世界其他国家的总和。这些强有力的支持加速了转型，并在全球创造了数百万个绿色就业岗位。"
+    },
+    {
+      "en": "The future of renewable energy looks bright, yet work remains. Old power grids were designed for fossil fuels and need upgrades to handle variable sources like solar and wind. This includes building new transmission lines and adopting digital monitoring. Individuals can also contribute by saving electricity and supporting eco-friendly policies. According to the International Energy Agency, renewable capacity is expected to exceed coal power within the next few years. Some countries have already announced plans to phase out coal plants completely. As storage costs keep falling, renewables may soon provide the majority of the world's electricity. The path is not easy, but every year brings new records and stronger commitments.",
+      "zh": "可再生能源的未来一片光明，但仍需努力。旧电网是为化石燃料设计的，需要升级以应对太阳能和风能等不稳定的能源。这包括建设新的输电线路和采用数字监控。个人也可以通过节约用电和支持环保政策作出贡献。根据国际能源署的数据，可再生能源装机容量预计将在未来几年内超过煤电。一些国家已宣布计划完全淘汰燃煤电厂。随着储能成本持续下降，可再生能源可能很快提供世界大部分电力。道路并不平坦，但每年都有新纪录和更坚定的承诺。"
+    },
+    {
+      "en": "In conclusion, renewable energy is no longer a distant dream but a rapidly growing reality. From sunny deserts to windy coastlines, we are learning to use nature's gifts more wisely. The transition to clean power is a long journey, but the direction is clear. By supporting sustainable energy policies and making personal choices to reduce waste, each of us can contribute. Together, we can protect our planet for future generations and ensure a brighter, cleaner world.",
+      "zh": "总之，可再生能源已不再是遥远的梦想，而是一个迅速发展的现实。从阳光灿烂的沙漠到海风习习的海岸，我们正在学习更明智地利用自然的馈赠。向清洁电力转型是一条漫长的路，但方向是明确的。通过支持可持续能源政策和选择减少浪费的个人行动，我们每个人都能贡献力量。让我们共同保护地球，为子孙后代确保一个更明亮、更清洁的世界。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of this article?",
+      "options": [
+        "A. To explain why fossil fuels are harmful.",
+        "B. To describe the development and benefits of renewable energy.",
+        "C. To compare solar and wind power in detail.",
+        "D. To persuade readers to reduce energy consumption."
+      ],
+      "answer": 1,
+      "explain": "文章主要介绍可再生能源的发展、类型、挑战和前景，B正确。A只是部分内容，C不是全文重点，D是个人行为，不是文章主要目的。"
+    },
+    {
+      "q": "According to the passage, what makes solar power more affordable now than in the past?",
+      "options": [
+        "A. Higher government subsidies.",
+        "B. The discovery of new solar materials.",
+        "C. A significant drop in the price of solar panels.",
+        "D. The building of larger solar farms."
+      ],
+      "answer": 2,
+      "explain": "第二段明确提到“solar panel prices have dropped by over 80%”，因此是价格下降导致更便宜，C正确。A、B、D在文中未提。"
+    },
+    {
+      "q": "What does the example of Denmark in Paragraph 3 show?",
+      "options": [
+        "A. Wind power can provide a large share of a country's electricity.",
+        "B. Denmark is the largest wind power producer in the world.",
+        "C. Offshore wind farms are more efficient than onshore ones.",
+        "D. Wind energy is a reliable source in all weather conditions."
+      ],
+      "answer": 0,
+      "explain": "丹麦约一半电力来自风能，说明风能占比可以很高，A正确。B说最大，文中未提；C比较未涉及；D与文中“风不总是刮”矛盾。"
+    },
+    {
+      "q": "The word 'harness' in Paragraph 2 most likely means ______.",
+      "options": [
+        "A. build",
+        "B. control and use",
+        "C. store",
+        "D. consider"
+      ],
+      "answer": 1,
+      "explain": "harness意为“利用，驾驭”，B的“control and use”最接近。其他选项不符合语境。"
+    }
+  ]
+}
