@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-06",
+  "level": "CET-4",
+  "title": "Junk in Orbit: How Space Debris Threatens Our Satellite Age",
+  "title_zh": "轨道上的垃圾：太空碎片如何威胁我们的卫星时代",
+  "intro_zh": "本文约900词，聚焦太空垃圾问题的成因、风险与清理方案，用具体数据说明其紧迫性。",
+  "paragraphs": [
+    {
+      "en": "Since the launch of Sputnik in 1957, humanity has sent thousands of objects into space. Satellites have transformed communication, weather forecasting, and navigation. Yet every launch leaves behind more than a working satellite. It also leaves <span class=\"kw\" data-ipa=\"ˈdebriː\" data-def=\"碎片，残骸\">debris</span>: spent rocket stages, broken parts, and even tiny paint chips. These pieces now circle Earth at incredible speeds, posing a growing danger to active spacecraft.",
+      "zh": "自1957年斯普特尼克号发射以来，人类已将数千个物体送入太空。卫星改变了通信、天气预报和导航。然而，每次发射留下的不只是工作中的卫星，还有碎片：废弃的火箭级、断裂的零件，甚至微小的油漆片。这些碎片如今以惊人的速度环绕地球，对在轨航天器构成日益严重的威胁。"
+    },
+    {
+      "en": "Where does all this junk come from? Some is intentional. Old satellites that have run out of fuel are often left in orbit instead of being brought down. Rocket bodies, which separate during launch, also remain there. Other pieces come from accidents. In 2009, a defunct Russian satellite collided with an American Iridium satellite, creating thousands of <span class=\"kw\" data-ipa=\"ˈfræɡmənts\" data-def=\"碎片，片段\">fragments</span>. Even a simple explosion or a failed separation can scatter debris over a wide area.",
+      "zh": "这些垃圾从何而来？有些是故意留下的。燃料耗尽的旧卫星往往留在轨道上，而不是被带回地面。发射时分离的火箭箭体也留在那里。另一些碎片来自事故。2009年，一颗报废的俄罗斯卫星与美国铱星卫星相撞，产生了数千块碎片。即使是简单的爆炸或分离失败，也可能在广阔区域散布碎片。"
+    },
+    {
+      "en": "The sheer amount is shocking. According to the European Space Agency, more than 36,000 pieces of debris larger than 10 centimeters are currently being tracked. These are big enough to cause catastrophic damage. In addition, there are over a million pieces smaller than 1 centimeter. Though tiny, they move so fast that even a small <span class=\"kw\" data-ipa=\"ˈkɑlɪʒən\" data-def=\"碰撞，撞击\">collision</span> can cripple a satellite. At typical orbital speeds of 7 to 8 kilometers per second, the energy of impact is many times greater than a bullet.",
+      "zh": "碎片数量惊人。据欧洲航天局统计，目前正在追踪超过3.6万块大于10厘米的碎片。这些碎片足以造成灾难性破坏。此外，还有超过一百万块小于1厘米的碎片。它们虽小，但移动速度极快，即使是一次小碰撞也可能使卫星瘫痪。在每秒7至8公里的典型轨道速度下，撞击能量比子弹高出许多倍。"
+    },
+    {
+      "en": "Why should we care? Because modern life depends on satellites more than we realize. They provide GPS signals for our phones, relay television broadcasts, and monitor weather patterns. A single major collision could create a chain reaction, known as the Kessler Syndrome, in which each crash produces more debris, leading to more crashes. In a worst-case scenario, parts of low Earth orbit could become unusable for decades, cutting off vital services.",
+      "zh": "为什么我们应当在意的？因为现代生活对卫星的依赖远超我们的想象。它们为手机提供GPS信号，传送电视广播，并监测天气模式。一次重大碰撞可能引发连锁反应，即所谓的凯斯勒综合征：每次撞击产生更多碎片，导致更多撞击。在最坏的情况下，近地轨道部分地区可能在几十年内无法使用，从而导致关键服务中断。"
+    },
+    {
+      "en": "Real incidents have already shown the danger. In 2016, a small piece of space junk hit a window on the International Space Station, creating a 7-millimeter chip. Astronauts were lucky the window did not break completely. In 2021, China’s space station had to perform evasive maneuvers twice to avoid debris from a Russian anti-satellite test. These close calls remind us that space debris is not a distant problem but an immediate <span class=\"kw\" data-ipa=\"ˈhæzəd\" data-def=\"危险，危害\">hazard</span>.",
+      "zh": "真实事件已经反映出这种危险。2016年，一块小太空垃圾击中国际空间站的窗户，留下一个7毫米的凹痕。宇航员很幸运，窗户没有完全破裂。2021年，中国空间站两次进行规避机动，以避开俄罗斯反卫星试验产生的碎片。这些惊险事件提醒我们，太空碎片不是遥远的问题，而是眼前的危险。"
+    },
+    {
+      "en": "Scientists and engineers are developing clever ways to clean up the mess. One idea is a harpoon or net that captures large debris and drags it into the atmosphere, where it burns up. Another approach uses a robotic arm to grab a satellite and push it into a lower orbit. Some proposals even involve lasers. A ground-based or space-based laser could vaporize the surface of small debris, slowing it down until it falls. These methods are still experimental, but early tests have shown promise.",
+      "zh": "科学家和工程师正在开发巧妙的方法来清理垃圾。一种方案是用鱼叉或网捕获大型碎片，并将其拖入大气层烧毁。另一种方法是用机械臂抓住卫星，将其推入更低的轨道。甚至有人提出使用激光。地基或天基激光可以蒸发小碎片表面，使其减速直至坠落。这些方法仍处于试验阶段，但早期测试已显示出前景。"
+    },
+    {
+      "en": "International cooperation is essential. Since no single country owns the problem, no single country can solve it alone. The United Nations has adopted guidelines that encourage countries to de-orbit satellites at the end of their lives. Many satellite operators now plan to leave enough fuel for a controlled reentry. However, these rules are voluntary, and enforcement is weak. Stronger agreements, perhaps with legal <span class=\"kw\" data-ipa=\"ˈmɛʒərz\" data-def=\"措施，方法\">measures</span>, would make a real difference.",
+      "zh": "国际合作至关重要。既然问题不属于任何单一国家，也就没有哪个国家能独自解决。联合国已通过指导方针，鼓励各国在卫星寿命结束时使其脱离轨道。许多卫星运营商现在计划保留足够燃料以进行受控再入。然而，这些规则是自愿的，执行力度较弱。更强有力的协议，或许带有法律措施，才能带来真正的改变。"
+    },
+    {
+      "en": "Looking ahead, the future of space travel depends on how we handle this challenge. Commercial networks like Starlink plan to launch tens of thousands of new satellites in the coming years. Without proper management, the problem will only worsen. But with careful design, responsible operations, and active cleanup, we can keep space safe for the generations to come. The <span class=\"kw\" data-ipa=\"ˈɔːrbit\" data-def=\"轨道\">orbit</span> is our shared highway — we must not let it become a junkyard.",
+      "zh": "展望未来，太空旅行的未来取决于我们如何应对这一挑战。像星链这样的商业网络计划在未来几年发射数万颗新卫星。如果没有适当的管理，问题只会恶化。但通过精心设计、负责任的操作和主动清理，我们能够为子孙后代保持太空安全。轨道是我们共同的高速公路——我们不能让它变成垃圾场。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of this passage?",
+      "options": [
+        "Space debris is a serious problem that requires global attention and solutions.",
+        "Satellites are becoming more dangerous to operate.",
+        "Scientists have found perfect ways to clean up space junk.",
+        "Commercial networks like Starlink cause most space debris."
+      ],
+      "answer": 0,
+      "explain": "主旨题。全文围绕太空垃圾的来源、威胁、清理技术和国际合作展开，强调这是一个需要全球关注和解决的问题。选项A正确。B过于片面，C说perfect ways错误，D并非原文重点。"
+    },
+    {
+      "q": "According to the passage, what happened in 2009?",
+      "options": [
+        "A Russian satellite exploded by itself.",
+        "An American satellite and a Russian satellite collided.",
+        "The International Space Station was hit by debris.",
+        "China's space station performed evasive maneuvers."
+      ],
+      "answer": 1,
+      "explain": "细节题。第二段明确提到2009年一颗报废的俄罗斯卫星与美国铱星卫星相撞。选项B正确。其他选项时间或事件不符。"
+    },
+    {
+      "q": "The word 'hazard' in paragraph 5 most probably means ______.",
+      "options": [
+        "a difficulty",
+        "a danger",
+        "a surprise",
+        "a challenge"
+      ],
+      "answer": 1,
+      "explain": "词义题。hazard意为“危险”，上下文提到太空碎片对空间站的威胁，因此选B。"
+    },
+    {
+      "q": "What can be inferred about the current cleanup technologies?",
+      "options": [
+        "They are already widely used in space.",
+        "They are mainly theoretical and have not been tested.",
+        "They are being developed but not yet fully effective.",
+        "They are too expensive to be practical."
+      ],
+      "answer": 2,
+      "explain": "推断题。第六段提到鱼叉、网、机械臂和激光等方法，并说明“still experimental but early tests have shown promise”，可推断它们仍在发展中，尚未完全有效。选项C正确。"
+    }
+  ]
+}
