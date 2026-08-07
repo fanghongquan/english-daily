@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-07",
+  "level": "CET-4",
+  "title": "Thunderstorms Unleashed: The Hidden Science of Lightning",
+  "title_zh": "雷暴释放：闪电背后的隐藏科学",
+  "intro_zh": "本文约950词，难度适中，适合CET-4水平。",
+  "paragraphs": [
+    {
+      "en": "Thunderstorms are among nature's most dramatic displays. They occur across every inhabited continent, from tropical rainforests to dry plains. Every year, about 16 million storms happen around the world, producing roughly 8 million lightning strikes each day. Yet for centuries, people viewed these events as punishments from angry gods. Only in the 1700s did scientists begin to unlock the secrets of thunder and lightning. Today, we know that a thunderstorm is a complex electrical engine powered by heat and <span class=\"kw\" data-ipa=\"/ˈmɔɪstʃər/\" data-def=\"水分；湿气\">moisture</span>. Understanding how it works can help us respect its power and stay safe. In this article, we will explore the birth of a storm, the mystery of lightning, and why a simple metal rod can protect buildings.",
+      "zh": "雷暴是自然界最壮观的景象之一。它们出现在每一块有人居住的大陆，从热带雨林到干旱平原。每年，世界各地大约发生1600万次雷暴，每天产生约800万次闪电。然而几个世纪以来，人们将这些事件视为愤怒神灵的惩罚。直到18世纪，科学家才开始揭开雷暴和闪电的秘密。如今，我们知道雷暴是一台由热量和水分驱动的复杂电力发动机。了解它的工作原理有助于我们敬畏其力量并保持安全。在本文中，我们将探索雷暴的诞生、闪电的奥秘，以及为什么一根简单的金属棒可以保护建筑物。"
+    },
+    {
+      "en": "The story of a thunderstorm begins with moisture near the ground. When the sun heats the Earth, water evaporates from oceans, lakes, and soil. As the warm, humid air climbs, it cools, and the water vapor condenses into tiny droplets. This process releases latent heat, which makes the air even more buoyant. If the atmosphere is unstable, this updraft continues, forming a towering cumulonimbus cloud. Within this cloud, violent air currents toss the droplets and ice crystals up and down at speeds of 100 kilometers per hour. The cloud may grow to 10 kilometers high, containing enormous amounts of energy. Meteorologists call such a cloud a thunderhead, and it is the birthplace of lightning.",
+      "zh": "雷暴的故事始于地面附近的湿气。当太阳加热地球时，水从海洋、湖泊和土壤中蒸发。随着暖湿空气上升，它冷却下来，水蒸气凝结成微小水滴。这个过程释放潜热，使空气更加浮力十足。如果大气不稳定，这种上升气流继续发展，形成高耸的积雨云。在云内部，强烈的气流以每小时100公里的速度将水滴和冰晶上下抛掷。云可能长到10公里高，蕴含巨大能量。气象学家称这种云为雷暴云砧，它是闪电的诞生地。"
+    },
+    {
+      "en": "How does lightning form? Inside the cumulonimbus cloud, ice crystals and small hailstones <span class=\"kw\" data-ipa=\"/kəˈlaɪd/\" data-def=\"碰撞\">collide</span> constantly. These collisions strip electrons from one particle and give them to another. As a result, lighter ice crystals become positively charged, while heavier hailstones become negatively charged. The rising air pushes the positive crystals to the top of the cloud, while the negative ones <span class=\"kw\" data-ipa=\"/əˈkjuːmjəleɪt/\" data-def=\"积累；积聚\">accumulate</span> at the bottom. This separation of charges creates a huge electric field. When the field becomes strong enough to break down air's resistance, a spark jumps — this is lightning. A single storm cloud can accumulate enough electrical potential to <span class=\"kw\" data-ipa=\"/dɪsˈtʃɑːrdʒ/\" data-def=\"放电；释放\">discharge</span> millions of volts, enough to power a large city for a day.",
+      "zh": "闪电是如何形成的呢？在积雨云内部，冰晶和小冰雹不断碰撞。这些碰撞从一些粒子剥离电子并给予另一些粒子。结果，较轻的冰晶带正电荷，而较重的冰雹带负电荷。上升气流将正冰晶推到云顶，而负冰晶则积聚在云底。这种电荷分离产生了巨大的电场。当电场强到足以击穿空气的阻力时，就会跳出火花——这就是闪电。一朵单一的暴风云可以积聚足够的电势，释放出数百万伏特的电量，足以供一座大城市使用一天。"
+    },
+    {
+      "en": "Lightning is more than a single flash. A typical lightning bolt goes through several stages. First, a faint stepped leader of electrons zigzags downward from the cloud for about 50 meters, pauses, then continues. When it gets close to the ground, an upward streamer of positive charge rises from tall objects such as trees or buildings. When the two meet, a powerful return stroke surges upward at nearly one-third the speed of light. This stroke is what we see as the bright flash. The entire process takes less than a second, but it carries a current of up to 200,000 amperes and heats the air to 30,000°C — five times hotter than the surface of the sun. The rapid heating causes air to expand explosively, creating the sound we call thunder.",
+      "zh": "闪电不仅仅是一道闪光。一次典型的闪电要经过几个阶段。首先，一股微弱的梯级先导电子从云端蜿蜒而下，大约行进50米后暂停，再继续。当它接近地面时，一股向上的正电荷流从树木或建筑物等高物升起。当两者相遇时，一股强大的回击电流以接近光速三分之一的速度向上猛冲。这道回击就是我们看到的亮光。整个过程不到一秒，但它携带高达20万安培的电流，并将空气加热到3万摄氏度——比太阳表面热五倍。快速加热导致空气急剧膨胀，产生我们称之为雷的声音。"
+    },
+    {
+      "en": "Because lightning carries such enormous energy, it is important to understand how it affects the ground. When lightning strikes a tree, the water inside the tree may turn instantly to steam, causing the tree to explode. If it strikes a building, the heat can start a fire. However, electricity always follows the path of least resistance. This principle led Benjamin Franklin to invent the lightning rod in 1752, after his famous kite experiment. A lightning rod is a tall metal <span class=\"kw\" data-ipa=\"/kənˈdʌktər/\" data-def=\"导体；指挥\">conductor</span> attached to the top of a building, connected to the ground by a thick wire. Due to its shape and position, it attracts lightning and safely guides the charge into the earth. This simple device has saved countless buildings from damage, and it is still used on nearly every skyscraper today.",
+      "zh": "由于闪电携带如此巨大的能量，了解它如何影响地面十分重要。当闪电击中一棵树时，树内的水会瞬间变成蒸汽，导致树木爆裂。如果击中建筑物，热量可能引发火灾。然而，电流总是沿着电阻最小的路径。这一原理促使本杰明·富兰克林在1752年发明了避雷针，当时他刚刚完成著名的风筝实验。避雷针是一根安装在建筑物顶部的金属导体，通过粗导线连接到地面。由于其形状和位置，它吸引闪电并安全地将电荷导入大地。这个简单的装置挽救了无数建筑物免受损害，如今几乎每座摩天大楼仍在使用它。"
+    },
+    {
+      "en": "Today, lightning rods are just one part of a modern lightning protection system. Buildings may have multiple rods, thick metal cables, and grounding plates that spread the charge safely. Even with these systems, people still need to be careful. If you are caught outside during a thunderstorm, avoid open fields, tall trees, and metal objects such as bicycles or golf clubs. A car is a safe <span class=\"kw\" data-ipa=\"/ˈʃeltər/\" data-def=\"庇护所；躲避\">shelter</span> because its metal body acts as a shield, directing the lightning around the passengers. But remember, that protection works only if you are inside the vehicle with the windows closed. There is no 'safe' place under a tree during a thunderstorm. In fact, hiding under a tree is one of the most dangerous actions you can take.",
+      "zh": "如今，避雷针只是现代雷电防护系统的一部分。建筑物可能安装多根避雷针、粗金属电缆和接地板，以安全分散电荷。即使有这些系统，人们仍需小心。如果在雷暴期间被困在户外，要避开空旷的田野、高树和自行车或高尔夫球杆等金属物体。汽车是安全的藏身之所，因为其金属车身充当屏蔽，将闪电引向乘客周围。但请记住，只有当你待在车内并关闭车窗时，这种保护才有效。雷暴期间树下绝无“安全”之处。事实上，躲在大树下是最危险的行为之一。"
+    },
+    {
+      "en": "Despite our knowledge, many myths about lightning still exist. For example, some people believe that lightning never strikes the same place twice. In fact, tall buildings such as the Empire State Building are struck many times each year. Another myth is that hiding in a cave is safe. But if the cave is shallow, lightning can jump across the opening. The safest indoor location is a room without plumbing or wiring, such as a central hallway, because water pipes and electrical lines can conduct electricity. Unplugging sensitive electronics is also wise to prevent a sudden surge from damaging them. Some people even think rubber shoes protect them, but they do not provide enough insulation to stop a lightning bolt.",
+      "zh": "尽管我们掌握了知识，许多关于闪电的误解仍然存在。例如，有些人认为闪电不会击中同一个地方两次。事实上，像帝国大厦这样的高层建筑每年会被击中多次。另一个误区是躲在山洞里安全。但如果山洞很浅，闪电可以跳过洞口。室内最安全的位置是没有管道或电线的房间，比如中央走廊，因为水管和电线会导电。拔掉敏感电器的插头也是明智的，以防止突然的浪涌损坏它们。有些人甚至认为橡胶鞋能保护他们，但橡胶鞋的绝缘程度不足以阻止闪电。"
+    },
+    {
+      "en": "Thunderstorms remind us of the raw power of nature. By studying the science behind them, we turn fear into understanding. The next time you see a flash and hear the rumble, remember that you are witnessing the release of energy from storms that have shaped our planet for billions of years. With proper precautions, we can coexist with these electric giants. Science not only explains the lightning but also gives us the tools to protect ourselves. From ancient myths to modern engineering, our relationship with thunder and lightning has changed tremendously. So stay curious, stay safe, and let the storm be a teacher.",
+      "zh": "雷暴提醒我们大自然的原始力量。通过研究其背后的科学，我们将恐惧转化为理解。下次你看到闪电、听到雷声时，请记住你正在目睹能量释放，这种风暴塑造了地球数十亿年。采取适当预防措施，我们就能与这些电力巨人共存。科学不仅解释闪电，还赋予我们保护自己的工具。从古老神话到现代工程，我们与雷和闪电的关系发生了巨大变化。所以保持好奇，保持安全，让风暴成为老师。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the article?",
+      "options": [
+        "To explain the scientific principles behind thunderstorms and lightning.",
+        "To describe the damage caused by lightning around the world.",
+        "To list famous scientists who studied electricity.",
+        "To warn people about the dangers of thunderstorms."
+      ],
+      "answer": 0,
+      "explain": "文章主旨是解释雷暴和闪电背后的科学原理，从形成过程到防护措施。虽然也提到危害和安全，但主要目的是科学解释。"
+    },
+    {
+      "q": "According to the article, what causes the separation of electrical charges inside a storm cloud?",
+      "options": [
+        "The heat released by condensation.",
+        "The collision of ice crystals and hailstones.",
+        "The speed of the updraft.",
+        "The shape of the thunderhead."
+      ],
+      "answer": 1,
+      "explain": "第三段明确指出，冰晶和小冰雹的碰撞剥离电子，导致正负电荷分离。"
+    },
+    {
+      "q": "Why does a lightning rod protect a building?",
+      "options": [
+        "It absorbs all the electrical charge from the cloud.",
+        "It attracts lightning and safely guides the charge to the ground.",
+        "It prevents thunderstorms from forming.",
+        "It uses the building's metal structure to block lightning."
+      ],
+      "answer": 1,
+      "explain": "第五段说，避雷针作为金属导体，因其形状和位置吸引闪电，并将电荷安全导入大地。"
+    },
+    {
+      "q": "The word 'discharge' in the article most nearly means ______.",
+      "options": [
+        "to release electricity",
+        "to stop working",
+        "to fire a weapon",
+        "to leave a place"
+      ],
+      "answer": 0,
+      "explain": "根据上下文，放电指的是释放电荷，故选A。"
+    }
+  ]
+}
