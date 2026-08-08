@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-08",
+  "level": "CET-4",
+  "title": "Why the Sky Wears Blue: A Story of Light and Air",
+  "title_zh": "天空为何披上蓝衣：光与空气的故事",
+  "intro_zh": "本文约900词，介绍了天空为什么是蓝色的科学原理，包括瑞利散射、人眼感知以及日落变红的原因。文章难度适中，包含6个核心词汇。",
+  "paragraphs": [
+    {
+      "en": "Every child has asked it at some point: 'Mom, why is the sky blue?' The answer seems simple at first, but the full explanation takes us on a journey through physics, optics, and even human biology. The blue ceiling above us is not just a pretty view; it is a puzzle that scientists took centuries to solve. In this article, we will break down the mystery in everyday language, using examples you can see with your own eyes.",
+      "zh": "每个孩子都曾在某个时刻问过：“妈妈，天空为什么是蓝色的？”这个答案乍一看很简单，但完整的解释会带我们踏上一段穿越物理学、光学甚至人类生物学的旅程。我们头顶的蓝色穹顶不仅仅是一道美丽的风景，它是一个科学家花了几个世纪才解开的谜题。在本文中，我们将用日常语言拆解这个谜团，并借助你亲眼就能看到的例子。"
+    },
+    {
+      "en": "The story begins with the sun. Sunlight looks white or yellow, but it actually contains a rainbow of colors mixed together. When this light enters the Earth's atmosphere, it hits tiny gas molecules, dust, and water droplets. These small obstacles force the light to change direction, a process called <span class=\"kw\" data-ipa=\"ˈskætər\" data-def=\"散射\">scatter</span>ing. Different colors of light are scattered by different amounts, and this difference is the key to our blue sky.",
+      "zh": "故事从太阳开始。阳光看起来是白色或黄色的，但实际上它混合了彩虹般的各种颜色。当这些光进入地球大气层时，会撞上微小的气体分子、灰尘和水滴。这些微小障碍物迫使光改变方向，这个过程叫做散射。不同颜色的光被散射的程度不同，而这种差异正是我们拥有蓝色天空的关键。"
+    },
+    {
+      "en": "In the 1870s, the British physicist Lord Rayleigh worked out the details. He discovered that the amount of scattering depends on the <span class=\"kw\" data-ipa=\"ˈweɪvˌlɛŋθ\" data-def=\"波长\">wavelength</span> of light. Shorter wavelengths are scattered much more strongly than longer ones. Specifically, blue light has a short wavelength, so it is scattered about ten times more than red light, which has a long wavelength. As sunlight passes through the air, the blue light gets bounced around in every direction, filling the sky with blue color. That is why we see blue from every direction, not just from the sun.",
+      "zh": "19世纪70年代，英国物理学家瑞利勋爵弄清了细节。他发现散射的程度取决于光的波长。较短的波长比长波长散射得更强烈。具体来说，蓝光的波长短，所以它被散射的程度大约是红光的十倍。当阳光穿过空气时，蓝光在各个方向被反弹，使天空充满蓝色。这就是为什么我们从各个方向都能看到蓝色，而不仅仅是来自太阳的方向。"
+    },
+    {
+      "en": "But if blue is scattered so well, why is the sky not violet? Violet light has an even shorter wavelength. The answer lies in two factors: the sun's light spectrum and human eyes. The sun emits more blue light than violet light, and our eyes are more sensitive to blue. In other words, our brain <span class=\"kw\" data-ipa=\"pərˈsiv\" data-def=\"感知\">perceives</span> the mixture of scattered violet and blue light as a soft blue color. If we were bees, which can see ultraviolet light, the sky might look completely different.",
+      "zh": "但既然蓝光被散射得如此厉害，为什么天空不是紫色的呢？紫光的波长更短。答案在于两个因素：太阳的光谱和人眼。太阳发出的蓝光比紫光多，而我们的眼睛对蓝光更敏感。换句话说，我们的大脑把散射的紫光和蓝光的混合感知为柔和的蓝色。如果我们是蜜蜂，能够看到紫外线，那么天空看起来可能会完全不同。"
+    },
+    {
+      "en": "The same physics explains why sunsets are red or orange. When the sun is low on the horizon, its light must travel through a much thicker layer of the <span class=\"kw\" data-ipa=\"ˈætməsfɪr\" data-def=\"大气\">atmosphere</span>. During this long journey, almost all the blue and violet light is scattered away from our line of sight. The remaining light is mostly red and orange, which have longer wavelengths and are less affected by scattering. So the setting sun turns into a warm glow, and the sky around it lights up in fiery colors.",
+      "zh": "同样的物理学原理也解释了为什么日落是红色或橙色的。当太阳低垂在地平线上时，它的光必须穿过厚得多的大气层。在这段漫长的旅程中，几乎所有的蓝光和紫光都被散射出我们的视线。剩下的光主要是红光和橙光，它们的波长较长，受散射影响较小。于是，落日变成温暖的光辉，周围的天空被点亮成火一般的色彩。"
+    },
+    {
+      "en": "The color of the sky is also affected by <span class=\"kw\" data-ipa=\"ˈpɑrtɪkəl\" data-def=\"微粒\">particle</span>s in the air. After a volcanic eruption or a large forest fire, millions of tiny particles fill the atmosphere. These particles are much larger than gas molecules, and they scatter light in a different way, called Mie scattering. This scattering is less dependent on wavelength, so it can make the sky look hazy or even pale white. On a clear day, the sky is deep blue because there are few particles; after a storm, the air is washed clean, and the blue becomes especially vivid.",
+      "zh": "天空的颜色也受到空气中微粒的影响。在火山爆发或大型森林火灾之后，数百万微小颗粒充满大气。这些颗粒比气体分子大得多，它们以一种不同的方式散射光，称为米氏散射。这种散射对波长的依赖性较弱，因此会使天空看起来雾蒙蒙的，甚至呈现苍白的白色。在晴朗的日子里，天空是深蓝色的，因为微粒很少；暴风雨过后，空气被冲刷干净，蓝色变得格外鲜艳。"
+    },
+    {
+      "en": "Our perception of the sky has a long history in science. Before Rayleigh, many people thought the blue color came from the sea or from water vapor. Aristotle believed that air itself was blue. It took careful experiments and mathematical reasoning to prove the true cause. Rayleigh's explanation was so elegant that it remains a classic example of how simple ideas can solve complex problems. Today, scientists study light scattering not only to understand the sky but also to improve fiber optics and medical imaging.",
+      "zh": "我们对天空的感知在科学史上有着悠久的历史。在瑞利之前，许多人认为蓝色来自大海或水蒸气。亚里士多德认为空气本身就是蓝色的。经过仔细的实验和数学推理，才证明了真正的原因。瑞利的解释如此优雅，至今仍是简单思想解决复杂问题的经典范例。如今，科学家研究光散射不仅是为了理解天空，也是为了改进光纤和医学成像技术。"
+    },
+    {
+      "en": "So the next time you look up and see a crisp blue sky, remember that you are witnessing a beautiful trick of nature. It is not magic, but it is just as wonderful. The light from our nearest star takes an eight-minute journey to reach us, and in the final moments, it dances with the air, painting our world in a color that inspired poets and scientists alike. The blue sky is a daily reminder that the universe has hidden depths, waiting for curious minds to explore.",
+      "zh": "所以下次你抬头看到一片清澈的蓝天时，请记住你正在目睹大自然的一个绝妙戏法。它不是魔法，但同样奇妙。来自离我们最近的恒星的光需要八分钟的旅程才能到达我们，而在最后的时刻，它与空气共舞，将我们的世界涂上一种同时激发诗人和科学家灵感的颜色。蓝天在每天提醒我们，宇宙深处隐藏着奥秘，等待着好奇的心灵去探索。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main reason the sky appears blue according to the article?",
+      "options": [
+        "The sea reflects blue light into the atmosphere.",
+        "Blue light is scattered more strongly than red light by air molecules.",
+        "The atmosphere itself is blue in color.",
+        "Water vapor absorbs all other colors."
+      ],
+      "answer": 1,
+      "explain": "文章第三段明确指出，短波长的蓝光比长波长的红光散射更强，因此天空中充满了散射的蓝光。选项B正确。选项A和C是历史上错误的观点，选项D与文章内容不符。"
+    },
+    {
+      "q": "Why is the sky not violet even though violet light has a shorter wavelength?",
+      "options": [
+        "Because violet light is absorbed by the atmosphere.",
+        "Because the sun emits less violet light and human eyes are less sensitive to it.",
+        "Because violet light does not scatter at all.",
+        "Because the atmosphere blocks violet light completely."
+      ],
+      "answer": 1,
+      "explain": "文章第四段解释了原因：太阳发出更多的蓝光，人眼对蓝光更敏感，因此大脑感知到的是蓝色而非紫色。选项B正确。其他选项与文中事实不符。"
+    },
+    {
+      "q": "The word 'perceives' in paragraph 4 is closest in meaning to ____.",
+      "options": [
+        "rejects",
+        "observes",
+        "creates",
+        "absorbs"
+      ],
+      "answer": 1,
+      "explain": "perceives 意为‘感知、察觉’，与 observes 最接近。结合上下文，人脑对散射光的感知就是‘观察、感受’到的结果。其他选项均不符合。"
+    },
+    {
+      "q": "What can be inferred about sunsets from the article?",
+      "options": [
+        "Sunsets are red because red light travels faster.",
+        "During sunset, blue light is scattered away by the thick atmosphere.",
+        "Sunset colors are caused by particles from fires.",
+        "The setting sun emits more red light than blue light."
+      ],
+      "answer": 1,
+      "explain": "文章第五段指出，日落时阳光穿过更厚的大气层，蓝光被散射掉，只剩下红光等长波长光。因此选项B正确。A提到速度，文章未说明；C只是可能因素之一；D错误，太阳发射的光谱恒定，只是散射造成了差异。"
+    }
+  ]
+}
