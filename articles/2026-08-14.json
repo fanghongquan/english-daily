@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-14",
+  "level": "CET-4",
+  "title": "The Invention of Cinema: From Shadows to Spotlight",
+  "title_zh": "电影的诞生：从光影到聚光灯",
+  "intro_zh": "本文约1050词，难度适中。文章按时间顺序讲述了电影从早期光学玩具到数字时代的演变历程，涉及重要人物和发明，帮助读者理解电影史的关键节点。",
+  "paragraphs": [
+    {
+      "en": "Think of your favorite movie. The magic of moving pictures seems so natural today, but have you ever wondered how cinema was born? Long before streaming services and digital screens, the idea of capturing motion was a dream shared by many inventors and dreamers. In the early 1800s, scientists found that the human eye briefly retains an image after it disappears. This phenomenon, called <span class=\"kw\" data-ipa=\"/pərˈsɪstəns/\" data-def=\"持续性；视觉暂留\">persistence</span> of vision, made moving images possible. Simple toys like the zoetrope and the thaumatrope were created to demonstrate this principle. When you spin these devices, the still drawings appear to move smoothly. This playful trick creates a convincing <span class=\"kw\" data-ipa=\"/ɪˈluːʒn/\" data-def=\"错觉，幻觉\">illusion</span> of motion. Although primitive, these objects were the true ancestors of the silver screen.",
+      "zh": "想想你最喜欢的电影。如今，移动影像的魔力似乎很自然，但你是否想过电影是如何诞生的？在流媒体服务和数字屏幕出现之前，捕捉运动的想法是许多发明家和梦想家共同追逐的梦想。19世纪初，科学家发现人眼可以在图像消失后短暂保留该图像。这一现象被称为视觉暂留，它使得移动影像成为可能。像幻盘和走马盘这样的简单玩具被创造出来演示这一原理。当你旋转这些装置时，静止的图画看起来会平滑移动。这种有趣的把戏创造了一种令人信服的运动错觉。虽然简陋，这些物件是真正的银幕祖先。"
+    },
+    {
+      "en": "Photography was the next crucial step. In 1878, photographer Eadweard Muybridge conducted a famous experiment to answer a question: does a galloping horse ever have all four feet off the ground? He arranged twelve cameras along a race track, each connected to a tripwire. When the horse ran past, each camera snapped a photo in quick succession. The resulting <span class=\"kw\" data-ipa=\"/ˈsiːkwəns/\" data-def=\"顺序；连续\">sequence</span> of images proved that yes, the horse lifts all feet at once. Moreover, when played back in order, the pictures seemed to show continuous motion. This discovery encouraged other inventors to pursue moving images. Later, French scientist Étienne-Jules Marey invented a camera gun that could take twelve frames per second, though it was heavy and difficult to use. These early experiments slowly turned the dream of cinema into a scientific reality.",
+      "zh": "摄影术是下一个关键步骤。1878年，摄影师埃德沃德·迈布里奇进行了一项著名实验，回答一个问题：疾驰的马是否曾四脚同时离地？他在赛马道上布置了十二台相机，每台连接一根绊线。当马跑过时，每台相机快速连续拍下一张照片。由此得到的一组连续图像证明，是的，马确实会四蹄同时腾空。而且，当按顺序回放时，这些照片似乎显示了连续运动。这一发现鼓励了其他发明家研究移动影像。后来，法国科学家艾蒂安-朱尔·马雷发明了一种“摄影枪”，每秒能拍12帧，虽然笨重且难用。这些早期实验慢慢将电影之梦变成了科学现实。"
+    },
+    {
+      "en": "American inventor Thomas Edison entered the scene in the late 1880s. Working with his assistant William Dickson, Edison designed a machine called the Kinetoscope, which was essentially a peephole viewer. A loop of film moved past a light source, allowing one person at a time to watch a short, silent movie. Edison famously said the device would help bring entertainment and education to the public. He received a <span class=\"kw\" data-ipa=\"/ˈpætnt/\" data-def=\"专利；专利权\">patent</span> for his design in 1891. However, Edison's Kinetoscope had a major limitation: only one viewer could watch at a time. It was not a true cinema experience, but it proved that moving pictures could be shown and enjoyed. This invention created a financial boom and inspired many competitors to develop their own projectors.",
+      "zh": "美国发明家托马斯·爱迪生在19世纪80年代后期登场。与助手威廉·迪克森合作，爱迪生设计了一台名为“活动电影视镜”的机器，本质上是一个窥视孔观看器。一盘胶片通过光源移动，让一个人一次观看一部短小的默片。爱迪生曾著名地说，该设备将帮助向公众提供娱乐和教育。他在1891年获得了他的设计专利。然而，爱迪生的活动电影视镜有一个重大局限：一次只能有一个观看者。这还不是真正的影院体验，但它证明了运动影像可以被展示和欣赏。这一发明带来了商业繁荣，并激励许多竞争者开发自己的放映机。"
+    },
+    {
+      "en": "The real breakthrough came on December 28, 1895, in Paris. The Lumière brothers, Auguste and Louis, held the first public screening of their new invention, the Cinématographe, which combined a camera, printer, and projector in one machine. Unlike Edison's peephole, the Lumière device allowed the <span class=\"kw\" data-ipa=\"/prəˈdʒekʃn/\" data-def=\"投射；放映\">projection</span> of images onto a large screen for an audience. Their first films were simple scenes of everyday life, such as a train arriving at the station. According to popular legend, the audience was so shocked by the image of the approaching train that they screamed and jumped out of their seats. Though the story may be exaggerated, it highlights the power of this new visual experience. The Lumière brothers did not simply invent a machine; they invented cinema as a shared, public event.",
+      "zh": "真正的突破发生在1895年12月28日的巴黎。卢米埃尔兄弟，奥古斯特和路易，举行了他们新发明“电影放映机”的首场公开放映，该机器集相机、冲印和放映于一体。与爱迪生的窥视孔不同，卢米埃尔的装置能够将影像投射到大屏幕上供观众观看。他们的第一批电影是简单的日常生活场景，例如火车进站。据广为流传的传说，当观众看到火车驶近的画面时，非常震惊，尖叫着从座位上跳起来。虽然这个故事可能被夸大了，但它突显了这种新视觉体验的力量。卢米埃尔兄弟并不只是发明了一台机器；他们发明了电影作为一种共享的公共活动。"
+    },
+    {
+      "en": "With public exhibitions spreading quickly, some inventors started to explore the artistic side of cinema. Georges Méliès, a French magician, saw the Lumière show and was immediately fascinated. He began making films that told fantastic stories, using clever tricks like stop-motion and special effects. His most famous work, &lt;em&gt;A Trip to the Moon&lt;/em&gt; (1902), featured a spaceship crashing into the moon's eye. This 14-minute film was extremely popular and showed that cinema could be much more than a documentary record of real life. Méliès used painted sets, imaginative costumes, and modern special effects to create a dreamlike world. His use of tricks was truly <span class=\"kw\" data-ipa=\"/ˌrevəˈluːʃəneri/\" data-def=\"革命性的；突破性的\">revolutionary</span> for its time. His work proved that film could be a powerful tool for human imagination, not just for capturing reality. Many film historians call him the first artist of the cinema.",
+      "zh": "随着公开展映迅速传播，一些发明家开始探索电影的艺术性。乔治·梅里爱是一位法国魔术师，他看到卢米埃尔的放映后立刻被吸引。他开始制作讲述奇幻故事的影片，利用停机再拍和特效等巧妙技巧。他最著名的作品《月球旅行记》（1902年）描绘了一艘宇宙飞船撞上月亮的眼睛。这部14分钟的影片极受欢迎，表明电影可以远不止对真实生活的纪实记录。梅里爱使用布景、富有想象力的服装和现代特效创造了一个梦幻世界。他对技巧的运用在当时是真正的革命性的。他的作品证明电影可以成为人类想象力的强大工具，而不只是捕捉现实。许多电影史家称他为电影的第一位艺术家。"
+    },
+    {
+      "en": "In the early years, films were often short scenes or simple comedies. But a director named D.W. Griffith changed the way stories were told on screen. His 1915 film &lt;em&gt;The Birth of a Nation&lt;/em&gt; introduced many new techniques, such as close-ups, cross-cutting, and fade-outs. These methods, now basic to filmmaking, allowed directors to control the viewer's emotions and build suspense. Griffith's film was technically impressive, but it also showed a deeply racist story, which is widely condemned today. Nevertheless, his innovations had a lasting impact on cinema. Other filmmakers, especially in Europe, began to experiment with expressive lighting and camera movement. By the 1920s, cinema had become a serious art form, attracting audiences all over the world.",
+      "zh": "在早期，电影往往是简短的场景或简单的喜剧。但是一位名叫D.W.格里菲斯的导演改变了银幕上讲故事的方式。他在1915年的影片《一个国家的诞生》中引入了许多新技术，如特写镜头、交叉剪辑和淡入淡出。这些方法如今是电影制作的基础，它们使导演能够控制观众的情绪并营造紧张感。格里菲斯的影片在技术上令人印象深刻，但它也讲述了一个带有严重种族歧视的故事，如今受到广泛谴责。然而，他的创新对电影产生了持久影响。其他电影人，尤其是在欧洲，开始尝试富有表现力的布光和摄影机运动。到20世纪20年代，电影已经成为一种严肃的艺术形式，吸引了世界各地的观众。"
+    },
+    {
+      "en": "When cinema was born, it was completely silent. Film-makers added music and sound effects, but the images told the story. The arrival of sound in 1927 changed everything. &lt;em&gt;The Jazz Singer&lt;/em&gt;, the first feature-length film with synchronized dialogue, was a huge success. Talkies, as they were called, became the new standard. Then came color. While hand-tinted films existed earlier, the first full-color feature film was made in 1935. &lt;em&gt;Gone with the Wind&lt;/em&gt; (1939) showed the world the beauty of color photography. Sound and color turned cinema from a visual curiosity into an exciting and realistic spectacle. Audiences flocked to theaters, and the film industry grew rapidly. Hollywood became the movie capital of the world. For several decades, big studios dominated production and distribution.",
+      "zh": "当电影诞生时，它完全是无声的。电影制作者添加音乐和音效，但图像讲述故事。1927年声音的出现改变了一切。《爵士歌王》是第一部带同步对白的长片，取得了巨大成功。有声电影（被称为“talkie”）成为新标准。然后彩色出现了。虽然早期有手绘染色的影片，但第一部全彩色故事片于1935年制作完成。《乱世佳人》（1939年）向世界展示了彩色摄影之美。声音和色彩把电影从一种视觉新奇品转变为一个激动人心且逼真的奇观。观众涌向影院，电影业迅速增长。好莱坞成为世界电影之都。几十年来，大制片厂主导着制作和发行。"
+    },
+    {
+      "en": "By the late 20th century, computers began to revolutionize filmmaking. Digital cameras replaced film reels, and visual effects (VFX) made it possible to create scenes that were impossible to shoot in real life. For example, the movie &lt;em&gt;Avatar&lt;/em&gt; (2009) used advanced 3D and computer-generated imagery (CGI) to build an entire alien world. Now, with streaming platforms like Netflix, people can watch movies at home, but the experience of a dark theater with a giant screen remains special. Digital technology has also made filmmaking cheaper and more accessible. Young filmmakers can use smartphones to produce short films and share them online. The future of cinema is bright, with virtual reality and artificial intelligence opening new possibilities. Yet, the basic idea remains the same: telling stories with moving images.",
+      "zh": "到20世纪末，计算机开始彻底改变电影制作。数字摄影机取代了胶片盘，视觉特效（VFX）使得拍摄现实世界中不可能的场景成为可能。例如，2009年上映的《阿凡达》使用先进的3D和计算机生成图像（CGI）构建了一个完整的外星世界。如今，随着Netflix等流媒体平台的出现，人们可以在家看电影，但黑暗影院和巨幕的体验依然特别。数字技术也使电影制作更便宜、更大众化。年轻电影人可以只用智能手机制作短片并上传到网络。电影的未来是光明的，虚拟现实和人工智能正在开辟新的可能性。然而，最基本的思想仍然不变：用移动影像讲述故事。"
+    },
+    {
+      "en": "The story of cinema is a story of human creativity and curiosity. From simple optical toys to dazzling digital spectacles, this journey of innovation has changed how we experience the world. Movies can make us laugh, cry, think, and escape. They connect people across different cultures and languages. Now, when you watch a film, remember the pioneers who dreamed of capturing motion and made that dream a reality. Cinema is not just an industry; it is a shared imagination, born from a flickering light in a dark room.",
+      "zh": "电影的故事是人类的创造力和好奇心的故事。从简单的光学玩具到耀眼的数字奇观，这段创新之旅改变了我们体验世界的方式。电影能让我们欢笑、哭泣、思考和逃避。它们跨越不同文化和语言将人们联结在一起。现在，当你看一部电影时，请记住那些梦想捕捉运动并使之成真的先驱们。电影不仅仅是一个产业；它是在黑暗房间里闪烁的光影中诞生的共同想象。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Thomas Edison was the most important inventor in early cinema.",
+        "Cinema developed through the combined efforts of many inventors and artists.",
+        "The Lumière brothers were the first to show a film to the public.",
+        "Digital technology has made filmmaking more accessible than ever before."
+      ],
+      "answer": 1,
+      "explain": "本文按时间顺序介绍了电影从早期光学玩具到数字时代的发展历程，涉及爱迪生、卢米埃尔兄弟、梅里爱、格里菲斯等人，强调这是众多发明家和艺术家共同努力的结果，因此选B。"
+    },
+    {
+      "q": "What did Eadweard Muybridge's experiment in 1878 prove?",
+      "options": [
+        "A horse always has at least one foot on the ground.",
+        "A galloping horse can have all four feet off the ground at the same time.",
+        "It is impossible to photograph a running horse clearly.",
+        "Cameras must be connected with tripwires to work."
+      ],
+      "answer": 1,
+      "explain": "文中明确提到，迈布里奇用十二台相机连拍证明马会四蹄同时腾空，因此B正确。"
+    },
+    {
+      "q": "Why was the Lumière brothers' invention more important than Edison's Kinetoscope?",
+      "options": [
+        "It could record sound.",
+        "It allowed a large audience to watch a film simultaneously.",
+        "It was much cheaper to produce.",
+        "It was more portable and easier to carry."
+      ],
+      "answer": 1,
+      "explain": "第四段指出，卢米埃尔的装置能将影像投到大屏幕上供观众观看，而爱迪生的视镜只能一人观看，因此B正确。"
+    },
+    {
+      "q": "In paragraph 5, the word 'revolutionary' is closest in meaning to ______.",
+      "options": [
+        "traditional and old-fashioned",
+        "completely new and highly influential",
+        "complicated and difficult to understand",
+        "unrealistic and imaginary"
+      ],
+      "answer": 1,
+      "explain": "revolutionary意为“革命性的”，即全新的、影响深远的，因此B最接近。"
+    }
+  ]
+}
