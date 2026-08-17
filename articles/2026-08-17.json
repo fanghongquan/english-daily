@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-17",
+  "level": "CET-4",
+  "title": "The Printing Revolution: How a Simple Machine Unlocked a World of Ideas",
+  "title_zh": "印刷革命：一台简单机器如何开启思想的世界",
+  "intro_zh": "本文约930词，讨论印刷术从中国和欧洲的起源到它对宗教、科学和社会的深远影响，配有中文翻译和4道阅读理解题。",
+  "paragraphs": [
+    {
+      "en": "Imagine holding a book today—bestsellers, textbooks, and novels are everywhere. But just 600 years ago, a single book was worth as much as a small farm. Before printing, every copy of a text had to be written by hand, creating a <span class=\"kw\" data-ipa=\"/ˈmæn.jə.skript/\" data-def=\"手稿\">manuscript</span>. A skilled scribe might need more than a year to copy the entire Bible, and even then, errors were unavoidable. Because of this, libraries were tiny, and reading was a privilege for priests, nobles, and scholars. Ordinary people often never touched a written page. The arrival of printing would soon break this barrier, creating a world where knowledge could spread like never before.",
+      "zh": "想象一下今天捧着一本书——畅销书、教科书和小说随处可见。但就在600年前，一本书的价值堪比一个小农场。在印刷术出现之前，每一份文本都必须手抄，形成一份手稿。技术娴熟的抄写员可能需要一年多的时间来抄写整本《圣经》，即便如此，错误也难以避免。因此，图书馆很小，阅读是牧师、贵族和学者的特权。普通人往往从未接触过书页。印刷术的到来很快打破了这一障碍，创造了一个知识前所未有传播的世界。"
+    },
+    {
+      "en": "The earliest printing techniques actually came from China. As early as the Tang Dynasty (618-907), woodblocks were used to print religious texts and pictures. A remarkable example is the Diamond Sutra of 868 CE. This scroll, about 5 meters long, is the oldest known printed book with a clear date. However, carving a whole page into a woodblock took days, and the block could break or wear out. Around 1040, a Chinese inventor named Bi Sheng went a step further: he made individual letters from clay and baked them hard. These pieces could be rearranged to form different pages, giving birth to movable type. Yet because Chinese had thousands of characters, the system was not widely adopted. Still, these Chinese experiments were the world's first steps toward mass communication.",
+      "zh": "最早的印刷技术其实来自中国。早在唐朝（618-907年），人们就用木板来印刷宗教文本和图画。一个突出的例子是868年的《金刚经》。这卷经书长约5米，是已知最早有明确日期的印刷书籍。然而，将一整页刻在木板上需要好几天，而且木板可能破裂或磨损。大约在1040年，中国发明家毕昇更进一步：他用黏土制成单个字块，然后烧硬。这些字块可以重新排列组成不同页面，活字印刷由此诞生。但由于中文有数千个汉字，这种体系并未被广泛采用。尽管如此，这些中国实验是世界迈向大众传播的第一步。"
+    },
+    {
+      "en": "The watershed moment came in Europe in the mid-1400s. Johannes Gutenberg, a German blacksmith and jeweler, combined several existing technologies into a single practical system. He designed a mold to cast metal letters, or 'type,' quickly and identically. He also developed an oil-based ink that stuck well to metal. Finally, he transformed a wine press to push paper against the type. This meant a page could be printed hundreds of times without wearing out the type. In 1455, Gutenberg completed his masterpiece—the 42-line Bible. He printed about 180 copies, some on paper, some on expensive vellum. This <span class=\"kw\" data-ipa=\"/ˌrɛv.əˈluː.ʃə.naɪz/\" data-def=\"彻底改变\">revolutionized</span> the economics of books. A Gutenberg press could produce as many books in a year as a monastery had copied in a century.",
+      "zh": "决定性的时刻出现在15世纪中叶的欧洲。德国铁匠兼珠宝匠约翰内斯·古登堡将几项现有技术组合成一个实用的系统。他设计了一种模具，可以快速、均匀地铸造金属字母，即“活字”。他还发明了能很好粘附在金属上的油性墨水。最后，他把一台葡萄压榨机改造成将纸压在活字上的印刷机。这意味着一个页面可以印刷数百次而不会磨损活字。1455年，古登堡完成了他的杰作——《42行圣经》。他印制了大约180本，有的用纸，有的用昂贵的羊皮纸。这彻底改变了书籍的经济性。一台古登堡印刷机一年能生产的书，相当于一座修道院抄写一个世纪的总量。"
+    },
+    {
+      "en": "Printing's most immediate cultural shock was felt in religion. For centuries, the Catholic Church held a <span class=\"kw\" data-ipa=\"/məˈnɑː.pə.li/\" data-def=\"垄断\">monopoly</span> on reading and interpreting the Bible. People had to trust priests for God's word. In 1517, a German monk named Martin Luther nailed a list of 95 complaints to a church door. He meant only to argue, but friends translated his text and gave it to printers. Within weeks, Luther's words were <span class=\"kw\" data-ipa=\"/dɪˈsɛm.ɪ.neɪ.tɪd/\" data-def=\"传播\">disseminated</span> all over Germany. Within two months, they had spread across Europe. Between 1517 and 1520, Luther's writings sold more than 300,000 copies—an unimaginable number for that time. Christians could now read the Bible in their own languages. The Church's control over interpretation collapsed, and the Protestant Reformation was born.",
+      "zh": "印刷术带来的最直接的文化冲击体现在宗教领域。几个世纪以来，天主教会垄断了《圣经》的阅读和解释权。人们只能相信牧师传达上帝的话语。1517年，一位名叫马丁·路德的德国修道士将一份列有95条异议的清单钉在教堂门上。他起初只想辩论，但朋友们翻译了他的文字并交给了印刷商。几周内，路德的话传遍了全德国。两个月内，它们传遍了欧洲。1517年至1520年间，路德的著作卖出了超过30万册——这在当时是难以想象的数字。基督徒们现在能够用自己的语言阅读《圣经》。教会对解释权的控制垮台了，新教改革由此诞生。"
+    },
+    {
+      "en": "Printing also fueled the scientific revolution. Before print, scientists shared ideas only through personal letters or private lectures. New discoveries often remained hidden for decades. Printed books and journals changed that. For instance, Nicolaus Copernicus's book on the sun-centered universe, printed in 1543, reached other astronomers quickly. Galileo's observations of Jupiter's moons, published in 1610, were verified by scientists in Italy, Germany, and France within a year. Isaac Newton's Principia, printed in 1687, defined physics for centuries. The <span class=\"kw\" data-ipa=\"/prəˌlɪf.əˈreɪ.ʃən/\" data-def=\"激增\">proliferation</span> of printed scientific works meant data could be checked, repeated, and improved. Science became a public process, not a secret tradition.",
+      "zh": "印刷术也推动了科学革命。印刷术出现之前，科学家只能通过私人信件或私下讲座交流思想。新发现常常被埋没数十年。印刷的书籍和期刊改变了这一切。例如，哥白尼关于日心说的著作于1543年印制，很快传到了其他天文学家手中。伽利略对木星卫星的观察发表于1610年，一年之内就得到了意大利、德国和法国科学家的验证。艾萨克·牛顿的《原理》于1687年印制，在几个世纪里定义了物理学。印刷科学著作的激增意味着数据可以被核查、重复和改进。科学变成了公开的过程，而非秘密传统。"
+    },
+    {
+      "en": "The social effects of printing were just as wide-reaching. As printing costs fell, books, pamphlets, and newspapers became affordable for merchants, craftsmen, and even servants. In the late 1400s, fewer than 10 percent of Europeans were literate. By 1800, literacy had risen to over 50 percent in many cities. Printing directly helped reduce <span class=\"kw\" data-ipa=\"/ɪˈlɪt.ər.ə.si/\" data-def=\"文盲\">illiteracy</span> by offering cheap primers and daily news. For the first time, ordinary people could read about world events, learn new trades, and enjoy stories. Schools sprang up in towns, and national languages began to standardize as shared printed texts fixed spelling and grammar.",
+      "zh": "印刷术的社会影响同样深远。随着印刷成本下降，书籍、小册子和报纸对商人、工匠甚至仆人来说都变得负担得起。15世纪末，欧洲识字的人口不足10%。到1800年，许多城市的识字率已超过50%。印刷术通过提供廉价的入门读物和每日新闻，直接帮助降低了文盲率。普通人有史以来第一次能读到世界大事、学习新技能、享受故事。学校在城镇中涌现，共同印刷的文本固定了拼写和语法，民族语言也开始标准化。"
+    },
+    {
+      "en": "The printing press also reshaped politics. In the 18th century, Enlightenment thinkers like Rousseau and Voltaire printed arguments about freedom and equality. Their pamphlets circulated among citizens, inspiring dreams of democratic change. During the American Revolution, Thomas Paine's pamphlet 'Common Sense,' printed in 1776, sold over 150,000 copies in a few months. In France, revolutionary leaders used the press to spread slogans and news. Governments tried to censor or burn printed material, but ideas had become too difficult to control. Printing turned political opinion from a private matter into a public force.",
+      "zh": "印刷术也重塑了政治。18世纪，卢梭和伏尔泰等启蒙思想家印刷了关于自由和平等的论证。他们的小册子在公民中流传，激发了对民主变革的梦想。美国独立战争期间，托马斯·潘恩的小册子《常识》于1776年印制，几个月内售出超过15万册。在法国，革命领袖利用印刷术传播口号和新闻。政府试图审查或焚烧印刷品，但思想已变得难以控制。印刷术将政治舆论从私人事务变成了公共力量。"
+    },
+    {
+      "en": "Technological progress did not stop with Gutenberg's wooden press. In the 19th century, steam-powered presses made it possible to print millions of copies quickly. The later linotype machine automated typesetting, and offset printing improved quality. By the 20th century, books, magazines, and fan magazines filled everyday life. Digital printing and the internet have now taken over, but the underlying principle remains: reproducible words create shared understanding. Even today, when bloggers hit 'publish' or readers download e-books, they are continuing a tradition that goes back to metal type and ink.",
+      "zh": "技术进步并未止步于古登堡的木制印刷机。19世纪，蒸汽动力印刷机使得快速印刷数百万份成为可能。后来的铸排机实现了排版的自动化，胶版印刷提高了质量。到了20世纪，书籍、杂志和时尚刊物充斥着日常生活。如今，数字印刷和互联网已经接管了世界，但基本原则不变：可复制的文字创造共同理解。即使在今天，当博主点击“发布”或读者下载电子书时，他们仍在延续一个始于金属活字和油墨的传统。"
+    },
+    {
+      "en": "In conclusion, the printing press did not just make books cheaper; it changed how people thought. It made knowledge a common good, not a royal privilege. It gave birth to the Reformation, the scientific revolution, and modern democracy. Like a second brain, it stored and spread ideas across time and space. The 'information age' we live in is really the latest chapter of a story written on paper. Every time we read, we hold in our hands a small piece of that revolution, a legacy that began when someone inked a movable letter and pressed it to a page.",
+      "zh": "总之，印刷机不仅让书变便宜，更改变了人们的思维方式。它让知识成为大众的财富，而不是王室的特权。它催生了宗教改革、科学革命和现代民主。它像第二大脑一样，跨越时空储存和传播思想。我们生活于其中的“信息时代”其实是一个写在纸上的故事的最新篇章。每当我们阅读时，我们手中就握有那场革命的一小块遗产——它始于有人给一个活字蘸上油墨并压印到纸上。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "The invention of printing transformed religion, science, and society by making knowledge widely available.",
+        "Gutenberg was the first person to invent printing in Europe.",
+        "China's printing technology was superior to that of Europe.",
+        "The internet has made printed books unnecessary."
+      ],
+      "answer": 0,
+      "explain": "主旨题。文章从手抄时代的局限讲起，分别介绍了中国和欧洲的印刷术发展，并重点阐述了印刷术对宗教改革、科学革命、社会教育、政治变革的深远影响，最后总结其重大意义。因此A项最全面地概括了主旨。B项不正确，因为中国早在欧洲之前就有印刷术，古登堡并非第一个发明者。C项过于片面，且文章没有比较优劣。D项与文章结尾相反。"
+    },
+    {
+      "q": "According to the passage, how did printing influence Martin Luther's reforms?",
+      "options": [
+        "It stopped the spread of his ideas.",
+        "It helped his arguments spread quickly across Europe.",
+        "It made the Church more powerful.",
+        "It forced Luther to print the Bible in Latin."
+      ],
+      "answer": 1,
+      "explain": "细节题。文章第四段提到，路德的书籍和观点通过印刷术在几周内传遍德国，两个月内传遍欧洲，销量超过30万册。因此B正确。A和C与事实相反。D项文中未提及，且路德主张用本地语言阅读《圣经》。"
+    },
+    {
+      "q": "What can be inferred about scientific communication before printing?",
+      "options": [
+        "It was fast and efficient because scientists used letters.",
+        "It was slow, and many discoveries remained unknown for a long time.",
+        "It was exactly the same as after printing.",
+        "It only happened through personal meetings."
+      ],
+      "answer": 1,
+      "explain": "推断题。第五段指出，印刷术之前科学家只能通过私人信件或私下讲座交流，新发现常被埋没数十年。因此可推断出科学传播速度慢、许多发现长期不为人知，B正确。A与原文矛盾。C错误。D过于绝对，信件也是一种方式，且不是唯一。"
+    },
+    {
+      "q": "In Paragraph 8, the word 'reproducible' is closest in meaning to:",
+      "options": [
+        "able to be questioned",
+        "able to be copied",
+        "able to be kept secret",
+        "able to be memorized"
+      ],
+      "answer": 1,
+      "explain": "词义题。第八段提到“reproducible words create shared understanding”，结合上下文，印刷术的核心在于文字可以被大量复制传播，因此这里“reproducible”意为“可复制的”，B正确。A、C、D均不符合语境。"
+    }
+  ]
+}
