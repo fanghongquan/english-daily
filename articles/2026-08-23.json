@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-23",
+  "level": "CET-4",
+  "title": "The Secret Life of an Old Smartphone: How E-Waste Recycling Works",
+  "title_zh": "旧手机的秘密生活：电子垃圾回收是如何运作的",
+  "intro_zh": "本文约900词，重点讲解电子垃圾的回收过程与意义，包含具体数据，适合CET-4水平阅读。",
+  "paragraphs": [
+    {
+      "en": "Every year, millions of old smartphones are forgotten in drawers, replaced by newer models. These devices contain valuable materials, but most people do not know how to deal with them. When we <span class=\"kw\" data-ipa=\"/dɪˈskɑːrd/\" data-def=\"丢弃\">discard</span> electronics carelessly, we are not just getting rid of a broken machine. We are throwing away a mix of metals, plastics, and rare elements that could be used again. Understanding e-waste begins with asking a simple question: what happens after we click the delete button and move on? In fact, the discarded phone in your drawer is part of a global challenge that affects us all.",
+      "zh": "每年，数以百万计的旧智能手机被遗忘在抽屉里，被更新的型号取代。这些设备含有宝贵的材料，但大多数人不知道如何处理它们。当我们随意丢弃电子产品时，我们不仅仅是扔掉一台坏机器。我们是在扔掉一堆可以再次利用的金属、塑料和稀有元素。理解电子垃圾始于一个简单的问题：在我们点击删除并继续前进之后，会发生什么？事实上，你抽屉里被丢弃的手机是影响我们所有人的全球挑战的一部分。"
+    },
+    {
+      "en": "The scale of e-waste is huge. According to the Global E-waste Monitor, the world generated about 53.6 million tons of electronic waste in 2019, and only 17.4 percent was collected and recycled. That means over 40 million tons went to landfills or were burned. To imagine this, think of 350 large cruise ships filled with old computers, phones, and TVs. By 2030, that number is expected to reach 74 million tons. The problem is growing, and it is not just an issue for rich countries; developing nations are becoming dumping grounds for old electronics.",
+      "zh": "电子垃圾的规模巨大。根据全球电子垃圾监测报告，2019年全球产生了约5360万吨电子垃圾，只有17.4%被收集和回收。这意味着超过4000万吨进入了垃圾填埋场或被焚烧。想象一下，350艘大型游轮装满了旧电脑、手机和电视。到2030年，这一数字预计将达到7400万吨。问题正在扩大，而且不仅仅是富裕国家的问题；发展中国家正在成为旧电子产品的倾倒场。"
+    },
+    {
+      "en": "Why is e-waste so important? The answer lies in its double nature. On one hand, electronics contain precious metals such as gold, silver, and copper. A single ton of circuit boards can contain more gold than a ton of gold ore. On the other hand, they also carry <span class=\"kw\" data-ipa=\"/ˈtɑːksɪk/\" data-def=\"有毒的\">toxic</span> substances like lead, mercury, and cadmium. If these materials are not treated properly, they can poison the soil, water, and air. This mix of value and danger is what makes e-waste both an opportunity and a threat.",
+      "zh": "为什么电子垃圾如此重要？答案在于它的双重性质。一方面，电子产品含有金、银、铜等贵金属。一吨电路板所含的金比一吨金矿石还多。另一方面，它们还含有铅、汞、镉等有毒物质。如果这些材料处理不当，它们会污染土壤、水和空气。价值与危险的混合使得电子垃圾既是机遇也是威胁。"
+    },
+    {
+      "en": "The recycling process starts with collection and sorting. Many cities set up drop-off points or hold special collection events. Some companies even offer mail-in programs. After collection, workers sort the items by type and condition. Some older devices are tested and repaired for reuse, which is the most efficient form of recycling. Others are broken down into <span class=\"kw\" data-ipa=\"/kəmˈpoʊnənt/\" data-def=\"部件\">component</span> parts. This careful sorting prevents valuable resources from ending up in the wrong place.",
+      "zh": "回收过程从收集和分类开始。许多城市设立了投放点或举办专门的收集活动。一些公司甚至提供邮寄回收项目。收集后，工作人员按类型和状况对物品进行分类。一些较旧的设备经过测试和维修后重新使用，这是最有效的回收形式。其他设备则被拆解成零部件。这种仔细的分类防止了宝贵资源最终进入错误的地方。"
+    },
+    {
+      "en": "Next comes disassembly. At a modern recycling <span class=\"kw\" data-ipa=\"/fəˈsɪləti/\" data-def=\"设施\">facility</span>, trained workers remove batteries, screens, and other parts by hand. These are not thrown together; each piece is directed to a specific process. For example, lithium batteries are sent to a special unit to avoid fires. Then, the remaining boards and frames go through a shredder. After crushing, a series of magnets, screens, and air currents separate metals from plastics. This mixture is called shredded residue, and it still has hidden value.",
+      "zh": "接下来是拆解。在现代回收设施中，训练有素的工人手工取出电池、屏幕和其他部件。这些东西不会被混在一起；每一件都被送往特定的流程。例如，锂电池被送到特殊单元以防止火灾。然后，剩余的电路板和框架进入粉碎机。经过压碎，一系列磁铁、筛网和气流将塑料与金属分离。这种混合物被称为粉碎残渣，它仍然具有隐藏价值。"
+    },
+    {
+      "en": "To <span class=\"kw\" data-ipa=\"/ɪkˈstrækt/\" data-def=\"提取\">extract</span> the most value, many recyclers use a combination of high-temperature smelting and chemical baths. Precious metals are melted down into blocks, while rare earth elements can be recovered with careful processing. The final step is refining, which produces high-purity materials for making new electronics. This closed-loop cycle reduces the need to mine fresh raw materials, which is good for both the economy and the environment. In fact, recycling one million smartphones can recover about 35 kilograms of gold, 350 kilograms of silver, and 15,000 kilograms of copper.",
+      "zh": "为了提取最大价值，许多回收商使用高温冶炼和化学浴的组合。贵金属被熔化成块，而稀土元素可以通过仔细处理回收。最后一步是精炼，生产用于制造新电子产品的高纯度材料。这种闭环循环减少了对开采新原材料的需求，这对经济和环境都有好处。事实上，回收100万部智能手机可以回收约35公斤黄金、350公斤银和15000公斤铜。"
+    },
+    {
+      "en": "However, e-waste recycling is not always clean or safe. In some parts of Africa and Asia, old electronics are processed in informal yards. Workers, often including children, burn wires to get at the copper, releasing toxic fumes. They use strong acids to dissolve chips, then pour the leftovers into rivers. These practices are harmful to human health and the environment. The problem is that valuable materials are being salvaged, but at a terrible cost. Proper recycling is more expensive, so many sellers choose the cheapest route.",
+      "zh": "然而，电子垃圾回收并不总是干净或安全的。在非洲和亚洲的某些地方，旧电子产品在非正规场所被处理。工人（通常是儿童）会焚烧电线以获取铜，释放出有毒烟雾。他们使用强酸溶解芯片，然后将剩余物倒入河流。这些做法对人类健康和环境有害。问题是贵重材料被回收了，但代价极其高昂。正规回收更昂贵，所以许多卖家选择最便宜的途径。"
+    },
+    {
+      "en": "To make e-waste recycling more <span class=\"kw\" data-ipa=\"/səˈsteɪnəbl/\" data-def=\"可持续的\">sustainable</span>, governments and manufacturers must take responsibility. The European Union already requires electronics to be designed for easy repair and recycling. Some countries have extended producer responsibility laws, which force companies to pay for collection and treatment. Consumers also play a key role. Instead of throwing old phones in the trash, we can sell them back, donate them to certified recyclers, or bring them to collection points. Educating people about the hidden value of e-waste is the first step.",
+      "zh": "为了使电子垃圾回收更加可持续，政府和制造商必须承担责任。欧盟已经要求电子产品设计易于维修和回收。一些国家实行了生产者责任延伸法，迫使公司支付收集和处理费用。消费者也扮演着关键角色。与其把旧手机扔进垃圾桶，我们可以将其卖回、捐赠给认证回收商，或带到收集点。教育人们认识电子垃圾的隐藏价值是第一步。"
+    },
+    {
+      "en": "In the end, an old smartphone is not a useless object. It is a small treasure chest packed with resources. When we recycle electronics properly, we save energy, reduce pollution, and protect natural habitats. The journey of e-waste is a mirror of our consumption habits. With better technology and more responsible choices, we can turn a growing problem into a model of circular economy. The next time you upgrade your phone, think twice: the old one can start a new life.",
+      "zh": "最终，旧智能手机不是无用的物品。它是一个装满资源的小宝箱。当我们正确回收电子产品时，我们节省能源、减少污染并保护自然栖息地。电子垃圾之旅映照了我们的消费习惯。凭借更好的技术和更负责任的选择，我们可以将一个日益严重的问题转化为循环经济的典范。下次你升级手机时，请三思：旧手机可以开始新生命。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the article?",
+      "options": [
+        "To describe the history of smartphones.",
+        "To encourage people to repair old phones.",
+        "To explain the importance and process of e-waste recycling.",
+        "To compare different recycling methods."
+      ],
+      "answer": 2,
+      "explain": "文章主要介绍电子垃圾的规模、价值、回收流程和挑战，目的是解释其重要性和过程，故选C。"
+    },
+    {
+      "q": "According to the article, why is e-waste considered valuable?",
+      "options": [
+        "Because it contains precious metals like gold and silver.",
+        "Because it is easy to import.",
+        "Because it is lightweight.",
+        "Because it can be burned for energy."
+      ],
+      "answer": 0,
+      "explain": "第三段明确指出电子产品含金、银、铜等贵金属，因此电子垃圾具有价值。"
+    },
+    {
+      "q": "What can be inferred about informal e-waste recycling in developing countries?",
+      "options": [
+        "It is as safe as modern facilities.",
+        "It creates more jobs than modern recycling.",
+        "It often causes serious pollution and health problems.",
+        "It is strictly regulated by local governments."
+      ],
+      "answer": 2,
+      "explain": "第七段描述了非正规回收过程中焚烧电线、使用强酸等行为，会释放有毒物质，污染河流，推断其造成严重的污染和健康问题。"
+    },
+    {
+      "q": "The word 'extract' in paragraph 6 most probably means...",
+      "options": [
+        "to put something in.",
+        "to take something out.",
+        "to create something.",
+        "to destroy something."
+      ],
+      "answer": 1,
+      "explain": "extract意为提取、取出，与take out同义，故选B。"
+    }
+  ]
+}
