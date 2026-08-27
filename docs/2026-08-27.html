@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self' data: blob:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+<title>每日英语 · From First Salary to First Savings: A Practical Guide to Money Basics for Young Adults</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  .tok.phrase-selected{background:var(--selbg);border-radius:4px}
+  #phrase-preview,#phrase-hint,#phrase-add,#phrase-cancel{display:none}
+  #selbar.phrase-mode{left:50%!important;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    width:min(calc(100vw - 24px),520px);flex-wrap:wrap;justify-content:center;
+    align-items:center;white-space:normal}
+  #selbar.phrase-mode #sel-add,#selbar.phrase-mode #sel-phrase{display:none}
+  #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
+  #selbar.phrase-ready #phrase-hint{display:none}
+  #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview,#phrase-hint{color:#fff;font-size:13px}
+  #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  #read-progress{position:fixed;z-index:90;top:0;left:0;width:0;height:3px;
+    background:var(--accent);transition:width .12s linear}
+  #continue-reading{display:none;align-items:center;gap:8px;margin:10px 0;padding:9px 11px;
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
+  #continue-reading.show{display:flex} #continue-reading span{flex:1}
+  .advanced{display:contents}
+  #toolbar-more{display:none}
+  #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
+    transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
+    box-shadow:0 5px 18px var(--shadow);gap:3px}
+  #mobile-float button{border:0;background:transparent;color:#fff;border-radius:18px;padding:8px 13px}
+  @media (max-width:640px){
+    .wrap{padding-bottom:calc(105px + env(safe-area-inset-bottom))}
+    #toolbar-more{display:inline-flex}
+    .toolbar .advanced{display:none;flex-basis:100%;padding:9px;border:1px solid var(--line);
+      border-radius:12px;background:var(--card);gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar .advanced.open{display:flex;position:fixed;z-index:44;left:12px;right:12px;
+      bottom:calc(62px + env(safe-area-inset-bottom));box-shadow:0 5px 18px var(--shadow)}
+    #mobile-float.visible{display:flex}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
+    background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
+  #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
+  .feedback-card{position:relative;overflow:hidden;margin:22px 0 4px;padding:18px 16px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .feedback-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--know),var(--accent),var(--fuzzy))}
+  .feedback-title{font-size:17px;font-weight:700;margin:0 0 3px}
+  .feedback-copy{font-size:12.5px;color:var(--sub);margin:0 0 13px}
+  .difficulty-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .difficulty-scale button{min-height:48px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:600;padding:7px 5px;
+    cursor:pointer;transition:.15s}
+  .difficulty-scale button:hover{border-color:var(--accent)}
+  .difficulty-scale button[aria-pressed="true"]{color:#fff;background:var(--accent);
+    border-color:var(--accent);box-shadow:0 3px 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+  #feedback-status{min-height:20px;margin:10px 1px 0;color:var(--sub);font-size:12.5px}
+  .en .tok{cursor:pointer}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px calc(105px + env(safe-area-inset-bottom))}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+    .feedback-card{padding:16px 12px}
+    .difficulty-scale{gap:5px}
+    .difficulty-scale button{font-size:13px;padding:6px 3px}
+  }
+</style>
+</head>
+<body>
+<div id="read-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+    <div id="continue-reading"><span>继续上次阅读？</span>
+      <button class="icbtn" id="resume-reading">继续阅读</button>
+      <button class="icbtn" id="restart-reading">从头开始</button></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh" aria-pressed="true">隐藏中文</button>
+    <button class="btn on" id="tg-ipa" aria-pressed="true">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="toolbar-more">更多</button>
+    <div class="advanced" id="mobile-panel">
+    <button class="btn" id="tg-theme" aria-pressed="false">🌙 夜间</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <button class="btn" id="access-key">🔑 访问码</button>
+    <span class="speed"><label for="rate">语速</label>
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed"><label for="voice">嗓音</label>
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+    </div>
+  </div>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+    <div id="quiz-summary" aria-live="polite"><span id="quiz-result"></span>
+      <button class="icbtn" id="quiz-wrong">只看错题</button>
+      <button class="icbtn" id="quiz-reset">重新作答</button></div>
+  </section>
+
+  <section id="difficulty-feedback" class="feedback-card" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="feedback-title">这篇文章对你来说？</h2>
+    <p class="feedback-copy">凭第一感觉选择即可，之后也可以修改</p>
+    <div class="difficulty-scale" role="group" aria-label="文章阅读难度">
+      <button type="button" data-value="easy" aria-pressed="false">有点简单</button>
+      <button type="button" data-value="balanced" aria-pressed="false">刚刚好</button>
+      <button type="button" data-value="hard" aria-pressed="false">有点吃力</button>
+    </div>
+    <p id="feedback-status" aria-live="polite">完成阅读或答题后，系统也会参考客观数据</p>
+  </section>
+
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
+</div>
+
+<div id="mobile-float" aria-label="移动阅读工具">
+  <button id="mobile-play" aria-pressed="false">▶ 朗读</button>
+  <button id="mobile-more" aria-expanded="false">•••</button>
+</div>
+
+<div id="selbar" role="toolbar" aria-live="polite">
+  <span id="phrase-preview"></span>
+  <span id="phrase-hint"></span>
+  <button id="sel-add">＋ 单词</button>
+  <button id="sel-phrase">选择短语</button>
+  <button id="phrase-add">＋ 短语</button>
+  <button id="phrase-cancel">取消</button>
+</div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-08-27", "level": "CET-4", "title": "From First Salary to First Savings: A Practical Guide to Money Basics for Young Adults", "title_zh": "从第一笔工资到第一笔储蓄：年轻人的理财入门实用指南", "intro_zh": "本文约900词，含6个重点词，难度适中，适合CET-4水平阅读。", "paragraphs": [{"en": "Many young people have a common puzzle: at the end of each month, their wallet is empty, but they cannot remember where the money went. This is not because they spend too much, but because they never pay attention to where it goes. Understanding your money flow is the first step to financial independence. Think of money as water in a pipe: what comes in is income, what goes out is \u003cspan class=\"kw\" data-ipa=\"ɪkˈspɛns\" data-def=\"支出；花费\"\u003eexpense\u003c/span\u003e. If the outflow is larger than the inflow, you face a problem. Learning to manage this flow is a skill everyone needs, especially in today's world.", "zh": "许多年轻人都有一个共同的困惑：每个月月底钱包空空，却想不起钱花在哪里。这并非因为他们花得太多，而是因为他们从未关注过钱的去向。了解你的资金流动是迈向财务独立的第一步。把金钱想象成管道里的水：进来的是收入，出去的是支出。如果流出大于流入，你就会面临问题。学会管理这种流动是每个人都需要掌握的一项技能，尤其是在当今世界。"}, {"en": "The first practical step is to track every single expense for at least a month. Write down everything, from a cup of coffee to a new phone case. You can use a notebook, a spreadsheet, or a mobile app. Many free apps can connect to your bank account and automatically sort your spending into categories like food, transport, and entertainment. After one month, you will see a clear picture of your spending habits. This might surprise you—perhaps you spend more on snacks than on books. That information is priceless because it gives you a starting point for making changes.", "zh": "第一个实际步骤是至少记录一个月的每一笔支出。把一切写下来，从一杯咖啡到新手机壳。你可以使用笔记本、电子表格或手机应用。许多免费应用可以关联你的银行账户，自动将消费分为食物、交通、娱乐等类别。一个月后，你将对你的消费习惯有一个清晰的了解。这可能会让你惊讶——也许你在零食上的花费比书还多。这些信息是无价的，因为它为你提供了做出改变的起点。"}, {"en": "Once you know your spending patterns, it is time to make a \u003cspan class=\"kw\" data-ipa=\"ˈbʌdʒɪt\" data-def=\"预算\"\u003ebudget\u003c/span\u003e. A simple rule is the 50/30/20 plan. Put 50% of your income toward needs like rent, groceries, and utilities. Use 30% for wants, such as dining out, movies, and subscriptions. The remaining 20% goes to savings and investments. This rule is not just for rich people; it works well for anyone with a steady income, even if that income is from a part-time job. The key is to stick to the plan for a few months and adjust the percentages if needed. You can also use the envelope method: put cash in three envelopes labeled Needs, Wants, and Savings.", "zh": "一旦你了解了消费规律，就该制定预算了。一个简单的规则是50/30/20计划。将50%的收入用于必需品，如房租、食品杂货和水电费。30%用于想要的东西，如外出就餐、电影和订阅服务。剩下的20%用于储蓄和投资。这条规则不仅适用于富人，也适用于任何有稳定收入的人，即使收入来自兼职。关键是坚持几个月，如果需要就调整比例。你也可以使用“信封法”：把现金放入三个标有“必需品”、“想要”和“储蓄”的信封中。"}, {"en": "Before you start investing, build an \u003cspan class=\"kw\" data-ipa=\"ɪˈmɜːrdʒənsi\" data-def=\"紧急情况；突发事件\"\u003eemergency\u003c/span\u003e fund. This is money set aside for unexpected events, such as a sudden illness, a broken laptop, or a lost job. Financial experts suggest saving three to six months of living expenses. For a young person just starting out, even one month of expenses is a great first goal. Keep this fund in a separate high-interest savings account, not in your daily spending account. This way, you will not be tempted to spend it. An emergency fund is your safety net; it protects you from falling into debt when life throws surprises at you.", "zh": "在开始投资之前，先建立应急基金。这是为意外事件留出的钱，比如突发疾病、笔记本电脑损坏或失业。财务专家建议存下三到六个月的生活费用。对于刚开始的年轻人来说，哪怕是一个月的生活费也是一个很好的初步目标。把这笔基金放在一个独立的高息储蓄账户中，而不是日常消费账户。这样你不会受到消费诱惑。应急基金是你的安全网，当生活给你惊喜时，它保护你不陷入债务。"}, {"en": "After you have an emergency fund, you can start to \u003cspan class=\"kw\" data-ipa=\"ɪnˈvɛst\" data-def=\"投资\"\u003einvest\u003c/span\u003e your money. Investing means putting money into things that have the potential to grow, like stocks, bonds, or index funds. For beginners, index funds are often recommended because they spread risk across many companies. The magic of investing is compound \u003cspan class=\"kw\" data-ipa=\"ˈɪntrəst\" data-def=\"利息\"\u003einterest\u003c/span\u003e: your money earns returns, and those returns earn returns, like a snowball rolling down a hill. For example, if you invest $100 a month at an average annual return of 7%, you might have more than $12,000 in 10 years. Starting early is more important than investing a large amount.", "zh": "在拥有应急基金之后，你可以开始投资你的资金。投资意味着将资金投入有潜力增值的资产，如股票、债券或指数基金。对于初学者，指数基金通常被推荐，因为它们将风险分散到许多公司。投资的魔力在于复利：你的钱产生回报，这些回报又产生新的回报，就像滚下山坡的雪球。例如，如果你每月投资100美元，年化平均回报率为7%，十年后你可能会拥有超过1.2万美元。及早开始比投入大量资金更重要。"}, {"en": "One of the biggest dangers for young people is credit card \u003cspan class=\"kw\" data-ipa=\"dɛt\" data-def=\"债务\"\u003edebt\u003c/span\u003e. Credit cards are convenient, but they charge high interest if you do not pay the full amount each month. Many cards have interest rates above 20% per year. That means if you owe $1,000, you might pay more than $200 in interest in a year. This makes it easy to fall into a cycle of debt. To avoid this, adopt a simple rule: if you cannot pay for something in full, do not buy it. Remember that a credit card is not extra money; it is a short-term loan. Use it for convenience, not for borrowing.", "zh": "对年轻人最大的危险之一是信用卡债务。信用卡很方便，但如果你每月不全额还款，就要支付高额利息。许多卡的年利率超过20%。这意味着如果你欠1000美元，一年内可能支付超过200美元的利息。这很容易陷入债务循环。为避免这种情况，采用一个简单规则：如果不能全额付款，就不要购买。记住，信用卡不是额外的钱，而是短期贷款。使用它是为了方便，而不是为了借贷。"}, {"en": "Developing a healthy relationship with money also requires a shift in mindset. You do not need to be a math genius or a business professor. Start with small, realistic goals. For example, try to save 10% of any gift money or part-time earnings. Learn to distinguish between a need and a want. When you want to buy something, wait 24 hours before purchasing. This simple trick helps you avoid impulsive decisions. Over time, these small actions become part of your daily routine. But do not confuse this with boring discipline; think of it as building your own financial roadmap for the future.", "zh": "与金钱建立健康的关系也需要心态转变。你不需要是数学天才或商业教授。从现实的小目标开始。例如，试着存下任何礼金或兼职收入的10%。学会区分需要和想要。当你想买东西时，等24小时再购买。这个简单的技巧帮助你避免冲动决定。久而久之，这些小行为成为你日常生活的一部分。但不要把这与枯燥的纪律混淆；把它看作是为自己未来绘制财务路线图。"}, {"en": "In conclusion, money management is not a boring subject reserved for bankers. It is a life skill that helps you feel secure and confident. Start by tracking your expenses, making a budget, saving for emergencies, investing a little, and avoiding debt. You will make mistakes along the way, but every mistake is a lesson. The best time to start was ten years ago; the second-best time is today. So open that savings app, write down your first budget, and give your future self a gift that keeps on giving.", "zh": "总之，理财不是银行家专属的无聊学科。它是一种生活技能，帮助你感到安全和自信。从记录支出、制定预算、为应急储蓄、少量投资和避免债务开始。你会在过程中犯错，但每个错误都是一课。最好的开始时间是十年前，其次是现在。所以打开那个储蓄应用，写下你的第一个预算，给未来的自己一份持续派送的礼物。"}], "questions": [{"q": "What is the main purpose of the article?", "options": ["To warn young people about the danger of credit card debt.", "To teach young people basic money management skills.", "To encourage young people to invest in the stock market.", "To compare different budgeting methods for beginners."], "answer": 1, "explain": "文章主要向年轻人介绍理财入门的基本方法，包括记账、预算、储蓄、投资和避免债务等，因此B正确。A只是文中提到的一个具体问题，不是主旨；C以偏概全；D文章未进行比较。"}, {"q": "According to the article, what is the first step to manage your money?", "options": ["Make a 50/30/20 budget.", "Open a high-interest savings account.", "Track every expense for at least one month.", "Invest in an index fund."], "answer": 2, "explain": "文章第二段第一句明确说“The first practical step is to track every single expense”，所以第一步是记录支出。"}, {"q": "What can be inferred from the example of investing $100 a month in the article?", "options": ["You will definitely get a 7% return every year.", "A small amount invested regularly can grow into a large sum over time.", "You need to invest at least $100 a month to make a profit.", "Index funds are the only safe investment for beginners."], "answer": 1, "explain": "例子说明每月投入100美元，利用复利，十年后可能超过12000美元，说明小额定期投资也能积少成多。B正确。A中“definitely”过于绝对；C无中生有；D中“only”过于绝对。"}, {"q": "The word 'compound' in the phrase 'compound interest' is closest in meaning to ______.", "options": ["simple", "combined", "high", "annual"], "answer": 1, "explain": "compound interest指复利，即利息加入本金再次产生利息，compound意为“复合的、结合的”，故选B。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+const progressKey='englishDaily:progress:'+(ARTICLE.date||'unknown');
+function loadProgress(){
+  try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
+    return value&&value.version===1?value:null; }catch(e){ return null; }
+}
+const progressDefaults={version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,quizFirstScore:null,wordActionCount:0,
+  phraseActionCount:0,learningActionKeys:[],difficultyFeedback:null,
+  feedbackSyncState:null,updatedAt:null};
+let progressState=Object.assign({},progressDefaults,loadProgress()||{});
+if(!Array.isArray(progressState.learningActionKeys))progressState.learningActionKeys=[];
+function saveProgress(patch){
+  progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
+  try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
+  return progressState;
+}
+
+/* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
+const encoder=new TextEncoder();
+function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function storedAccessKey(){ return localStorage.getItem('APP_ACCESS_KEY')||''; }
+function accessKey(){
+  let key=storedAccessKey();
+  if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
+  if(key) localStorage.setItem('APP_ACCESS_KEY',key);
+  return key;
+}
+async function protectedFetch(payload,options={}){
+  const key=options.allowPrompt===false?storedAccessKey():accessKey();
+  if(!key) throw new Error('未提供访问码');
+  const body=JSON.stringify(payload);
+  const timestamp=String(Math.floor(Date.now()/1000));
+  const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
+  const digest=hex(await crypto.subtle.digest('SHA-256',encoder.encode(body)));
+  const cryptoKey=await crypto.subtle.importKey('raw',encoder.encode(key),
+    {name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature=hex(await crypto.subtle.sign('HMAC',cryptoKey,
+    encoder.encode(timestamp+'\n'+nonce+'\n'+digest)));
+  const response=await fetch(TTS_API,{method:'POST',headers:{
+    'Content-Type':'application/json','X-App-Timestamp':timestamp,
+    'X-App-Nonce':nonce,'X-App-Signature':signature},body});
+  if(response.status===401||response.status===403){
+    localStorage.removeItem('APP_ACCESS_KEY');
+    throw new Error('访问码无效或已过期，请重新输入');
+  }
+  return response;
+}
+
+/* ========== 自适应难度反馈：只上传聚合计数 ========== */
+const feedbackQueueKey='englishDaily:feedback:pending';
+const feedbackStatus=document.getElementById('feedback-status');
+const feedbackButtons=[...document.querySelectorAll('.difficulty-scale button')];
+function readFeedbackQueue(){
+  try{ const queue=JSON.parse(localStorage.getItem(feedbackQueueKey)||'{}');
+    return queue&&typeof queue==='object'&&!Array.isArray(queue)?queue:{}; }
+  catch(e){ return {}; }
+}
+function writeFeedbackQueue(queue){
+  try{ localStorage.setItem(feedbackQueueKey,JSON.stringify(queue)); }catch(e){}
+}
+function learningFeedbackPayload(){
+  return {op:'feedback_put',article_date:ARTICLE.date,
+    difficulty:progressState.difficultyFeedback||null,
+    completed:!!progressState.completed,
+    quiz_first_score:Number.isInteger(progressState.quizFirstScore)?progressState.quizFirstScore:null,
+    quiz_total:Number.isInteger(progressState.quizFirstScore)?Number(progressState.quizTotal||0):0,
+    word_action_count:Number(progressState.wordActionCount||0),
+    phrase_action_count:Number(progressState.phraseActionCount||0)};
+}
+function hasMeaningfulFeedback(payload){
+  return !!(payload&&(payload.difficulty||payload.completed||
+    Number.isInteger(payload.quiz_first_score)||
+    Number(payload.word_action_count)>0||Number(payload.phrase_action_count)>0));
+}
+function queueLearningFeedback(payload){
+  if(!hasMeaningfulFeedback(payload))return false;
+  const queue=readFeedbackQueue(); queue[payload.article_date]=payload; writeFeedbackQueue(queue);
+  if(payload.article_date===ARTICLE.date)saveProgress({feedbackSyncState:'pending'});
+  return true;
+}
+function queueCurrentLearningFeedback(){
+  return queueLearningFeedback(learningFeedbackPayload());
+}
+function renderDifficultyFeedback(){
+  feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
+    String(button.dataset.value===progressState.difficultyFeedback)));
+}
+function trendText(trend){
+  return trend==='harder'?'后续会稍微提高难度':
+    trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
+}
+let feedbackSyncPromise=null;
+async function drainLearningFeedback(interactive){
+  let sentCurrent=false,lastProfile=null;
+  while(true){
+    const queue=readFeedbackQueue();
+    const dates=Object.keys(queue).sort();
+    if(!dates.length)return true;
+    const articleDate=dates[0],payload=queue[articleDate];
+    if(!hasMeaningfulFeedback(payload)){
+      delete queue[articleDate]; writeFeedbackQueue(queue); continue;
+    }
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    interactive=false;
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const latestQueue=readFeedbackQueue();
+    const latest=latestQueue[articleDate];
+    if(latest&&JSON.stringify(latest)===JSON.stringify(payload)){
+      delete latestQueue[articleDate]; writeFeedbackQueue(latestQueue);
+      if(articleDate===ARTICLE.date){
+        sentCurrent=true; lastProfile=result.profile||null;
+        saveProgress({feedbackSyncState:'synced'});
+      }
+    }
+    if(sentCurrent)feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(lastProfile&&lastProfile.trend);
+    else feedbackStatus.textContent='历史待同步记录已补传';
+  }
+}
+async function syncLearningFeedback(interactive=false){
+  const queued=readFeedbackQueue();
+  if(!Object.keys(queued).length)return true;
+  if(!interactive&&!storedAccessKey()){
+    feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
+    return false;
+  }
+  if(!cloudOn){
+    feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
+    return false;
+  }
+  if(feedbackSyncPromise)return feedbackSyncPromise;
+  feedbackStatus.textContent='正在记录…';
+  feedbackSyncPromise=drainLearningFeedback(interactive);
+  try{ return await feedbackSyncPromise; }
+  catch(e){
+    feedbackStatus.textContent=storedAccessKey()?
+      '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
+    return false;
+  }finally{
+    feedbackSyncPromise=null;
+  }
+}
+let feedbackSyncTimer=0;
+function scheduleLearningFeedbackSync(){
+  clearTimeout(feedbackSyncTimer);
+  feedbackSyncTimer=setTimeout(()=>syncLearningFeedback(false),700);
+}
+function recordLearningAction(text){
+  const normalized=(text||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!normalized)return;
+  const type=/\s/.test(normalized)?'phrase':'word';
+  const key=type+':'+normalized;
+  const keys=progressState.learningActionKeys.slice(0,199);
+  if(keys.includes(key))return;
+  keys.push(key);
+  saveProgress({learningActionKeys:keys,
+    wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
+    phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+feedbackButtons.forEach(button=>button.onclick=()=>{
+  saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
+  queueCurrentLearningFeedback(); renderDifficultyFeedback(); syncLearningFeedback(true);
+});
+renderDifficultyFeedback();
+const initialFeedbackQueue=readFeedbackQueue();
+if(Object.keys(initialFeedbackQueue).length){
+  feedbackStatus.textContent='上次记录正在等待同步';
+  scheduleLearningFeedbackSync();
+}
+addEventListener('online',scheduleLearningFeedbackSync);
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ return new Promise(resolve=>{ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); }); }
+
+const clipCache=new Map(); let curAudio=null, token=0, activeParagraph=-1;
+function setSpeakingState(index){
+  activeParagraph=typeof index==='number'?index:-1;
+  document.querySelectorAll('.para').forEach((p,i)=>{
+    p.classList.toggle('speaking',i===activeParagraph);
+    if(i===activeParagraph)p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
+  const mobile=document.getElementById('mobile-play');
+  mobile.textContent=activeParagraph>=0?'⏹ 停止':'▶ 朗读';
+  mobile.setAttribute('aria-pressed',String(activeParagraph>=0));
+}
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  setSpeakingState(-1); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await protectedFetch({text,voice});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl, paragraphIndex){
+  if(!text) return; stopAll(); const my=token;
+  if(typeof paragraphIndex==='number')setSpeakingState(paragraphIndex);
+  else if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ await speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ await speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token){ if(hiEl)hiEl.classList.remove('speaking'); setSpeakingState(-1); } }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.setAttribute('data-paragraph',String(i));
+  const en=document.createElement('div'); en.className='en'; en.lang='en-US'; en.innerHTML=p.en;
+  const tools=document.createElement('div'); tools.className='ptools';
+  const toggle=document.createElement('button'); toggle.className='icbtn tz';
+  toggle.textContent='中/英'; tools.appendChild(toggle);
+  const speak=document.createElement('button'); speak.className='icbtn para-play';
+  speak.textContent='🔊 朗读本段'; speak.setAttribute('aria-label','朗读第 '+(i+1)+' 段');
+  speak.onclick=()=>startParagraph(i); tools.appendChild(speak);
+  const zh=document.createElement('div'); zh.className='zh'; zh.lang='zh-CN'; zh.textContent = p.zh;
+  div.append(en,tools,zh);
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function paragraphText(index){ return document.querySelectorAll('.para')[index]?.querySelector('.en')?.textContent||''; }
+function startParagraph(index){ play(paragraphText(index),document.querySelectorAll('.para')[index],index); }
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
+
+/* ========== 本机阅读进度 ========== */
+const progressBar=document.getElementById('read-progress');
+const resumeBox=document.getElementById('continue-reading');
+const mobilePanel=document.getElementById('mobile-panel');
+function nearestParagraph(){
+  const paras=[...document.querySelectorAll('.para')]; let best=0,dist=Infinity;
+  paras.forEach((p,i)=>{ const d=Math.abs(p.getBoundingClientRect().top-innerHeight*.42);
+    if(d<dist){dist=d;best=i;} }); return best;
+}
+function updateReadingProgress(){
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
+  progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
+  const lastParagraph=nearestParagraph();
+  const justCompleted=!progressState.completed&&ratio>=.92;
+  saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  if(justCompleted){queueCurrentLearningFeedback();scheduleLearningFeedbackSync();}
+  const toolbar=document.querySelector('.toolbar');
+  document.getElementById('mobile-float').classList.toggle('visible',
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
+}
+let progressFrame=0;
+addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{
+  progressFrame=0; updateReadingProgress(); }); },{passive:true});
+addEventListener('resize',updateReadingProgress);
+if(progressState.ratio>.05&&!progressState.completed) resumeBox.classList.add('show');
+document.getElementById('resume-reading').onclick=()=>{
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+document.getElementById('restart-reading').onclick=()=>{
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null});
+  scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+updateReadingProgress();
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+const quizSummary=document.getElementById('quiz-summary');
+let quizScore=0,answeredCount=0,incorrectQuestions=[];
+function updateQuizSummary(){
+  if(!QS.length)return;
+  if(answeredCount<QS.length){ document.getElementById('quiz-result').textContent=
+    '已完成 '+answeredCount+' / '+QS.length; return; }
+  const percent=Math.round(quizScore/QS.length*100);
+  document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
+    (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
+  quizSummary.classList.add('show');
+  const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
+  saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1'; answeredCount++;
+        if(oi===ans)quizScore++; else{incorrectQuestions.push(qi);card.dataset.incorrect='true';}
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); updateQuizSummary(); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+if(QS.length&&progressState.quizScore!==null&&progressState.quizTotal===QS.length){
+  document.getElementById('quiz-result').textContent='上次得分 '+progressState.quizScore+' / '+QS.length;
+  quizSummary.classList.add('show');
+}
+let wrongOnly=false;
+document.getElementById('quiz-wrong').onclick=()=>{ wrongOnly=!wrongOnly;
+  document.querySelectorAll('.quiz .q').forEach(card=>card.style.display=
+    wrongOnly&&card.dataset.incorrect!=='true'?'none':'');
+  document.getElementById('quiz-wrong').textContent=wrongOnly?'显示全部':'只看错题'; };
+document.getElementById('quiz-reset').onclick=()=>{
+  quizScore=0;answeredCount=0;incorrectQuestions=[];wrongOnly=false;
+  document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
+    delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
+      b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:QS.length}); };
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  tgZh.textContent=on?'隐藏中文':'显示中文'; tgZh.setAttribute('aria-pressed',String(on));
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标';
+  tgIpa.setAttribute('aria-pressed',String(ipaOn)); };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark);
+  tgTheme.setAttribute('aria-pressed',String(dark)); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+document.getElementById('access-key').onclick=()=>{
+  localStorage.removeItem('APP_ACCESS_KEY');
+  if(accessKey()){ toast('访问码已保存'); scheduleLearningFeedbackSync(); }
+};
+function toggleMore(){ const open=mobilePanel.classList.toggle('open');
+  document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
+document.getElementById('toolbar-more').onclick=toggleMore;
+document.getElementById('mobile-more').onclick=toggleMore;
+document.getElementById('mobile-play').onclick=()=>{
+  if(activeParagraph>=0)stopAll(); else startParagraph(nearestParagraph()); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await protectedFetch({op:'maimemo',text});
+    const j=await r.json();
+    if(j.ok){ recordLearningAction(text);
+      toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+let phraseStart=null, phraseEnd=null, phraseTokens=[];
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function cleanPhraseEdge(text){
+  return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,'');
+}
+function phraseFromTokens(tokens){
+  return cleanPhraseEdge(tokens.map(t=>cleanPhraseEdge(t.dataset.w||t.textContent))
+    .filter(Boolean).join(' '));
+}
+function clearPhraseHighlight(){
+  phraseTokens.forEach(t=>t.classList.remove('phrase-selected'));
+  phraseTokens=[];
+}
+function clearSel(){
+  clearPhraseHighlight(); phraseStart=null; phraseEnd=null; selText='';
+  selbar.classList.remove('phrase-mode','phrase-ready');
+  document.getElementById('phrase-preview').textContent='';
+  document.getElementById('phrase-hint').textContent='';
+  selbar.style.display='none';
+}
+function exitPhraseMode(){ clearSel(); }
+function enterPhraseMode(){
+  if(!phraseStart) return;
+  clearPhraseHighlight(); phraseTokens=[phraseStart];
+  phraseStart.classList.add('phrase-selected'); selText='';
+  selbar.classList.add('phrase-mode'); selbar.classList.remove('phrase-ready');
+  document.getElementById('phrase-hint').textContent='请选择短语最后一个词';
+  selbar.style.display='flex';
+}
+function selectPhraseEnd(end){
+  const start=phraseStart;
+  if(!start||start.closest('.en')!==end.closest('.en')){
+    toast('短语需在同一段内'); exitPhraseMode(); return;
+  }
+  const siblings=[...start.closest('.en').querySelectorAll('.tok')];
+  const a=siblings.indexOf(start), b=siblings.indexOf(end);
+  const selected=siblings.slice(Math.min(a,b),Math.max(a,b)+1);
+  if(selected.length<2){ toast('请再选择一个词'); return; }
+  if(selected.length>10){ toast('短语最多 10 个词'); return; }
+  clearPhraseHighlight(); phraseTokens=selected; phraseEnd=end;
+  phraseTokens.forEach(t=>t.classList.add('phrase-selected'));
+  selText=phraseFromTokens(phraseTokens);
+  document.getElementById('phrase-preview').textContent=selText;
+  selbar.classList.add('phrase-ready');
+}
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  clearSel(); phraseStart=tok;
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
+}, true);
+artEl.addEventListener('click',e=>{
+  if(!selbar.classList.contains('phrase-mode')) return;
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok) return;
+  e.preventDefault(); e.stopPropagation(); selectPhraseEnd(tok);
+},true);
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+document.getElementById('sel-phrase').onclick=e=>{ e.stopPropagation(); enterPhraseMode(); };
+document.getElementById('phrase-add').onclick=e=>{
+  e.stopPropagation(); if(selText){ doAdd(selText); exitPhraseMode(); }
+};
+document.getElementById('phrase-cancel').onclick=e=>{ e.stopPropagation(); exitPhraseMode(); };
+document.addEventListener('click',e=>{
+  if(!e.target.closest||e.target.closest('#selbar')) return;
+  if(selbar.classList.contains('phrase-mode')&&e.target.closest('.tok')) return;
+  clearSel();
+},true);
+document.addEventListener('scroll',()=>{
+  if(!selbar.classList.contains('phrase-mode')) clearSel();
+},true);
+
+</script>
+</body>
+</html>
