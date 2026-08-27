@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self' data: blob:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+<title>每日英语 · More Than a Ride: How Public Transit Pays Off for Everyone</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  .tok.phrase-selected{background:var(--selbg);border-radius:4px}
+  #phrase-preview,#phrase-hint,#phrase-add,#phrase-cancel{display:none}
+  #selbar.phrase-mode{left:50%!important;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    width:min(calc(100vw - 24px),520px);flex-wrap:wrap;justify-content:center;
+    align-items:center;white-space:normal}
+  #selbar.phrase-mode #sel-add,#selbar.phrase-mode #sel-phrase{display:none}
+  #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
+  #selbar.phrase-ready #phrase-hint{display:none}
+  #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview,#phrase-hint{color:#fff;font-size:13px}
+  #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  #read-progress{position:fixed;z-index:90;top:0;left:0;width:0;height:3px;
+    background:var(--accent);transition:width .12s linear}
+  #continue-reading{display:none;align-items:center;gap:8px;margin:10px 0;padding:9px 11px;
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
+  #continue-reading.show{display:flex} #continue-reading span{flex:1}
+  .advanced{display:contents}
+  #toolbar-more{display:none}
+  #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
+    transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
+    box-shadow:0 5px 18px var(--shadow);gap:3px}
+  #mobile-float button{border:0;background:transparent;color:#fff;border-radius:18px;padding:8px 13px}
+  @media (max-width:640px){
+    .wrap{padding-bottom:calc(105px + env(safe-area-inset-bottom))}
+    #toolbar-more{display:inline-flex}
+    .toolbar .advanced{display:none;flex-basis:100%;padding:9px;border:1px solid var(--line);
+      border-radius:12px;background:var(--card);gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar .advanced.open{display:flex;position:fixed;z-index:44;left:12px;right:12px;
+      bottom:calc(62px + env(safe-area-inset-bottom));box-shadow:0 5px 18px var(--shadow)}
+    #mobile-float.visible{display:flex}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
+    background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
+  #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
+  .feedback-card{position:relative;overflow:hidden;margin:22px 0 4px;padding:18px 16px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .feedback-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--know),var(--accent),var(--fuzzy))}
+  .feedback-title{font-size:17px;font-weight:700;margin:0 0 3px}
+  .feedback-copy{font-size:12.5px;color:var(--sub);margin:0 0 13px}
+  .difficulty-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .difficulty-scale button{min-height:48px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:600;padding:7px 5px;
+    cursor:pointer;transition:.15s}
+  .difficulty-scale button:hover{border-color:var(--accent)}
+  .difficulty-scale button[aria-pressed="true"]{color:#fff;background:var(--accent);
+    border-color:var(--accent);box-shadow:0 3px 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+  #feedback-status{min-height:20px;margin:10px 1px 0;color:var(--sub);font-size:12.5px}
+  .en .tok{cursor:pointer}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px calc(105px + env(safe-area-inset-bottom))}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+    .feedback-card{padding:16px 12px}
+    .difficulty-scale{gap:5px}
+    .difficulty-scale button{font-size:13px;padding:6px 3px}
+  }
+</style>
+</head>
+<body>
+<div id="read-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+    <div id="continue-reading"><span>继续上次阅读？</span>
+      <button class="icbtn" id="resume-reading">继续阅读</button>
+      <button class="icbtn" id="restart-reading">从头开始</button></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh" aria-pressed="true">隐藏中文</button>
+    <button class="btn on" id="tg-ipa" aria-pressed="true">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="toolbar-more">更多</button>
+    <div class="advanced" id="mobile-panel">
+    <button class="btn" id="tg-theme" aria-pressed="false">🌙 夜间</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <button class="btn" id="access-key">🔑 访问码</button>
+    <span class="speed"><label for="rate">语速</label>
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed"><label for="voice">嗓音</label>
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+    </div>
+  </div>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+    <div id="quiz-summary" aria-live="polite"><span id="quiz-result"></span>
+      <button class="icbtn" id="quiz-wrong">只看错题</button>
+      <button class="icbtn" id="quiz-reset">重新作答</button></div>
+  </section>
+
+  <section id="difficulty-feedback" class="feedback-card" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="feedback-title">这篇文章对你来说？</h2>
+    <p class="feedback-copy">凭第一感觉选择即可，之后也可以修改</p>
+    <div class="difficulty-scale" role="group" aria-label="文章阅读难度">
+      <button type="button" data-value="easy" aria-pressed="false">有点简单</button>
+      <button type="button" data-value="balanced" aria-pressed="false">刚刚好</button>
+      <button type="button" data-value="hard" aria-pressed="false">有点吃力</button>
+    </div>
+    <p id="feedback-status" aria-live="polite">完成阅读或答题后，系统也会参考客观数据</p>
+  </section>
+
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
+</div>
+
+<div id="mobile-float" aria-label="移动阅读工具">
+  <button id="mobile-play" aria-pressed="false">▶ 朗读</button>
+  <button id="mobile-more" aria-expanded="false">•••</button>
+</div>
+
+<div id="selbar" role="toolbar" aria-live="polite">
+  <span id="phrase-preview"></span>
+  <span id="phrase-hint"></span>
+  <button id="sel-add">＋ 单词</button>
+  <button id="sel-phrase">选择短语</button>
+  <button id="phrase-add">＋ 短语</button>
+  <button id="phrase-cancel">取消</button>
+</div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-08-28", "level": "CET-4", "title": "More Than a Ride: How Public Transit Pays Off for Everyone", "title_zh": "不仅仅是出行：公共交通如何让每个人受益", "intro_zh": "本文约 930 词，重点词 6 个，难度中等，适合 CET-4 阅读练习。", "paragraphs": [{"en": "Every morning, millions of people squeeze into buses, subways, and trains to get to work or school. While many complain about crowded seats, few notice how much these systems quietly do for our cities. Public transportation is not just a way to move people—it is a powerful tool that shapes our economy, environment, and daily lives. In fact, urban planners often call it the backbone of a modern city. From reducing traffic jams to cleaning the air, transit provides benefits that are easy to overlook but impossible to ignore. This article will highlight some of the most important ways that public transit makes our lives better, every single day.", "zh": "每天早晨，数以百万计的人挤进公共汽车、地铁和火车去上班或上学。尽管很多人抱怨座位拥挤，但很少有人注意到这些系统为我们的城市默默做了多少贡献。公共交通不仅仅是一种运送人的方式——它还是塑造经济、环境和日常生活的强大工具。事实上，城市规划者常称之为现代城市的支柱。从减少交通堵塞到净化空气，公交带来的好处容易忽视，但绝不容忽略。本文将重点介绍公共交通让我们每天生活更美好的几个重要方面。"}, {"en": "First, public transit attacks the problem of traffic \u003cspan class=\"kw\" data-ipa=\"kənˈdʒes.tʃən\" data-def=\"拥堵\"\u003econgestion\u003c/span\u003e. A single standard bus can carry as many passengers as 30 to 40 private cars, while taking up roughly the same road space as two cars. When more people choose transit, fewer vehicles jam the streets, so buses and cars alike move faster. For example, New York City's subway system saves commuters about 20 hours of travel time per person each year. Similarly, London's congestion pricing policy—which charges drivers for entering the city center—has shortened average bus ride times by 25 percent. Reducing congestion also cuts fuel waste and lowers stress for everyone, making streets safer and more pleasant for pedestrians.", "zh": "首先，公共交通攻克了交通拥堵问题。一辆标准公交车可搭载的乘客数量相当于30到40辆私家车，而占用的道路空间仅约为两辆汽车。当更多人选择公共交通时，街上的车辆就会减少，公交车和汽车都能跑得更快。例如，纽约市的地铁系统每年为每位通勤者节省约20小时的出行时间。同样，伦敦的拥堵收费政策——对进入市中心的司机收费——使公交车平均行程时间缩短了25%。减少拥堵还降低了燃料浪费，减轻了每个人的压力，让街道对行人来说更安全、更舒适。"}, {"en": "Second, transit delivers major environmental benefits. Buses and trains produce far fewer \u003cspan class=\"kw\" data-ipa=\"ɪˈmɪʃ.ənz\" data-def=\"排放物\"\u003eemissions\u003c/span\u003e per passenger than cars. A study from the American Public Transportation Association found that a person who switches from driving to a bus can cut their carbon footprint by up to 30 percent. When a bus runs with only half its seats filled, it is still more fuel-efficient per person than a typical car. Cities with strong transit networks also enjoy cleaner air, which means fewer cases of asthma and other lung problems. In fact, researchers in Shanghai calculated that increasing bus ridership by 8 percent could reduce fine particle pollution by nearly 11 percent. In this way, the simple act of taking the bus helps protect the planet and our health.", "zh": "其次，公共交通带来显著的环境效益。公交车和火车的人均排放远低于汽车。美国公共交通协会的一项研究发现，从开车改为乘坐公交车的人，其碳足迹最多可减少30%。即使公交车只有一半上座率，其人均燃油效率仍高于典型轿车。拥有强大公共交通网络的城市空气质量更好，这意味着哮喘和其他肺部疾病病例更少。事实上，上海研究者计算，公交车乘坐率提高8%，可使细颗粒物污染降低近11%。这样，乘坐公交车的简单行为有助于保护地球和我们的健康。"}, {"en": "Third, public transit is a good deal for people's wallets and for the local economy. Owning a car means paying for gas, insurance, parking, and repairs—costs that can easily exceed $9,000 a year in American cities. A transit pass, by contrast, often costs less than $1,200 per year. On a bigger scale, every $1 invested in public transit generates roughly $4 in economic returns, according to industry analysis. Transit projects create jobs, raise nearby property values, and attract businesses that rely on workers arriving stress-free. For example, the opening of a new light rail line in Portland, Oregon, led to more than $1 billion in new development within walking distance of stations. Thus, \u003cspan class=\"kw\" data-ipa=\"əˈfɔːr.də.bəl\" data-def=\"负担得起的\"\u003eaffordable\u003c/span\u003e fares benefit both individuals and communities.", "zh": "第三，公共交通对人们的钱包和当地经济都很有好处。拥有汽车意味着支付油费、保险、停车费和维修费——在美国城市，这些费用每年很容易超过9000美元。相比之下，一张公交年票通常花费不到1200美元。从更大范围看，根据行业分析，每向公共交通投入1美元，大约能产生4美元的经济回报。交通项目创造就业岗位，提高周边房产价值，并吸引依赖员工轻松通勤的企业。例如，俄勒冈州波特兰市开通一条新的轻轨线路后，车站步行距离内出现了超过10亿美元的新开发项目。因此，实惠的票价既惠及个人，也惠及社区。"}, {"en": "Fourth, taking transit can actually make you healthier. Most transit trips begin or end with a short walk to a stop, adding 15 to 30 minutes of physical activity each day. That extra movement helps control weight and reduces the risk of heart disease. A Japanese study of over 5,000 adults found that people who used public transportation were about 25 percent less likely to have high blood pressure than car \u003cspan class=\"kw\" data-ipa=\"kəˈmjuː.tərz\" data-def=\"通勤者\"\u003ecommuters\u003c/span\u003e. Fewer vehicles on the road also mean lower air pollution, which lowers the risk of stroke and respiratory illness. Additionally, walking to and from transit stops builds healthy habits without requiring a gym membership or a strict workout schedule. So the ride itself is a free sneaky workout.", "zh": "第四，乘坐公共交通实际上能让你更健康。大多数公交行程都始于或止于一小段步行，每天额外增加15到30分钟的身体活动。这些额外的运动有助于控制体重，降低心脏病风险。日本一项针对5000多名成年人的研究发现，使用公共交通的人患高血压的可能性比开车通勤者低约25%。路上车辆减少还意味着空气污染降低，从而降低中风和呼吸系统疾病的风险。此外，步行往返公交站能培养健康习惯，无需办健身房会员或严格锻炼计划。所以，乘车本身是一次免费且“偷偷进行”的锻炼。"}, {"en": "Fifth, public transit is essential for \u003cspan class=\"kw\" data-ipa=\"ˈek.wɪ.ti\" data-def=\"公平\"\u003eequity\u003c/span\u003e. Not every person can drive—young people, seniors, people with disabilities, or those who cannot afford a car depend on buses and trains. Reliable transit connects low-income neighborhoods to jobs, schools, hospitals, and grocery stores. In many cities, opposition to car-centered planning has led to better bus routes in under-served areas. For instance, in Houston, Texas, a bus network redesign improved access to jobs for 40,000 more residents without increasing the budget. Similarly, when a new subway line opens in a poor district, residents often gain access to dozens of new job opportunities within a short ride. Thus, transit helps level the playing field for everyone.", "zh": "第五，公共交通对于公平至关重要。并非每个人都能开车——年轻人、老年人、残障人士以及无力买车的人都依赖公交车和火车。可靠的公共交通将低收入社区与就业、学校、医院和杂货店连接起来。在许多城市，对以汽车为中心的规划的反击促使公交线路更好地覆盖服务不足的地区。例如，在得克萨斯州休斯敦，一次公交网络重新设计在不增加预算的情况下，让另外4万名居民更容易获得就业机会。同样，当一条新的地铁线路在贫困地区开通时，居民通常能在短途车程内获得数十个新的就业机会。因此，公共交通有助于为每个人营造公平的竞争环境。"}, {"en": "Beyond these practical benefits, transit can strengthen social bonds. Commuters riding the same train often see familiar faces and may strike up conversations. Bus stops become small public squares where neighbors greet each other. Studies suggest that people who use public transit are more likely to trust others and feel connected to their community. Unlike the isolation of a private car, the shared space of a bus or subway encourages a sense of belonging. In many cities, transit corridors have become hubs for street markets, cafes, and community events. This social glue may be one of the least visible but most valuable aspects of public transportation, turning strangers into neighbors and helping to build safer, friendlier communities.", "zh": "除了这些实际的好处，公共交通还能加强社会联系。乘坐同一列火车的通勤者经常看到熟悉的面孔，并可能开始交谈。公交车站成为邻里互相打招呼的小型公共广场。研究表明，使用公共交通的人更有可能信任他人并感受到与社区的联系。与私家车的封闭隔离不同，公交车或地铁的共享空间能增强归属感。在许多城市，公交走廊已成为街市、咖啡馆和社区活动的中心。这种社会黏合剂可能是公共交通中最不可见却最有价值的方面之一，它让陌生人变成邻居，并帮助建立更安全、更友好的社区。"}, {"en": "Finally, technology is making public transit even more attractive. Many cities now use smart cards and mobile apps that give real-time arrival information, so waiting is less painful. Electric buses and trains are replacing diesel fleets, further reducing noise and air pollution. Some cities are even testing autonomous shuttles that can serve low-density areas more cheaply. Upgrading transit \u003cspan class=\"kw\" data-ipa=\"ˈɪn.frəˌstrʌk.tʃər\" data-def=\"基础设施\"\u003einfrastructure\u003c/span\u003e, such as better stations and dedicated bus lanes, speeds up service and makes riding feel safe and comfortable. For example, Shenzhen's all-electric bus fleet—the largest in the world—helps cut city carbon emissions by 1.2 million tons each year. With these improvements, public transit will remain a smart choice for future generations.", "zh": "最后，技术正在使公共交通更具吸引力。许多城市现在使用智能卡和移动应用程序提供实时到站信息，使等待不再那么痛苦。电动公交车和火车正在取代柴油车队，进一步减少噪音和空气污染。一些城市甚至正在试验自动驾驶班车，以更低的成本服务低密度地区。升级交通基础设施，如改善车站和专用公交车道，可加快服务速度，让乘坐更安全舒适。例如，深圳的全电动公交车队——世界最大——每年帮助城市减少120万吨碳排放。随着这些改进，公共交通将继续成为子孙后代的明智选择。"}, {"en": "In conclusion, public transportation is a hidden superhighway that carries far more than passengers—it carries value. From easing traffic and cleaning the air to saving money and bringing people together, its benefits touch every corner of urban life. To fully enjoy these rewards, cities should invest in reliable, convenient, and user-friendly transit systems. That means not only building new lines and buying clean buses, but also making routes frequent, stops safe, and information clear. As so many commuters already know, sometimes the best way to move forward is to ride together.", "zh": "总之，公共交通是一条隐形的高速公路，它承载的远不止乘客——它承载着价值。从缓解交通、净化空气，到省钱和凝聚人心，它的好处触及城市生活的每个角落。为了充分享受这些回报，城市应投资于可靠、便捷、人性化的交通系统。这意味着不仅要建设新线路、购买清洁公交车，还要让班次更密、站点更安全、信息更清晰。正如许多通勤者所知，有时前进的最好方式就是一起乘坐。"}], "questions": [{"q": "What is the main idea of the article?", "options": ["Public transportation is only useful in large cities.", "Public transportation brings a wide range of benefits beyond just moving people.", "Public transportation is too expensive for most cities to build.", "Public transportation creates more problems than it solves."], "answer": 1, "explain": "文章从多个方面阐述了公共交通的好处，包括减少拥堵、环保、经济、健康、公平和社会联系等，强调其价值远超简单的出行工具。因此选 B。"}, {"q": "According to the article, how can taking public transit improve a person's health?", "options": ["It guarantees that people will live longer.", "It encourages walking and reduces air pollution.", "It offers free gym memberships to riders.", "It completely prevents all diseases."], "answer": 1, "explain": "第五段指出，乘坐公共交通的人通常每天步行15-30分钟，且路上汽车减少使空气污染降低，从而有益健康。选项 B 正确。"}, {"q": "The example of Shenzhen's all-electric bus fleet is used to show that ______.", "options": ["technology can make public transit cleaner and more efficient", "electric buses are slower than diesel buses", "diesel buses are better for the environment", "Shenzhen relies on private cars for transportation"], "answer": 0, "explain": "第八段提到深圳的电动公交车队是“世界最大”，并帮助减少大量碳排放，说明技术使公共交通更环保、更高效。故选 A。"}, {"q": "The word 'equity' in paragraph 6 is closest in meaning to ______.", "options": ["fairness", "money", "speed", "length"], "answer": 0, "explain": "第六段讨论公共交通让无法开车的人也能获得就业、教育等机会，所以'equity'在这里的意思是'公平'，与 fairness 同义。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+const progressKey='englishDaily:progress:'+(ARTICLE.date||'unknown');
+function loadProgress(){
+  try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
+    return value&&value.version===1?value:null; }catch(e){ return null; }
+}
+const progressDefaults={version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,quizFirstScore:null,wordActionCount:0,
+  phraseActionCount:0,learningActionKeys:[],difficultyFeedback:null,
+  feedbackSyncState:null,updatedAt:null};
+let progressState=Object.assign({},progressDefaults,loadProgress()||{});
+if(!Array.isArray(progressState.learningActionKeys))progressState.learningActionKeys=[];
+function saveProgress(patch){
+  progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
+  try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
+  return progressState;
+}
+
+/* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
+const encoder=new TextEncoder();
+function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function storedAccessKey(){ return localStorage.getItem('APP_ACCESS_KEY')||''; }
+function accessKey(){
+  let key=storedAccessKey();
+  if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
+  if(key) localStorage.setItem('APP_ACCESS_KEY',key);
+  return key;
+}
+async function protectedFetch(payload,options={}){
+  const key=options.allowPrompt===false?storedAccessKey():accessKey();
+  if(!key) throw new Error('未提供访问码');
+  const body=JSON.stringify(payload);
+  const timestamp=String(Math.floor(Date.now()/1000));
+  const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
+  const digest=hex(await crypto.subtle.digest('SHA-256',encoder.encode(body)));
+  const cryptoKey=await crypto.subtle.importKey('raw',encoder.encode(key),
+    {name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature=hex(await crypto.subtle.sign('HMAC',cryptoKey,
+    encoder.encode(timestamp+'\n'+nonce+'\n'+digest)));
+  const response=await fetch(TTS_API,{method:'POST',headers:{
+    'Content-Type':'application/json','X-App-Timestamp':timestamp,
+    'X-App-Nonce':nonce,'X-App-Signature':signature},body});
+  if(response.status===401||response.status===403){
+    localStorage.removeItem('APP_ACCESS_KEY');
+    throw new Error('访问码无效或已过期，请重新输入');
+  }
+  return response;
+}
+
+/* ========== 自适应难度反馈：只上传聚合计数 ========== */
+const feedbackQueueKey='englishDaily:feedback:pending';
+const feedbackStatus=document.getElementById('feedback-status');
+const feedbackButtons=[...document.querySelectorAll('.difficulty-scale button')];
+function readFeedbackQueue(){
+  try{ const queue=JSON.parse(localStorage.getItem(feedbackQueueKey)||'{}');
+    return queue&&typeof queue==='object'&&!Array.isArray(queue)?queue:{}; }
+  catch(e){ return {}; }
+}
+function writeFeedbackQueue(queue){
+  try{ localStorage.setItem(feedbackQueueKey,JSON.stringify(queue)); }catch(e){}
+}
+function learningFeedbackPayload(){
+  return {op:'feedback_put',article_date:ARTICLE.date,
+    difficulty:progressState.difficultyFeedback||null,
+    completed:!!progressState.completed,
+    quiz_first_score:Number.isInteger(progressState.quizFirstScore)?progressState.quizFirstScore:null,
+    quiz_total:Number.isInteger(progressState.quizFirstScore)?Number(progressState.quizTotal||0):0,
+    word_action_count:Number(progressState.wordActionCount||0),
+    phrase_action_count:Number(progressState.phraseActionCount||0)};
+}
+function hasMeaningfulFeedback(payload){
+  return !!(payload&&(payload.difficulty||payload.completed||
+    Number.isInteger(payload.quiz_first_score)||
+    Number(payload.word_action_count)>0||Number(payload.phrase_action_count)>0));
+}
+function queueLearningFeedback(payload){
+  if(!hasMeaningfulFeedback(payload))return false;
+  const queue=readFeedbackQueue(); queue[payload.article_date]=payload; writeFeedbackQueue(queue);
+  if(payload.article_date===ARTICLE.date)saveProgress({feedbackSyncState:'pending'});
+  return true;
+}
+function queueCurrentLearningFeedback(){
+  return queueLearningFeedback(learningFeedbackPayload());
+}
+function renderDifficultyFeedback(){
+  feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
+    String(button.dataset.value===progressState.difficultyFeedback)));
+}
+function trendText(trend){
+  return trend==='harder'?'后续会稍微提高难度':
+    trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
+}
+let feedbackSyncPromise=null;
+async function drainLearningFeedback(interactive){
+  let sentCurrent=false,lastProfile=null;
+  while(true){
+    const queue=readFeedbackQueue();
+    const dates=Object.keys(queue).sort();
+    if(!dates.length)return true;
+    const articleDate=dates[0],payload=queue[articleDate];
+    if(!hasMeaningfulFeedback(payload)){
+      delete queue[articleDate]; writeFeedbackQueue(queue); continue;
+    }
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    interactive=false;
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const latestQueue=readFeedbackQueue();
+    const latest=latestQueue[articleDate];
+    if(latest&&JSON.stringify(latest)===JSON.stringify(payload)){
+      delete latestQueue[articleDate]; writeFeedbackQueue(latestQueue);
+      if(articleDate===ARTICLE.date){
+        sentCurrent=true; lastProfile=result.profile||null;
+        saveProgress({feedbackSyncState:'synced'});
+      }
+    }
+    if(sentCurrent)feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(lastProfile&&lastProfile.trend);
+    else feedbackStatus.textContent='历史待同步记录已补传';
+  }
+}
+async function syncLearningFeedback(interactive=false){
+  const queued=readFeedbackQueue();
+  if(!Object.keys(queued).length)return true;
+  if(!interactive&&!storedAccessKey()){
+    feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
+    return false;
+  }
+  if(!cloudOn){
+    feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
+    return false;
+  }
+  if(feedbackSyncPromise)return feedbackSyncPromise;
+  feedbackStatus.textContent='正在记录…';
+  feedbackSyncPromise=drainLearningFeedback(interactive);
+  try{ return await feedbackSyncPromise; }
+  catch(e){
+    feedbackStatus.textContent=storedAccessKey()?
+      '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
+    return false;
+  }finally{
+    feedbackSyncPromise=null;
+  }
+}
+let feedbackSyncTimer=0;
+function scheduleLearningFeedbackSync(){
+  clearTimeout(feedbackSyncTimer);
+  feedbackSyncTimer=setTimeout(()=>syncLearningFeedback(false),700);
+}
+function recordLearningAction(text){
+  const normalized=(text||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!normalized)return;
+  const type=/\s/.test(normalized)?'phrase':'word';
+  const key=type+':'+normalized;
+  const keys=progressState.learningActionKeys.slice(0,199);
+  if(keys.includes(key))return;
+  keys.push(key);
+  saveProgress({learningActionKeys:keys,
+    wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
+    phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+feedbackButtons.forEach(button=>button.onclick=()=>{
+  saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
+  queueCurrentLearningFeedback(); renderDifficultyFeedback(); syncLearningFeedback(true);
+});
+renderDifficultyFeedback();
+const initialFeedbackQueue=readFeedbackQueue();
+if(Object.keys(initialFeedbackQueue).length){
+  feedbackStatus.textContent='上次记录正在等待同步';
+  scheduleLearningFeedbackSync();
+}
+addEventListener('online',scheduleLearningFeedbackSync);
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ return new Promise(resolve=>{ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); }); }
+
+const clipCache=new Map(); let curAudio=null, token=0, activeParagraph=-1;
+function setSpeakingState(index){
+  activeParagraph=typeof index==='number'?index:-1;
+  document.querySelectorAll('.para').forEach((p,i)=>{
+    p.classList.toggle('speaking',i===activeParagraph);
+    if(i===activeParagraph)p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
+  const mobile=document.getElementById('mobile-play');
+  mobile.textContent=activeParagraph>=0?'⏹ 停止':'▶ 朗读';
+  mobile.setAttribute('aria-pressed',String(activeParagraph>=0));
+}
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  setSpeakingState(-1); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await protectedFetch({text,voice});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl, paragraphIndex){
+  if(!text) return; stopAll(); const my=token;
+  if(typeof paragraphIndex==='number')setSpeakingState(paragraphIndex);
+  else if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ await speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ await speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token){ if(hiEl)hiEl.classList.remove('speaking'); setSpeakingState(-1); } }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.setAttribute('data-paragraph',String(i));
+  const en=document.createElement('div'); en.className='en'; en.lang='en-US'; en.innerHTML=p.en;
+  const tools=document.createElement('div'); tools.className='ptools';
+  const toggle=document.createElement('button'); toggle.className='icbtn tz';
+  toggle.textContent='中/英'; tools.appendChild(toggle);
+  const speak=document.createElement('button'); speak.className='icbtn para-play';
+  speak.textContent='🔊 朗读本段'; speak.setAttribute('aria-label','朗读第 '+(i+1)+' 段');
+  speak.onclick=()=>startParagraph(i); tools.appendChild(speak);
+  const zh=document.createElement('div'); zh.className='zh'; zh.lang='zh-CN'; zh.textContent = p.zh;
+  div.append(en,tools,zh);
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function paragraphText(index){ return document.querySelectorAll('.para')[index]?.querySelector('.en')?.textContent||''; }
+function startParagraph(index){ play(paragraphText(index),document.querySelectorAll('.para')[index],index); }
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
+
+/* ========== 本机阅读进度 ========== */
+const progressBar=document.getElementById('read-progress');
+const resumeBox=document.getElementById('continue-reading');
+const mobilePanel=document.getElementById('mobile-panel');
+function nearestParagraph(){
+  const paras=[...document.querySelectorAll('.para')]; let best=0,dist=Infinity;
+  paras.forEach((p,i)=>{ const d=Math.abs(p.getBoundingClientRect().top-innerHeight*.42);
+    if(d<dist){dist=d;best=i;} }); return best;
+}
+function updateReadingProgress(){
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
+  progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
+  const lastParagraph=nearestParagraph();
+  const justCompleted=!progressState.completed&&ratio>=.92;
+  saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  if(justCompleted){queueCurrentLearningFeedback();scheduleLearningFeedbackSync();}
+  const toolbar=document.querySelector('.toolbar');
+  document.getElementById('mobile-float').classList.toggle('visible',
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
+}
+let progressFrame=0;
+addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{
+  progressFrame=0; updateReadingProgress(); }); },{passive:true});
+addEventListener('resize',updateReadingProgress);
+if(progressState.ratio>.05&&!progressState.completed) resumeBox.classList.add('show');
+document.getElementById('resume-reading').onclick=()=>{
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+document.getElementById('restart-reading').onclick=()=>{
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null});
+  scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+updateReadingProgress();
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+const quizSummary=document.getElementById('quiz-summary');
+let quizScore=0,answeredCount=0,incorrectQuestions=[];
+function updateQuizSummary(){
+  if(!QS.length)return;
+  if(answeredCount<QS.length){ document.getElementById('quiz-result').textContent=
+    '已完成 '+answeredCount+' / '+QS.length; return; }
+  const percent=Math.round(quizScore/QS.length*100);
+  document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
+    (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
+  quizSummary.classList.add('show');
+  const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
+  saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1'; answeredCount++;
+        if(oi===ans)quizScore++; else{incorrectQuestions.push(qi);card.dataset.incorrect='true';}
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); updateQuizSummary(); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+if(QS.length&&progressState.quizScore!==null&&progressState.quizTotal===QS.length){
+  document.getElementById('quiz-result').textContent='上次得分 '+progressState.quizScore+' / '+QS.length;
+  quizSummary.classList.add('show');
+}
+let wrongOnly=false;
+document.getElementById('quiz-wrong').onclick=()=>{ wrongOnly=!wrongOnly;
+  document.querySelectorAll('.quiz .q').forEach(card=>card.style.display=
+    wrongOnly&&card.dataset.incorrect!=='true'?'none':'');
+  document.getElementById('quiz-wrong').textContent=wrongOnly?'显示全部':'只看错题'; };
+document.getElementById('quiz-reset').onclick=()=>{
+  quizScore=0;answeredCount=0;incorrectQuestions=[];wrongOnly=false;
+  document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
+    delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
+      b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:QS.length}); };
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  tgZh.textContent=on?'隐藏中文':'显示中文'; tgZh.setAttribute('aria-pressed',String(on));
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标';
+  tgIpa.setAttribute('aria-pressed',String(ipaOn)); };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark);
+  tgTheme.setAttribute('aria-pressed',String(dark)); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+document.getElementById('access-key').onclick=()=>{
+  localStorage.removeItem('APP_ACCESS_KEY');
+  if(accessKey()){ toast('访问码已保存'); scheduleLearningFeedbackSync(); }
+};
+function toggleMore(){ const open=mobilePanel.classList.toggle('open');
+  document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
+document.getElementById('toolbar-more').onclick=toggleMore;
+document.getElementById('mobile-more').onclick=toggleMore;
+document.getElementById('mobile-play').onclick=()=>{
+  if(activeParagraph>=0)stopAll(); else startParagraph(nearestParagraph()); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await protectedFetch({op:'maimemo',text});
+    const j=await r.json();
+    if(j.ok){ recordLearningAction(text);
+      toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+let phraseStart=null, phraseEnd=null, phraseTokens=[];
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function cleanPhraseEdge(text){
+  return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,'');
+}
+function phraseFromTokens(tokens){
+  return cleanPhraseEdge(tokens.map(t=>cleanPhraseEdge(t.dataset.w||t.textContent))
+    .filter(Boolean).join(' '));
+}
+function clearPhraseHighlight(){
+  phraseTokens.forEach(t=>t.classList.remove('phrase-selected'));
+  phraseTokens=[];
+}
+function clearSel(){
+  clearPhraseHighlight(); phraseStart=null; phraseEnd=null; selText='';
+  selbar.classList.remove('phrase-mode','phrase-ready');
+  document.getElementById('phrase-preview').textContent='';
+  document.getElementById('phrase-hint').textContent='';
+  selbar.style.display='none';
+}
+function exitPhraseMode(){ clearSel(); }
+function enterPhraseMode(){
+  if(!phraseStart) return;
+  clearPhraseHighlight(); phraseTokens=[phraseStart];
+  phraseStart.classList.add('phrase-selected'); selText='';
+  selbar.classList.add('phrase-mode'); selbar.classList.remove('phrase-ready');
+  document.getElementById('phrase-hint').textContent='请选择短语最后一个词';
+  selbar.style.display='flex';
+}
+function selectPhraseEnd(end){
+  const start=phraseStart;
+  if(!start||start.closest('.en')!==end.closest('.en')){
+    toast('短语需在同一段内'); exitPhraseMode(); return;
+  }
+  const siblings=[...start.closest('.en').querySelectorAll('.tok')];
+  const a=siblings.indexOf(start), b=siblings.indexOf(end);
+  const selected=siblings.slice(Math.min(a,b),Math.max(a,b)+1);
+  if(selected.length<2){ toast('请再选择一个词'); return; }
+  if(selected.length>10){ toast('短语最多 10 个词'); return; }
+  clearPhraseHighlight(); phraseTokens=selected; phraseEnd=end;
+  phraseTokens.forEach(t=>t.classList.add('phrase-selected'));
+  selText=phraseFromTokens(phraseTokens);
+  document.getElementById('phrase-preview').textContent=selText;
+  selbar.classList.add('phrase-ready');
+}
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  clearSel(); phraseStart=tok;
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
+}, true);
+artEl.addEventListener('click',e=>{
+  if(!selbar.classList.contains('phrase-mode')) return;
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok) return;
+  e.preventDefault(); e.stopPropagation(); selectPhraseEnd(tok);
+},true);
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+document.getElementById('sel-phrase').onclick=e=>{ e.stopPropagation(); enterPhraseMode(); };
+document.getElementById('phrase-add').onclick=e=>{
+  e.stopPropagation(); if(selText){ doAdd(selText); exitPhraseMode(); }
+};
+document.getElementById('phrase-cancel').onclick=e=>{ e.stopPropagation(); exitPhraseMode(); };
+document.addEventListener('click',e=>{
+  if(!e.target.closest||e.target.closest('#selbar')) return;
+  if(selbar.classList.contains('phrase-mode')&&e.target.closest('.tok')) return;
+  clearSel();
+},true);
+document.addEventListener('scroll',()=>{
+  if(!selbar.classList.contains('phrase-mode')) clearSel();
+},true);
+
+</script>
+</body>
+</html>
