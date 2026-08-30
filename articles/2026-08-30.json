@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-30",
+  "level": "CET-4",
+  "title": "The Smartphone Effect: How Our Daily Lives Are Being Redesigned",
+  "title_zh": "智能手机效应：我们的日常生活如何被重新设计",
+  "intro_zh": "本文约900词，围绕智能手机在时间感知、记忆、空间认知、健康、支付和社交方面的影响展开，包含6个核心词汇，适合CET-4水平阅读训练。",
+  "paragraphs": [
+    {
+      "en": "Smartphones have become a <span class=\"kw\" data-ipa=\"juːˈbɪkwɪtəs\" data-def=\"无处不在的\">ubiquitous</span> presence in modern life. According to a 2023 report, there are over 4.5 billion smartphone users worldwide, and the average person spends nearly three hours a day on their device. Yet most of us rarely stop to think about how deeply this small gadget has reshaped our daily routines, our relationships, and even our minds.",
+      "zh": "智能手机已成为现代生活中无处不在的存在。根据2023年的一份报告，全球有超过45亿智能手机用户，平均每人每天在设备上花费近三个小时。然而，我们大多数人很少停下来思考这个小设备在多大程度上重塑了我们的日常生活、人际关系甚至思维。"
+    },
+    {
+      "en": "One of the most striking changes is our perception of time. With constant notifications and endless streams of short videos, our attention is pulled in many directions. We <span class=\"kw\" data-ipa=\"ˈlɪŋɡər\" data-def=\"逗留；流连\">linger</span> on a funny clip, then jump to a breaking news alert, then reply to a message—all within a few minutes. Research from the University of California shows that office workers check their phones about every 12 minutes, which makes time feel fragmented and hectic. However, smartphones also allow us to fill small gaps—waiting for a bus or standing in line—with useful activities like reading news or learning a new word. The same device that scatters attention can also help us gather it, if used wisely.",
+      "zh": "最显著的变化之一是我们对时间的感知。由于不断的通知和源源不断的短视频，我们的注意力被拉向多个方向。我们在一个有趣的片段上流连，然后跳到突发事件警报，再回复一条信息——所有这一切都在几分钟内完成。加州大学的研究表明，办公室职员大约每12分钟查看一次手机，这让时间感到支离破碎、忙碌不堪。然而，智能手机也让我们利用零碎时间——等公交或排队时——阅读新闻或学习新单词。同一个设备既可以分散注意力，也可以帮助集中注意力，只要使用得当。"
+    },
+    {
+      "en": "Memory is another area where smartphones have changed our <span class=\"kw\" data-ipa=\"ˈkɑːɡnətɪv\" data-def=\"认知的\">cognitive</span> habits. In the past, we memorized phone numbers, addresses, and meeting times. Now we store everything in the device and rely on reminders. Psychologists call this the Google effect: we tend to forget information that we know can be easily found online. But this does not mean we are becoming less intelligent. Instead, our brains are freed to focus on higher-level thinking, such as analyzing, creating, and making decisions. A study at Columbia University found that people are more likely to remember where to find information than the information itself, which suggests our memory is adapting to the digital age.",
+      "zh": "记忆是智能手机改变我们认知习惯的另一个领域。过去，我们记忆电话号码、地址和会议时间。现在我们把一切都存储在设备中，并依赖提醒。心理学家称这种现象为谷歌效应：我们倾向于忘记那些我们知道可以轻松在网上找到的信息。但这并不意味着我们正在变得更不聪明。相反，我们的大脑被解放出来，专注于更高层次的思考，如分析、创造和决策。哥伦比亚大学的一项研究发现，人们更可能记住信息在哪里可以找到，而不是信息本身，这表明我们的记忆正在适应数字时代。"
+    },
+    {
+      "en": "Our sense of space and direction has also been transformed. Before GPS, we had to read paper maps, ask strangers for directions, and pay attention to landmarks. Now, a simple voice navigator guides us to any address, even in an unfamiliar city. This has made travel easier, but some researchers worry about our ability to find our way without technology. Scientists at University College London discovered that the brain's hippocampus, which is critical for spatial memory, becomes less active when people rely on GPS. However, the same technology gives us the confidence to explore new places, expanding our worlds in ways that were previously intimidating. The <span class=\"kw\" data-ipa=\"ˈɪntrɪkət\" data-def=\"错综复杂的\">intricate</span> relationship between tool and mind is fascinating.",
+      "zh": "我们的空间感和方向感也发生了转变。在GPS出现之前，我们必须阅读纸质地图，向陌生人问路，注意地标。现在，一个简单的语音导航就能引导我们到达任何地址，即使在一个陌生的城市。这让旅行变得更容易，但一些研究者担心我们在没有技术的情况下辨别方向的能力。伦敦大学学院的科学家发现，当人们依赖GPS时，对空间记忆至关重要的大脑海马体变得不那么活跃。然而，同样的技术也给了我们探索新地方的信心，以先前令人生畏的方式扩展了我们的世界。工具与思维之间错综复杂的关系令人着迷。"
+    },
+    {
+      "en": "Smartphones have also become personal health assistants. Built-in accelerometers count our steps, and apps can monitor sleep, heart rate, and even stress levels. A study published in the Journal of Medical Internet Research found that people who used pedometer apps walked an average of 2,000 more steps per day than those who did not. Yet there is a <span class=\"kw\" data-ipa=\"ˈperədɑːks\" data-def=\"悖论；自相矛盾的事物\">paradox</span>: while the phone encourages movement, it also encourages sitting and scrolling. The key is discipline. By setting daily goals and tracking progress, we can use the phone as a coach rather than a couch.",
+      "zh": "智能手机也成了个人健康助理。内置加速器计算我们的步数，应用程序可以监测睡眠、心率甚至压力水平。一项发表在《医学互联网研究杂志》上的研究发现，使用计步器应用的人比不使用的人平均每天多走2000步。然而，这里有一个悖论：当手机鼓励运动时，它也鼓励久坐和滑动。关键在于自律。通过设定每日目标和跟踪进展，我们可以把手机当作教练，而不是沙发。"
+    },
+    {
+      "en": "The rise of mobile payment has fundamentally changed our spending habits. In China, platforms like WeChat Pay and Alipay dominate daily transactions, even for street vendors selling fruit. The convenience is enormous: no need to carry cash or worry about change. According to the People's Bank of China, mobile payment transactions reached 46.8 trillion yuan in 2023, accounting for over half of all payments. This shift also affects how we perceive money. Studies show that people tend to spend more when paying by phone than with cash, because the payment feels less real. Being aware of this tendency can help us control our budgets and save more.",
+      "zh": "移动支付的兴起从根本上改变了我们的消费习惯。在中国，微信支付和支付宝主导着日常交易，甚至包括卖水果的街头小贩。这带来了极大的便利：无需携带现金，也无需担心找零。据中国人民银行称，2023年移动支付交易额达46.8万亿元人民币，占所有支付的一半以上。这一转变也影响了我们对金钱的看法。研究表明，用手机支付时，人们往往比用现金支付花费更多，因为支付感觉不那么真实。意识到这种倾向可以帮助我们控制预算并节省更多。"
+    },
+    {
+      "en": "Finally, smartphones have transformed social bonds. They allow us to stay in constant touch with family and friends across the globe through video calls, instant messaging, and social media. A survey by the Pew Research Center found that 72% of American teens say smartphones help them stay connected with people they care about. However, there is a downside: excessive use can be <span class=\"kw\" data-ipa=\"ˌdetrɪˈmentl\" data-def=\"有害的\">detrimental</span> to face-to-face communication. The urge to check notifications during conversations may make others feel ignored. The solution is not to abandon smartphones, but to set boundaries, such as putting the phone away during meals or creating phone-free zones at home.",
+      "zh": "最后，智能手机改变了社会联系。它们让我们通过视频通话、即时消息和社交媒体与全球各地的家人和朋友保持不断的联系。皮尤研究中心的一项调查发现，72%的美国青少年表示智能手机帮助他们与关心的人保持联系。然而，这也有一个缺点：过度使用可能对面对面交流有害。在交谈中查看通知的冲动可能让其他人感到被忽视。解决办法不是放弃智能手机，而是设定界限，比如在用餐时收好手机，或在家中创造无手机区域。"
+    },
+    {
+      "en": "In conclusion, smartphones are not merely tools; they are silent partners in our everyday lives. They alter our perception of time, memory, space, health, money, and relationships. While the effects are not all positive, they are largely beneficial if we stay mindful. The future will bring even deeper integration, from augmented reality to AI assistants. It is up to us to decide whether we will be masters of our devices or passive followers. By understanding how smartphones reshape us, we can make conscious choices to harness their power for a richer, more balanced life.",
+      "zh": "总之，智能手机不仅仅是工具；它们是我们日常生活中无声的伙伴。它们改变了我们对时间、记忆、空间、健康、金钱和人际关系的感知。虽然这些影响并非全是积极的，但如果我们保持清醒，它们在很大程度上是有益的。未来将带来更深入的融合，从增强现实到人工智能助手。决定权在于我们：是成为设备的主人还是被动的跟随者。通过理解智能手机如何重塑我们，我们可以做出明智的选择，利用它们的力量来获得更丰富、更平衡的生活。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "A. Smartphones have many disadvantages.",
+        "B. Smartphones have changed our lives in various ways.",
+        "C. Smartphones are necessary for modern life.",
+        "D. Smartphones should be used less."
+      ],
+      "answer": 1,
+      "explain": "主旨题。文章从时间感知、记忆、空间认知、健康、支付和社交等多个方面说明了智能手机如何改变我们的生活，因此选B。A过于片面，C不是重点，D是文章最后提到的建议但非主旨。"
+    },
+    {
+      "q": "According to the passage, what is the 'Google effect'?",
+      "options": [
+        "A. People remember information better when they use Google.",
+        "B. People forget information they know can be found online.",
+        "C. People prefer to use Google for searching.",
+        "D. People rely on Google for memory improvement."
+      ],
+      "answer": 1,
+      "explain": "细节题。第三段解释谷歌效应：我们倾向于忘记那些知道可以轻松在网上找到的信息，对应B。"
+    },
+    {
+      "q": "What can be inferred about the author's attitude toward smartphones?",
+      "options": [
+        "A. They are entirely harmful.",
+        "B. They are useful but should be used with caution.",
+        "C. They will be replaced by other devices.",
+        "D. They are only good for entertainment."
+      ],
+      "answer": 1,
+      "explain": "推断题。文章既提到智能手机的积极影响，也指出如社交伤害等缺点，最后强调要明智使用，因此作者持谨慎乐观态度，选B。"
+    },
+    {
+      "q": "The word 'detrimental' in paragraph 7 is closest in meaning to:",
+      "options": [
+        "A. helpful",
+        "B. harmful",
+        "C. important",
+        "D. common"
+      ],
+      "answer": 1,
+      "explain": "词义题。'detrimental'意为'有害的'，与B选项harmful同义，且上下文提到过度使用对面对面交流有负面影响。"
+    }
+  ]
+}
