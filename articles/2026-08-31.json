@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-31",
+  "level": "CET-4",
+  "title": "From Classroom to Cloud: How Online Learning Is Reshaping Education",
+  "title_zh": "从教室到云端：在线学习如何重塑教育",
+  "intro_zh": "本文约900词，聚焦在线学习的兴起，包含6个重点词汇和4道阅读理解题。",
+  "paragraphs": [
+    {
+      "en": "Education has always changed slowly, but the past few years forced a sudden leap. When the COVID-19 pandemic hit in 2020, schools and universities worldwide closed their doors. According to UNESCO, about 1.5 billion students in over 190 countries were affected. Almost overnight, classrooms moved online. This sudden change made many people realize that education is not limited to a physical room. Instead, it can <span class=\"kw\" data-ipa=\"/ɪˈvɑːlv/\" data-def=\"v. 发展，进化\">evolve</span> with new technologies. Online learning, once a choice for a few, became the new normal for millions. Now, as the world recovers, it is clear that this digital experiment has left a lasting mark.",
+      "zh": "教育历来变化缓慢，但过去几年却被迫发生了突然的飞跃。2020年新冠疫情暴发时，世界各地的中小学和大学纷纷关闭校门。据联合国教科文组织统计，190多个国家约15亿学生受到影响。几乎一夜之间，课堂转移到了线上。这一突如其来的变化让许多人意识到，教育并不局限于有形的教室。相反，它可以随着新技术而发展。在线学习曾经只是少数人的选择，如今却成了数百万人的新常态。如今，随着世界逐渐复苏，很明显这场数字化实验已经留下了深远的印记。"
+    },
+    {
+      "en": "One of the biggest advantages of online learning is its <span class=\"kw\" data-ipa=\"/ˈfleksəbl/\" data-def=\"adj. 灵活的\">flexible</span> schedule. With recorded lectures and digital materials, students no longer have to be in a specific place at a fixed time. A college student can watch a morning class in the evening after work. A mother can study language lessons before her children wake up. This flexible arrangement allows learners to balance education with jobs, family, and other duties. Moreover, many online courses let students pause and review content as often as needed. This is especially helpful for difficult subjects, because everyone learns at a different speed. In this way, online learning gives control back to the learner.",
+      "zh": "在线学习最大的优势之一就是时间安排灵活。有了录播课和数字化资料，学生不必在固定的时间出现在固定的地点。大学生可以在晚上下班后观看早上的课程；母亲可以在孩子醒来前学习语言课。这种灵活的安排让学习者能够兼顾工作、家庭和其他事务。此外，许多在线课程允许学生随时暂停和复习内容。这对难度较大的科目尤其有帮助，因为每个人学习的速度不同。这样一来，在线学习把主导权交还给了学习者。"
+    },
+    {
+      "en": "Another key benefit is that online learning makes education more <span class=\"kw\" data-ipa=\"/əkˈsesəbl/\" data-def=\"adj. 可获得的，容易获取的\">accessible</span>. In the past, a rural student might need to move to a big city to attend a good school. Today, as long as there is an internet connection, the same student can take courses from top universities. Many platforms, such as Coursera, edX, and Khan Academy, offer free or low-cost classes. For example, a student in a small village can learn computer programming from a Stanford professor without paying for travel or housing. This open access to knowledge helps reduce the gap between rich and poor areas. However, we must remember that accessible technology is not yet available to everyone, which leads to a serious problem.",
+      "zh": "另一个关键好处是，在线学习让教育变得更加容易获得。过去，农村学生可能需要移居大城市才能上好学校。如今，只要有网络连接，同样的学生就能修读顶尖大学的课程。Coursera、edX和可汗学院等许多平台提供免费或低价的课程。例如，小村庄里的学生不用支付旅费和住宿费，就能跟斯坦福教授学习计算机编程。这种开放的知识获取渠道有助于缩小贫富地区之间的差距。但我们必须记住，并非所有人都能获得便捷的技术，这引发了一个严重的问题。"
+    },
+    {
+      "en": "Online learning also uses technology to make classes more interactive and personal. Many platforms include quizzes, discussion boards, and even game-like elements to keep students interested. For example, learning apps can adapt exercises based on a student's performance. If a student gets several questions wrong, the system will offer extra practice and simpler examples. This personalized approach is difficult to achieve in a traditional classroom of forty students. While watching a video alone cannot replace a lively teacher, these tools allow learners to participate actively rather than just listen passively. As a result, many students report that they understand new concepts better when they can interact with the material at their own speed.",
+      "zh": "在线学习还利用技术使课堂更具互动性和个性化。许多平台包含测验、讨论区甚至游戏化元素，以保持学生的兴趣。例如，学习应用可以根据学生的表现调整练习。如果学生做错了几道题，系统会提供额外的练习和更简单的示例。这种个性化的教学在四十人的传统课堂中是很难实现的。虽然独自观看视频不能替代生动的老师，但这些工具让学习者能够积极参与，而不是被动听课。因此，许多学生反映，当能以自己的节奏与学习材料互动时，他们能更好地理解新概念。"
+    },
+    {
+      "en": "Despite its benefits, online learning also creates new challenges. The biggest one is <span class=\"kw\" data-ipa=\"/ˌself ˈdɪsəplɪn/\" data-def=\"n. 自律\">self-discipline</span>. When you are at home, with a phone, a bed, and a television nearby, it is easy to lose focus. A survey from the University of California found that students who took online courses often felt isolated and procrastinated more than those in traditional classes. Unlike in a classroom, there is no teacher physically reminding you to pay attention. Therefore, success in online learning requires strong time-management skills. Students must set their own schedules, turn off distracting apps, and create a quiet study space. Otherwise, they may fall behind quickly.",
+      "zh": "尽管有种种好处，在线学习也带来了新的挑战，最大的挑战是自律。当你在家里，身边有手机、床和电视，很容易分心。加州大学的一项调查发现，上在线课程的学生比传统课堂的学生更容易感到孤独，也更爱拖延。与课堂不同，没有老师在场提醒你注意听讲。因此，在线学习要想成功，就需要很强的时间管理能力。学生必须制定自己的时间表，关闭令人分心的应用，并创造一个安静的学习空间。否则，他们很快就会掉队。"
+    },
+    {
+      "en": "The digital divide is another serious issue. According to the International Telecommunication Union, about 2.7 billion people worldwide still have no access to the internet. Many families in poor areas cannot afford computers or reliable WiFi. When schools went online, these students were simply left behind. For example, in some regions, students had to walk miles just to find a signal or share a single phone among several siblings. This <span class=\"kw\" data-ipa=\"/ˌɪnɪˈkwɑːləti/\" data-def=\"n. 不平等\">inequality</span> in technology creates an unfair learning environment. If we do not solve this problem, online learning may widen the gap between the rich and the poor instead of closing it.",
+      "zh": "数字鸿沟是另一个严重的问题。据国际电信联盟统计，全球仍有约27亿人无法上网。贫困地区的许多家庭买不起电脑或稳定的无线网络。当学校转为线上教学时，这些学生根本就被落下了。例如，在某些地区，学生为了找到信号要走几英里路，或者几个兄弟姐妹共用一部手机。这种技术上的不平等造成了不公平的学习环境。如果我们不解决这个问题，在线学习可能会拉大贫富差距，而不是缩小差距。"
+    },
+    {
+      "en": "Given both the strengths and weaknesses of online learning, many educators now believe that a hybrid model is the best choice. A hybrid approach combines the convenience of online classes with the personal interaction of in-person teaching. For instance, a school might have two face-to-face classes each week and two online sessions. This <span class=\"kw\" data-ipa=\"/ˌkɑːmbɪˈneɪʃən/\" data-def=\"n. 结合，联合\">combination</span> allows students to use digital tools for self-study while still enjoying group discussions and campus life. Some universities, like Peking University, have already adopted this model successfully. They report that students feel more engaged and achieve better results. The key is to find the right balance for each subject and each group of learners.",
+      "zh": "考虑到在线学习的优缺点，许多教育工作者现在认为混合模式是最好的选择。混合式方法将在线课程的便利与线下教学的人际互动结合起来。例如，一所学校可能每周安排两节线下课和两节线上课。这种结合让学生既能利用数字化工具进行自学，又能享受小组讨论和校园生活。一些大学，如北京大学，已经成功采用了这一模式。他们反馈称学生参与度更高，学习效果也更好。关键在于针对不同科目和不同学习者群体找到合适的平衡点。"
+    },
+    {
+      "en": "In conclusion, online learning is not just a temporary response to an emergency. It has deeply changed the way we think about education. It offers flexibility, accessibility, and self-directed opportunities, but it also brings challenges such as self-discipline and the digital divide. The future of education will likely be a balanced mix, using the best of both online and offline approaches. As technology continues to improve, teachers, students, and policymakers must work together to make learning more effective, equal, and enjoyable. Online learning is here to stay, and its constant development will shape the next generation of education in ways we can only begin to imagine.",
+      "zh": "总之，在线学习不只是对紧急情况的临时回应。它深刻改变了我们对教育的看法。它提供了灵活性、可及性和自主学习的机遇，但也带来了自律和数字鸿沟等挑战。未来的教育很可能会是一种平衡的混合体，兼取线上和线下两种方式之长。随着技术不断进步，教师、学生和政策制定者必须共同努力，让学习变得更加高效、公平和愉快。在线学习将长期存在，其不断的发展将以我们难以想象的方式塑造下一代教育。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "The challenges of traditional classroom education.",
+        "The rise of online learning and its mixed impact on education.",
+        "How to choose an online course.",
+        "The history of the internet."
+      ],
+      "answer": 1,
+      "explain": "本文先介绍在线学习在疫情中兴起，再分别讨论其优点（灵活、可获得、互动）和缺点（自律、数字鸿沟），最后提出混合模式，因此B项全面概括了主旨。"
+    },
+    {
+      "q": "According to the passage, which of the following is an advantage of online learning?",
+      "options": [
+        "It requires strong self-discipline.",
+        "Students can learn at their own pace.",
+        "It is always free for everyone.",
+        "It completely solves the digital divide."
+      ],
+      "answer": 1,
+      "explain": "第二段明确指出学生可以根据自己的时间安排学习，可以暂停和复习，因此B项正确。A项是挑战，C项过于绝对，D项与文意相反。"
+    },
+    {
+      "q": "What problem caused by online learning is mentioned in the passage?",
+      "options": [
+        "Teachers have too many students.",
+        "Students lose interest in all subjects.",
+        "Poor students may be left behind.",
+        "Schools have to close permanently."
+      ],
+      "answer": 2,
+      "explain": "第六段讨论数字鸿沟，指出贫困地区学生缺乏网络和设备，可能被落在后面，因此C项正确。"
+    },
+    {
+      "q": "The word 'hybrid' in the last paragraph refers to _____.",
+      "options": [
+        "an online-only course",
+        "an offline-only course",
+        "a course that mixes online and offline methods",
+        "a course with no tests"
+      ],
+      "answer": 2,
+      "explain": "hybrid意为'混合的'，从上下文看，该模式结合了线上和线下的优势，因此C项正确。"
+    }
+  ]
+}
