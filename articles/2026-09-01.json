@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-01",
+  "level": "CET-4",
+  "title": "The Quiet Engine: Why Electric Cars Are Moving to the Fast Lane",
+  "title_zh": "安静发动机：电动汽车为何驶入快车道",
+  "intro_zh": "本文约900词，介绍电动汽车从新奇事物到主流选择的转变，涵盖销量数据、电池技术进步、充电设施发展、环境与经济优势，以及消费者心中的续航顾虑与解决方案。",
+  "paragraphs": [
+    {
+      "en": "Just a decade ago, electric cars were seen as odd experiments, often mocked for their short range and high price. Today, they are one of the fastest-growing segments of the auto industry. In 2023, global sales of electric vehicles (EVs) surpassed ten million units, accounting for nearly one in five new cars sold worldwide. The shift is not just a trend; it is a fundamental change in how people think about transportation. This article explores the forces behind this revolution and what it means for the average driver.",
+      "zh": "就在十年前，电动汽车还被视作古怪的试验品，常因续航里程短、价格高而受人嘲笑。如今，它们已成为汽车行业增长最快的细分市场之一。2023年，全球电动汽车销量突破一千万辆，占全球新车销量的近五分之一。这一转变不仅是潮流，更是人们对交通方式认知的根本变化。本文将探索这场革命背后的力量，以及它对普通驾驶者的意义。"
+    },
+    {
+      "en": "One major driver is the dramatic drop in battery costs. According to the International Energy Agency, the average price of a lithium-ion battery pack fell from over $1,100 per kilowatt-hour in 2010 to about $100 in 2023. This decline has made EVs more affordable than ever. In China, the largest EV market, several compact models now sell for less than their gasoline counterparts after government subsidies. As battery prices continue to fall, experts predict that EVs will reach price parity with conventional cars within the next few years, without any policy support.",
+      "zh": "一个主要驱动力是电池成本的大幅下降。据国际能源署数据，锂离子电池组的平均价格从2010年的每千瓦时超过1100美元降至2023年的约100美元。这一下降使电动汽车比以往任何时候都更负担得起。在最大的电动汽车市场中国，几款紧凑型车型在政府补贴后的售价已低于汽油车。随着电池价格继续下降，专家预测几年内电动汽车将在价格上与传统汽车持平，而无需任何政策支持。"
+    },
+    {
+      "en": "Another key factor is the improvement in battery technology. Modern EV batteries can store much more energy, allowing cars to travel further on a single charge. The average range of new EVs in 2023 was about 300 miles (480 kilometers), double that of models from 2015. Rapid charging systems have also improved: a high-power charger can add 100 miles of range in just 10 minutes. This progress has reduced the fear of being stuck on the road with a dead battery, a concern once known as 'range anxiety'.",
+      "zh": "另一关键因素是电池技术的进步。现代电动汽车电池能储存更多能量，使汽车单次充电行驶得更远。2023年新电动汽车的平均续航里程约为300英里（480公里），是2015年车型的两倍。快速充电系统也已改进：大功率充电器能在10分钟内增加100英里续航。这一进步减少了行驶途中电池耗尽的恐惧，即曾被称为“续航焦虑”的担忧。"
+    },
+    {
+      "en": "The expansion of charging infrastructure has also played a crucial role. In the United States, the number of public charging stations tripled from 2018 to 2023, reaching over 130,000. Many gas stations are now adding fast chargers alongside their fuel pumps. Highway rest stops, shopping malls, and even apartment buildings are installing charging points. Governments are investing heavily in this infrastructure. For example, the European Union plans to install one million public chargers by 2025. This growing network makes it easier for drivers to own an EV, especially for those without a private garage.",
+      "zh": "充电基础设施的扩展也发挥了关键作用。在美国，公共充电站数量从2018年到2023年增长了两倍，超过13万个。许多加油站现正在加油泵旁增设快速充电桩。高速公路服务区、购物中心甚至公寓楼都在安装充电点。政府正大力投资于这一基础设施。例如，欧盟计划到2025年安装一百万个公共充电器。这一不断扩大的网络使驾驶者更容易拥有电动汽车，尤其是那些没有私人车库的人。"
+    },
+    {
+      "en": "From an environmental perspective, EVs offer clear benefits. They produce zero tailpipe emissions, which helps reduce air pollution in cities. Even when accounting for the electricity used for charging, EVs typically produce fewer greenhouse gases over their lifetime than gasoline cars, especially in regions with clean power sources. A study by the Union of Concerned Scientists found that driving an electric car produces half the emissions of a comparable gasoline vehicle, even when the electricity comes from coal-heavy grids. As renewable energy becomes more widespread, these benefits will only grow.",
+      "zh": "从环境角度看，电动汽车具有明显益处。它们实现零尾气排放，有助于减少城市空气污染。即使计入充电所用电力，电动汽车在生命周期内产生的温室气体通常也少于汽油车，尤其是在电力来源清洁的地区。忧思科学家联盟的一项研究发现，即使电力来自高煤电比例电网，开电动汽车产生的排放量也仅为同级别汽油车的一半。随着可再生能源日益普及，这些益处还将不断增长。"
+    },
+    {
+      "en": "Owning an EV also brings economic advantages beyond the sticker price. Electricity is cheaper than gasoline on a per-mile basis in most countries. For example, a typical EV owner in the UK pays about a third of the cost per mile compared to a similar petrol car. Maintenance costs are lower too, as EVs have fewer moving parts and require no oil changes. Many governments offer tax credits, toll discounts, and free parking for EV owners. Over five years, these savings can add up to thousands of dollars, making EVs a smart financial choice for many families.",
+      "zh": "拥有电动汽车还能带来价格标签以外的经济优势。在多数国家，电费按每英里计算比汽油便宜。例如，英国一位普通电动汽车车主每英里的成本仅为同级汽油车的约三分之一。维护成本也更低，因为电动汽车活动部件更少，无需更换机油。许多政府为电动汽车车主提供税收抵免、通行费折扣和免费停车。五年内，这些节省可累计数千美元，使电动汽车成为许多家庭的明智财务选择。"
+    },
+    {
+      "en": "Despite these advantages, some consumers remain hesitant. Concerns about charging time, especially for long-distance travel, and the initial purchase price are common. However, solutions are emerging. Ultra-fast charging networks are being built along major highways, and battery-swapping stations have appeared in China. Automakers are also offering cheaper models and leasing options to lower the entry barrier. A 2023 survey by Deloitte found that 60% of potential car buyers in Europe and the US would consider an EV as their next vehicle, a significant increase from just 20% in 2020.",
+      "zh": "尽管有这些优势，一些消费者仍犹豫不决。对充电时间（尤其是长途出行时）以及初始购买价格的担忧很常见。然而，解决方案正在涌现。高速公路沿线正在建设超快速充电网络，中国也出现了换电站。汽车制造商还在提供更便宜的车型和租赁选择，以降低入门门槛。德勤2023年一项调查发现，欧美60%的潜在购车者会考虑下一辆车购买电动汽车，相比2020年的20%有显著增长。"
+    },
+    {
+      "en": "The rise of EVs is not just about cars; it is reshaping related industries. Oil companies are investing in charging services, while electric utilities are upgrading grids to handle the extra demand. Traditional auto parts manufacturers are retraining workers for electric drivetrain components. Moreover, the concept extends to electric buses and trucks, which are expected to dominate freight transportation in the future. This shift is creating new jobs and driving innovation in clean energy technology, from better batteries to smart charging systems that use off-peak electricity.",
+      "zh": "电动汽车的兴起不仅关乎汽车本身，还正在重塑相关产业。石油公司投资充电服务，电力公司升级电网以应对额外需求。传统汽车零部件制造商正在为电动动力系统部件培训工人。此外，这一概念还扩展到电动巴士和卡车，预计未来将主导货运交通。这一转变正在创造新就业机会，并推动清洁能源技术创新，从更好的电池到利用非高峰电力的智能充电系统。"
+    },
+    {
+      "en": "Looking ahead, the era of electric vehicles is only beginning. As battery costs continue to drop and charging times shrink, the last major barrier—convenience—will disappear. Soon, the internal combustion engine may seem as outdated as the horse-drawn carriage. The quiet revolution has already changed the driving experience: faster acceleration, smoother rides, and zero tailpipe smoke. For the average person, making the switch to an electric vehicle is no longer a sacrifice for the planet, but an upgrade to a cleaner, simpler, and more affordable mode of transport. The future is electric, and it is arriving faster than we think.",
+      "zh": "展望未来，电动汽车时代才刚刚开始。随着电池成本持续下降、充电时间缩短，最后的重大障碍——便利性——将会消失。不久，内燃机可能就像马车一样显得过时。这场安静的革命已经改变了驾驶体验：更快的加速、更平稳的行驶、零尾气烟雾。对普通人而言，改用电动汽车不再是为地球做出的牺牲，而是升级到一种更清洁、更简单、更实惠的出行方式。未来是电动的，其到来比我们想象得要快。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of this article?",
+      "options": [
+        "A) Electric cars are still too expensive for most people.",
+        "B) Electric vehicles are becoming a mainstream choice due to cost, technology, and infrastructure improvements.",
+        "C) Gasoline cars are more efficient than electric cars.",
+        "D) The government should ban gasoline cars immediately."
+      ],
+      "answer": 1,
+      "explain": "文章首段点明电动汽车是汽车行业增长最快的部分，随后各段分别从电池价格下降、续航提升、充电设施扩展、环境与经济优势、消费者态度转变等方面论证其已成为主流选择，因此B项正确。A项与文中'更便宜'矛盾；C项文中未提；D项不是文章主旨。"
+    },
+    {
+      "q": "According to the article, what was the average range of new electric vehicles in 2023?",
+      "options": [
+        "A) About 100 miles",
+        "B) About 200 miles",
+        "C) About 300 miles",
+        "D) About 500 miles"
+      ],
+      "answer": 2,
+      "explain": "第三段明确提到'2023年新电动汽车的平均续航里程约为300英里'，即约300英里，故选C。"
+    },
+    {
+      "q": "What does the phrase 'range anxiety' in paragraph 3 most likely mean?",
+      "options": [
+        "A) The fear that a battery will run out of power during a trip.",
+        "B) The worry that an electric car is too slow on highways.",
+        "C) The concern about the high cost of charging.",
+        "D) The fear of being unable to find a parking spot."
+      ],
+      "answer": 0,
+      "explain": "根据上下文，'range'指续航里程，'anxiety'指焦虑，'the fear of being stuck on the road with a dead battery'即对行驶中电池耗尽的担忧，符合A项。B、C、D都与'range'无关。"
+    },
+    {
+      "q": "Which of the following is TRUE according to the passage?",
+      "options": [
+        "A) Electric vehicles require oil changes regularly.",
+        "B) Battery prices have increased over the past decade.",
+        "C) More people are willing to buy electric cars than before.",
+        "D) Gasoline cars produce fewer emissions than electric cars over their lifetime."
+      ],
+      "answer": 2,
+      "explain": "从第七段Deloitte调查数据可知，潜在购车者考虑购买EV的比例从20%升至60%，说明更多人愿意购买，C项正确。A项与第五段'无需更换机油'矛盾；B项与第二段'电池价格大幅下降'矛盾；D项与第五段'电动车的生命周期排放更少'矛盾。"
+    }
+  ]
+}
