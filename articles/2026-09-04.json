@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-04",
+  "level": "CET-4",
+  "title": "From Seemingly Useless Ideas to Essential Tools: Inventors Who Changed the World",
+  "title_zh": "从看似无用的想法到必不可少的工具：改变世界的发明家们",
+  "intro_zh": "本文约880词，共标注6个重点词。文章通过奥蒂斯、开利、斯宾塞和西尔弗/弗莱的真实故事，展示看似无用或偶然的发明如何演变为改变世界的工具，句子难度适合大学英语四级阅读。",
+  "paragraphs": [
+    {
+      "en": "Every day we touch the results of inventions, yet we rarely stop to ask who thought of them. We simply take elevators, adjust air conditioners, heat food in microwave ovens, and peel off sticky notes without noticing the <span class=\"kw\" data-ipa=\"/ɑːd/\" data-def=\"奇怪的；异常的\">odd</span> paths that brought these objects into our hands. Behind each one stands an inventor whose name often hides in a corner of history. Today, these men and women are seldom remembered, largely because their stories began with failures, mistakes, or ideas that seemed useless at first. The real magic is that they were willing to turn a strange observation into a practical device, and in doing so, they quietly changed how billions of people live.",
+      "zh": "我们每天都会接触发明的成果，却很少停下来问它们是谁创造的。我们乘电梯、调空调、用微波炉热饭、撕下便利贴，却很少留意那些让这些物件进入我们生活的奇特路径。每个物件背后都站着一位发明家，而他们的名字常常被遗忘在历史的角落。今天，这些人很少被记住，很大程度上是因为他们的故事始于失败、错误或起初看似无用的想法。真正的魔力在于，他们愿意把一个奇怪的观察变成一件实用的装置，并由此悄悄改变了数十亿人的生活。"
+    },
+    {
+      "en": "Consider Elisha Otis, a former bed seller who owned a small factory. In the 1850s, lifting platforms driven by ropes were used in factories to move goods, but nobody dared to carry people in them: if the rope broke, the platform would fall. Otis built a strong metal <span class=\"kw\" data-ipa=\"/breɪk/\" data-def=\"制动器；刹车\">brake</span> that could stop a falling platform within a few centimeters. To convince the public, he invited audiences to watch a dramatic test at the Crystal Palace in New York in 1854. Standing on a high platform, he ordered an axe to cut the hoisting rope. The platform dropped a little and then stopped safely. That public demonstration of his brake changed the future of architecture. Without it, walking up to the upper floors of tall buildings would be impossible, and the modern skyscraper would probably never have risen above nine stories.",
+      "zh": "以伊莱沙·奥蒂斯为例，他曾是出售床架的商人，经营一家小工厂。19世纪50年代，用绳索驱动的升降平台在工厂里搬运货物，但没人敢用它载人：一旦绳索断裂，平台就会坠落。奥蒂斯制造了一种牢固的金属制动器，能在平台下坠几厘米之内把它刹住。为了说服公众，他邀请观众于1854年在纽约水晶宫观看一次戏剧性的测试。他站在高台上，命令用斧头砍断升降绳。平台下落了一点便安全停下。这次刹车演示改变了建筑学的未来。没有它，步行登上高楼将不可想象，现代摩天大楼可能永远不会超过九层。"
+    },
+    {
+      "en": "Willis Carrier, a young engineer, attacked a different problem. In 1902, a printing company in Brooklyn complained that <span class=\"kw\" data-ipa=\"/hjuːˈmɪdəti/\" data-def=\"湿度；湿气\">humidity</span> in the air made its paper stretch and printed colors blur. Carrier designed a machine that blew air over cold coils, removing moisture and controlling temperature. His invention, the air conditioner, was not made for human comfort at first. Movie theaters began to install it to attract customers in summer. During the twentieth century, air conditioning changed where people chose to live, work and invest. The American South and Southwest, once considered too hot for large populations, experienced booms in cities like Phoenix and Atlanta. Another example is Singapore, whose economy could hardly have reached global importance without reliable air conditioning. According to the International Energy Agency, around 1.6 billion units were in use around the world in 2018, and that number has kept rising.",
+      "zh": "年轻的工程师威利斯·开利解决了另一个难题。1902年，布鲁克林一家印刷公司抱怨空气中的湿度使纸张变形，彩色印刷变模糊。开利设计了一种机器，让空气吹过冰冷的线圈，从而去除水分并控制温度。他的发明——空调——起初并非为人体舒适而设计。电影院开始安装空调以在夏天吸引顾客。在整个20世纪，空调改变了人们选择居住、工作和投资的地点。美国南部和西南部曾被认为过于炎热，不适合大量人口居住，如今凤凰城和亚特兰大等城市却出现繁荣。另一个例子是新加坡：如果没有可靠的空调，它的经济很难达到全球重要性。根据国际能源署的数据，2018年全球约有16亿台空调在使用，并且这一数字还在不断上升。"
+    },
+    {
+      "en": "Perhaps no kitchen appliance has a stranger origin than the microwave oven. In 1945, Percy Spencer, an engineer working with military radar, was testing vacuum tubes called magnetrons. A chocolate bar in his pocket melted. Surprised, he placed a bag of popcorn near the tube, and the kernels popped. Spencer had discovered that microwaves could heat food quickly. Raytheon, his company, built the first microwave oven in 1947. It was <span class=\"kw\" data-ipa=\"/ˈbʌlki/\" data-def=\"庞大的；笨重的\">bulky</span>, weighed nearly 340 kilograms, and cost thousands of dollars. People saw it as a curiosity for industrial kitchens, not homes. Over the next twenty years, engineers made the device smaller and cheaper. By the late 1970s, the microwave began appearing on ordinary counters. Today, about 90 percent of American families use one, and it has completely reshaped home cooking by making the preparation of meals a simple matter of minutes.",
+      "zh": "也许没有哪种厨房电器比微波炉的来历更离奇。1945年，为军用雷达工作的工程师珀西·斯宾塞正在测试一种叫磁控管的真空管。他口袋里的巧克力棒融化了。他感到惊讶，于是把一袋爆米花放在管子附近，玉米粒爆开了。斯宾塞由此发现微波可以快速加热食物。他所在的雷神公司于1947年制造了第一台微波炉。它体积庞大，重约340公斤，价值数千美元。当时人们只把它看作工业厨房中的新奇玩物，而非家用产品。此后二十年，工程师们把设备做得更小、更便宜。到20世纪70年代末，微波炉开始出现在普通家庭的台面上。如今，约90%的美国家庭使用微波炉。它把备餐变成几分钟的简单操作，彻底改变了家庭烹饪。"
+    },
+    {
+      "en": "Sticky notes came from an even more obvious failure. Spencer Silver, a chemist at 3M, was trying to create a very strong glue. Instead, in 1968, he developed a weak <span class=\"kw\" data-ipa=\"/ədˈhiːsɪv/\" data-def=\"粘合剂\">adhesive</span> that could be peeled off and reused without leaving marks. For years, nobody inside the company found a use for it. Then another 3M employee, Art Fry, needed a bookmark that would not slip out of his hymn book. He remembered Silver's glue and put it on small pieces of paper. The product worked so well that Fry started to think about other uses: writing notes, leaving reminders, marking pages. In 1980, 3M launched the product under the name 'Post-it Notes'. At first, many people rejected them as unnecessary. But once they tried a free sample, they could not imagine working without them. Now these small yellow papers are sold in more than 100 countries and have become part of modern office culture.",
+      "zh": "便利贴的诞生来自更明显的失败。3M公司化学家斯宾塞·西尔弗试图制造一种超强粘合剂。然而，1968年，他却研制出一种可以被撕下并反复使用而不留痕迹的弱胶。多年里公司内部无人找到它的用途。后来，3M的另一位员工阿特·弗莱需要一个不会从赞美诗集里滑落的书签。他想起西尔弗的胶水，并把它涂在小纸片上。产品效果非常好，弗莱开始思考其他用途：写便条、留提醒、给页面做标记。1980年，3M以“Post-it Notes”这一名称将它推向市场。起初许多人认为它多此一举。但一旦他们试用过免费样品，就再也无法想象没有便利贴的工作。如今，这些黄色小纸片在100多个国家销售，已成为现代办公文化的一部分。"
+    },
+    {
+      "en": "Looking at these inventors together, we might expect one common trait, such as great patience or careful planning. But the truth is less simple. It is tempting to suppose that these inventors had heroic confidence. In reality, they worked with <span class=\"kw\" data-ipa=\"/ˈskeptɪkəl/\" data-def=\"怀疑的\">skeptical</span> bosses or partners, went through repeated failures, and waited through years of delay. Carrier first solved a problem of paper and moisture before thinking about people; Spencer noticed a melted chocolate bar; Silver learned to value a glue that refused to stick. None of these products would have reached our homes if someone had not been willing to test a strange idea and then convince others of its value.",
+      "zh": "把这些人放在一起看，我们可能会期待他们有某种共同特质，比如极大的耐心或周密的计划。但事实没那么简单。我们会忍不住设想这些发明家有着英雄般的自信。实际上，他们要面对持怀疑态度的老板或同伴，经历反复失败，并等待许多年。开利先解决了纸张和水分的问题，随后才想到服务人类；斯宾塞注意一块融化的巧克力；西尔弗学会欣赏一种不肯粘牢的胶水。如果没有人在某个时候愿意测试一个奇怪的想法，并说服他人相信它的价值，这些产品都不可能走进我们的家。"
+    },
+    {
+      "en": "We often think history belongs to geniuses with special powers, but the real story is more ordinary. The inventors in this article had no crystal ball. They did not know their discoveries would become central to global cities, homes, and offices. Inventors change the world not because they can foresee the future, but because they refuse to ignore what looks useless or inconvenient. Their lives offer a quiet reminder: the next world-changing idea may begin with something tiny, annoying, or even edible. So keep your eyes open — and perhaps keep a chocolate bar in your pocket as a simple symbol of possibility.",
+      "zh": "我们常常以为历史属于拥有超凡能力的天才，但真实的故事更平凡。本文中的发明家没有水晶球，并不知道他们的发明会成为全球城市、家庭和办公室的核心。发明家改变世界，不是因为他们能预见未来，而是因为他们拒绝忽视看似无用或不便的东西。他们的人生带来一个安静的提醒：下一项改变世界的想法，可能始于微小、恼人甚至可吃的东西。所以请睁大双眼——也可以随时在口袋里放一块巧克力，作为可能性的简单象征。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of this article?",
+      "options": [
+        "Many world-changing inventions developed from unexpected or overlooked ideas.",
+        "Inventors usually become rich and famous.",
+        "Air conditioning is more important than elevators.",
+        "People in the past rejected every new invention."
+      ],
+      "answer": 0,
+      "explain": "主旨题。文章用电梯、空调、微波炉和便利贴的例子说明，许多改变世界的发明最初来自意外或被忽视的“无用”想法。B、C不符合文意，D过于绝对。"
+    },
+    {
+      "q": "According to the article, how did Elisha Otis prove the safety of his elevator brake?",
+      "options": [
+        "He used model cars in a factory.",
+        "He asked the government to test it.",
+        "He had an axe cut the rope of a high platform in front of an audience.",
+        "He built a nine-story building and jumped down."
+      ],
+      "answer": 2,
+      "explain": "细节题。第二段明确提到奥蒂斯站在高台上，让人用斧头砍断升降绳，平台安全停下，从而证明制动器可靠，因此选C。"
+    },
+    {
+      "q": "Why does the writer mention Singapore in paragraph 3?",
+      "options": [
+        "Singapore cannot grow any economy without air conditioning.",
+        "Air conditioning has made it possible for hot places to prosper.",
+        "Singapore is hotter than the American South.",
+        "Movie theaters were the first users of air conditioning."
+      ],
+      "answer": 1,
+      "explain": "推断题。第三段说新加坡没有可靠空调就很难达到全球重要性，说明空调对炎热地区经济发展有重大影响，故选B。A过于绝对，C文中没有比较，D不是提及新加坡的目的。"
+    },
+    {
+      "q": "The word “skeptical” in paragraph 6 most probably means ______.",
+      "options": [
+        "excited",
+        "tired",
+        "doubtful",
+        "careless"
+      ],
+      "answer": 2,
+      "explain": "词义题。skeptical 意为“怀疑的”，与 doubtful 意思最接近，因此选C。"
+    }
+  ]
+}
