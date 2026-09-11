@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-11",
+  "level": "CET-4",
+  "title": "Why a Sad Song Can Feel So Good: The Science of Music and Mood",
+  "title_zh": "为什么悲伤的歌听来却美好：音乐与情绪的科学",
+  "intro_zh": "本文约1050词，从大脑奖赏机制、悲伤音乐的悖论、音乐治疗与集体歌唱等角度，讲清音乐为什么能改变我们的情绪，并给出普通听众可以马上使用的建议。",
+  "paragraphs": [
+    {
+      "en": "The bus was late again, and Lin was wet, tired, and close to tears after a long day. She put in her earphones and pressed play. Four minutes later something had changed: her shoulders dropped, her breathing slowed, and the day felt smaller. She had not solved a single problem. She had only listened to music, and her feelings had moved. Almost everyone has had an experience like this. What is far less obvious is why a pattern of sounds can reach into our minds and turn the dial on how we feel.",
+      "zh": "公交车又晚点了，在学校忙了一整天的林浑身湿透、疲惫不堪，眼泪几乎要掉下来。她戴上耳机，按下播放键。四分钟后，有些东西变了：她的肩膀松了下来，呼吸变慢，这一天仿佛也变小了。她一个问题都没有解决。她只是听了音乐，而她的情绪却发生了变化。几乎每个人都有过类似的经历。远不那么显而易见的是：为什么一串声音能深入我们的内心，拨动我们感受的旋钮。"
+    },
+    {
+      "en": "Why should sound have such power over feeling? Music does not carry emotion the way a sentence carries meaning, yet it arrives through at least four doors. The first is the body: a fast <span class=\"kw\" data-ipa=\"/ˈrɪðəm/\" data-def=\"节奏\">rhythm</span> and a loud, rising melody can speed up your heartbeat and make you feel excited before you have thought about it. The second is memory: a single chord can bring back a summer, a person, a place, and the feeling comes with it. The third is the voice: instruments that imitate a human cry or sigh can move us as if someone were speaking. The fourth is surprise: when music gives us what we expect, we relax; when it delays, we lean in. In short, music <span class=\"kw\" data-ipa=\"/ˈtrɪɡər/\" data-def=\"触发；引发\">trigger</span>s emotion through the body, the past, the voice and the unexpected.",
+      "zh": "声音为什么会对情绪有如此大的力量？音乐并不像句子承载意义那样承载情绪，但它至少通过四扇门进入我们心里。第一扇是身体：快速的节奏和响亮上扬的旋律能让你心跳加快，在你还没反应过来之前就让你感到兴奋。第二扇是记忆：一个和弦就能唤回一个夏天、一个人、一个地方，而当时的感觉也随之而来。第三扇是嗓音：模仿人类哭泣或叹息的乐器，能像有人在你面前诉说一样打动我们。第四扇是意外：当音乐给出我们期待的东西时，我们放松；当它把期待往后拖时，我们会不由自主地靠近。简而言之，音乐通过身体、过去、人声和意外来触发情绪。"
+    },
+    {
+      "en": "Brain scientists can now watch this happen. In a well-known experiment at McGill University in Canada, volunteers were asked to choose music that gave them 'chills'. While they listened, a PET scanner and an fMRI machine recorded what was going on inside their heads. The result was striking: the same reward system that answers to food and money <span class=\"kw\" data-ipa=\"/rɪˈliːs/\" data-def=\"释放\">release</span>d dopamine, the chemical linked to pleasure and wanting. It arrived in two stages. The level rose in a deep area called the caudate nucleus while listeners were waiting for their favourite passage, and it rose again in the nucleus accumbens at the moment the passage arrived. Music, in other words, teaches the brain to look forward to something and then pays the reward, which is exactly what makes an experience <span class=\"kw\" data-ipa=\"/ɪnˈtens/\" data-def=\"强烈的；紧张的\">intense</span>.",
+      "zh": "脑科学家如今可以观察到这一过程。在加拿大麦吉尔大学一项著名的实验中，志愿者被要求挑选让自己“起鸡皮疙瘩”的音乐。在他们聆听时，正电子发射断层扫描仪和功能性磁共振成像仪记录下他们大脑里发生的一切。结果令人瞩目：与食物和金钱作出反应的同一个奖赏系统释放了多巴胺——这种与愉悦和渴望相关的化学物质。而且它分两个阶段出现：当听众等待自己最喜欢的那段旋律时，大脑深处被称为尾状核的区域水平升高；而当那段旋律真正到来的一刻，伏隔核中的水平再次升高。换句话说，音乐教会大脑去期待某样东西，然后又给出奖赏，这正是让一种体验变得强烈的关键。"
+    },
+    {
+      "en": "That shiver down the neck has a name: frisson. It happens to perhaps half of us, and researchers have found it is more common in people who are open to new experiences and who become deeply absorbed in what they hear. Some believe frisson is the body reacting to a sound that seems, for a moment, to break the rules we expected — a sudden change of key, or a harmony that arrives one beat late. The feeling is brief, usually only a few seconds, but it is one of the clearest pieces of evidence that music is not simply heard. It is felt.",
+      "zh": "脖子上那阵战栗有个名字：frisson（音乐性寒战）。大约一半的人会有这种体验，研究人员发现，它对那些乐于尝试新体验、并且会深深沉浸在所听音乐中的人更为常见。一些科学家认为，寒战是身体对一种似乎在瞬间打破我们预期的声音作出的反应——突然的转调，或晚了一拍才出现的和声。这种感觉很短暂，通常只有几秒，但它是最清楚的证据之一，说明音乐不只是被听见，它是被感受到的。"
+    },
+    {
+      "en": "If music can make us happy, why do millions of people choose sad songs when they are already unhappy? A team of researchers in Japan asked volunteers to listen to sad music and to describe their feelings in detail. The listeners did feel sadness, but many also reported something gentle and even pleasant — a sadness that was not tied to any real loss in their own lives. Psychologists explain this with the idea of a safe distance. When a song is sad, we taste the emotion without any danger to ourselves: no one has died, nothing has been taken from us. We can feel it fully and then put it down. Sad music also gives shape to feelings that are hard to name, and many listeners say it makes them feel less alone.",
+      "zh": "如果音乐能让我们快乐，那为什么数以百万计的人在本就不开心的时候偏偏选择听悲伤的歌？日本的一个研究团队请志愿者听悲伤的音乐，并详细描述自己的感受。听者确实感到了悲伤，但许多人还报告了一种温柔、甚至愉悦的东西——一种与他们自身生活中任何真实失去都无关的悲伤。心理学家用“安全距离”这个概念来解释：当一首歌是悲伤的，我们品尝到那种情绪，却不会对自身造成任何危险——没有人死去，没有什么从我们身上被夺走。我们可以充分地感受它，然后把它放下。悲伤的音乐还赋予难以命名的感受一种形状，许多听众说，它让他们觉得不那么孤单。"
+    },
+    {
+      "en": "Everyday listening is mostly about feeling. In a survey of more than three hundred people, researchers at Keele University in Britain found that one of the most common reasons for pressing play was to <span class=\"kw\" data-ipa=\"/dɪˈstrækt/\" data-def=\"使分心；转移（注意力）\">distract</span> themselves from worry, and another was to manage their mood — both ahead of simple enjoyment of the music. People use songs to wake themselves up in the morning, to get through a long run, or to cry when crying is needed. There is a warning here, though. If we are sad and we choose only sad music for hours, the mood can sink deeper instead of lifting. A cleverer plan is to start where you are, with one slow, gentle song, and then move one step towards the feeling you want.",
+      "zh": "日常听歌大多关乎感受。在英国基尔大学一项针对三百多人的调查中，研究者发现，按下播放键最常见的原因之一是让自己从忧虑中分心，另一个是调节心情——两者都排在单纯欣赏音乐之前。人们用歌曲让自己早晨清醒过来，撑过一段长跑，或者在需要哭的时候哭出来。不过这里有个提醒：如果我们本就难过，却连续几小时只挑悲伤的歌，情绪可能会沉得更深，而不是被托起来。更聪明的做法是：从你所在的地方出发——先放一首缓慢温柔的歌——然后朝着你想要的那种心情迈进一步。"
+    },
+    {
+      "en": "This is not only a personal trick. Music is now used as a real <span class=\"kw\" data-ipa=\"/ˈθerəpi/\" data-def=\"疗法；治疗\">therapy</span> in hospitals and care homes. A review of many studies found that listening to music before an operation helped patients feel less anxious, and sometimes less pain, than the usual care did. In care homes, elderly people with dementia who can no longer remember the names of their own children may still sing every word of a song they learned at eighteen; the music reaches memories that conversation cannot. For patients who have lost speech after a stroke, therapists use singing to guide words back, because melody uses parts of the brain that speech alone does not. And for people with Parkinson's disease, a strong beat can help stiff legs take steadier steps.",
+      "zh": "这不仅仅是个人的小窍门。如今音乐在医院和养老院里被当作真正的疗法使用。对大量研究的综述发现，手术前听音乐能让病人比接受常规护理时更少焦虑，有时也更少疼痛。在养老院里，那些已经记不起自己孩子名字的痴呆老人，仍能一字不差地唱出十八岁学会的一首歌；音乐能抵达谈话无法触及的记忆。对于中风后失去语言能力的病人，治疗师用歌唱把词语引回来，因为旋律使用的是单纯说话用不到的那部分大脑。而对帕金森病患者来说，一个强劲的节拍能帮助僵硬的腿迈出更稳的步子。"
+    },
+    {
+      "en": "When music is made with other people, something extra happens. Singing in a choir or drumming in a circle asks everyone to move and breathe at the same moment, and this shared timing seems to release endorphins, the body's own painkillers. In one experiment, people who sang together and then danced together could bear more pain than before — a sign that the feeling of bonding came with a physical change. Big concerts work on a different scale. Standing in a crowd where thousands of people know the same chorus produces a strong sense of belonging, and that warmth can last for days.",
+      "zh": "当音乐是和别人一起做出来的时候，会有额外的效果。在合唱团里唱歌，或围成一圈打鼓，要求每个人在同一刻动作、呼吸，而这种同步似乎会释放内啡肽——身体自产的止痛剂。在一项实验中，一起唱歌、然后一起跳舞的人比以前能忍受更多疼痛——这是一个信号，说明那种亲密感伴随着身体上的变化。大型演唱会则是在另一个尺度上起作用。站在一个成千上万人都熟悉同一段副歌的人群里，会产生强烈的归属感，而这种温暖可以持续好几天。"
+    },
+    {
+      "en": "What does all this mean for an ordinary listener? First, treat music as a tool rather than as background noise: choose songs on purpose instead of letting a playlist choose your mood for you. Second, listen actively now and then — close your eyes, follow one instrument, and notice where your feelings go. Third, sing or play, even badly; making sound seems to help us more than simply hearing it. And fourth, share it. A song sent to a friend on a hard day says what words often cannot: I know, and you are not alone. The bus will still be late tomorrow. But the ride may feel different.",
+      "zh": "这一切对一个普通听众意味着什么？第一，把音乐当作工具，而不是背景噪音：有目的地挑歌，而不是让播放列表替你决定心情。第二，偶尔主动聆听——闭上眼睛，跟着一件乐器走，留意你的情绪去了哪里。第三，去唱或去演奏，哪怕很难听；发出声音似乎比仅仅听见音乐更能帮到我们。第四，分享它。在艰难的一天里发给朋友一首歌，说出了言语常常说不出的东西：我懂，你并不孤单。明天公交车还是会晚点，但这段路程也许会感觉不一样。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What does the passage mainly discuss?",
+      "options": [
+        "Why music has such a strong influence on how people feel.",
+        "Why sad music is better for us than happy music.",
+        "How the recording industry uses music to sell products.",
+        "Why some people are unable to enjoy music at all."
+      ],
+      "answer": 0,
+      "explain": "主旨题。全文围绕音乐如何影响情绪展开，涉及大脑奖赏机制、悲伤音乐的悖论、音乐治疗与集体歌唱等，故选A。B、C、D在文中均无依据。"
+    },
+    {
+      "q": "According to the McGill University experiment, dopamine was released in two stages: ______.",
+      "options": [
+        "first in the ear, then in the throat",
+        "first while listeners waited for a favourite passage, then at the moment it arrived",
+        "only after the music had stopped playing",
+        "only in the brain area used for language"
+      ],
+      "answer": 1,
+      "explain": "细节题。第三段指出，多巴胺先在听众等待最喜欢的段落时于尾状核升高，又在段落到来的一刻于伏隔核升高，故B正确。文中并未把它与耳朵、喉咙或语言区联系起来。"
+    },
+    {
+      "q": "Why can listening to sad music make people feel pleasant?",
+      "options": [
+        "Because sad songs usually have a fast rhythm.",
+        "Because the sadness in the song is not a real danger to the listeners themselves.",
+        "Because sad songs always come with happy lyrics.",
+        "Because sad songs help people fall asleep faster."
+      ],
+      "answer": 1,
+      "explain": "推断题。第五段用“安全距离”解释：歌中的悲伤与听者自身的真实损失无关，因此人们可以充分感受却不受伤害，故B正确。A、C、D均与原文不符。"
+    },
+    {
+      "q": "The word 'frisson' in Paragraph 4 is closest in meaning to ______.",
+      "options": [
+        "a sudden shiver caused by strong feeling",
+        "a slow and steady heartbeat",
+        "a change from one key to another",
+        "a kind of musical instrument"
+      ],
+      "answer": 0,
+      "explain": "词义题。第四段开头说“That shiver down the neck has a name: frisson”，并说明它是由音乐引发的短暂战栗，故A正确。C项只是文中提到的、可能引发寒战的原因之一，并非frisson本身的含义。"
+    }
+  ]
+}
