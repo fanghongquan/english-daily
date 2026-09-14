@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-14",
+  "level": "CET-4",
+  "title": "Twenty-Four Hours, One Question: Who Really Decides Your Day?",
+  "title_zh": "二十四小时，一个问题：到底是谁在决定你的一天？",
+  "intro_zh": "本文约 940 词，CET-4 难度，共 9 个自然段，重点词 6 个。文章从时间使用调查、计划偏差、精力节律、任务中断等角度，说明“高效安排一天”背后的证据与可操作方法，难度适中，适合四级阅读训练。",
+  "paragraphs": [
+    {
+      "en": "It is nine o'clock on a Tuesday evening. You meant to finish a report, answer two emails and go for a run. Instead you watched three cooking videos, replied to a group chat, and looked up to find the whole evening gone. 'Where did the day go?' you ask. The question feels like a mystery, but researchers who study how people use time say it is not. The day did not vanish; it was simply never noticed. When people keep a written record of one ordinary day, most are surprised by what they find — not by how little they did, but by how little they remember doing.",
+      "zh": "周二晚上九点。你本来打算完成一份报告、回两封邮件、再出去跑个步。结果你看了三个做饭视频，回复了群聊，再抬头时整个晚上已经没了。“时间都去哪儿了？”你问。这个问题听起来像个谜，但研究人们如何使用时间的研究者说，它并不是。时间并没有消失，只是从未被注意过。当人们为普通的一天做书面记录时，多数人都会对看到的结果感到惊讶——不是惊讶于自己做得太少，而是惊讶于自己几乎不记得做过什么。"
+    },
+    {
+      "en": "Memory is a poor accountant, and our plans suffer for it. Ask people to <span class=\"kw\" data-ipa=\"ˈestɪmeɪt\" data-def=\"估计，估算\">estimate</span> how long a familiar task takes — cooking dinner, clearing an inbox — and they are usually wrong, and almost always too hopeful. In one well-known study, students at a British university were asked when they would finish their final papers. Nearly all believed they would be done weeks early. In fact, about half finished in the last week, and some handed the work in late. We plan for the day we wish we had, not the day we actually have.",
+      "zh": "记忆是个糟糕的会计，我们的计划因此遭殃。让人们估计一件熟悉的事情要花多久——做晚饭、清空收件箱——他们通常会估错，而且几乎总是过于乐观。在一项著名的研究中，英国一所大学的学生被问到什么时候能写完期末论文。几乎所有人都相信自己会提前几周完成。事实上，大约一半人在最后一周才写完，还有些人迟交。我们是在为“希望拥有的那一天”做计划，而不是为“实际拥有的这一天”。"
+    },
+    {
+      "en": "Begin with the arithmetic. Everybody gets the same twenty-four hours. Eight normally go to sleep and eight to work or school, which leaves about eight — and meals, travel and housework quietly take a share of those. What remains is the part you control, and it is bigger than most people assume. Time-use surveys in the United States show that the average adult spends roughly two and a half hours a day watching television, and less than twenty minutes on exercise. These are not moral judgments; they are measurements. You cannot decide what to do with your free hours until you know what is already happening to them.",
+      "zh": "先从算术开始。每个人都同样拥有二十四小时。八小时通常用于睡觉，八小时用于工作或上学，剩下大约八小时——而吃饭、通勤和家务又会悄悄占掉其中一部分。剩下的那部分才是你能掌控的，而且比多数人以为的要多。美国的“时间使用调查”显示，普通成年人每天大约花两个半小时看电视，而锻炼时间不到二十分钟。这些不是道德评判，而是测量数据。在弄清你空余时间已经在发生什么之前，你无法决定要用它做什么。"
+    },
+    {
+      "en": "Not all hours are equal. The body follows a daily <span class=\"kw\" data-ipa=\"ˈrɪðəm\" data-def=\"节律，节奏\">rhythm</span>, and people differ by as much as four hours in when they feel sharpest. A difficult task placed at your personal <span class=\"kw\" data-ipa=\"piːk\" data-def=\"高峰，顶点；高峰的\">peak</span> may take forty minutes; the same task at four in the afternoon may swallow two hours and still be done badly. Nurses and pilots have understood this for decades, which is why hospital work is arranged in shifts rather than wishes. The practical rule is to stop asking, 'When do I have time?' and start asking, 'When do I have a brain?'",
+      "zh": "并非所有的小时都等价。身体遵循某种每日节律，而人们在“何时最清醒”这一点上相差可达四小时。把困难任务放在你个人的高峰时段，可能四十分钟就能做完；同一件事放到下午四点，可能吞掉两个小时还做得不好。护士和飞行员几十年前就懂这一点，这也是医院按轮班而不是按心愿来安排工作的原因。实用的规则是：别再问“我什么时候有时间？”，而要开始问“我什么时候有脑子？”。"
+    },
+    {
+      "en": "Unfinished business also eats time. In the 1920s a Russian psychologist, Bluma Zeigarnik, noticed that waiters remembered orders that had not yet been paid for, and forgot the rest. The pattern still holds: an unfinished task stays in the mind, taking up space even while you are doing something else. That is why a small job you <span class=\"kw\" data-ipa=\"poʊˈspoʊn\" data-def=\"推迟，延期\">postpone</span> for a week can feel heavier than a large job you complete. The cure is not more willpower but writing things down. Once a task has a time and a place on paper, the mind is willing to let it go.",
+      "zh": "未完成的事也在耗时间。20世纪20年代，俄罗斯心理学家布卢玛·蔡格尼克注意到，服务员会记住尚未结账的点单，而忘记其余的。这个规律如今依然成立：未完成的任务会留在脑中，即使你在做别的事，它也占着空间。这就是为什么一件被你推迟一周的小事，可能比一件你已经完成的大事还让你觉得沉重。解药不是更多意志力，而是把事情写下来。一旦一项任务在纸上有了时间和位置，大脑就愿意放手。"
+    },
+    {
+      "en": "Then come interruptions. Gloria Mark, a researcher at the University of California, Irvine, followed office workers and found that they were <span class=\"kw\" data-ipa=\"ˌɪntəˈrʌptɪd\" data-def=\"被打断，被中断\">interrupted</span> roughly every few minutes, and that after each interruption it took about twenty-three minutes to return fully to the original task. The cost is invisible, which is exactly why we ignore it. One 'quick question' at ten in the morning can quietly ruin a whole morning. The fix is modest: leave your phone in another room during one focused block, and tell people when you will be free. Nobody needs to be unreachable — only reachable later.",
+      "zh": "接着是打扰。加州大学欧文分校的研究者格洛丽亚·马克跟踪了办公室职员，发现他们每隔几分钟就会被打断一次，而每次被打断后，大约需要二十三分钟才能完全回到原来的任务上。这种代价是看不见的，而这正是我们忽视它的原因。上午十点的一句“问个小问题”，能悄悄毁掉整个上午。解决办法很朴素：在一段专注时段把手机放到另一个房间，并告诉同事你什么时候有空。没有人需要“随时可联系”，只需要“稍后可联系”。"
+    },
+    {
+      "en": "Some hours, however, cannot be defended. They sit in small pockets between other things: the queue at the bank, twenty minutes on a bus, the wait before a meeting begins. Most of us fill these pockets with scrolling, which feels like rest but rarely is. <span class=\"kw\" data-ipa=\"rɪˈzɜːrv\" data-def=\"保留，留出；储备\">Reserve</span> a few of them for something you genuinely want — a podcast in a foreign language, one chapter of a book, a short walk outside. Ten minutes a day, five days a week, adds up to more than forty hours a year. That is a full working week, handed back to you.",
+      "zh": "不过，有些小时是守不住的。它们藏在事情之间的小缝隙里：银行排队的几分钟、公交上的二十分钟、开会前的等待。我们大多数人用刷手机填满这些缝隙，那感觉像休息，其实很少是。把其中几个缝隙留给你真正想做的事——一集外语播客、书的一章、到外面走一小段。每天十分钟、每周五天，一年下来超过四十小时。那等于一整周的工作时间，被还给了你。"
+    },
+    {
+      "en": "None of this requires a colour-coded calendar. Over-planned days usually collapse within a week, because they leave no room for real life. It is more useful to hold three simple anchors. First, protect one block at your best hour for the hardest task. Second, set a fixed stopping time in the evening, so that the day ends on purpose rather than by exhaustion. Third, spend five minutes before bed looking back: what actually happened, and what single thing should move to tomorrow. An experiment like this costs nothing and can be tested in a week.",
+      "zh": "这一切都不需要一张配色齐全的日历。安排过满的日子通常一周之内就会崩塌，因为它没给真实生活留余地。更有用的是守住三个简单的锚点。第一，在你状态最好的时段保护出一段完整时间，用来做最难的任务。第二，在晚上设一个固定的停止时间，让一天是“有意结束”而不是“累到结束”。第三，睡前花五分钟回顾：实际发生了什么，以及哪一件事该挪到明天。这样的实验不花一分钱，一周就能验证。"
+    },
+    {
+      "en": "The tired question, 'Where did the day go?', assumes that time is something we lose, like keys. A quieter and more useful question is: who decided? Twenty-four hours arrive every morning whether we are ready or not. Time is not found; it is chosen, five minutes at a time. So track one ordinary day — tomorrow, perhaps. Most people discover the same two things: they have more hours than they thought, and fewer decisions than they would like.",
+      "zh": "那句疲惫的追问“时间都去哪儿了？”，预设了时间像钥匙一样是被我们弄丢的东西。一个更安静也更有用的问题是：是谁做的决定？每天早上二十四小时都会到来，不管我们有没有准备好。时间不是被找回来的，它是由一次次五分钟的选择决定的。所以，请记录一个普通的日子——也许就从明天开始。多数人会发现同样两件事：他们的时间比想象中更多，而需要做的决定比想象中更少。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "According to the passage, why does a day often seem to disappear?",
+      "options": [
+        "Because people today simply work far more hours than before.",
+        "Because people do not notice or remember how they actually spend their time.",
+        "Because sleep takes up more of the day than most people realize.",
+        "Because time seems to pass faster as people get older."
+      ],
+      "answer": 1,
+      "explain": "第一段指出，研究者认为一天并没有消失，只是“从未被注意过”；做书面记录的人会惊讶于自己几乎不记得做过什么。故答案为 B（人们没有留意或记不住时间的真实去向）。A、C、D 文中均未提及。"
+    },
+    {
+      "q": "What did the study of British university students show about their final papers?",
+      "options": [
+        "Most of them finished weeks earlier than they had predicted.",
+        "None of them managed to meet the deadline at all.",
+        "Many of them finished much later than they had expected.",
+        "Students who made detailed plans always finished on time."
+      ],
+      "answer": 2,
+      "explain": "第二段提到，学生几乎都以为会提前几周完成，实际上约一半人最后一周才写完，还有人迟交。这说明实际完成时间远晚于预期，故选 C。A 与事实相反；B 过于绝对；D 文中没有依据。"
+    },
+    {
+      "q": "What does the author suggest about planning a day?",
+      "options": [
+        "A strict minute-by-minute timetable is the most reliable method.",
+        "It is more important to match hard work to your best hours than to find extra time.",
+        "Interruptions cannot be reduced, so they should simply be accepted.",
+        "Watching television is the main reason people lose control of their day."
+      ],
+      "answer": 1,
+      "explain": "第四段强调“并非所有小时都等价”，难任务应放在个人高峰时段，并把问题从“我什么时候有时间”改为“我什么时候有脑子”，故 B 正确。第八段明确反对排得过满的日程，排除 A；第六段提出减少干扰的具体办法，排除 C；第三段仅把看电视作为测量数据，并未称其为失去时间的主因，排除 D。"
+    },
+    {
+      "q": "The word 'anchors' in Paragraph 8 most probably means ___.",
+      "options": [
+        "heavy metal objects that keep a boat in one place",
+        "fixed points that give a day stability",
+        "chores that slow a person down",
+        "rewards that people give themselves"
+      ],
+      "answer": 1,
+      "explain": "第八段先反对排得过满的日历，随后提出三个“anchors”，即保护高峰时段、设定固定停止时间、睡前五分钟回顾——这些都是给一天提供稳定结构的固定支点，故选 B（字面义为锚，此处为比喻义）。A 是字面义，不符语境；C、D 与文意不符。"
+    }
+  ]
+}
