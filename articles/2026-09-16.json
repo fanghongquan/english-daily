@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-16",
+  "level": "CET-4",
+  "title": "The Night Shift: What Your Brain Really Does While You Sleep",
+  "title_zh": "夜班时刻：你睡着后，大脑究竟在做什么",
+  "intro_zh": "本文约 930 词，围绕睡眠对大脑的重要性展开，涉及废旧物清除、记忆巩固、情绪调节、缺觉代价与午睡研究等科普内容，语言难度贴合大学英语四级阅读，重点词 6 个，理解目标约 85%-90%。",
+  "paragraphs": [
+    {
+      "en": "At two in the morning you are fast asleep, but roughly eighty-six billion <span class=\"kw\" data-ipa=\"ˈnʊrɑːnz\" data-def=\"神经元\">neurons</span> inside your head are not. For a long time, people pictured sleep as a kind of shutdown, a blank stretch of hours when the brain simply rested. Modern brain imaging tells a different story. One early clue came from studies of energy use: even in deep sleep, the brain burns almost as much fuel as it does when we are sitting quietly awake. During those seven or eight hours, the brain runs a maintenance shift: it sorts the day's experiences, clears away chemical waste and quietly calms the emotions that piled up since morning. Very little about it is idle.",
+      "zh": "凌晨两点，你睡得很沉，但你脑中大约八百六十亿个神经元并没有休息。长期以来，人们把睡眠想象成一种关机——一段大脑单纯休息的空白时光。现代脑成像讲述的却是另一个故事。最早的线索之一来自能量消耗研究：即便在深睡中，大脑燃烧的‘燃料’也几乎与我们清醒静坐时一样多。在那七到八个小时里，大脑在上一场维护的夜班：它整理白天的经历，清除化学废物，并悄悄平复从早上起堆积起来的情绪。这其中的过程几乎没有一步是空闲的。"
+    },
+    {
+      "en": "In 2013, a team led by Maiken Nedergaard at the University of Rochester described what they named the glymphatic system. While we sleep, cerebrospinal fluid washes through the narrow spaces between brain cells, carrying off the by-products of a long day of thinking. Among the waste it removes are sticky proteins such as amyloid beta, the same substance that builds up in the brains of people with Alzheimer's disease. The cleaning works best in deep sleep, when brain cells shrink slightly and leave more room for fluid to pass. The message is blunt: material that is <span class=\"kw\" data-ipa=\"ˈtɑːksɪk\" data-def=\"有毒的\">toxic</span> to brain tissue is cleared mainly at night.",
+      "zh": "2013 年，罗切斯特大学由麦肯·尼德高（Maiken Nedergaard）领导的研究团队描述了他们命名为‘类淋巴系统’的结构。我们睡觉时，脑脊液会冲刷脑细胞之间的狭窄空隙，带走一整天思考产生的副产品。被清除的废物中包括淀粉样蛋白这类黏性蛋白——正是阿尔茨海默病患者脑中堆积的那种物质。这套清洗在深度睡眠中效果最好，那时脑细胞会略微收缩，给液体通过留出更多空间。信息很直白：对脑组织有毒的物质，主要在夜间被清除。"
+    },
+    {
+      "en": "Sleep is also when memories are filed. New information lands first in the hippocampus, a small seahorse-shaped structure that works like a temporary desk. Overnight, the brain replays those fragile traces and gradually moves them to the cortex for long-term storage — a process researchers call <span class=\"kw\" data-ipa=\"kənˌsɑːlɪˈdeɪʃn\" data-def=\"巩固；强化并长期储存\">consolidation</span>. Brain recordings even show small bursts of fast activity, known as sleep spindles, as if the cortex were ticking off each item it has received. In one classic experiment, students who learned a list of word pairs and then slept remembered far more of them the next morning than classmates who stayed awake the same number of hours. The difference was not effort. It was the night.",
+      "zh": "睡眠也是给记忆归档的时间。新信息最先落在海马体——一个形似海马的小结构，作用类似一张临时办公桌。整夜之间，大脑会重放那些脆弱的记忆痕迹，并逐渐把它们转移到皮层进行长期储存——研究者把这一过程称为‘巩固’。脑电记录甚至显示出被称为‘睡眠纺锤波’的短暂快速活动，仿佛皮层在逐项核对它已经收到的内容。在一项经典实验中，学习了成对单词后睡了一觉的学生，第二天早上记住的内容远多于同样时间保持清醒的同学。差别不在努力，而在于那一个夜晚。"
+    },
+    {
+      "en": "Sleep also prepares the brain for the next day. Matthew Walker's laboratory at Berkeley showed that a single night of lost sleep can cut the hippocampus's ability to record new facts by around forty percent. When researchers scanned the brains of sleep-deprived volunteers, the hippocampus looked unusually quiet, and the deep-sleep waves that normally help move memories were missing. This is why pulling an all-nighter before an exam usually backfires: the student may have read the material, but the brain has been <span class=\"kw\" data-ipa=\"dɪˈpraɪvd\" data-def=\"剥夺；使丧失\">deprived</span> of the very state it needs to keep it.",
+      "zh": "睡眠还为大脑的下一天做准备。伯克利马修·沃克（Matthew Walker）的实验室发现，仅仅少睡一夜，就能使海马体记录新事实的能力下降约百分之四十。研究者扫描睡眠不足志愿者的脑部时，海马体显得异常安静，那些通常帮助搬运记忆的深睡波也消失了。这就是为什么考前通宵通常适得其反：学生也许把材料读过了，但大脑恰恰被剥夺了保存它所需的那种状态。"
+    },
+    {
+      "en": "Emotions get their own treatment. During REM sleep, when most vivid dreaming happens, the brain replays emotional experiences with the stress chemistry largely switched off. One result is that the memory stays but its sting fades; researchers sometimes call this overnight therapy. A well-known imaging study found that after a sleepless night, the amygdala — the brain's alarm system — reacted about sixty percent more strongly to upsetting pictures than it did after normal sleep, while its link to the calming prefrontal cortex weakened. The same state seems to sharpen creativity: in experiments, volunteers who slept after working on a puzzle were about thirty percent more likely to spot a hidden shortcut than those who stayed awake. Sleep, in other words, helps <span class=\"kw\" data-ipa=\"rɪˈstɔːr\" data-def=\"恢复；使复原\">restore</span> our balance.",
+      "zh": "情绪也会得到专门处理。在快速眼动睡眠（REM）中，也就是大多数生动梦境发生的阶段，大脑会在压力化学物质基本关闭的状态下重放带情绪的经历。结果之一是记忆留下，痛感却变淡了；研究者有时称之为‘夜间治疗’。一项著名的脑成像研究显示，一夜未眠之后，大脑的警报系统——杏仁核——面对令人不安的图片时反应比正常睡眠后强烈约百分之六十，同时它与负责冷静的前额叶皮层的联系变弱。这种状态似乎还能提升创造力：在实验中，做完一道难题后睡了一觉的志愿者，比一直清醒的人多出约百分之三十的机会发现隐藏的捷径。换句话说，睡眠帮助恢复我们的平衡。"
+    },
+    {
+      "en": "The costs of skipping sleep are easy to measure. After seventeen to nineteen hours awake, reaction time and attention in laboratory tests drop to levels comparable to a blood alcohol reading of 0.05 percent; stay awake longer and the comparison gets worse. Drivers offer a familiar reminder: sleeping fewer than six hours a night is linked with a sharply higher risk of being in a crash. Over years, poor sleep is linked with a higher risk of depression, weaker immunity and <span class=\"kw\" data-ipa=\"ˈkɑːɡnətɪv\" data-def=\"认知的\">cognitive</span> decline. The World Health Organization has even classified long-term night-shift work as a probable cause of cancer. There is no waking substitute for what sleep does.",
+      "zh": "缺觉的代价不难测量。清醒十七到十九小时后，实验室测试中的反应速度和注意力会降到相当于血液酒精浓度 0.05% 的水平；继续不睡，这个对比会更糟。司机是一个熟悉的提醒：每晚睡不足六小时，与发生车祸的风险显著升高相关。把时间拉长到数年，睡眠不佳与抑郁风险升高、免疫力减弱和认知衰退相关。世界卫生组织甚至把长期夜班工作列为可能的致癌因素。清醒状态下没有任何东西能替代睡眠所做的事。"
+    },
+    {
+      "en": "Naps can help, if they stay short. In a study run with airline pilots for NASA, a nap of about twenty-six minutes improved measured performance by thirty-four percent and alertness by fifty-four percent. Longer naps, however, tend to leave people groggy, and dozing late in the afternoon eats into the natural sleep pressure that makes the coming night deep. The trick is to set an alarm and get up when it rings, since a nap that drifts past forty minutes pulls you into deep sleep and makes waking miserable. For most adults, twenty minutes before three in the afternoon is the sweet spot.",
+      "zh": "小睡有帮助，前提是时间要短。在美国航空航天局（NASA）与民航飞行员合作的一项研究中，约二十六分钟的小睡使受测表现提高了百分之三十四，警觉度提高了百分之五十四。然而，睡得更久往往让人昏沉，下午晚些时候打盹还会消耗掉那种让当晚睡得更深的自然睡眠压力。诀窍是设好闹钟，一响就起，因为一旦迷迷糊糊睡过四十分钟，人会被拖入深睡，醒来会格外难受。对大多数成年人来说，下午三点前睡二十分钟是最佳选择。"
+    },
+    {
+      "en": "What actually protects a night's sleep is far simpler than the shelves of sleep products suggest. Going to bed and getting up at roughly the same time, weekends included, matters more than counting total hours. Morning daylight and daytime exercise strengthen the body clock; bright screens and caffeine within six hours of bedtime work against it. A cool room, around eighteen degrees Celsius, supports the drop in body temperature that begins sleep. None of this is dramatic. It is simply the price of admission to the night shift.",
+      "zh": "真正保护一夜睡眠的做法，远比货架上那些助眠产品所暗示的要简单。大约在同一时间上床和起床——包括周末——比计算总睡眠时长更重要。清晨的阳光和白天的运动能强化生物钟；而睡前六小时内的明亮屏幕和咖啡因则与之作对。凉爽的房间，大约十八摄氏度，有助于入睡时体温的下降。这些都不算什么戏剧性的办法，它们只是进入这场夜班所需的门票钱。"
+    },
+    {
+      "en": "People often treat sleep as the leftover part of the day, the thing to cut when a deadline looms. The biology says otherwise. While you lie still, your brain is clearing waste, filing memories and steadying your mood — work that cannot be postponed or handed to someone else. The night shift never takes a night off. The only question is whether you let it do its job.",
+      "zh": "人们常常把睡眠当作一天中剩余的部分，是在截止日期逼近时最先砍掉的东西。生物学给出的答案恰恰相反。当你静静躺着时，你的大脑正在清除废物、归档记忆、稳定情绪——这些工作无法推迟，也无法交给别人。这场夜班从不休假。唯一的问题是：你是否让它完成自己的工作。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Sleep is a passive state in which the brain shuts down to save energy.",
+        "The sleeping brain carries out essential maintenance work that waking hours cannot replace.",
+        "Sleep problems can be solved mainly by buying better sleep products.",
+        "Night-shift workers are the only group that needs to worry about sleep loss."
+      ],
+      "answer": 1,
+      "explain": "全文从废物清除、记忆巩固、情绪调节三个角度说明睡眠对大脑的必要维护作用，并在结尾强调这些工作无法被清醒状态替代，故选 B。A 正是第一段明确否定的常见误解；C 与第八段相反，作者认为真正有效的做法比助眠产品简单得多；D 曲解第六段，原文只是说夜班工作者风险更高，并未说只有他们需要担心。"
+    },
+    {
+      "q": "According to paragraph 2, what does the glymphatic system do?",
+      "options": [
+        "It stores new facts in the hippocampus during REM sleep.",
+        "It raises body temperature so that brain cells can divide.",
+        "It washes cerebrospinal fluid through the brain and clears waste such as amyloid beta.",
+        "It produces the sticky proteins that protect brain tissue."
+      ],
+      "answer": 2,
+      "explain": "第二段说明类淋巴系统在睡眠中让脑脊液冲刷脑细胞间隙，带走淀粉样蛋白等废物，故选 C。A 属于第三段记忆巩固的内容；B 无中生有；D 与原文相反，淀粉样蛋白是被清除的废物，而非保护脑组织的物质。"
+    },
+    {
+      "q": "Why does staying up all night before an exam usually backfire?",
+      "options": [
+        "Because the brain has been deprived of the state it needs to store new information.",
+        "Because reading at night permanently damages the hippocampus.",
+        "Because the amygdala becomes less sensitive to stress.",
+        "Because caffeine taken at night blocks the glymphatic system."
+      ],
+      "answer": 0,
+      "explain": "第四段指出，缺觉会使海马体记录新信息的能力下降约 40%，深睡波消失，因此通宵复习往往适得其反——大脑被剥夺了保存信息所需的状态，故选 A。B 中的 permanently 夸大其词；C 与第五段实验结果相反，缺觉时杏仁核反应更强烈；D 文中并未提及咖啡因与类淋巴系统的关系。"
+    },
+    {
+      "q": "The word 'consolidation' in paragraph 3 is closest in meaning to ____.",
+      "options": [
+        "the cleaning of chemical waste from brain cells",
+        "the strengthening and long-term storage of memories",
+        "the fading of emotional pain after a bad experience",
+        "the slowing of reaction time caused by lost sleep"
+      ],
+      "answer": 1,
+      "explain": "第三段紧接 consolidation 之前的句子说，大脑把脆弱的记忆痕迹逐渐转移到皮层进行长期储存，因此 consolidation 指记忆的巩固与长期储存，故选 B。A 对应类淋巴系统的清洗功能，C 对应 REM 睡眠的情绪作用，D 对应第六段缺觉的后果，均非该词含义。"
+    }
+  ]
+}

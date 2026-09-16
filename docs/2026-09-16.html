@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self' data: blob:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+<title>每日英语 · The Night Shift: What Your Brain Really Does While You Sleep</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  .tok.phrase-selected{background:var(--selbg);border-radius:4px}
+  #phrase-preview,#phrase-hint,#phrase-add,#phrase-cancel{display:none}
+  #selbar.phrase-mode{left:50%!important;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    width:min(calc(100vw - 24px),520px);flex-wrap:wrap;justify-content:center;
+    align-items:center;white-space:normal}
+  #selbar.phrase-mode #sel-add,#selbar.phrase-mode #sel-phrase{display:none}
+  #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
+  #selbar.phrase-ready #phrase-hint{display:none}
+  #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview,#phrase-hint{color:#fff;font-size:13px}
+  #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  #read-progress{position:fixed;z-index:90;top:0;left:0;width:0;height:3px;
+    background:var(--accent);transition:width .12s linear}
+  #continue-reading{display:none;align-items:center;gap:8px;margin:10px 0;padding:9px 11px;
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
+  #continue-reading.show{display:flex} #continue-reading span{flex:1}
+  .advanced{display:contents}
+  #toolbar-more{display:none}
+  #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
+    transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
+    box-shadow:0 5px 18px var(--shadow);gap:3px}
+  #mobile-float button{border:0;background:transparent;color:#fff;border-radius:18px;padding:8px 13px}
+  @media (max-width:640px){
+    .wrap{padding-bottom:calc(105px + env(safe-area-inset-bottom))}
+    #toolbar-more{display:inline-flex}
+    .toolbar .advanced{display:none;flex-basis:100%;padding:9px;border:1px solid var(--line);
+      border-radius:12px;background:var(--card);gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar .advanced.open{display:flex;position:fixed;z-index:44;left:12px;right:12px;
+      bottom:calc(62px + env(safe-area-inset-bottom));box-shadow:0 5px 18px var(--shadow)}
+    #mobile-float.visible{display:flex}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
+    background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
+  #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
+  .feedback-card{position:relative;overflow:hidden;margin:22px 0 4px;padding:18px 16px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .feedback-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--know),var(--accent),var(--fuzzy))}
+  .feedback-title{font-size:17px;font-weight:700;margin:0 0 3px}
+  .feedback-copy{font-size:12.5px;color:var(--sub);margin:0 0 13px}
+  .difficulty-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .difficulty-scale button{min-height:48px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:600;padding:7px 5px;
+    cursor:pointer;transition:.15s}
+  .difficulty-scale button:hover{border-color:var(--accent)}
+  .difficulty-scale button[aria-pressed="true"]{color:#fff;background:var(--accent);
+    border-color:var(--accent);box-shadow:0 3px 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+  #feedback-status{min-height:20px;margin:10px 1px 0;color:var(--sub);font-size:12.5px}
+  .en .tok{cursor:pointer}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px calc(105px + env(safe-area-inset-bottom))}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+    .feedback-card{padding:16px 12px}
+    .difficulty-scale{gap:5px}
+    .difficulty-scale button{font-size:13px;padding:6px 3px}
+  }
+</style>
+</head>
+<body>
+<div id="read-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+    <div id="continue-reading"><span>继续上次阅读？</span>
+      <button class="icbtn" id="resume-reading">继续阅读</button>
+      <button class="icbtn" id="restart-reading">从头开始</button></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh" aria-pressed="true">隐藏中文</button>
+    <button class="btn on" id="tg-ipa" aria-pressed="true">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="toolbar-more">更多</button>
+    <div class="advanced" id="mobile-panel">
+    <button class="btn" id="tg-theme" aria-pressed="false">🌙 夜间</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <button class="btn" id="access-key">🔑 访问码</button>
+    <span class="speed"><label for="rate">语速</label>
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed"><label for="voice">嗓音</label>
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+    </div>
+  </div>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+    <div id="quiz-summary" aria-live="polite"><span id="quiz-result"></span>
+      <button class="icbtn" id="quiz-wrong">只看错题</button>
+      <button class="icbtn" id="quiz-reset">重新作答</button></div>
+  </section>
+
+  <section id="difficulty-feedback" class="feedback-card" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="feedback-title">这篇文章对你来说？</h2>
+    <p class="feedback-copy">凭第一感觉选择即可，之后也可以修改</p>
+    <div class="difficulty-scale" role="group" aria-label="文章阅读难度">
+      <button type="button" data-value="easy" aria-pressed="false">有点简单</button>
+      <button type="button" data-value="balanced" aria-pressed="false">刚刚好</button>
+      <button type="button" data-value="hard" aria-pressed="false">有点吃力</button>
+    </div>
+    <p id="feedback-status" aria-live="polite">完成阅读或答题后，系统也会参考客观数据</p>
+  </section>
+
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
+</div>
+
+<div id="mobile-float" aria-label="移动阅读工具">
+  <button id="mobile-play" aria-pressed="false">▶ 朗读</button>
+  <button id="mobile-more" aria-expanded="false">•••</button>
+</div>
+
+<div id="selbar" role="toolbar" aria-live="polite">
+  <span id="phrase-preview"></span>
+  <span id="phrase-hint"></span>
+  <button id="sel-add">＋ 单词</button>
+  <button id="sel-phrase">选择短语</button>
+  <button id="phrase-add">＋ 短语</button>
+  <button id="phrase-cancel">取消</button>
+</div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-09-16", "level": "CET-4", "title": "The Night Shift: What Your Brain Really Does While You Sleep", "title_zh": "夜班时刻：你睡着后，大脑究竟在做什么", "intro_zh": "本文约 930 词，围绕睡眠对大脑的重要性展开，涉及废旧物清除、记忆巩固、情绪调节、缺觉代价与午睡研究等科普内容，语言难度贴合大学英语四级阅读，重点词 6 个，理解目标约 85%-90%。", "paragraphs": [{"en": "At two in the morning you are fast asleep, but roughly eighty-six billion \u003cspan class=\"kw\" data-ipa=\"ˈnʊrɑːnz\" data-def=\"神经元\"\u003eneurons\u003c/span\u003e inside your head are not. For a long time, people pictured sleep as a kind of shutdown, a blank stretch of hours when the brain simply rested. Modern brain imaging tells a different story. One early clue came from studies of energy use: even in deep sleep, the brain burns almost as much fuel as it does when we are sitting quietly awake. During those seven or eight hours, the brain runs a maintenance shift: it sorts the day's experiences, clears away chemical waste and quietly calms the emotions that piled up since morning. Very little about it is idle.", "zh": "凌晨两点，你睡得很沉，但你脑中大约八百六十亿个神经元并没有休息。长期以来，人们把睡眠想象成一种关机——一段大脑单纯休息的空白时光。现代脑成像讲述的却是另一个故事。最早的线索之一来自能量消耗研究：即便在深睡中，大脑燃烧的‘燃料’也几乎与我们清醒静坐时一样多。在那七到八个小时里，大脑在上一场维护的夜班：它整理白天的经历，清除化学废物，并悄悄平复从早上起堆积起来的情绪。这其中的过程几乎没有一步是空闲的。"}, {"en": "In 2013, a team led by Maiken Nedergaard at the University of Rochester described what they named the glymphatic system. While we sleep, cerebrospinal fluid washes through the narrow spaces between brain cells, carrying off the by-products of a long day of thinking. Among the waste it removes are sticky proteins such as amyloid beta, the same substance that builds up in the brains of people with Alzheimer's disease. The cleaning works best in deep sleep, when brain cells shrink slightly and leave more room for fluid to pass. The message is blunt: material that is \u003cspan class=\"kw\" data-ipa=\"ˈtɑːksɪk\" data-def=\"有毒的\"\u003etoxic\u003c/span\u003e to brain tissue is cleared mainly at night.", "zh": "2013 年，罗切斯特大学由麦肯·尼德高（Maiken Nedergaard）领导的研究团队描述了他们命名为‘类淋巴系统’的结构。我们睡觉时，脑脊液会冲刷脑细胞之间的狭窄空隙，带走一整天思考产生的副产品。被清除的废物中包括淀粉样蛋白这类黏性蛋白——正是阿尔茨海默病患者脑中堆积的那种物质。这套清洗在深度睡眠中效果最好，那时脑细胞会略微收缩，给液体通过留出更多空间。信息很直白：对脑组织有毒的物质，主要在夜间被清除。"}, {"en": "Sleep is also when memories are filed. New information lands first in the hippocampus, a small seahorse-shaped structure that works like a temporary desk. Overnight, the brain replays those fragile traces and gradually moves them to the cortex for long-term storage — a process researchers call \u003cspan class=\"kw\" data-ipa=\"kənˌsɑːlɪˈdeɪʃn\" data-def=\"巩固；强化并长期储存\"\u003econsolidation\u003c/span\u003e. Brain recordings even show small bursts of fast activity, known as sleep spindles, as if the cortex were ticking off each item it has received. In one classic experiment, students who learned a list of word pairs and then slept remembered far more of them the next morning than classmates who stayed awake the same number of hours. The difference was not effort. It was the night.", "zh": "睡眠也是给记忆归档的时间。新信息最先落在海马体——一个形似海马的小结构，作用类似一张临时办公桌。整夜之间，大脑会重放那些脆弱的记忆痕迹，并逐渐把它们转移到皮层进行长期储存——研究者把这一过程称为‘巩固’。脑电记录甚至显示出被称为‘睡眠纺锤波’的短暂快速活动，仿佛皮层在逐项核对它已经收到的内容。在一项经典实验中，学习了成对单词后睡了一觉的学生，第二天早上记住的内容远多于同样时间保持清醒的同学。差别不在努力，而在于那一个夜晚。"}, {"en": "Sleep also prepares the brain for the next day. Matthew Walker's laboratory at Berkeley showed that a single night of lost sleep can cut the hippocampus's ability to record new facts by around forty percent. When researchers scanned the brains of sleep-deprived volunteers, the hippocampus looked unusually quiet, and the deep-sleep waves that normally help move memories were missing. This is why pulling an all-nighter before an exam usually backfires: the student may have read the material, but the brain has been \u003cspan class=\"kw\" data-ipa=\"dɪˈpraɪvd\" data-def=\"剥夺；使丧失\"\u003edeprived\u003c/span\u003e of the very state it needs to keep it.", "zh": "睡眠还为大脑的下一天做准备。伯克利马修·沃克（Matthew Walker）的实验室发现，仅仅少睡一夜，就能使海马体记录新事实的能力下降约百分之四十。研究者扫描睡眠不足志愿者的脑部时，海马体显得异常安静，那些通常帮助搬运记忆的深睡波也消失了。这就是为什么考前通宵通常适得其反：学生也许把材料读过了，但大脑恰恰被剥夺了保存它所需的那种状态。"}, {"en": "Emotions get their own treatment. During REM sleep, when most vivid dreaming happens, the brain replays emotional experiences with the stress chemistry largely switched off. One result is that the memory stays but its sting fades; researchers sometimes call this overnight therapy. A well-known imaging study found that after a sleepless night, the amygdala — the brain's alarm system — reacted about sixty percent more strongly to upsetting pictures than it did after normal sleep, while its link to the calming prefrontal cortex weakened. The same state seems to sharpen creativity: in experiments, volunteers who slept after working on a puzzle were about thirty percent more likely to spot a hidden shortcut than those who stayed awake. Sleep, in other words, helps \u003cspan class=\"kw\" data-ipa=\"rɪˈstɔːr\" data-def=\"恢复；使复原\"\u003erestore\u003c/span\u003e our balance.", "zh": "情绪也会得到专门处理。在快速眼动睡眠（REM）中，也就是大多数生动梦境发生的阶段，大脑会在压力化学物质基本关闭的状态下重放带情绪的经历。结果之一是记忆留下，痛感却变淡了；研究者有时称之为‘夜间治疗’。一项著名的脑成像研究显示，一夜未眠之后，大脑的警报系统——杏仁核——面对令人不安的图片时反应比正常睡眠后强烈约百分之六十，同时它与负责冷静的前额叶皮层的联系变弱。这种状态似乎还能提升创造力：在实验中，做完一道难题后睡了一觉的志愿者，比一直清醒的人多出约百分之三十的机会发现隐藏的捷径。换句话说，睡眠帮助恢复我们的平衡。"}, {"en": "The costs of skipping sleep are easy to measure. After seventeen to nineteen hours awake, reaction time and attention in laboratory tests drop to levels comparable to a blood alcohol reading of 0.05 percent; stay awake longer and the comparison gets worse. Drivers offer a familiar reminder: sleeping fewer than six hours a night is linked with a sharply higher risk of being in a crash. Over years, poor sleep is linked with a higher risk of depression, weaker immunity and \u003cspan class=\"kw\" data-ipa=\"ˈkɑːɡnətɪv\" data-def=\"认知的\"\u003ecognitive\u003c/span\u003e decline. The World Health Organization has even classified long-term night-shift work as a probable cause of cancer. There is no waking substitute for what sleep does.", "zh": "缺觉的代价不难测量。清醒十七到十九小时后，实验室测试中的反应速度和注意力会降到相当于血液酒精浓度 0.05% 的水平；继续不睡，这个对比会更糟。司机是一个熟悉的提醒：每晚睡不足六小时，与发生车祸的风险显著升高相关。把时间拉长到数年，睡眠不佳与抑郁风险升高、免疫力减弱和认知衰退相关。世界卫生组织甚至把长期夜班工作列为可能的致癌因素。清醒状态下没有任何东西能替代睡眠所做的事。"}, {"en": "Naps can help, if they stay short. In a study run with airline pilots for NASA, a nap of about twenty-six minutes improved measured performance by thirty-four percent and alertness by fifty-four percent. Longer naps, however, tend to leave people groggy, and dozing late in the afternoon eats into the natural sleep pressure that makes the coming night deep. The trick is to set an alarm and get up when it rings, since a nap that drifts past forty minutes pulls you into deep sleep and makes waking miserable. For most adults, twenty minutes before three in the afternoon is the sweet spot.", "zh": "小睡有帮助，前提是时间要短。在美国航空航天局（NASA）与民航飞行员合作的一项研究中，约二十六分钟的小睡使受测表现提高了百分之三十四，警觉度提高了百分之五十四。然而，睡得更久往往让人昏沉，下午晚些时候打盹还会消耗掉那种让当晚睡得更深的自然睡眠压力。诀窍是设好闹钟，一响就起，因为一旦迷迷糊糊睡过四十分钟，人会被拖入深睡，醒来会格外难受。对大多数成年人来说，下午三点前睡二十分钟是最佳选择。"}, {"en": "What actually protects a night's sleep is far simpler than the shelves of sleep products suggest. Going to bed and getting up at roughly the same time, weekends included, matters more than counting total hours. Morning daylight and daytime exercise strengthen the body clock; bright screens and caffeine within six hours of bedtime work against it. A cool room, around eighteen degrees Celsius, supports the drop in body temperature that begins sleep. None of this is dramatic. It is simply the price of admission to the night shift.", "zh": "真正保护一夜睡眠的做法，远比货架上那些助眠产品所暗示的要简单。大约在同一时间上床和起床——包括周末——比计算总睡眠时长更重要。清晨的阳光和白天的运动能强化生物钟；而睡前六小时内的明亮屏幕和咖啡因则与之作对。凉爽的房间，大约十八摄氏度，有助于入睡时体温的下降。这些都不算什么戏剧性的办法，它们只是进入这场夜班所需的门票钱。"}, {"en": "People often treat sleep as the leftover part of the day, the thing to cut when a deadline looms. The biology says otherwise. While you lie still, your brain is clearing waste, filing memories and steadying your mood — work that cannot be postponed or handed to someone else. The night shift never takes a night off. The only question is whether you let it do its job.", "zh": "人们常常把睡眠当作一天中剩余的部分，是在截止日期逼近时最先砍掉的东西。生物学给出的答案恰恰相反。当你静静躺着时，你的大脑正在清除废物、归档记忆、稳定情绪——这些工作无法推迟，也无法交给别人。这场夜班从不休假。唯一的问题是：你是否让它完成自己的工作。"}], "questions": [{"q": "What is the main idea of the passage?", "options": ["Sleep is a passive state in which the brain shuts down to save energy.", "The sleeping brain carries out essential maintenance work that waking hours cannot replace.", "Sleep problems can be solved mainly by buying better sleep products.", "Night-shift workers are the only group that needs to worry about sleep loss."], "answer": 1, "explain": "全文从废物清除、记忆巩固、情绪调节三个角度说明睡眠对大脑的必要维护作用，并在结尾强调这些工作无法被清醒状态替代，故选 B。A 正是第一段明确否定的常见误解；C 与第八段相反，作者认为真正有效的做法比助眠产品简单得多；D 曲解第六段，原文只是说夜班工作者风险更高，并未说只有他们需要担心。"}, {"q": "According to paragraph 2, what does the glymphatic system do?", "options": ["It stores new facts in the hippocampus during REM sleep.", "It raises body temperature so that brain cells can divide.", "It washes cerebrospinal fluid through the brain and clears waste such as amyloid beta.", "It produces the sticky proteins that protect brain tissue."], "answer": 2, "explain": "第二段说明类淋巴系统在睡眠中让脑脊液冲刷脑细胞间隙，带走淀粉样蛋白等废物，故选 C。A 属于第三段记忆巩固的内容；B 无中生有；D 与原文相反，淀粉样蛋白是被清除的废物，而非保护脑组织的物质。"}, {"q": "Why does staying up all night before an exam usually backfire?", "options": ["Because the brain has been deprived of the state it needs to store new information.", "Because reading at night permanently damages the hippocampus.", "Because the amygdala becomes less sensitive to stress.", "Because caffeine taken at night blocks the glymphatic system."], "answer": 0, "explain": "第四段指出，缺觉会使海马体记录新信息的能力下降约 40%，深睡波消失，因此通宵复习往往适得其反——大脑被剥夺了保存信息所需的状态，故选 A。B 中的 permanently 夸大其词；C 与第五段实验结果相反，缺觉时杏仁核反应更强烈；D 文中并未提及咖啡因与类淋巴系统的关系。"}, {"q": "The word 'consolidation' in paragraph 3 is closest in meaning to ____.", "options": ["the cleaning of chemical waste from brain cells", "the strengthening and long-term storage of memories", "the fading of emotional pain after a bad experience", "the slowing of reaction time caused by lost sleep"], "answer": 1, "explain": "第三段紧接 consolidation 之前的句子说，大脑把脆弱的记忆痕迹逐渐转移到皮层进行长期储存，因此 consolidation 指记忆的巩固与长期储存，故选 B。A 对应类淋巴系统的清洗功能，C 对应 REM 睡眠的情绪作用，D 对应第六段缺觉的后果，均非该词含义。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+const progressKey='englishDaily:progress:'+(ARTICLE.date||'unknown');
+function loadProgress(){
+  try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
+    return value&&value.version===1?value:null; }catch(e){ return null; }
+}
+const progressDefaults={version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,quizFirstScore:null,wordActionCount:0,
+  phraseActionCount:0,learningActionKeys:[],difficultyFeedback:null,
+  feedbackSyncState:null,updatedAt:null};
+let progressState=Object.assign({},progressDefaults,loadProgress()||{});
+if(!Array.isArray(progressState.learningActionKeys))progressState.learningActionKeys=[];
+function saveProgress(patch){
+  progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
+  try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
+  return progressState;
+}
+
+/* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
+const encoder=new TextEncoder();
+function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function storedAccessKey(){ return localStorage.getItem('APP_ACCESS_KEY')||''; }
+function accessKey(){
+  let key=storedAccessKey();
+  if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
+  if(key) localStorage.setItem('APP_ACCESS_KEY',key);
+  return key;
+}
+async function protectedFetch(payload,options={}){
+  const key=options.allowPrompt===false?storedAccessKey():accessKey();
+  if(!key) throw new Error('未提供访问码');
+  const body=JSON.stringify(payload);
+  const timestamp=String(Math.floor(Date.now()/1000));
+  const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
+  const digest=hex(await crypto.subtle.digest('SHA-256',encoder.encode(body)));
+  const cryptoKey=await crypto.subtle.importKey('raw',encoder.encode(key),
+    {name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature=hex(await crypto.subtle.sign('HMAC',cryptoKey,
+    encoder.encode(timestamp+'\n'+nonce+'\n'+digest)));
+  const response=await fetch(TTS_API,{method:'POST',headers:{
+    'Content-Type':'application/json','X-App-Timestamp':timestamp,
+    'X-App-Nonce':nonce,'X-App-Signature':signature},body});
+  if(response.status===401||response.status===403){
+    localStorage.removeItem('APP_ACCESS_KEY');
+    throw new Error('访问码无效或已过期，请重新输入');
+  }
+  return response;
+}
+
+/* ========== 自适应难度反馈：只上传聚合计数 ========== */
+const feedbackQueueKey='englishDaily:feedback:pending';
+const feedbackStatus=document.getElementById('feedback-status');
+const feedbackButtons=[...document.querySelectorAll('.difficulty-scale button')];
+function readFeedbackQueue(){
+  try{ const queue=JSON.parse(localStorage.getItem(feedbackQueueKey)||'{}');
+    return queue&&typeof queue==='object'&&!Array.isArray(queue)?queue:{}; }
+  catch(e){ return {}; }
+}
+function writeFeedbackQueue(queue){
+  try{ localStorage.setItem(feedbackQueueKey,JSON.stringify(queue)); }catch(e){}
+}
+function learningFeedbackPayload(){
+  return {op:'feedback_put',article_date:ARTICLE.date,
+    difficulty:progressState.difficultyFeedback||null,
+    completed:!!progressState.completed,
+    quiz_first_score:Number.isInteger(progressState.quizFirstScore)?progressState.quizFirstScore:null,
+    quiz_total:Number.isInteger(progressState.quizFirstScore)?Number(progressState.quizTotal||0):0,
+    word_action_count:Number(progressState.wordActionCount||0),
+    phrase_action_count:Number(progressState.phraseActionCount||0)};
+}
+function hasMeaningfulFeedback(payload){
+  return !!(payload&&(payload.difficulty||payload.completed||
+    Number.isInteger(payload.quiz_first_score)||
+    Number(payload.word_action_count)>0||Number(payload.phrase_action_count)>0));
+}
+function queueLearningFeedback(payload){
+  if(!hasMeaningfulFeedback(payload))return false;
+  const queue=readFeedbackQueue(); queue[payload.article_date]=payload; writeFeedbackQueue(queue);
+  if(payload.article_date===ARTICLE.date)saveProgress({feedbackSyncState:'pending'});
+  return true;
+}
+function queueCurrentLearningFeedback(){
+  return queueLearningFeedback(learningFeedbackPayload());
+}
+function renderDifficultyFeedback(){
+  feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
+    String(button.dataset.value===progressState.difficultyFeedback)));
+}
+function trendText(trend){
+  return trend==='harder'?'后续会稍微提高难度':
+    trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
+}
+let feedbackSyncPromise=null;
+async function drainLearningFeedback(interactive){
+  let sentCurrent=false,lastProfile=null;
+  while(true){
+    const queue=readFeedbackQueue();
+    const dates=Object.keys(queue).sort();
+    if(!dates.length)return true;
+    const articleDate=dates[0],payload=queue[articleDate];
+    if(!hasMeaningfulFeedback(payload)){
+      delete queue[articleDate]; writeFeedbackQueue(queue); continue;
+    }
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    interactive=false;
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const latestQueue=readFeedbackQueue();
+    const latest=latestQueue[articleDate];
+    if(latest&&JSON.stringify(latest)===JSON.stringify(payload)){
+      delete latestQueue[articleDate]; writeFeedbackQueue(latestQueue);
+      if(articleDate===ARTICLE.date){
+        sentCurrent=true; lastProfile=result.profile||null;
+        saveProgress({feedbackSyncState:'synced'});
+      }
+    }
+    if(sentCurrent)feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(lastProfile&&lastProfile.trend);
+    else feedbackStatus.textContent='历史待同步记录已补传';
+  }
+}
+async function syncLearningFeedback(interactive=false){
+  const queued=readFeedbackQueue();
+  if(!Object.keys(queued).length)return true;
+  if(!interactive&&!storedAccessKey()){
+    feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
+    return false;
+  }
+  if(!cloudOn){
+    feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
+    return false;
+  }
+  if(feedbackSyncPromise)return feedbackSyncPromise;
+  feedbackStatus.textContent='正在记录…';
+  feedbackSyncPromise=drainLearningFeedback(interactive);
+  try{ return await feedbackSyncPromise; }
+  catch(e){
+    feedbackStatus.textContent=storedAccessKey()?
+      '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
+    return false;
+  }finally{
+    feedbackSyncPromise=null;
+  }
+}
+let feedbackSyncTimer=0;
+function scheduleLearningFeedbackSync(){
+  clearTimeout(feedbackSyncTimer);
+  feedbackSyncTimer=setTimeout(()=>syncLearningFeedback(false),700);
+}
+function recordLearningAction(text){
+  const normalized=(text||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!normalized)return;
+  const type=/\s/.test(normalized)?'phrase':'word';
+  const key=type+':'+normalized;
+  const keys=progressState.learningActionKeys.slice(0,199);
+  if(keys.includes(key))return;
+  keys.push(key);
+  saveProgress({learningActionKeys:keys,
+    wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
+    phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+feedbackButtons.forEach(button=>button.onclick=()=>{
+  saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
+  queueCurrentLearningFeedback(); renderDifficultyFeedback(); syncLearningFeedback(true);
+});
+renderDifficultyFeedback();
+const initialFeedbackQueue=readFeedbackQueue();
+if(Object.keys(initialFeedbackQueue).length){
+  feedbackStatus.textContent='上次记录正在等待同步';
+  scheduleLearningFeedbackSync();
+}
+addEventListener('online',scheduleLearningFeedbackSync);
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ return new Promise(resolve=>{ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); }); }
+
+const clipCache=new Map(); let curAudio=null, token=0, activeParagraph=-1;
+function setSpeakingState(index){
+  activeParagraph=typeof index==='number'?index:-1;
+  document.querySelectorAll('.para').forEach((p,i)=>{
+    p.classList.toggle('speaking',i===activeParagraph);
+    if(i===activeParagraph)p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
+  const mobile=document.getElementById('mobile-play');
+  mobile.textContent=activeParagraph>=0?'⏹ 停止':'▶ 朗读';
+  mobile.setAttribute('aria-pressed',String(activeParagraph>=0));
+}
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  setSpeakingState(-1); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await protectedFetch({text,voice});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl, paragraphIndex){
+  if(!text) return; stopAll(); const my=token;
+  if(typeof paragraphIndex==='number')setSpeakingState(paragraphIndex);
+  else if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ await speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ await speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token){ if(hiEl)hiEl.classList.remove('speaking'); setSpeakingState(-1); } }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.setAttribute('data-paragraph',String(i));
+  const en=document.createElement('div'); en.className='en'; en.lang='en-US'; en.innerHTML=p.en;
+  const tools=document.createElement('div'); tools.className='ptools';
+  const toggle=document.createElement('button'); toggle.className='icbtn tz';
+  toggle.textContent='中/英'; tools.appendChild(toggle);
+  const speak=document.createElement('button'); speak.className='icbtn para-play';
+  speak.textContent='🔊 朗读本段'; speak.setAttribute('aria-label','朗读第 '+(i+1)+' 段');
+  speak.onclick=()=>startParagraph(i); tools.appendChild(speak);
+  const zh=document.createElement('div'); zh.className='zh'; zh.lang='zh-CN'; zh.textContent = p.zh;
+  div.append(en,tools,zh);
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function paragraphText(index){ return document.querySelectorAll('.para')[index]?.querySelector('.en')?.textContent||''; }
+function startParagraph(index){ play(paragraphText(index),document.querySelectorAll('.para')[index],index); }
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
+
+/* ========== 本机阅读进度 ========== */
+const progressBar=document.getElementById('read-progress');
+const resumeBox=document.getElementById('continue-reading');
+const mobilePanel=document.getElementById('mobile-panel');
+function nearestParagraph(){
+  const paras=[...document.querySelectorAll('.para')]; let best=0,dist=Infinity;
+  paras.forEach((p,i)=>{ const d=Math.abs(p.getBoundingClientRect().top-innerHeight*.42);
+    if(d<dist){dist=d;best=i;} }); return best;
+}
+function updateReadingProgress(){
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
+  progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
+  const lastParagraph=nearestParagraph();
+  const justCompleted=!progressState.completed&&ratio>=.92;
+  saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  if(justCompleted){queueCurrentLearningFeedback();scheduleLearningFeedbackSync();}
+  const toolbar=document.querySelector('.toolbar');
+  document.getElementById('mobile-float').classList.toggle('visible',
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
+}
+let progressFrame=0;
+addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{
+  progressFrame=0; updateReadingProgress(); }); },{passive:true});
+addEventListener('resize',updateReadingProgress);
+if(progressState.ratio>.05&&!progressState.completed) resumeBox.classList.add('show');
+document.getElementById('resume-reading').onclick=()=>{
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+document.getElementById('restart-reading').onclick=()=>{
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null});
+  scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+updateReadingProgress();
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+const quizSummary=document.getElementById('quiz-summary');
+let quizScore=0,answeredCount=0,incorrectQuestions=[];
+function updateQuizSummary(){
+  if(!QS.length)return;
+  if(answeredCount<QS.length){ document.getElementById('quiz-result').textContent=
+    '已完成 '+answeredCount+' / '+QS.length; return; }
+  const percent=Math.round(quizScore/QS.length*100);
+  document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
+    (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
+  quizSummary.classList.add('show');
+  const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
+  saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1'; answeredCount++;
+        if(oi===ans)quizScore++; else{incorrectQuestions.push(qi);card.dataset.incorrect='true';}
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); updateQuizSummary(); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+if(QS.length&&progressState.quizScore!==null&&progressState.quizTotal===QS.length){
+  document.getElementById('quiz-result').textContent='上次得分 '+progressState.quizScore+' / '+QS.length;
+  quizSummary.classList.add('show');
+}
+let wrongOnly=false;
+document.getElementById('quiz-wrong').onclick=()=>{ wrongOnly=!wrongOnly;
+  document.querySelectorAll('.quiz .q').forEach(card=>card.style.display=
+    wrongOnly&&card.dataset.incorrect!=='true'?'none':'');
+  document.getElementById('quiz-wrong').textContent=wrongOnly?'显示全部':'只看错题'; };
+document.getElementById('quiz-reset').onclick=()=>{
+  quizScore=0;answeredCount=0;incorrectQuestions=[];wrongOnly=false;
+  document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
+    delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
+      b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:QS.length}); };
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  tgZh.textContent=on?'隐藏中文':'显示中文'; tgZh.setAttribute('aria-pressed',String(on));
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标';
+  tgIpa.setAttribute('aria-pressed',String(ipaOn)); };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark);
+  tgTheme.setAttribute('aria-pressed',String(dark)); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+document.getElementById('access-key').onclick=()=>{
+  localStorage.removeItem('APP_ACCESS_KEY');
+  if(accessKey()){ toast('访问码已保存'); scheduleLearningFeedbackSync(); }
+};
+function toggleMore(){ const open=mobilePanel.classList.toggle('open');
+  document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
+document.getElementById('toolbar-more').onclick=toggleMore;
+document.getElementById('mobile-more').onclick=toggleMore;
+document.getElementById('mobile-play').onclick=()=>{
+  if(activeParagraph>=0)stopAll(); else startParagraph(nearestParagraph()); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await protectedFetch({op:'maimemo',text});
+    const j=await r.json();
+    if(j.ok){ recordLearningAction(text);
+      toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+let phraseStart=null, phraseEnd=null, phraseTokens=[];
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function cleanPhraseEdge(text){
+  return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,'');
+}
+function phraseFromTokens(tokens){
+  return cleanPhraseEdge(tokens.map(t=>cleanPhraseEdge(t.dataset.w||t.textContent))
+    .filter(Boolean).join(' '));
+}
+function clearPhraseHighlight(){
+  phraseTokens.forEach(t=>t.classList.remove('phrase-selected'));
+  phraseTokens=[];
+}
+function clearSel(){
+  clearPhraseHighlight(); phraseStart=null; phraseEnd=null; selText='';
+  selbar.classList.remove('phrase-mode','phrase-ready');
+  document.getElementById('phrase-preview').textContent='';
+  document.getElementById('phrase-hint').textContent='';
+  selbar.style.display='none';
+}
+function exitPhraseMode(){ clearSel(); }
+function enterPhraseMode(){
+  if(!phraseStart) return;
+  clearPhraseHighlight(); phraseTokens=[phraseStart];
+  phraseStart.classList.add('phrase-selected'); selText='';
+  selbar.classList.add('phrase-mode'); selbar.classList.remove('phrase-ready');
+  document.getElementById('phrase-hint').textContent='请选择短语最后一个词';
+  selbar.style.display='flex';
+}
+function selectPhraseEnd(end){
+  const start=phraseStart;
+  if(!start||start.closest('.en')!==end.closest('.en')){
+    toast('短语需在同一段内'); exitPhraseMode(); return;
+  }
+  const siblings=[...start.closest('.en').querySelectorAll('.tok')];
+  const a=siblings.indexOf(start), b=siblings.indexOf(end);
+  const selected=siblings.slice(Math.min(a,b),Math.max(a,b)+1);
+  if(selected.length<2){ toast('请再选择一个词'); return; }
+  if(selected.length>10){ toast('短语最多 10 个词'); return; }
+  clearPhraseHighlight(); phraseTokens=selected; phraseEnd=end;
+  phraseTokens.forEach(t=>t.classList.add('phrase-selected'));
+  selText=phraseFromTokens(phraseTokens);
+  document.getElementById('phrase-preview').textContent=selText;
+  selbar.classList.add('phrase-ready');
+}
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  clearSel(); phraseStart=tok;
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
+}, true);
+artEl.addEventListener('click',e=>{
+  if(!selbar.classList.contains('phrase-mode')) return;
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok) return;
+  e.preventDefault(); e.stopPropagation(); selectPhraseEnd(tok);
+},true);
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+document.getElementById('sel-phrase').onclick=e=>{ e.stopPropagation(); enterPhraseMode(); };
+document.getElementById('phrase-add').onclick=e=>{
+  e.stopPropagation(); if(selText){ doAdd(selText); exitPhraseMode(); }
+};
+document.getElementById('phrase-cancel').onclick=e=>{ e.stopPropagation(); exitPhraseMode(); };
+document.addEventListener('click',e=>{
+  if(!e.target.closest||e.target.closest('#selbar')) return;
+  if(selbar.classList.contains('phrase-mode')&&e.target.closest('.tok')) return;
+  clearSel();
+},true);
+document.addEventListener('scroll',()=>{
+  if(!selbar.classList.contains('phrase-mode')) clearSel();
+},true);
+
+</script>
+</body>
+</html>
