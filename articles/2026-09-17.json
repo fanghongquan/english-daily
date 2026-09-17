@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-17",
+  "level": "CET-4",
+  "title": "One Bee, A Thousand Flowers: How Pollination Really Works",
+  "title_zh": "一只蜜蜂，千朵花：授粉究竟如何运作",
+  "intro_zh": "本文约1000词，围绕蜜蜂如何为植物授粉展开，从蜜蜂的身体结构、访花习惯、花的吸引信号，到震动授粉、农业价值以及蜜蜂面临的挑战，层层说明这一看似微小却支撑人类食物的自然过程。",
+  "paragraphs": [
+    {
+      "en": "On a warm spring morning, a garden seems quiet. But look closely at a patch of flowers, and you will see a small, striped insect moving from bloom to bloom. A honeybee may visit hundreds of flowers in a single trip. She is not doing this to help the plants. She is looking for food. Yet every time she lands, something important happens: a tiny grain of pollen sticks to her body and is carried to the next flower. This simple act, repeated billions of times a day, keeps many of the world's plants alive. To understand how bees <span class=\"kw\" data-ipa=\"ˈpɑːləneɪt\" data-def=\"为…授粉；传授花粉\">pollinate</span> plants, we need to follow both the bee and the pollen.",
+      "zh": "在一个温暖的春日早晨，花园看上去很安静。但如果你仔细观察一片花丛，就会看到一只小小的、带条纹的昆虫在花朵间飞来飞去。一只蜜蜂一次出行可能拜访数百朵花。她这样做不是为了帮助植物，而是在寻找食物。然而，每当她降落，一件重要的事就发生了：一粒微小的花粉粘在她身上，被带到下一朵花。这个简单的动作每天重复数十亿次，维系着世界上许多植物的生命。要理解蜜蜂如何为植物授粉，我们需要同时追踪蜜蜂和花粉。"
+    },
+    {
+      "en": "Flowers and bees have a business deal. The flower offers food: <span class=\"kw\" data-ipa=\"ˈnektər\" data-def=\"花蜜\">nectar</span>, a sweet liquid produced deep inside the flower, and pollen, a powdery material that contains the flower's male cells. The bee needs nectar for energy and pollen for protein. In return, the bee moves pollen from the male part of a flower, called the stamen, to the female part, called the stigma. This transfer is called pollination. When pollen lands on the stigma of a flower of the same species, the plant can make seeds. Without pollination, many plants would produce no fruit, no vegetables, and no seeds for the next generation.",
+      "zh": "花和蜜蜂之间有一笔交易。花提供食物：花蜜，一种在花深处产生的甜液，以及花粉，一种含有植物雄性细胞的粉末状物质。蜜蜂需要花蜜来获取能量，需要花粉来获取蛋白质。作为回报，蜜蜂把花粉从花的雄性部分，即雄蕊，搬到雌性部分，即雌蕊。这一转移过程就叫授粉。当花粉落到同一种花的雌蕊上时，植物就能结出种子。没有授粉，许多植物就不会结果实、不会长蔬菜，也不会产生下一代的种子。"
+    },
+    {
+      "en": "For a bee, pollen is not a light dust that blows away. It is sticky and often covered with tiny spines. A honeybee's body is covered with branched hairs that hold pollen like a soft brush. When she pushes into a flower to reach the nectar, grains of <span class=\"kw\" data-ipa=\"ˈpɑːlən\" data-def=\"花粉\">pollen</span> stick to her head, back, and legs. She also has special structures on her hind legs called pollen baskets. In these baskets, she packs pollen into small balls to carry back to the hive. This pollen is food for the colony. But some of it falls off or is rubbed onto the next flower she visits. In this way, the bee becomes a living delivery truck, moving male cells from one flower to another.",
+      "zh": "对蜜蜂来说，花粉不是一吹就散的轻尘。它很黏，还常常带有微小的刺。蜜蜂的身体覆盖着分枝状的毛，像一把柔软的刷子一样能留住花粉。当她钻进花朵去够花蜜时，花粉粒会粘在她的头、背和腿上。她的后腿上还有被称为花粉篮的特殊结构。在这些花粉篮里，她把花粉压成小球，带回蜂巢。这些花粉是整个蜂群的食物。但其中一些会掉落，或者被蹭到她拜访的下一朵花上。就这样，蜜蜂成了一辆活体送货车，把雄性细胞从一朵花运到另一朵花。"
+    },
+    {
+      "en": "Bees are careful workers. Research shows that a single bee often visits only one kind of flower during a trip. This behavior is called flower constancy. It may seem inefficient, because the bee passes many other flowers. But it is very good for the plants. If a bee mixed pollen from roses and apples, the apple flower would receive the wrong pollen and could not make seeds. By staying loyal to one flower type, the bee makes sure that pollen reaches the right species. Flower constancy also helps the bee, because she learns how to open one kind of flower and can collect nectar faster.",
+      "zh": "蜜蜂是细心的劳动者。研究表明，一只蜜蜂在一次出行中通常只拜访一种花。这种行为被称为“花恒常性”。这看起来可能效率不高，因为蜜蜂会路过许多其他花。但它对植物非常有利。如果一只蜜蜂把玫瑰和苹果的花粉混在一起，苹果花就会接收到错误的花粉，无法结出种子。通过忠实于一种花，蜜蜂确保花粉到达正确的物种。花恒常性对蜜蜂也有好处，因为她学会如何打开一种花后，就能更快地采集花蜜。"
+    },
+    {
+      "en": "Flowers, in turn, have evolved ways to attract bees. Many flowers are blue or yellow, colors that bees can see well. Bees can also see ultraviolet light, which humans cannot. Some flowers have special ultraviolet patterns, like landing lights on an airport runway, guiding the bee to the center where nectar is stored. <span class=\"kw\" data-ipa=\"sent\" data-def=\"气味；香味\">Scent</span> is another powerful signal. A flower may release a sweet smell that travels far on the wind. Shape matters too: wide, flat flowers give bees a safe place to land, while deep, narrow flowers may be visited only by bees with long tongues. Some flowers even open only when bees are active.",
+      "zh": "而花也进化出了吸引蜜蜂的方法。许多花是蓝色或黄色的，这些颜色蜜蜂看得很清楚。蜜蜂还能看到人类看不到的紫外线。有些花带有特殊的紫外线图案，就像机场跑道上的着陆灯，引导蜜蜂前往储存花蜜的中心。气味是另一种强有力的信号。一朵花可能释放出甜美的香气，随风飘到很远的地方。形状也很重要：宽而平的花为蜜蜂提供安全的降落地点，而深而窄的花可能只有长舌头的蜜蜂才能拜访。有些花甚至只在蜜蜂活跃时才开放。"
+    },
+    {
+      "en": "Not all pollination happens by accident. Some flowers, such as tomatoes and blueberries, hold their pollen tightly inside a tube. A bee cannot simply brush it out. Instead, she grabs the flower and shakes her flight muscles, making a loud buzzing sound. This is called buzz pollination. The <span class=\"kw\" data-ipa=\"vaɪˈbreɪʃn\" data-def=\"振动\">vibration</span> causes a cloud of pollen to shoot out and cover the bee. Without this special shaking, these flowers would produce little or no fruit. Other bees use a different trick: they scrape pollen from a flower, then move to another flower and leave some behind. Each bee species has its own way of doing the job, and each flower has its own way of inviting them.",
+      "zh": "并非所有授粉都是偶然发生的。有些花，例如番茄和蓝莓，会把花粉紧紧藏在管状结构中。蜜蜂不能简单地把它刷出来。相反，她抓住花朵，振动飞行肌肉，发出响亮的嗡嗡声。这被称为“震动授粉”。振动使一团花粉喷射出来，覆盖在蜜蜂身上。没有这种特殊的振动，这些花几乎不会结果实，或者根本不结果实。其他蜜蜂则使用不同的技巧：它们从一朵花上刮下花粉，然后飞到另一朵花，留下一些花粉。每种蜜蜂都有自己的工作方式，每种花也有自己邀请它们的方式。"
+    },
+    {
+      "en": "Bees are not the only pollinators. Butterflies, moths, birds, bats, and even some flies also move pollen. But bees are especially important for agriculture. They are active in large numbers, they visit many flowers, and they can be managed by farmers. <span class=\"kw\" data-ipa=\"krɑːps\" data-def=\"农作物\">Crops</span> such as apples, cucumbers, almonds, and strawberries depend heavily on bee pollination. In California, almond growers bring in millions of honeybee hives each spring. The bees do not just make honey; they help produce the food we eat. Scientists estimate that about one out of every three bites of food we take depends on animal pollination, and bees do much of that work.",
+      "zh": "蜜蜂并不是唯一的授粉者。蝴蝶、飞蛾、鸟类、蝙蝠，甚至一些苍蝇也会传播花粉。但蜜蜂对农业尤其重要。它们数量庞大、活跃，会拜访许多花，而且可以被农民管理。苹果、黄瓜、杏仁和草莓等农作物高度依赖蜜蜂授粉。在加利福尼亚，杏仁种植者每年春天会运来数百万个蜂箱。蜜蜂不仅酿蜜，还帮助生产我们吃的食物。科学家估计，我们每吃三口食物，就大约有一口依赖动物授粉，而蜜蜂承担了其中很大一部分工作。"
+    },
+    {
+      "en": "The value of this service is huge. In 2016, a global science report estimated that animal pollination is worth hundreds of billions of dollars each year. Honeybees alone contribute tens of billions. For farmers, good pollination can mean larger fruit, better shape, and higher profit. For example, a well-pollinated apple may be round and full, while a poorly pollinated one is small and misshapen. For the rest of us, pollination gives us colorful markets, healthy diets, and beautiful gardens. If you enjoy a slice of watermelon in summer, you can thank a bee. The sweet, juicy fruit exists because a bee once carried pollen from one flower to another.",
+      "zh": "这项服务的价值巨大。2016年，一份全球科学报告估计，动物授粉每年价值数千亿美元。仅蜜蜂就贡献了数百亿美元。对农民来说，良好的授粉意味着更大的果实、更好的外形和更高的利润。例如，授粉充分的苹果可能又圆又饱满，而授粉不佳的苹果则又小又畸形。对我们其他人来说，授粉带来色彩缤纷的市场、健康的饮食和美丽的花园。如果你在夏天享受一片西瓜，你可以感谢一只蜜蜂。那甜美多汁的果实之所以存在，是因为一只蜜蜂曾把花粉从一朵花带到另一朵花。"
+    },
+    {
+      "en": "Sadly, bees are in trouble. Pesticides, diseases, loss of wildflowers, and climate change all make life harder for them. Scientists have found that bee populations are falling in many countries. But there is good news: everyone can help. Plant a few bee-friendly flowers on a balcony or in a school garden. Avoid spraying chemicals on flowers. Let some wild plants grow. These small actions create stepping stones for bees, helping them find food and shelter as they move through the landscape. Protecting bees is not just about saving an insect. It is about protecting the quiet, unpaid work that feeds us all.",
+      "zh": "遗憾的是，蜜蜂正陷入困境。农药、疾病、野花减少和气候变化都让它们的生活更加艰难。科学家发现，许多国家的蜜蜂数量正在下降。但好消息是：每个人都能帮忙。在阳台或学校花园里种几株对蜜蜂友好的花。避免在花上喷洒化学药剂。让一些野生植物生长。这些小小的行动为蜜蜂创造了踏脚石，帮助它们在穿梭于景观之间时找到食物和庇护所。保护蜜蜂不只是拯救一种昆虫。它是在保护那份安静、无偿却养活我们所有人的工作。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain how bees pollinate plants and why their work matters.",
+        "To describe the life cycle of a honeybee in detail.",
+        "To compare honeybees with other insects that live in gardens.",
+        "To warn that all flowers will disappear without bees."
+      ],
+      "answer": 0,
+      "explain": "文章从蜜蜂的身体结构、访花习惯、花的信号、震动授粉到农业价值和蜜蜂保护展开，核心是说明蜜蜂如何授粉及其重要性，因此A正确。B蜜蜂生命周期不是重点；C比较其他昆虫只是第七段的一小部分；D过度推断，文中说的是许多植物会受影响，并未说所有花都会消失。"
+    },
+    {
+      "q": "According to the passage, why do flowers provide nectar and pollen?",
+      "options": [
+        "To help bees build their hives.",
+        "To attract bees so that pollen can be transferred.",
+        "To keep bees warm during cold nights.",
+        "To feed butterflies and birds as well."
+      ],
+      "answer": 1,
+      "explain": "第二段指出，花提供花蜜和花粉作为食物，蜜蜂为了能量和蛋白质而采集它们，同时把花粉从雄蕊带到雌蕊，授粉由此发生。可见花提供这些是为了吸引蜜蜂帮助传粉，B正确。A不是花的直接目的；C、D在文中没有依据。"
+    },
+    {
+      "q": "The phrase flower constancy in paragraph 4 probably means that a bee ______.",
+      "options": [
+        "visits only one kind of flower on a trip",
+        "returns to the same flower many times a day",
+        "builds its nest near a flower garden",
+        "collects nectar only in the morning"
+      ],
+      "answer": 0,
+      "explain": "第四段紧接 flower constancy 后就解释：a single bee often visits only one kind of flower during a trip，并说蜜蜂只对一种花忠诚。因此A正确。B、C、D均与原文不符。"
+    },
+    {
+      "q": "What can be inferred from the last paragraph?",
+      "options": [
+        "Bees can live well without any human help.",
+        "Small actions by ordinary people can help bees survive.",
+        "Pesticides are the only cause of bee decline.",
+        "Protecting bees is mainly a job for scientists."
+      ],
+      "answer": 1,
+      "explain": "最后一段指出蜜蜂面临农药、疾病、野花减少和气候变化等问题，但每个人都可帮忙，比如种花、少喷化学药剂、让野草生长。因此可以推断，普通人的小行动也有助于蜜蜂生存，B正确。A与文意相反；C错在 only；D文中未说这主要是科学家的任务。"
+    }
+  ]
+}
