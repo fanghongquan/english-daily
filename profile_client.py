@@ -14,7 +14,7 @@ def default_profile():
         "target_mode": "balanced",
         "ability_score": 50.0,
         "observation_count": 0,
-        "target_words": 900,
+        "target_words": 500,
         "target_new_words": 6,
         "sentence_level": 3,
         "target_comprehension": "85%-90%",
@@ -53,7 +53,9 @@ def _validated_profile(data):
         "ability_score": float(ability),
         "observation_count": _integer(
             profile.get("observation_count"), 0, 100000),
-        "target_words": _integer(profile.get("target_words"), 700, 1100),
+        # 下界放宽到 450：兼容新服务端的固定值 500，也兼容尚未重新部署的旧服务端
+        # （旧公式返回 700-1100）。避免部署窗口期内被拒后静默回退到默认档案。
+        "target_words": _integer(profile.get("target_words"), 450, 1100),
         "target_new_words": _integer(
             profile.get("target_new_words"), 5, 8),
         "sentence_level": _integer(profile.get("sentence_level"), 1, 5),

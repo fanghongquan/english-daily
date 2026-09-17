@@ -62,7 +62,7 @@ class ProfileClientTest(unittest.TestCase):
             first = profile_client.load_profile_from_env()
             second = profile_client.load_profile_from_env()
         first["target_words"] = 1100
-        self.assertEqual(900, second["target_words"])
+        self.assertEqual(500, second["target_words"])
 
     def test_network_and_format_failures_fall_back_without_raising(self):
         failures = (
@@ -75,7 +75,7 @@ class ProfileClientTest(unittest.TestCase):
                     patch("urllib.request.urlopen", side_effect=failure), \
                     redirect_stderr(warning):
                 self.assertEqual(
-                    900,
+                    500,
                     profile_client.fetch_profile(
                         "https://profile.test", TOKEN)["target_words"])
 
@@ -87,7 +87,7 @@ class ProfileClientTest(unittest.TestCase):
             profile = profile_client.fetch_profile(
                 "https://private-profile.test/path", TOKEN)
         output = warning.getvalue()
-        self.assertEqual(900, profile["target_words"])
+        self.assertEqual(500, profile["target_words"])
         self.assertIn("默认平衡档案", output)
         self.assertNotIn(TOKEN, output)
         self.assertNotIn("private-profile.test", output)
@@ -108,7 +108,7 @@ class ProfileClientTest(unittest.TestCase):
                           return_value=FakeResponse(body)), \
                     redirect_stderr(ignored_warning):
                 self.assertEqual(
-                    900,
+                    500,
                     profile_client.fetch_profile(
                         "https://profile.test", TOKEN)["target_words"])
 

@@ -97,7 +97,7 @@ class LearningProfileTest(unittest.TestCase):
         first["recent"].append({"article_date": "changed"})
         self.assertEqual([], second["recent"])
         self.assertEqual(0, second["observation_count"])
-        self.assertEqual(900, second["target_words"])
+        self.assertEqual(500, second["target_words"])
 
     def test_first_three_distinct_articles_use_calibration_step(self):
         profile = scf._default_profile()
@@ -198,7 +198,7 @@ class LearningProfileTest(unittest.TestCase):
                 phrase_action_count=0), NOW)
             profile = scf._update_profile(profile, event, NOW)
         self.assertLessEqual(profile["ability_score"], 80)
-        self.assertLessEqual(profile["target_words"], 1100)
+        self.assertLessEqual(profile["target_words"], 580)
         self.assertLessEqual(profile["target_new_words"], 8)
         self.assertLessEqual(profile["sentence_level"], 5)
 

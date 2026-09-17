@@ -31,7 +31,7 @@ def card(date, title, title_zh, url):
             {"tag": "div", "text": {"tag": "lark_md",
              "content": f"**{title}**\n{title_zh}"}},
             {"tag": "div", "text": {"tag": "lark_md",
-             "content": "约 1000 词 · CET-4 难度 · 段段对照翻译 · 选词/选句可听美式发音"}},
+             "content": "约 500 词 · CET-4 难度 · 段段对照翻译 · 选词/选句可听美式发音"}},
             {"tag": "hr"},
             {"tag": "action", "actions": [{
                 "tag": "button",

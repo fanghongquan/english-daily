@@ -152,7 +152,7 @@ def _default_profile():
         "ability_score": 50.0,
         "base_score": 50.0,
         "observation_count": 0,
-        "target_words": 900,
+        "target_words": 500,
         "target_new_words": 6,
         "sentence_level": 3,
         "target_comprehension": "85%-90%",
@@ -272,8 +272,8 @@ def _clamp(value, low, high):
 
 def _apply_profile_targets(profile):
     score = profile["ability_score"]
-    profile["target_words"] = int(_clamp(
-        round((900 + (score - 50) * 25) / 50) * 50, 700, 1100))
+    # 正文长度固定（不随能力分变化）；难度自适应只体现在新词数和句子复杂度上。
+    profile["target_words"] = 500
     profile["target_new_words"] = int(_clamp(
         round(6 + (score - 50) / 10), 5, 8))
     profile["sentence_level"] = int(_clamp(
