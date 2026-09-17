@@ -168,6 +168,12 @@ def _call_model(prompt: str, temperature: float) -> str:
         client = OpenAI(base_url=os.environ.get("OPENAI_BASE_URL"))
         r = client.chat.completions.create(
             model=os.environ.get("OPENAI_MODEL", "gpt-4o-mini"),
+            # 必须显式给上限：DeepSeek 的模型输出里含 reasoning token，与正文
+            # 争抢同一份额度。实测一篇文章用掉 7105 个输出 token，其中 5197 个
+            # 是推理，正文只占约 1900 —— 不设上限时贴着默认值跑，某天推理稍长
+            # 就会把 JSON 截断，四次重试全废、当天断更。16384 是实测用量的两倍
+            # 以上，留足余量。
+            max_tokens=16384,
             response_format={"type": "json_object"},   # DeepSeek/OpenAI JSON 模式更稳
             temperature=temperature,
             messages=[{"role": "system", "content": SYS},
