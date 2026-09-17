@@ -9,3 +9,6 @@ __pycache__/
 .superpowers/
 scf/*.zip
 scf/zibSzbxm
+
+# Claude Code 本地文件（提醒、配置等），不属于项目
+.claude/

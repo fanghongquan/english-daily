@@ -53,6 +53,25 @@ class ArticleValidationTest(unittest.TestCase):
         with self.assertRaisesRegex(ArticleValidationError, "word count"):
             prepare_article(data, expected_date=data["date"])
 
+    def test_prepare_article_corrects_word_count_claim_in_intro(self):
+        # valid_article() 的正文固定是 574 词，模型写的 900 应被改成真实值
+        data = valid_article()
+        data["intro_zh"] = "本文约 900 词，用于测试。"
+        clean = prepare_article(data, expected_date=data["date"])
+        self.assertEqual("本文约 574 词，用于测试。", clean["intro_zh"])
+
+    def test_prepare_article_leaves_other_word_mentions_alone(self):
+        for intro in (
+            "本文用于测试，含 6 个重点词。",
+            "这是一篇 CET-4 难度的文章。",
+            "共 9 个自然段，围绕测试展开。",
+        ):
+            with self.subTest(intro=intro):
+                data = valid_article()
+                data["intro_zh"] = intro
+                clean = prepare_article(data, expected_date=data["date"])
+                self.assertEqual(intro, clean["intro_zh"])
+
     def test_prepare_article_removes_event_handlers_and_escapes_unknown_tags(self):
         data = valid_article()
         data["paragraphs"][0]["en"] = (
