@@ -92,7 +92,6 @@ class GenerationRetryTest(unittest.TestCase):
         }
         prompt = get_article._build_prompt("2026-07-11", profile=profile)
         for marker in (
-            "正文目标：约 1000 词",
             "新词目标：约 7 个",
             "句子复杂度：4 / 5",
             "理解目标：85%-90%",
@@ -101,6 +100,25 @@ class GenerationRetryTest(unittest.TestCase):
             self.assertIn(marker, prompt)
         self.assertNotIn("每段挑 2-3 个", prompt)
         self.assertIn("重点词总量服从后面的个人阅读难度目标", prompt)
+
+    def test_prompt_word_count_does_not_follow_the_profile(self):
+        """字数只由固定规则决定，不随档案漂移。
+
+        服务端曾按能力分返回 700-1100 的 target_words。旧提示词把它插进正文
+        目标，于是模型同时收到「约 1000 词」和「严格控制在 500-580 词」两条
+        矛盾指令，字数就会往中间飘。字数是用户自己定的，不该被档案改回去。
+        """
+        base = {
+            "target_new_words": 6, "sentence_level": 3,
+            "target_comprehension": "85%-90%", "trend": "stable",
+        }
+        low = get_article._build_prompt(
+            "2026-07-11", profile=dict(base, target_words=500))
+        high = get_article._build_prompt(
+            "2026-07-11", profile=dict(base, target_words=1000))
+        self.assertEqual(low, high)
+        self.assertIn("500-580", low)
+        self.assertNotIn("约 1000 词", high)
 
     def test_retries_when_generated_article_fails_validation(self):
         short = copy.deepcopy(valid_article())

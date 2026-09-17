@@ -135,14 +135,12 @@ def _build_prompt(date: str, profile=None, news=None) -> str:
     }.get(profile.get("trend"), "保持当前难度")
     learner_target = """
 
-【个人阅读难度目标（优先于上面的通用字数范围，但仍不得少于 500 词）】
-- 正文目标：约 %(target_words)s 词（严格控制在 500-580 词，绝不能少于 500 词）
+【个人阅读难度目标（只调难度，不改字数——字数固定见上）】
 - 新词目标：约 %(target_new_words)s 个真正影响理解的 CET-4 核心词
 - 句子复杂度：%(sentence_level)s / 5
 - 理解目标：%(target_comprehension)s
 - 近期趋势：%(trend)s
 请只调整语言难度，不降低内容的信息量，也不要在文章或 JSON 中提到学习档案。""" % {
-        "target_words": profile["target_words"],
         "target_new_words": profile["target_new_words"],
         "sentence_level": profile["sentence_level"],
         "target_comprehension": profile["target_comprehension"],
