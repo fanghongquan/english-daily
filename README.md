@@ -138,9 +138,15 @@ python daily.py --source ai
 
 ## 内容来源（你选了「抓取真题/外刊」，请先看这里）
 
-`get_article.py` 提供两种来源：
+`get_article.py` 提供三种来源：
 
-- `--source ai`（**默认，推荐**）：用大模型按四级难度现写一篇，配好翻译、重点词、音标，
+- `--source news`（**推荐，每日推送默认用这个**）：从下面这些 RSS 源抓近期新闻，
+  把标题和摘要当**素材**喂给大模型，改写成四级难度的文章，并在网页上署名出处。
+  取不到合适素材时自动回退成 `--source ai`，不会断更。
+  - 国内可达、内容偏社会文化/科普：Sixth Tone（澎湃英文）、CGTN 文化版、CGTN 自然版
+  - 国际源（本机实测可达）：ScienceDaily、Phys.org、NPR
+  - 自动过滤时政外交与灾难/犯罪/战争类题材（`news_source.py` 顶部的词表可自行增删）
+- `--source ai`（默认值）：用大模型按四级难度现写一篇，配好翻译、重点词、音标，
   内容版权归你，零风险。配 `ANTHROPIC_API_KEY` 或任意 OpenAI 兼容 key（DeepSeek、
   通义、Kimi 等都行）即可。
 - `--source scrape`：抓取外刊/真题。**⚠️ 版权提醒**：四级真题、The Economist、
@@ -150,7 +156,9 @@ python daily.py --source ai
 
   `gen_scrape()` 目前是占位实现，按上面思路自行接入即可。
 
-> 我的建议：日常推送用 `--source ai` 最稳，质量可控、无版权顾虑；
+> `--source news` 与 `gen_scrape()` 的区别：前者只取新闻的标题和摘要做**改写素材**
+> （不抓正文、不整篇转发，改写后文字版权属于自己），做法就是下面第 2 条。
+
 > 想练真题时再单独抓取做合规处理。
 
 ---
@@ -166,8 +174,13 @@ open site/2026-06-13.html      # macOS；其他系统用浏览器打开
 python get_article.py --source ai
 python build.py
 
+# 抓近期新闻改写（不需要 key 就能试抓取，看选到哪条素材）
+python news_source.py
+python get_article.py --source news
+python build.py
+
 # 一键生成+构建+推飞书（需 export SITE_BASE_URL / FEISHU_WEBHOOK ...）
-python daily.py --source ai
+python daily.py --source news
 python daily.py --no-push       # 调试时只生成不推送
 ```
 

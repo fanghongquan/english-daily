@@ -67,7 +67,7 @@ jobs:
         run: |
           FORCE=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then FORCE="--force"; fi
-          python daily.py --source ai --date "$RUN_DATE" --no-push $FORCE
+          python daily.py --source news --date "$RUN_DATE" --no-push $FORCE
           if [ -n "$FORCE" ]; then rm -f "state/$RUN_DATE.json"; fi
 
       - name: Commit generated pages
@@ -100,7 +100,7 @@ jobs:
           TTS_API_URL: ${{ vars.TTS_API_URL }}
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
           FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
-        run: python daily.py --source ai --date "$RUN_DATE"
+        run: python daily.py --source news --date "$RUN_DATE"
 
       - name: Commit delivery state
         run: |

@@ -4,6 +4,7 @@ import datetime
 import html
 import re
 from html.parser import HTMLParser
+from urllib.parse import urlparse
 
 
 class ArticleValidationError(ValueError):
@@ -83,6 +84,33 @@ def _correct_word_claim(intro: str, word_count: int) -> str:
         lambda m: f"{m.group(1)}{word_count}{m.group(3)}", intro)
 
 
+def _validate_source(result: dict) -> None:
+    """校验可选的 source 字段（新闻出处）。
+
+    刻意**不做成必填**：200+ 篇历史 JSON 和三个测试文件共用的夹具都没有这个
+    字段，一旦必填会同时失效。只在字段存在时校验。
+
+    url 采用白名单：只放行 http/https。新闻标题与来源是外部不可信输入，而
+    javascript: / data: 正是链接注入的载体。
+    """
+    source = result.get("source")
+    if source is None:
+        return
+    if not isinstance(source, dict):
+        raise ArticleValidationError("article.source must be an object")
+    for key in ("name", "title"):
+        value = source.get(key)
+        if not isinstance(value, str) or not value.strip():
+            raise ArticleValidationError(
+                f"article.source.{key} must be non-empty text")
+    url = source.get("url")
+    if not isinstance(url, str):
+        raise ArticleValidationError("article.source.url must be text")
+    parsed = urlparse(url)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        raise ArticleValidationError("article.source.url must be an http(s) URL")
+
+
 def prepare_article(data: dict, expected_date: str | None = None) -> dict:
     """Return a deep-copied, validated article with sanitized paragraph HTML."""
     if not isinstance(data, dict):
@@ -98,6 +126,7 @@ def prepare_article(data: dict, expected_date: str | None = None) -> dict:
         raise ArticleValidationError(
             f"article.date {result['date']!r} does not match {expected_date!r}"
         )
+    _validate_source(result)
 
     paragraphs = result.get("paragraphs")
     if not isinstance(paragraphs, list) or not 7 <= len(paragraphs) <= 12:
