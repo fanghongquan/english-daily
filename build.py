@@ -75,7 +75,7 @@ ARCHIVE_TMPL = """<!DOCTYPE html>
   <div class="list">
 __ROWS__
   </div>
-  <footer>每天 12:13 自动更新 · 选词发音 / 划词翻译 / 一键存墨墨</footer>
+  <footer>每天早上 8:40 左右自动更新 · 选词发音 / 划词翻译 / 一键存墨墨</footer>
 </div>
 <script>
   (function(){var d=document.documentElement.getAttribute('data-theme')==='dark';
