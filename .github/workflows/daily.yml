@@ -3,14 +3,16 @@ name: daily-english
 on:
   schedule:
     # GitHub 定时是“尽力而为”，整点/逢5的分钟最拥堵，常被延迟或丢弃。
-    # 本仓库实测被**稳定推迟约 5 小时**：2026-09-13~17 共 14 次运行，
-    # 配置的是 UTC 04:13/04:37/05:07，实际全部落在 UTC 09:15-10:30
-    # （北京 17:15-18:30），无一例外。所以槽位要比目标时间提前约 5 小时。
-    # 下面的槽位目标：北京时间 08:40 左右送达。
+    # 槽位是按**实测延迟**反推的，已经改过一次，别再照抄旧注释：
+    #   2026-09-13~17  槽位 UTC 04:13/04:37/05:07 → 实际 09:15-10:30，延迟约 5 小时
+    #   2026-09-18~21  槽位 UTC 19:38/20:03/20:33 → 实际 21:43-23:32，延迟约 2-3 小时
+    # 延迟不固定：同一天三个槽位基本一致，但不同天能差 1 小时，所以只能按
+    # 中位数反推，做不到精确到分钟。若实测偏离超过半小时，就整体平移槽位。
+    # 下面的槽位目标：北京时间 08:40 左右送达（= UTC 00:40）。
     # 用冷门分钟 + 多个备用时段，靠 daily.py 的当日去重保证只推一次。
-    - cron: "38 19 * * *"   # 北京 03:38 触发 → 预计 08:40 送达（主推）
-    - cron: "3 20 * * *"    # 北京 04:03 触发 → 预计 09:03 送达（备用①）
-    - cron: "33 20 * * *"   # 北京 04:33 触发 → 预计 09:33 送达（备用②）
+    - cron: "13 22 * * *"   # 北京 06:13 触发 → 预计 08:20 前后送达（主推）
+    - cron: "43 22 * * *"   # 北京 06:43 触发 → 预计 08:50 前后送达（备用①）
+    - cron: "13 23 * * *"   # 北京 07:13 触发 → 预计 09:20 前后送达（备用②）
   workflow_dispatch:      # 允许在 GitHub 网页上手动触发
     inputs:
       date:
@@ -71,7 +73,7 @@ jobs:
         run: |
           FORCE=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then FORCE="--force"; fi
-          python daily.py --source news --date "$RUN_DATE" --no-push $FORCE
+          python daily.py --source ai --date "$RUN_DATE" --no-push $FORCE
           if [ -n "$FORCE" ]; then rm -f "state/$RUN_DATE.json"; fi
 
       - name: Commit generated pages
@@ -104,7 +106,7 @@ jobs:
           TTS_API_URL: ${{ vars.TTS_API_URL }}
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
           FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
-        run: python daily.py --source news --date "$RUN_DATE"
+        run: python daily.py --source ai --date "$RUN_DATE"
 
       - name: Commit delivery state
         run: |

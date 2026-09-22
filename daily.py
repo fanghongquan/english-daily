@@ -5,12 +5,11 @@
     SITE_BASE_URL    页面根地址，如 https://<用户名>.github.io/english-daily
     FEISHU_WEBHOOK   飞书群机器人 webhook
     FEISHU_SECRET    加签密钥（如启用）
-    以及 get_article.py 所需的 ANTHROPIC_API_KEY / OPENAI_API_KEY（--source ai / news 时）
+    以及 get_article.py 所需的 ANTHROPIC_API_KEY / OPENAI_API_KEY（--source ai 时）
 
 用法：
     python daily.py                  # 默认 ai 生成今天的文章并推送
     python daily.py --source ai
-    python daily.py --source news    # 抓近期新闻改写成文章（取不到素材时自动回退 ai）
     python daily.py --use-latest     # 不生成，直接推送 articles/ 里最新一篇（先跑通流程用）
     python daily.py --no-push        # 只生成+构建，不推送（本地调试）
 """
@@ -69,7 +68,7 @@ def run(a, *, root=ROOT, build_fn=build.build, push_fn=push_feishu.push,
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--source", choices=["ai", "news", "scrape"], default="ai")
+    ap.add_argument("--source", choices=["ai", "scrape"], default="ai")
     ap.add_argument("--date", default=datetime.date.today().isoformat())
     ap.add_argument("--use-latest", action="store_true",
                     help="不生成新文章，直接用 articles/ 里最新一篇（内容引擎没接好时用）")

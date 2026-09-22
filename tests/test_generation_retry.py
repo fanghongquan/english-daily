@@ -1,81 +1,16 @@
 import copy
 import json
+import re
 import unittest
 from unittest.mock import patch
 
 import get_article
+from article_validation import body_word_count
 from tests.test_article_validation import valid_article
 
 
 class TemporaryModelError(RuntimeError):
     status_code = 503
-
-
-NEWS_MATERIAL = {
-    "title": "Baby pangolin found by roadside, safely returned to the wild",
-    "summary": "A young pangolin was rescued and released back into the wild.",
-    "link": "https://news.cgtn.com/news/2026-09-16/pangolin-1QudjYN",
-    "source": "CGTN",
-    "published": "Thu, 17 Sep 2026 02:44:49 -0400",
-}
-
-
-class NewsGenerationTest(unittest.TestCase):
-    def test_prompt_includes_the_news_material_and_rewrite_rules(self):
-        prompt = get_article._build_prompt("2026-07-11", news=NEWS_MATERIAL)
-        self.assertIn(NEWS_MATERIAL["title"], prompt)
-        self.assertIn(NEWS_MATERIAL["summary"], prompt)
-        self.assertIn("来源：CGTN", prompt)
-        self.assertIn("不得整句照抄原文", prompt)
-
-    def test_prompt_without_news_is_unchanged(self):
-        # 回归守卫：news 默认 None 时必须完全走原来的内置主题库路径。
-        prompt = get_article._build_prompt("2026-07-11")
-        self.assertIn("【本篇主题（必须严格围绕它来写）】", prompt)
-        self.assertNotIn("【本篇素材", prompt)
-        self.assertIn(get_article._pick_topic("2026-07-11"), prompt)
-
-    def test_gen_news_attaches_the_source_for_attribution(self):
-        valid = valid_article()
-        with patch.object(get_article.news_source, "pick",
-                          return_value=NEWS_MATERIAL), \
-                patch.object(get_article, "_call_model",
-                             return_value=json.dumps(valid)):
-            result = get_article.gen_news("2026-07-11")
-
-        self.assertEqual({
-            "name": "CGTN",
-            "title": NEWS_MATERIAL["title"],
-            "url": NEWS_MATERIAL["link"],
-        }, result["source"])
-
-    def test_gen_news_falls_back_to_the_topic_library(self):
-        valid = valid_article()
-        with patch.object(get_article.news_source, "pick", return_value=None), \
-                patch.object(get_article, "_call_model",
-                             return_value=json.dumps(valid)) as call_model:
-            result = get_article.gen_news("2026-07-11")
-
-        self.assertNotIn("source", result)
-        self.assertNotIn("【本篇素材", call_model.call_args[0][0])
-
-    def test_retrying_reuses_the_same_news_material(self):
-        # 提示词在重试循环外只构建一次，重试时改写的必须是同一条新闻。
-        short = copy.deepcopy(valid_article())
-        for paragraph in short["paragraphs"]:
-            paragraph["en"] = "Too short."
-        valid = valid_article()
-
-        with patch.object(get_article.news_source, "pick",
-                          return_value=NEWS_MATERIAL) as pick, \
-                patch.object(get_article, "_call_model",
-                             side_effect=[json.dumps(short), json.dumps(valid)]) as call_model:
-            get_article.gen_news("2026-07-11")
-
-        self.assertEqual(1, pick.call_count)
-        self.assertEqual(2, call_model.call_count)
-        self.assertEqual(call_model.call_args_list[0][0][0],
-                         call_model.call_args_list[1][0][0])
 
 
 class GenerationRetryTest(unittest.TestCase):
@@ -161,6 +96,57 @@ class GenerationRetryTest(unittest.TestCase):
 
         self.assertEqual(2, call_model.call_count)
         self.assertEqual(valid["title"], result["title"])
+
+
+def overlong_article(extra_per_paragraph: int = 40):
+    """夹具本身 574 词，卡在 580 以内；加词造一篇明确超长的。"""
+    data = valid_article()
+    for paragraph in data["paragraphs"]:
+        paragraph["en"] += " " + " ".join(["extra"] * extra_per_paragraph)
+    return data
+
+
+class WordCountGuardTest(unittest.TestCase):
+    def test_retries_when_the_article_is_longer_than_the_range(self):
+        """字数越界要重试，不能像 2026-09-11~17 那样连着一周出 810-1058 词。"""
+        overlong = overlong_article()
+        valid = valid_article()
+        self.assertGreater(body_word_count(overlong["paragraphs"]), 580)
+
+        with patch.object(get_article, "_call_model",
+                          side_effect=[json.dumps(overlong),
+                                       json.dumps(valid)]) as call_model:
+            result = get_article.gen_ai("2026-07-11")
+
+        self.assertEqual(2, call_model.call_count)
+        self.assertEqual(valid["title"], result["title"])
+        self.assertTrue(500 <= body_word_count(result["paragraphs"]) <= 580)
+
+    def test_keeps_the_last_article_when_every_attempt_misses_the_range(self):
+        """四轮都超长时收下最后一篇——断更比文章长一点更糟。
+
+        这是刻意的取舍：宁可用一篇 850 词的文章，也不要当天没有文章。
+        """
+        overlong = overlong_article()
+
+        with patch.object(get_article, "_call_model",
+                          return_value=json.dumps(overlong)) as call_model:
+            result = get_article.gen_ai("2026-07-11")
+
+        self.assertEqual(4, call_model.call_count)
+        self.assertGreater(body_word_count(result["paragraphs"]), 580)
+
+    def test_counts_words_without_mistaking_html_tags_for_words(self):
+        """口径守卫：<span class="kw"> 不能算成 3 个词。
+
+        直接对带标签的正文数词，一篇 533 词的文章会数出 587，
+        于是明明合规的文章被误判成超长、反复重试。
+        """
+        data = valid_article()
+        raw = " ".join(p["en"] for p in data["paragraphs"])
+        tagged = len(re.findall(r"[A-Za-z]+(?:[-'][A-Za-z]+)*", raw))
+        self.assertEqual(574, body_word_count(data["paragraphs"]))
+        self.assertGreater(tagged, body_word_count(data["paragraphs"]))
 
 
 if __name__ == "__main__":

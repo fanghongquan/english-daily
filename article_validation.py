@@ -4,7 +4,6 @@ import datetime
 import html
 import re
 from html.parser import HTMLParser
-from urllib.parse import urlparse
 
 
 class ArticleValidationError(ValueError):
@@ -84,31 +83,18 @@ def _correct_word_claim(intro: str, word_count: int) -> str:
         lambda m: f"{m.group(1)}{word_count}{m.group(3)}", intro)
 
 
-def _validate_source(result: dict) -> None:
-    """校验可选的 source 字段（新闻出处）。
+def body_word_count(paragraphs: list) -> int:
+    """统计正文英文词数。**必须先剥 HTML 标签再数。**
 
-    刻意**不做成必填**：200+ 篇历史 JSON 和三个测试文件共用的夹具都没有这个
-    字段，一旦必填会同时失效。只在字段存在时校验。
-
-    url 采用白名单：只放行 http/https。新闻标题与来源是外部不可信输入，而
-    javascript: / data: 正是链接注入的载体。
+    正文里的重点词是 <span class="kw" data-ipa="..." data-def="...">word</span>，
+    连标签一起数会把 span / class / kw 也算成词——一篇 533 词的文章会数出 587。
+    这个口径只在这里定义一处，校验、字数检查、导语词数声明都引用它。
     """
-    source = result.get("source")
-    if source is None:
-        return
-    if not isinstance(source, dict):
-        raise ArticleValidationError("article.source must be an object")
-    for key in ("name", "title"):
-        value = source.get(key)
-        if not isinstance(value, str) or not value.strip():
-            raise ArticleValidationError(
-                f"article.source.{key} must be non-empty text")
-    url = source.get("url")
-    if not isinstance(url, str):
-        raise ArticleValidationError("article.source.url must be text")
-    parsed = urlparse(url)
-    if parsed.scheme not in ("http", "https") or not parsed.netloc:
-        raise ArticleValidationError("article.source.url must be an http(s) URL")
+    text = " ".join(
+        html.unescape(re.sub(r"<[^>]+>", " ", paragraph["en"]))
+        for paragraph in paragraphs
+    )
+    return len(re.findall(r"[A-Za-z]+(?:[-'][A-Za-z]+)*", text))
 
 
 def prepare_article(data: dict, expected_date: str | None = None) -> dict:
@@ -126,7 +112,6 @@ def prepare_article(data: dict, expected_date: str | None = None) -> dict:
         raise ArticleValidationError(
             f"article.date {result['date']!r} does not match {expected_date!r}"
         )
-    _validate_source(result)
 
     paragraphs = result.get("paragraphs")
     if not isinstance(paragraphs, list) or not 7 <= len(paragraphs) <= 12:
@@ -138,11 +123,7 @@ def prepare_article(data: dict, expected_date: str | None = None) -> dict:
         _require_text(paragraph, "zh", f"paragraphs[{index}]")
         paragraph["en"] = _sanitize_fragment(paragraph["en"])
 
-    plain_english = " ".join(
-        html.unescape(re.sub(r"<[^>]+>", " ", paragraph["en"]))
-        for paragraph in paragraphs
-    )
-    word_count = len(re.findall(r"[A-Za-z]+(?:[-'][A-Za-z]+)*", plain_english))
+    word_count = body_word_count(paragraphs)
     if not 500 <= word_count <= 1600:
         raise ArticleValidationError(
             f"article word count must be between 500 and 1600; got {word_count}"

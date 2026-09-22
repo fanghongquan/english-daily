@@ -72,50 +72,6 @@ class ArticleValidationTest(unittest.TestCase):
                 clean = prepare_article(data, expected_date=data["date"])
                 self.assertEqual(intro, clean["intro_zh"])
 
-    def test_prepare_article_accepts_an_optional_news_source(self):
-        data = valid_article()
-        data["source"] = {
-            "name": "CGTN",
-            "title": "Baby pangolin found by roadside",
-            "url": "https://news.cgtn.com/news/2026-09-16/pangolin-1QudjYN",
-        }
-        clean = prepare_article(data, expected_date=data["date"])
-        self.assertEqual(data["source"], clean["source"])
-        self.assertEqual(data, clean)
-
-    def test_prepare_article_accepts_plain_http_source_urls(self):
-        # Ecns 之类的源文章链接是 http，只有 https 会误伤。
-        data = valid_article()
-        data["source"] = {"name": "X", "title": "T", "url": "http://example.com/a"}
-        clean = prepare_article(data, expected_date=data["date"])
-        self.assertEqual("http://example.com/a", clean["source"]["url"])
-
-    def test_prepare_article_rejects_unsafe_source_urls(self):
-        for url in ("javascript:alert(1)", "data:text/html,<script>x</script>",
-                    "https://", "not a url", "file:///etc/passwd"):
-            with self.subTest(url=url):
-                data = valid_article()
-                data["source"] = {"name": "X", "title": "T", "url": url}
-                with self.assertRaisesRegex(ArticleValidationError, "source.url"):
-                    prepare_article(data, expected_date=data["date"])
-
-    def test_prepare_article_rejects_malformed_source_objects(self):
-        for source in ({"name": "", "title": "T", "url": "https://a.test"},
-                       {"name": "X", "title": "  ", "url": "https://a.test"},
-                       {"name": "X", "url": "https://a.test"},
-                       ["not", "a", "dict"]):
-            with self.subTest(source=source):
-                data = valid_article()
-                data["source"] = source
-                with self.assertRaises(ArticleValidationError):
-                    prepare_article(data, expected_date=data["date"])
-
-    def test_prepare_article_does_not_require_a_source(self):
-        # 200+ 篇历史 JSON 都没有这个字段，一旦变成必填就会整批失效。
-        data = valid_article()
-        clean = prepare_article(data, expected_date=data["date"])
-        self.assertNotIn("source", clean)
-
     def test_prepare_article_removes_event_handlers_and_escapes_unknown_tags(self):
         data = valid_article()
         data["paragraphs"][0]["en"] = (

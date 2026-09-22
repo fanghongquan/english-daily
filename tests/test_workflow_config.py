@@ -13,7 +13,7 @@ class WorkflowConfigTest(unittest.TestCase):
         self.assertIn("pip install -r requirements.txt", workflow)
         self.assertNotIn("pip install openai || true", workflow)
         test_position = workflow.index("python -m unittest discover -v")
-        production_position = workflow.index("python daily.py --source news")
+        production_position = workflow.index("python daily.py --source ai")
         self.assertLess(test_position, production_position)
         self.assertIn("python -m compileall -q *.py scf/index.py", workflow)
         self.assertIn("git add articles docs state", workflow)

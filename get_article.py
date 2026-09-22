@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """生成「当日文章」JSON（schema 见 articles/2026-06-13.json）。
 
-支持三种来源：
+支持两种来源：
   --source ai      用大模型生成一篇 CET-4 难度文章（无版权风险）
-  --source news    抓近期新闻当素材，让大模型改写成 CET-4 难度（推荐）
-                   没有合适素材时自动回退成 --source ai 的内置主题库
   --source scrape  从外刊/真题站点抓取（占位实现，需你自行接入并注意版权，见下方说明）
 
 输出文件：articles/<日期>.json
@@ -12,15 +10,14 @@
 防雷同设计：
   1. 内置一个多领域题材库 TOPICS，按日期轮换，保证连续几十天不会撞主题；
   2. 把最近若干天已用过的标题喂给模型，要求它另选完全不同的领域；
-  3. 调高 temperature，提升用词与结构的多样性；
-  4. --source news 时跳过最近用过的新闻原文链接（news_source 内部处理）。
+  3. 调高 temperature，提升用词与结构的多样性。
 """
 import os, json, datetime, argparse, re, glob, random, time
 from pathlib import Path
 import envload; envload.load()      # 自动读取 secret.env
-from article_validation import ArticleValidationError, prepare_article
+from article_validation import (ArticleValidationError, body_word_count,
+                                prepare_article)
 import profile_client
-import news_source
 
 ROOT = Path(__file__).parent
 SCHEMA_HINT = (ROOT / "articles" / "2026-06-13.json")
@@ -73,31 +70,21 @@ def _pick_topic(date: str) -> str:
 
 SYS = "你是一名资深大学英语四级(CET-4)命题老师和翻译。"
 
-# --source news 时插入的素材段与改写约束。
-# 版权要点：只改写、不整篇转发；出处由网页单独署名，所以正文里不要提来源。
-NEWS_BLOCK = """
-【本篇素材：近期新闻（请据此改写，不要另起炉灶）】
-- 标题：%(news_title)s
-- 来源：%(news_source)s
-- 摘要：%(news_summary)s
-
-改写要求（重要）：
-- 用你自己的语言重新组织并简化到 CET-4 水平，**不得整句照抄原文**，连续照搬不超过 6 个词；
-- 客观中立地陈述事实，不加入评论、立场或情绪，也不要写成新闻报道的转述口吻
-  （避免 "officials said"、"according to" 这类句子）；
-- 只使用摘要里确实提到的信息，不要编造数据、引语、人名或细节；
-- 不要在标题、正文或导语里提到新闻来源、媒体名称或发布日期，出处会在网页上单独署名。
-"""
+# 正文字数区间。**只在这里定义一处**，提示词和下面的越界检查都引用它。
+# 曾经踩过的坑：服务端档案另给了一个 target_words(700-1100)，提示词同时收到
+# 「约 1000 词」和「500-580 词」两条矛盾指令，模型就往中间飘，连着一周出 810-1058 词。
+# 字数是用户自己定的，任何第二处定义都会重新引入这个问题。
+MIN_WORDS, MAX_WORDS = 500, 580
 
 PROMPT_TMPL = """请生成一篇适合中国大学英语四级(CET-4)水平的英语阅读文章，并按 JSON 返回。
 
 【本篇主题（必须严格围绕它来写）】：%(topic)s
-%(material)s
+
 【务必避免雷同】最近已经推送过下面这些文章，请另选完全不同的角度与用词，不要再写“习惯/自我提升/原子习惯”这类老套主题，也不要与下列任何一篇在主题、例子、结构上相似：
 %(avoid)s
 
 要求：
-1. 英文正文必须控制在 500-580 词，绝不能少于 500 词；内容贴近生活/科普/文化，积极正向、信息丰富、有具体事例和数据；
+1. 英文正文必须控制在 %(min_words)s-%(max_words)s 词，绝不能少于 %(min_words)s 词；内容贴近生活/科普/文化，积极正向、信息丰富、有具体事例和数据；
 2. 拆成 7-9 个自然段；
 3. 重点词总量服从后面的个人阅读难度目标，并尽量均匀分布；用 <span class="kw" data-ipa="美式音标" data-def="中文释义">单词</span> 包裹（音标用美式 IPA）；
 4. 每段配一段地道的中文翻译；
@@ -113,18 +100,9 @@ PROMPT_TMPL = """请生成一篇适合中国大学英语四级(CET-4)水平的�
 }"""
 
 
-def _build_prompt(date: str, profile=None, news=None) -> str:
-    """拼提示词。
-
-    news 为 None 时（默认）完全走内置主题库，行为和以前一致 —— 既有测试与
-    --source ai 的调用都不受任何影响。传入新闻素材时才切换到改写模式。
-    """
-    topic = news["title"] if news else _pick_topic(date)
-    material = NEWS_BLOCK % {
-        "news_title": news["title"],
-        "news_source": news["source"],
-        "news_summary": news["summary"],
-    } if news else ""
+def _build_prompt(date: str, profile=None) -> str:
+    """拼提示词。主题从内置题材库按日期轮换选取。"""
+    topic = _pick_topic(date)
     recent = _recent_titles()
     avoid = "\n".join(f"- {t}" for t in recent) if recent else "（暂无历史记录）"
     profile = profile or profile_client.load_profile_from_env()
@@ -147,7 +125,8 @@ def _build_prompt(date: str, profile=None, news=None) -> str:
         "trend": trend,
     }
     return (PROMPT_TMPL % {
-        "date": date, "topic": topic, "avoid": avoid, "material": material,
+        "date": date, "topic": topic, "avoid": avoid,
+        "min_words": MIN_WORDS, "max_words": MAX_WORDS,
     }) + learner_target
 
 
@@ -199,14 +178,18 @@ def _is_retryable_model_error(error: Exception) -> bool:
     )
 
 
-def gen_ai(date: str, news=None) -> dict:
-    """用大模型生成，并在临时接口错误或内容不合格时有限重试。
+def gen_ai(date: str) -> dict:
+    """用大模型生成，并在临时接口错误、内容不合格或字数越界时有限重试。
 
-    提示词在循环外只构建一次：重试时沿用同一份素材，保证同一次运行里
-    改写的是同一条新闻。
+    提示词在循环外只构建一次：重试时沿用同一份题材与历史去重清单。
+
+    字数（MIN_WORDS-MAX_WORDS）写进了提示词，但模型偶尔不听话——2026-09-11~17
+    就曾连着一周出 810-1058 词。所以这里真的数一遍，越界就重试；但**最后一轮
+    无论如何都收下**，因为断更比文章长一点更糟。
     """
-    prompt = _build_prompt(date, news=news)
+    prompt = _build_prompt(date)
     last_err = None
+    fallback = None      # 内容合格但字数越界的兜底稿（只会是超长，见下方注释）
     for attempt in range(4):
         temp = 0.9 if attempt == 0 else 0.5   # 首次多样优先，重试时稳健优先
         try:
@@ -214,11 +197,12 @@ def gen_ai(date: str, news=None) -> dict:
             if not isinstance(data, dict):
                 raise ArticleValidationError("article must be an object")
             data["date"] = date
-            return prepare_article(data, expected_date=date)
+            article = prepare_article(data, expected_date=date)
         except (json.JSONDecodeError, AttributeError, KeyError,
                 ArticleValidationError) as e:
             last_err = e
             print(f"⚠️ 第 {attempt + 1} 次生成内容不合格，重试中：{e}")
+            continue
         except Exception as e:
             if not _is_retryable_model_error(e):
                 raise
@@ -226,29 +210,19 @@ def gen_ai(date: str, news=None) -> dict:
             print(f"⚠️ 第 {attempt + 1} 次模型接口临时失败，重试中：{e}")
             if attempt < 3:
                 time.sleep(2 ** attempt)
+            continue
+
+        # prepare_article 已挡掉 500 词以下，所以这里越界只可能是超长。
+        words = body_word_count(article["paragraphs"])
+        if MIN_WORDS <= words <= MAX_WORDS:
+            return article
+        last_err = f"正文 {words} 词，不在 {MIN_WORDS}-{MAX_WORDS}"
+        fallback = article
+        print(f"⚠️ 第 {attempt + 1} 次{last_err}，重试中")
+    if fallback is not None:
+        print(f"⚠️ 四轮都没落进 {MIN_WORDS}-{MAX_WORDS} 词，收下最后一篇（不断更优先）")
+        return fallback
     raise SystemExit(f"模型多次生成失败，放弃本次生成：{last_err}")
-
-
-def gen_news(date: str) -> dict:
-    """抓近期新闻当素材，让大模型改写成 CET-4 文章。
-
-    注意与 gen_scrape 的区别：这里只把新闻的标题与摘要当**素材**喂给模型改写
-    （改写后的文字版权属于自己），不会整篇转发原文，也不抓取正文。出处会作为
-    署名写进 source 字段，由网页展示。
-
-    没有合适素材时自动回退到内置主题库，保证不断更。
-    """
-    material = news_source.pick(date)
-    if material is None:
-        print("ℹ️ 未取到合适的新闻素材，回退内置主题库")
-    article = gen_ai(date, news=material)
-    if material:
-        article["source"] = {
-            "name": material["source"],
-            "title": material["title"],
-            "url": material["link"],
-        }
-    return article
 
 
 def gen_scrape(date: str) -> dict:
@@ -268,13 +242,11 @@ def gen_scrape(date: str) -> dict:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--source", choices=["ai", "news", "scrape"], default="ai")
+    ap.add_argument("--source", choices=["ai", "scrape"], default="ai")
     ap.add_argument("--date", default=datetime.date.today().isoformat())
     a = ap.parse_args()
 
-    if a.source == "news":
-        data = gen_news(a.date)
-    elif a.source == "ai":
+    if a.source == "ai":
         data = gen_ai(a.date)
     else:
         data = gen_scrape(a.date)
@@ -282,6 +254,4 @@ if __name__ == "__main__":
     out = ROOT / "articles" / f"{a.date}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    # 打印实际用的主题：新闻模式是新闻标题，其余模式是轮换到的话题。
-    used_topic = (data.get("source") or {}).get("title") or _pick_topic(a.date)
-    print("已生成", out, "｜主题：", used_topic)
+    print("已生成", out, "｜主题：", _pick_topic(a.date))

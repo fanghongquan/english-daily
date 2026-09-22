@@ -196,7 +196,7 @@
 <div id="read-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 <div class="wrap">
   <header>
-    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a><span id="m-source-wrap" hidden> · 改写自 <a id="m-source" rel="noopener noreferrer" target="_blank" style="color:var(--accent)"></a></span></div>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
     <h1 id="m-title"></h1>
     <p class="h1zh" id="m-titlezh"></p>
     <div class="intro" id="m-intro"></div>
@@ -507,20 +507,6 @@ document.getElementById('m-date').textContent=ARTICLE.date||'';
 document.getElementById('m-title').textContent=ARTICLE.title||'';
 document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
 document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
-/* 新闻来源署名。标题与来源名是外部不可信输入：只用 textContent / title 属性，
-   绝不拼 HTML；链接 scheme 在前端再挡一次，非法就退化成纯文本不生成链接。 */
-(function(){
-  const src=ARTICLE.source;
-  if(!src||!src.name)return;
-  const link=document.getElementById('m-source');
-  link.textContent=src.name;
-  if(src.title)link.title=src.title;
-  try{
-    const u=new URL(src.url);
-    if(u.protocol==='http:'||u.protocol==='https:')link.href=u.href;
-  }catch(e){}
-  document.getElementById('m-source-wrap').hidden=false;
-})();
 document.getElementById('engine-note').textContent=
   cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
 
