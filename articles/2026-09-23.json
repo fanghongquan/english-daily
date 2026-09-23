@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-23",
+  "level": "CET-4",
+  "title": "Count the Seconds: The Physics Inside a Thundercloud",
+  "title_zh": "数着秒数：雷暴云内部的物理学",
+  "intro_zh": "本文约 534 词，围绕雷暴与闪电背后的科学展开，从云的电荷分离讲到雷声与安全常识，适合 CET-4 阅读训练。",
+  "paragraphs": [
+    {
+      "en": "On a hot July afternoon, dark clouds pile up like grey mountains. Then the sky flashes white, and a few seconds later a low rumble rolls across the fields. Most of us count the seconds between the flash and the sound. That simple game hides a remarkable chain of physics, and the science behind a thunderstorm is stranger and more elegant than the noise suggests.",
+      "zh": "在七月炎热的午后，乌云像灰黑色的山峰一样堆叠起来。接着天空刷地一亮，几秒钟后一阵低沉的轰隆声滚过田野。我们大多数人都会数闪光和声音之间隔了几秒。这个简单的小游戏背后藏着一条了不起的物理链条，而雷暴背后的科学比那阵轰鸣所暗示的要更奇特、也更优雅。"
+    },
+    {
+      "en": "A thunderstorm begins with warm, moist air near the ground. As this air rises, it cools, and the water vapour inside it turns into tiny droplets and, higher up, into ice crystals. A single big cumulonimbus cloud may hold half a million tonnes of water. Rising and falling air keeps those particles moving, and that movement sets the stage for everything that follows.",
+      "zh": "雷暴始于地面附近温暖潮湿的空气。这些空气上升时逐渐冷却，其中的水汽变成微小的水滴，再往高处则变成冰晶。一朵大型积雨云可能容纳五十万吨水。上升和下沉的气流让这些粒子不停运动，而正是这种运动为之后发生的一切搭好了舞台。"
+    },
+    {
+      "en": "Inside the cloud, ice crystals and soft hail bump into each other millions of times a second. These collisions move electrons from one particle to another, so the particles build up an electric <span class=\"kw\" data-ipa=\"tʃɑːrdʒ\" data-def=\"电荷；充电；指控\">charge</span>. Lighter, positively charged ice crystals drift to the top of the cloud, while heavier, negatively charged hail sinks to the bottom. The result is a cloud with a huge positive top and a huge negative base — a kind of natural battery several kilometres tall.",
+      "zh": "在云内部，冰晶和软雹每秒钟相互碰撞数百万次。这些碰撞把电子从一个粒子转移到另一个粒子上，于是粒子积累起电荷。较轻的带正电的冰晶飘到云的顶部，而较重的带负电的软雹则沉到底部。结果就是一朵顶部带大量正电、底部带大量负电的云——一种高达数公里的天然电池。"
+    },
+    {
+      "en": "The difference in charge between the cloud base and the ground below can reach 100 million volts or more. Normally air does not <span class=\"kw\" data-ipa=\"kənˈdʌkt\" data-def=\"传导（电、热等）；进行；指挥\">conduct</span> electricity well; it acts as an insulator. But when the electric field becomes strong enough, air molecules are torn apart and the air suddenly becomes a path. A faint, invisible channel called a stepped leader reaches down toward the ground in short jumps, about 50 metres at a time.",
+      "zh": "云底与下方地面之间的电荷差可以达到一亿伏甚至更高。通常情况下空气并不善于导电，它起着绝缘体的作用。但当电场强到一定程度时，空气分子被撕裂，空气突然变成了一条通路。一条名为“阶梯先导”的微弱而不可见的通道以短促的跳跃方式向地面延伸，每次大约五十米。"
+    },
+    {
+      "en": "When the leader meets a streamer rising from a tall object, the circuit closes. A brilliant return stroke races upward at roughly 100,000 kilometres per second, carrying a <span class=\"kw\" data-ipa=\"ˈkɜːrənt\" data-def=\"电流；水流；气流；当前的\">current</span> of about 30,000 amperes. The air along that path is heated to around 30,000 °C — five times hotter than the surface of the Sun. Heated so violently, the air <span class=\"kw\" data-ipa=\"ɪkˈspænd\" data-def=\"膨胀；扩大；扩展\">expands</span> faster than sound, and the shock wave we hear as thunder is born.",
+      "zh": "当先导通道与从高大物体升起的迎击流相遇时，电路闭合。一道耀眼的回击以大约每秒十万公里的速度向上飞驰，携带约三万安培的电流。沿途的空气被加热到约三万摄氏度——比太阳表面还要热五倍。空气被如此剧烈地加热，便以超过声速的速度膨胀，我们听到的雷声就是由此产生的冲击波。"
+    },
+    {
+      "en": "That is why we see the flash first. Light covers 300,000 kilometres in a second, while sound crawls along at about 343 metres per second. Counting three seconds between flash and thunder means the <span class=\"kw\" data-ipa=\"straɪk\" data-def=\"击中；打击；罢工；突然想到\">strike</span> was roughly one kilometre away. Ten seconds means it was about three kilometres away — close enough to be worth paying attention to.",
+      "zh": "这就是为什么我们先看到闪光。光一秒钟能走三十万公里，而声音每秒只能慢慢爬行约三百四十三米。如果闪光与雷声之间数到三秒，就意味着雷击地点大约在一公里之外。数到十秒则说明它大约在三公里外——近得值得你留意了。"
+    },
+    {
+      "en": "Safety advice follows directly from the physics. When thunder arrives within 30 seconds of the flash, go indoors or into a hard-topped car and stay there for 30 minutes after the last rumble. If you cannot reach <span class=\"kw\" data-ipa=\"ˈʃeltər\" data-def=\"躲避处；庇护；掩蔽\">shelter</span>, move away from tall isolated trees and open water, and crouch low on your feet rather than lying flat. A tent or a bus stop offers almost no protection.",
+      "zh": "安全建议直接来自这些物理原理。当雷声在闪光后三十秒内响起时，就进屋或钻进有硬顶的汽车，并在最后一声隆隆声之后再待上三十分钟。如果找不到躲避处，就远离孤立的高树和开阔水域，用双脚蹲低，而不要平躺在地。帐篷或公交候车亭几乎提供不了保护。"
+    },
+    {
+      "en": "Lightning is not only a threat. Each flash converts nitrogen in the air into compounds that rain carries into the soil, a natural fertiliser worth millions of tonnes a year. Worldwide, about 1.4 billion flashes happen annually, and scientists still debate exactly how a cloud first builds its charge. The next time the sky turns white, you are watching one of nature's great engineering projects — and hearing its report.",
+      "zh": "闪电不只是一种威胁。每一次闪光都会把空气中的氮转化为化合物，再由雨水带入土壤，成为每年价值数百万吨的天然肥料。全球每年大约发生十四亿次闪电，而科学家们仍在争论一朵云究竟是如何首次积累起电荷的。下一次天空变白时，你看到的正是大自然最伟大的工程之一——同时也在听它的报告。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "How to repair damage caused by thunderstorms in cities",
+        "The physical processes that produce lightning and thunder",
+        "Why thunderstorms happen more often in July than in winter",
+        "A history of early experiments with electricity in clouds"
+      ],
+      "answer": 1,
+      "explain": "全文从云的电荷分离、先导通道、回击，到雷声与安全常识，都在讲闪电和雷声形成的物理过程，故选第二项。第一项只涉及安全的一小部分，第三、四项文中并未展开。"
+    },
+    {
+      "q": "According to the passage, what makes positive and negative charges separate inside a cloud?",
+      "options": [
+        "Sunlight heats the top of the cloud more strongly than the base",
+        "Collisions between ice crystals and soft hail move electrons between particles",
+        "Warm air from the ground pushes electrons upward into the sky",
+        "Strong winds blow the cloud into two different layers"
+      ],
+      "answer": 1,
+      "explain": "第三段明确指出冰晶与软雹每秒碰撞数百万次，这些碰撞把电子从一个粒子转移到另一个粒子，从而使正负电荷分离。其余选项均属无中生有。"
+    },
+    {
+      "q": "If you count six seconds between a flash and the thunder, about how far away was the strike?",
+      "options": [
+        "One kilometre",
+        "Two kilometres",
+        "Three kilometres",
+        "Six kilometres"
+      ],
+      "answer": 1,
+      "explain": "文中说三秒约等于一公里，因此六秒约为两公里。这是一道需要依据文中数据做简单推算的推断题。"
+    },
+    {
+      "q": "The word 'conduct' in Paragraph 4 is closest in meaning to:",
+      "options": [
+        "carry",
+        "block",
+        "create",
+        "measure"
+      ],
+      "answer": 0,
+      "explain": "conduct electricity 意为“导电、传导电流”，与 carry 意思最接近。block 意为阻挡，create 意为创造，measure 意为测量，均不符合语境。"
+    }
+  ]
+}
