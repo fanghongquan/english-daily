@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-24",
+  "level": "CET-4",
+  "title": "Why the Sky Wears Blue: A Story Told by Sunlight and Air",
+  "title_zh": "天空为何披上蓝衣：阳光与空气讲述的故事",
+  "intro_zh": "本文约 517 词，CET-4 难度，围绕“天空为什么是蓝色的”这一日常现象展开，从光的组成、空气分子的散射、人眼对颜色的敏感度、日落变红以及火星与月球的对比等角度层层推进，含 6 个核心词汇，信息密度适中，适合精读与科普拓展。",
+  "paragraphs": [
+    {
+      "en": "On a clear afternoon, look up. The sky above you is a wide, calm blue — and it stays blue whether you are standing on a beach in Hainan or a hill in Gansu. Yet the sunlight that fills the sky is not blue at all. It only looks white. The color we see is the result of a quiet conversation between sunlight and the air itself.",
+      "zh": "在一个晴朗的午后，抬头看看。你头顶的天空是一片辽阔而沉静的蓝色——无论你站在海南的沙滩上，还是甘肃的山坡上，它都是蓝的。可是，把天空照亮的那片阳光本身并不是蓝色，它看上去只是白色罢了。我们看到的颜色，其实是阳光与空气之间一场安静对话的结果。"
+    },
+    {
+      "en": "Sunlight may look plain white, but it is really a mixture of many colors. A rainbow after rain shows this, and so does a glass prism. Back in 1666, Isaac Newton passed a thin beam of sunlight through a prism in a dark room and saw the full band of red, orange, yellow, green, blue and violet. Each color travels as a wave, and each has its own <span class=\"kw\" data-ipa=\"/ˈweɪvleŋθ/\" data-def=\"波长\">wavelength</span>. Red waves are long and lazy; blue and violet waves are short and quick.",
+      "zh": "阳光也许看上去只是纯白，但它实际上是许多颜色的混合。雨后彩虹能说明这一点，一块玻璃棱镜也能。早在 1666 年，艾萨克·牛顿在暗室里让一束细细的阳光穿过棱镜，看到了红、橙、黄、绿、蓝、紫连成的完整色带。每一种颜色都以波的形式传播，各自拥有自己的波长。红光波又长又懒；蓝光和紫光波则短而迅速。"
+    },
+    {
+      "en": "Air looks empty, but it is packed with extremely small particles. One liter of air holds billions of billions of nitrogen and oxygen <span class=\"kw\" data-ipa=\"/ˈmɑːlɪkjuːl/\" data-def=\"分子\">molecule</span>s. Each one is only about a ten-thousandth of the width of a human hair. Alone, they are invisible; together, they are enough to change the color of the whole sky.",
+      "zh": "空气看起来空无一物，其实里面挤满了极小的粒子。一升空气中含有数以百亿亿计的氮分子和氧分子。每一个分子大约只有一根头发丝宽度的万分之一。单个分子是看不见的；但它们合在一起，就足以改变整片天空的颜色。"
+    },
+    {
+      "en": "<span class=\"kw\" data-ipa=\"/ˈskætər/\" data-def=\"散射；使散开\">Scatter</span>ing means the light is sent off in many directions instead of being absorbed. Short waves bump into these tiny particles far more often than long waves do. Blue light is scattered roughly five to ten times more strongly than red light. That scattered blue light reaches your eyes from every part of the sky, so the whole sky glows blue.",
+      "zh": "散射指的是光被送往四面八方，而不是被吸收。短波撞上这些微小粒子的频率远高于长波。蓝光被散射的强度大约是红光的五到十倍。这些被散射的蓝光从天空的每一个角落射入你的眼睛，于是整片天空都泛起蓝光。"
+    },
+    {
+      "en": "If blue is scattered most, why do we not see a violet sky? There are two reasons. First, the sun sends out less violet light than blue light. Second, human eyes are far more <span class=\"kw\" data-ipa=\"/ˈsensətɪv/\" data-def=\"敏感的；易受影响的\">sensitive</span> to blue than to violet. Our eyes and our sun, working together, turn a violet sky into the blue one we know.",
+      "zh": "既然蓝光被散射得最多，那我们为什么看到的不是紫色的天空？有两个原因。第一，太阳发出的紫光本来就比蓝光少。第二，人眼对蓝光的敏感程度远远高于紫光。我们的眼睛和太阳共同作用，把一片紫色的天空变成了我们熟悉的那片蓝。"
+    },
+    {
+      "en": "Near sunset, light must travel a much longer path through the air to reach your eyes. Along that long road, most of the blue is scattered away, leaving the reds and oranges. That is why the sun and the clouds near the <span class=\"kw\" data-ipa=\"/həˈraɪzn/\" data-def=\"地平线\">horizon</span> can burn orange at dusk, while at noon the sky above your head is a deep, steady blue. Photographers love this hour for the same reason.",
+      "zh": "临近日落时，光必须穿过更长的一段空气才能到达你的眼睛。在这条漫长的路上，大部分蓝光都被散射掉了，只剩下红与橙。这就是为什么黄昏时靠近地平线的太阳和云朵会烧成橘红色，而正午时头顶的天空却是深沉而稳定的蓝。摄影师们喜爱这一个小时，原因也正在于此。"
+    },
+    {
+      "en": "Other worlds tell the same story with different colors. Mars has a thin <span class=\"kw\" data-ipa=\"/ˈætməsfɪr/\" data-def=\"大气层；大气\">atmosphere</span> full of dust, so its daytime sky looks butterscotch or pale pink. The Moon has almost no air at all, and its sky is black even in full sunlight. A blue sky, it turns out, is one signature of a world with air. Astronauts say the effect is strange and beautiful at once.",
+      "zh": "别的世界用不同的颜色讲述着同一个故事。火星有一层充满尘埃的稀薄大气，所以它白天的天空看上去像奶糖色或淡粉色。月球几乎完全没有空气，所以即使阳光普照，它的天空也是黑的。由此可见，蓝色的天空是一颗拥有空气的世界的标志之一。宇航员说，那种景象既奇异又美丽。"
+    },
+    {
+      "en": "So the next time you look up, remember what you are really seeing: not a painted ceiling, but sunlight being gently spread by the air around you. The blue is not in the sky. It is made, moment by moment, between the sun and the air — a quiet message written in light. It costs nothing, and it never stops.",
+      "zh": "所以，下次你抬头望天时，请记住你真正看到的东西：不是一块刷过漆的天花板，而是阳光被身边的空气轻轻散开的过程。蓝色并不在天空里，它一刻不停地被制造出来——在太阳与空气之间，那是一封用光写成的安静的信。它不要你花一分钱，也从不停止。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain why the daytime sky appears blue.",
+        "To describe how rainbows form after a storm.",
+        "To compare the weather on Mars with that on Earth.",
+        "To argue that sunlight is actually white in color."
+      ],
+      "answer": 0,
+      "explain": "全文从阳光的组成、空气分子的散射、人眼的敏感度讲到日落变红和其他星球，核心都是回答“天空为什么是蓝色的”。B、C 只是文中用来支撑主题的细节；D 与原文相反，原文说阳光是多种颜色的混合。"
+    },
+    {
+      "q": "According to the passage, why does blue light reach our eyes from every part of the sky?",
+      "options": [
+        "Because air molecules absorb blue light and then send it back.",
+        "Because blue light has shorter waves and is scattered much more strongly than red light.",
+        "Because human eyes are completely unable to see violet light.",
+        "Because the sun sends out mostly blue light."
+      ],
+      "answer": 1,
+      "explain": "第四段指出，短波撞上微小粒子更频繁，蓝光被散射的强度约为红光的五到十倍，因此蓝光从天空各处进入眼睛。A 与原文相反（不是被吸收）；C 说法过于绝对；D 不成立，文中说太阳发出的紫光比蓝光少，并非以蓝光为主。"
+    },
+    {
+      "q": "What can be inferred about the Moon from the passage?",
+      "options": [
+        "The Moon's sky turns blue at noon.",
+        "Dust in the Moon's air makes its sky look pink.",
+        "The Moon has almost no atmosphere, so its sky stays black.",
+        "The Moon receives almost no sunlight."
+      ],
+      "answer": 2,
+      "explain": "第七段说月球几乎没有空气，因此即使在充足阳光下天空也是黑的，可推断出“没有大气层”是原因。B 描述的是火星；D 与“in full sunlight”矛盾。"
+    },
+    {
+      "q": "The word 'scatter' in Paragraph 4 is closest in meaning to ______.",
+      "options": [
+        "take in completely",
+        "spread out in different directions",
+        "slow down and stop",
+        "change into heat"
+      ],
+      "answer": 1,
+      "explain": "第四段用 instead of being absorbed（不是被吸收）来对比说明 scatter，并说光被送往四面八方（sent off in many directions），因此意思是“向各个方向散开”。A 是 absorb 的意思，正好相反；C、D 文中没有依据。"
+    }
+  ]
+}
