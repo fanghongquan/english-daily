@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-26",
+  "level": "CET-4",
+  "title": "A Cup of Welcome: Tea Traditions from Kyoto to Marrakech",
+  "title_zh": "一杯欢迎：从京都到马拉喀什的茶传统",
+  "intro_zh": "本文约 567 词，介绍世界各地的茶文化：中国的功夫茶、日本的茶道、英国的下午茶、摩洛哥的薄荷茶、印度的马萨拉茶以及西藏的酥油茶。虽然做法各异，但茶常常传递出好客与友谊。",
+  "paragraphs": [
+    {
+      "en": "Tea is the most popular drink in the world after water. People drink more than two billion cups every day. In different countries, tea is prepared and served in very different ways. Yet one idea often appears: tea is a way to welcome a guest. From small tea houses in Asia to busy streets in North Africa, a warm cup says, 'You are welcome here.'",
+      "zh": "茶是世界上最受欢迎的饮料，仅次于水。人们每天喝超过 20 亿杯茶。在不同国家，茶的制备和饮用方式大不相同。然而，一个理念常常出现：茶是欢迎客人的方式。从亚洲的小茶馆到北非繁忙的街道，一杯热茶说：“欢迎你来到这里。”"
+    },
+    {
+      "en": "In China, tea is often a slow <span class=\"kw\" data-ipa=\"ˈrɪtʃuəl\" data-def=\"仪式；例行公事\">ritual</span>. The Gongfu tea ceremony uses a small teapot and tiny cups. The same tea leaves can be steeped five to seven times. Each round tastes a little different. Friends sit together, talk softly, and enjoy the changing flavor. This style shows patience and respect. It is not about drinking quickly; it is about being together.",
+      "zh": "在中国，喝茶常常是一种缓慢的仪式。功夫茶道使用小茶壶和小茶杯。同样的茶叶可以冲泡五到七次。每一轮味道都略有不同。朋友们坐在一起，轻声交谈，享受变化的风味。这种风格体现耐心与尊重。重要的不是快速喝完，而是相聚。"
+    },
+    {
+      "en": "Japan has a famous tea <span class=\"kw\" data-ipa=\"ˈserəmoʊni\" data-def=\"典礼；仪式\">ceremony</span> called chanoyu. People whisk green tea powder, called matcha, into hot water. The movements are calm and exact. Guests sit quietly and notice the steam, the sound of water, and the taste. The ceremony can last several hours. It teaches focus and peace. For many Japanese, it is a way to slow down and clear the mind.",
+      "zh": "日本有一种著名的茶道，称为茶汤。人们将绿茶粉（抹茶）搅入热水中。动作平静而精确。客人安静地坐着，注意蒸汽、水声和味道。茶道可以持续几个小时。它教人专注与平和。对许多日本人来说，这是放慢脚步、清空思绪的方式。"
+    },
+    {
+      "en": "In Britain, tea is a daily <span class=\"kw\" data-ipa=\"trəˈdɪʃən\" data-def=\"传统\">tradition</span>. Afternoon tea usually happens around four o'clock. People drink black tea with milk and sugar. They eat small sandwiches, scones, and cakes. The custom began in the 1840s among wealthy families, but soon spread to all classes. Today, afternoon tea is often a treat for special days or a way to meet friends. It turns a simple drink into a social event.",
+      "zh": "在英国，茶是一种日常传统。下午茶通常在四点左右进行。人们喝加牛奶和糖的红茶，吃小三明治、司康饼和蛋糕。这一习俗始于 19 世纪 40 年代的富裕家庭，但很快传播到所有阶层。如今，下午茶常常是特殊日子的享受，或是与朋友见面的方式。它把简单的饮品变成社交活动。"
+    },
+    {
+      "en": "Morocco is famous for its mint tea. It is a <span class=\"kw\" data-ipa=\"blend\" data-def=\"混合物；混合\">blend</span> of green tea, fresh mint, and a lot of sugar. The tea is poured from a height into small glasses. This creates a little foam on top. Pouring from high is not just for show; it also helps the tea cool and mix with air. Serving mint tea is a sign of <span class=\"kw\" data-ipa=\"ˌhɑːspɪˈtæləti\" data-def=\"好客；殷勤\">hospitality</span>. If a guest is not offered tea, it may seem unfriendly. The more sugar, the more welcome the guest.",
+      "zh": "摩洛哥以薄荷茶闻名。它是绿茶、新鲜薄荷和大量糖的混合物。茶从高处倒入小玻璃杯中，在表面形成少量泡沫。从高处倒不仅是为了表演，也有助于茶冷却并与空气混合。奉上薄荷茶是好客的标志。如果客人没有被招待喝茶，可能显得不友好。糖越多，表示越欢迎客人。"
+    },
+    {
+      "en": "In India, masala chai is a common street drink. It is black tea boiled with milk, sugar, and spices like cardamom, ginger, and cinnamon. A chai wallah, or tea seller, makes it fresh at small stalls. People stop for a cup on their way to work, during a break, or after dinner. The spicy, sweet drink <span class=\"kw\" data-ipa=\"rɪˈfreʃɪz\" data-def=\"使恢复精神；使清新\">refreshes</span> the body and warms the stomach. Chai is also a social habit: friends share one small glass after another.",
+      "zh": "在印度，马萨拉茶是一种常见的街头饮品。它是红茶与牛奶、糖以及豆蔻、姜、肉桂等香料一起煮制而成。茶贩（chai wallah）在小摊上现做。人们在上班路上、休息时或晚饭后停下来喝一杯。这种辛辣甘甜的饮料提神醒脑，温暖肠胃。茶也是一种社交习惯：朋友们一杯接一杯地分享。"
+    },
+    {
+      "en": "In Tibet, people drink butter tea. It is made from brick tea, yak butter, and salt. All the ingredients are mixed together in a special wooden tube. The result is a hot, thick, and salty drink. Butter tea gives energy in the cold high mountains. When a guest arrives, the host keeps filling the cup. The guest does not finish the whole cup at once; leaving a little shows that the host should pour more. This is a polite way of saying, 'I am still enjoying your company.'",
+      "zh": "在西藏，人们喝酥油茶。它由砖茶、牦牛黄油和盐制成。所有原料在特制的木筒中混合。成品是一种热、浓、咸的饮料。在寒冷的高山上，酥油茶提供能量。客人到来时，主人会不断续杯。客人不会一次喝完，留一点表示主人应该再倒。这是一种礼貌的说法：“我还在享受你的陪伴。”"
+    },
+    {
+      "en": "Around the world, tea is more than a drink. It is a symbol of care, friendship, and calm. Some people add milk, some add salt, and some add nothing at all. But the basic message is often the same: take a moment, sit down, and share. In our busy lives, a simple cup of tea can still bring people together.",
+      "zh": "在世界各地，茶不仅仅是一种饮料。它是关怀、友谊与平静的象征。有些人加牛奶，有些人加盐，有些什么也不加。但基本信息往往相同：花一点时间，坐下来，分享。在我们忙碌的生活中，一杯简单的茶仍然能把人们聚在一起。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Tea is the most popular drink in the world after water.",
+        "Different cultures have different tea traditions, but they often share a message of welcome and friendship.",
+        "British afternoon tea began in the 1840s among wealthy families.",
+        "Tibetan butter tea is made with yak butter and salt."
+      ],
+      "answer": 1,
+      "explain": "文章介绍了多个国家的茶文化，如中国功夫茶、日本茶道、英国下午茶等，并指出它们虽然方式不同，但常常表达好客与友谊。A 只是开头细节，C 和 D 都是文中个别例子，不能概括全文。"
+    },
+    {
+      "q": "According to the passage, how is Moroccan mint tea served?",
+      "options": [
+        "In a large teapot with no sugar.",
+        "From a height into small glasses so that a little foam appears.",
+        "With milk and spices like cardamom and ginger.",
+        "Only on special days for wealthy families."
+      ],
+      "answer": 1,
+      "explain": "摩洛哥薄荷茶从高处倒入小玻璃杯中，表面形成少量泡沫。A 与‘大量糖’矛盾；C 是印度马萨拉茶的特点；D 是英国下午茶的历史细节。"
+    },
+    {
+      "q": "What can we infer about the Tibetan butter tea custom?",
+      "options": [
+        "Guests are expected to drink the whole cup as quickly as possible.",
+        "Leaving a little tea in the cup is considered impolite.",
+        "The host keeps filling the cup to show kindness and welcome.",
+        "Butter tea is a sweet and cold drink for hot days."
+      ],
+      "answer": 2,
+      "explain": "文中提到客人到来时主人会不断续杯，客人留一点表示主人应该再倒，这说明续杯是一种好客的表现。A 与‘不会一次喝完’矛盾；B 与‘留一点是礼貌’相反；D 与‘热、浓、咸’矛盾。"
+    },
+    {
+      "q": "The word 'ritual' in Paragraph 2 is closest in meaning to ______.",
+      "options": [
+        "a quick meal",
+        "a set of repeated actions",
+        "a famous place",
+        "a kind of tea leaf"
+      ],
+      "answer": 1,
+      "explain": "ritual 意为‘仪式’，指一套有固定步骤、重复进行的动作。文中中国功夫茶的冲泡过程正是一种缓慢的仪式，因此选 B。"
+    }
+  ]
+}
