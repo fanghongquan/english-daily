@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-02",
+  "level": "CET-4",
+  "title": "Running for Zeus: The Ancient Olympics Before the Torch",
+  "title_zh": "为宙斯而跑：火炬之前的古代奥运会",
+  "intro_zh": "本文约 574 词，主题：古代奥林匹克运动会。新词 6 个（sacred、truce、spectators、competitors、empire、revive），句子复杂度 3/5，理解难度约 85%-90%。",
+  "paragraphs": [
+    {
+      "en": "Every four years, billions of people watch athletes carry a burning torch into a stadium. Almost everyone connects that ceremony with the modern Olympic Games. Far fewer know that the first Olympic runners competed on a quiet plain beside a river in southern Greece, at a site called Olympia, in 776 BC — and that the original festival looked almost nothing like the show we see today.",
+      "zh": "每四年，数十亿人看着运动员举着燃烧的火炬走进体育场。几乎所有人都把这一仪式与现代奥运会联系在一起。但很少有人知道，第一批奥林匹克赛跑者是在公元前776年，于希腊南部一条河畔的安静平原上——一个叫奥林匹亚的地方——完成比赛的；而最初的这项庆典，与我们今天看到的盛会几乎毫无相似之处。"
+    },
+    {
+      "en": "The ancient Games began as a religious festival, not a sports event. They honored Zeus, the king of the Greek gods, and were held every four years at his <span class=\"kw\" data-ipa=\"/ˈseɪkrɪd/\" data-def=\"神圣的\">sacred</span> sanctuary. Sport and religion were not separate for the Greeks. A fast runner or a powerful wrestler was offering his strength to the gods, and the whole city shared in the honor.",
+      "zh": "古代奥运会起初是一场宗教庆典，而非体育赛事。它们是为了祭祀希腊诸神之王宙斯，每四年在他的神圣圣所举行一次。对希腊人而言，体育与宗教并不分离。跑得飞快的赛跑者或力大无穷的摔跤手，是在把自己的力量献给神，而整座城邦也分享这份荣耀。"
+    },
+    {
+      "en": "War itself paused for the festival. A month before the opening ceremony, messengers traveled across Greece announcing a <span class=\"kw\" data-ipa=\"/truːs/\" data-def=\"休战；停战协定\">truce</span>, called the ekecheiria. All fighting had to stop. Roads turned safe, so <span class=\"kw\" data-ipa=\"/ˈspekteɪtərz/\" data-def=\"观众；旁观者\">spectators</span> and athletes could reach Olympia without fear. Even armies on the march were expected to stand aside. In a land where city-states fought constantly, this guarded peace was remarkable.",
+      "zh": "战争本身也因这一庆典而暂停。开幕式前一个月，使者们穿越希腊各地，宣布“神圣休战”（ekecheiria）。一切战斗都必须停止。道路变得安全，观众和运动员可以毫无恐惧地抵达奥林匹亚。就连行军中的军队也被要求让路。在一个城邦之间战事不断的土地上，这段受到守护的和平实属难得。"
+    },
+    {
+      "en": "Not everyone could take part. Only free Greek men were allowed to compete, and they had to train for ten months. Married women were not even permitted to watch, a rule so strict that one mother, Kallipateira, dressed as a trainer to see her son box. When she was caught, she escaped punishment only because her father, her brothers and her son had all been champions.",
+      "zh": "并非所有人都能参加。只有自由的希腊男子才被允许参赛，而且必须训练十个月。已婚女性甚至不被允许观看，这条规定严格到一位名叫卡莉帕泰拉的母亲女扮男装成教练，只为看儿子打拳。当她被发现时，只因她的父亲、兄弟和儿子都曾是冠军，才免于惩罚。"
+    },
+    {
+      "en": "The program grew over the centuries. The first <span class=\"kw\" data-ipa=\"/kəmˈpetɪtərz/\" data-def=\"参赛者；竞争者\">competitors</span> ran one sprint, the stadion, about 192 meters. Later came longer races, some of them run in heavy armor, then wrestling, boxing, the brutal pankration, and the pentathlon, which combined running, jumping, discus, javelin and wrestling. In the afternoon, chariot races thundered around the hippodrome, where the wealthy owners, not the drivers, received the crown.",
+      "zh": "比赛项目在几个世纪里逐渐增加。最早的参赛者只跑一个短跑项目——“斯塔迪昂”（stadion），约192米。后来有了更长距离的赛跑，其中一些还要穿着沉重的盔甲奔跑，接着是摔跤、拳击、残酷的“潘克拉辛”（全能格斗），以及结合了跑步、跳跃、铁饼、标枪和摔跤的五项全能。下午，战车比赛在赛马场轰隆作响，而加冕的是富有的马主，不是驾车手。"
+    },
+    {
+      "en": "Victory brought no money at all. The champion was crowned with a wreath cut from a sacred olive tree, and the crowd threw flowers. Yet his home city often rewarded him with free meals for life and a statue in the market square. Poets such as Pindar wrote songs in his honor, so his name was still sung long after his legs had slowed.",
+      "zh": "胜利完全不带来金钱。冠军被戴上从神圣橄榄树上剪下的花环，人群抛撒鲜花。但他的家乡城邦常常奖赏他终身免费供餐，并在集市广场上为他立像。像品达这样的诗人会写诗歌颂他，因此在他的双腿慢下来很久之后，他的名字仍被传唱。"
+    },
+    {
+      "en": "Women had their own festival at the same site. Every four years, unmarried girls ran races in honor of Hera, the wife of Zeus. They ran on a shorter track, wearing a simple tunic, and the winners also received olive wreaths. It was a smaller event, but it shows that athletic competition was not completely closed to women in the ancient world.",
+      "zh": "女性在同一地点有自己的庆典。每四年，未婚少女会为宙斯之妻赫拉举行赛跑。她们在较短的跑道上奔跑，穿着简单的长袍，获胜者同样获得橄榄花环。这是规模较小的赛事，但它说明在古代世界，体育竞技并未对女性完全关闭。"
+    },
+    {
+      "en": "The Games mattered so much that Greeks used them to measure time. An Olympiad, the four years between two festivals, became a unit of dating. A treaty signed in the third year of the forty-fifth Olympiad could be placed on a calendar without mentioning any king or official. In other words, sport was one of the clocks of the ancient world.",
+      "zh": "奥运会如此重要，以至于希腊人用它来计量时间。一个“奥林匹亚德”——两届庆典之间的四年——成为纪年单位。一份签署于第45届奥林匹亚德第三年的条约，可以不需要提到任何国王或官员就被记入历法。换句话说，体育是古代世界的时钟之一。"
+    },
+    {
+      "en": "Then Greece changed. After the Roman <span class=\"kw\" data-ipa=\"/ˈempaɪər/\" data-def=\"帝国\">empire</span> swallowed the Greek world, the festival became a professional show for paying crowds, and emperors lost interest in a distant sanctuary. Around 393 AD, the emperor Theodosius I, a Christian, banned the old pagan festivals, and earthquakes later buried the site. The Games slept for about fifteen centuries until a French teacher, Pierre de Coubertin, persuaded the world to <span class=\"kw\" data-ipa=\"/rɪˈvaɪv/\" data-def=\"使复兴；使复活\">revive</span> them in Athens in 1896.",
+      "zh": "后来，希腊变了。罗马帝国吞并希腊世界之后，这一庆典变成了面向付费观众的职业表演，皇帝们对一个遥远的圣所也失去了兴趣。公元393年前后，基督徒皇帝狄奥多西一世禁止了古老的异教节庆，地震随后掩埋了遗址。这项运动会沉睡了大约十五个世纪，直到法国教师皮埃尔·德·顾拜旦说服世界，于1896年在雅典让它重获新生。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "The origins, rules and decline of the ancient Olympic Games.",
+        "How Pierre de Coubertin created the modern Olympic torch relay.",
+        "Why Greek city-states fought so many wars with each other.",
+        "The training methods of ancient Greek wrestlers and boxers."
+      ],
+      "answer": 0,
+      "explain": "全文按时间顺序介绍古代奥运会的宗教起源、休战传统、参赛资格、比赛项目、奖励方式、纪年作用以及衰落与复兴，A 项概括最全面。B 项只涉及末段一句话，C、D 项文中只是顺带提及或根本未展开。"
+    },
+    {
+      "q": "According to the passage, what was the main purpose of the ekecheiria?",
+      "options": [
+        "To let spectators and athletes travel safely to Olympia.",
+        "To decide which city-state owned the sacred sanctuary.",
+        "To give chariot owners time to train their horses.",
+        "To punish athletes who broke the rules of the Games."
+      ],
+      "answer": 0,
+      "explain": "第三段明确说明：休战期间一切战斗停止，道路变得安全，观众和运动员可以毫无恐惧地抵达奥林匹亚。其余选项均与原文不符。"
+    },
+    {
+      "q": "What can be inferred about women in the ancient Greek world?",
+      "options": [
+        "They had far fewer chances than men to take part in public sport.",
+        "They were allowed to compete in every event except chariot racing.",
+        "They formed the majority of spectators at the chariot races.",
+        "They were paid more than men for winning a race."
+      ],
+      "answer": 0,
+      "explain": "文中提到已婚女性连观看都不被允许，只有未婚少女有单独的赫拉运动会，且项目更少、跑道更短，因此可以推知女性参与公共体育的机会远少于男性。B、C、D 均与原文信息矛盾。"
+    },
+    {
+      "q": "The word \"revive\" in the last paragraph is closest in meaning to ____.",
+      "options": [
+        "bring back to life",
+        "give more money to",
+        "write down in detail",
+        "move to another place"
+      ],
+      "answer": 0,
+      "explain": "末段说运动会沉睡了约十五个世纪，直到顾拜旦说服世界于1896年在雅典让它“revive”，可见 revive 意为“使复兴、使复活”，与 bring back to life 最接近。"
+    }
+  ]
+}
