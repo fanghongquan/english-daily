@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-03",
+  "level": "CET-4",
+  "title": "From a Monk's Year to Twenty Million Books: How Printing Set Ideas Free",
+  "title_zh": "从修士的一年到两千万本书：印刷术如何让思想自由流动",
+  "intro_zh": "本文约 531 词，语言难度为 CET-4，含 6 个核心词（manuscript、affordable、circulate、scholar、literacy、revolution），讲述印刷术从中国雕版到谷登堡金属活字的发展，以及它如何改变知识、语言与科学。",
+  "paragraphs": [
+    {
+      "en": "Before 1450, owning a book in Europe was almost as expensive as owning a house. A single copy of the Bible could keep a monk busy for a whole year, writing every letter by hand on treated animal skin. Books were so precious that some libraries chained them to their desks, and students borrowed pages rather than whole volumes.",
+      "zh": "1450 年以前，在欧洲买一本书几乎和买一栋房子一样贵。抄写一部《圣经》能让一名修士忙上整整一年，用手把每个字母写在经过处理的兽皮上。书如此珍贵，有些图书馆甚至用铁链把它们锁在书桌上，学生只能借阅单页，而不是整卷书。"
+    },
+    {
+      "en": "Then, within fifty years, everything changed. By 1500, European presses had produced roughly twenty million books. A <span class=\"kw\" data-ipa=\"ˈmænjuskrɪpt\" data-def=\"手稿；手抄本\">manuscript</span> that once cost as much as a small farm became an <span class=\"kw\" data-ipa=\"əˈfɔːrdəbl\" data-def=\"负担得起的；买得起的\">affordable</span> object that a craftsman or a shopkeeper could buy for the price of a few days' work. This change did not begin with a new idea. It began with a machine.",
+      "zh": "然而在五十年之内，一切都改变了。到 1500 年，欧洲的印刷机大约生产了两千万本书。曾经贵得像一座小农场的手抄本，变成了工匠或店主花几天工钱就能买得起的物品。这场变革并非始于一个新想法，而是始于一台机器。"
+    },
+    {
+      "en": "Printing itself was not a European invention. In China, woodblock printing was already in use during the Tang dynasty, centuries before Gutenberg was born. By around 1040, a craftsman named Bi Sheng had built movable type from baked clay. Because written Chinese uses thousands of characters, however, the method remained slow and costly there, and few ordinary families owned printed books. Korean printers even used metal type in the thirteenth century.",
+      "zh": "印刷本身并不是欧洲人的发明。在中国，雕版印刷在唐代就已经在使用，比谷登堡出生还早数百年。大约在 1040 年，一位名叫毕昇的工匠用烧制的胶泥做成了活字。不过，由于汉字有成千上万个字符，这种方法在当地依然又慢又贵，普通人家几乎没有印本书。朝鲜的印刷工匠甚至在十三世纪就使用了金属活字。"
+    },
+    {
+      "en": "Around 1450, a German goldsmith named Johannes Gutenberg took a different road. He cut single letters from metal, produced them in large numbers, and locked them into a frame. He mixed an oil-based ink that stuck to metal instead of running off it, and he adapted a wine press to push paper against the type. His 1455 Bible, printed in two columns and forty-two lines a page, looked as neat as the finest handwriting.",
+      "zh": "大约在 1450 年，一位名叫约翰内斯·谷登堡的德国金匠走上了一条不同的路。他把单个字母从金属上刻出来，大量制作，再把它们锁进一个框子里。他调配出一种能附着在金属上而不会流散的油性墨水，并改装了一台葡萄榨汁机，把纸压向活字。他 1455 年印出的《圣经》分两栏排印，每页四十二行，看上去和最好的手写字一样工整。"
+    },
+    {
+      "en": "The system spread quickly. Printers opened shops in more than two hundred European towns, and books began to <span class=\"kw\" data-ipa=\"ˈsɜːrkjəleɪt\" data-def=\"流通；传播\">circulate</span> along the same roads that carried wine and wool. Because every copy printed from one setting of type is exactly the same, a reader in Paris and a reader in Prague could argue about the same page, the same line, the same sentence — a small fact with enormous results.",
+      "zh": "这套方法传播得很快。印刷商在两百多座欧洲城镇开起了店铺，书籍开始沿着运送葡萄酒和羊毛的道路流通。由于用同一副活字印出的每一本都完全相同，巴黎的读者和布拉格的读者可以争论同一页、同一行、同一句话——这看似小事，结果却极为重大。"
+    },
+    {
+      "en": "Cheap pages also turned private opinions into public debates. Short pamphlets — a few sheets folded and sold for the price of a meal — carried new religious ideas across Germany within weeks. Scientists gained something just as valuable. When diagrams and numbers could be copied without mistakes, a <span class=\"kw\" data-ipa=\"ˈskɑːlər\" data-def=\"学者\">scholar</span> in one country could check the work of another and build on it, instead of repeating every experiment from the beginning.",
+      "zh": "便宜的纸页也把私人的看法变成了公开的辩论。小册子——几张纸折叠而成，售价相当于一顿饭钱——在几周之内就把新的宗教思想传遍德国。科学家们也得到了同样宝贵的东西。当图表和数字能够毫无差错地被复制时，一个国家的学者就可以核对另一个国家的研究成果，并在此基础上继续前进，而不必从头重做每一项实验。"
+    },
+    {
+      "en": "Printing reshaped language and daily life as well. As books appeared in local languages rather than Latin, spelling slowly became fixed, and more people learned to read. <span class=\"kw\" data-ipa=\"ˈlɪtərəsi\" data-def=\"读写能力；识字率\">Literacy</span> rose fastest among townspeople and merchants. Reading aloud in shops and taverns let even those who could not read follow the news, so knowledge moved, step by step, from a few hands into many. Church services, government notices and school lessons all came to depend on the printed page.",
+      "zh": "印刷也重塑了语言和日常生活。随着用本地语言而非拉丁文印制的书籍出现，拼写逐渐固定下来，识字的人也越来越多。城镇居民和商人中的识字率上升得最快。店铺和酒馆里的朗读，让那些不识字的人也能跟上消息，于是知识一步一步地从少数人手中走向大众。教堂礼拜、政府告示和学校课程，都开始依赖印出来的那一页纸。"
+    },
+    {
+      "en": "Today we compare that age to the internet, and the comparison is fair: both made copying easy and cheap. But the earlier <span class=\"kw\" data-ipa=\"ˌrevəˈluːʃn\" data-def=\"革命；巨变\">revolution</span> went deeper. An idea, once printed, could no longer be lost, changed by accident, or locked in a single room. Five centuries later, we still live inside the world that Gutenberg's metal letters built.",
+      "zh": "今天我们把那个时代与互联网相比，这种比较是合理的：两者都让复制变得容易而便宜。但更早的那场革命影响更深。一个想法一旦被印出来，就再也不会丢失、不会因意外而被改动，也不会被锁在某个房间里。五个世纪之后，我们依然生活在谷登堡的金属活字所建造的世界里。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "The daily life of European monks in the Middle Ages.",
+        "How printing developed and how it changed the way knowledge spread.",
+        "Why Chinese printing never reached Europe.",
+        "The personal story of Johannes Gutenberg."
+      ],
+      "answer": 1,
+      "explain": "全文先讲 1450 年前手抄书的昂贵，再讲中国雕版与毕昇活字、谷登堡金属活字，接着说明印刷如何影响宗教辩论、科学、语言与识字率，故主旨是印刷术的发展及其对知识传播的影响。A、C、D 都只是文中细节或与原文不符（文章明确说印刷术并非欧洲发明，也并未说中国印刷未传到欧洲）。"
+    },
+    {
+      "q": "According to paragraph 6, why were short pamphlets important?",
+      "options": [
+        "They were printed only in Latin for church use.",
+        "They were cheap enough for many people and carried new ideas quickly across Germany.",
+        "They contained the first scientific diagrams ever printed.",
+        "They were sold only in bookshops in Paris and Prague."
+      ],
+      "answer": 1,
+      "explain": "第六段说小册子“a few sheets folded and sold for the price of a meal”，即价格便宜，并在几周内把新的宗教思想传遍德国，故选 B。A 与原文“本地语言而非拉丁文”相反；C、D 属无中生有。"
+    },
+    {
+      "q": "What can be inferred from the passage about the effect of printing on science?",
+      "options": [
+        "It made scientific experiments unnecessary.",
+        "It slowed down the sharing of research between countries.",
+        "It let scholars compare and build on one another's work because copies were exact.",
+        "It kept scientific knowledge inside a single country."
+      ],
+      "answer": 2,
+      "explain": "第六段指出，当图表和数字能被毫无差错地复制时，一个国家的学者可以核对并推进另一国的研究，而不必重做实验，因此 C 正确。A 与“不必重做”意思不同，属过度推断；B、D 与原文相反。"
+    },
+    {
+      "q": "The word \"circulate\" in paragraph 5 is closest in meaning to ______.",
+      "options": [
+        "spread widely",
+        "become more expensive",
+        "disappear gradually",
+        "be translated into Latin"
+      ],
+      "answer": 0,
+      "explain": "该句说书籍沿着运送葡萄酒和羊毛的道路“circulate”，结合后文“每一本都完全相同，不同城市的读者能讨论同一页”，可知指书籍的流通、广泛传播，故选 A；B、C、D 均与语境不符。"
+    }
+  ]
+}
