@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-09",
+  "level": "CET-4",
+  "title": "From Kitchen Bucket to Power Grid: The Journey of Sorted Waste",
+  "title_zh": "从厨房垃圾桶到电网：分类垃圾的旅程",
+  "intro_zh": "本文约523词，主题为垃圾分类与回收，共8段。文章以上海居民的日常投放为起点，讲清可回收物、湿垃圾与干垃圾各自的去向，并对比德国饮料瓶押金制、日本分类日历和瑞典焚烧供暖的做法，最后回到普通人手上的十秒钟动作。含6个CET-4核心词（household, sort, bin, separate, ban, deposit），句子复杂度中等，理解难度约85%-90%。",
+  "paragraphs": [
+    {
+      "en": "At seven in the morning, Li Wei stands at the door of her building in Shanghai with two bags in her hands. One holds vegetable leaves, eggshells and yesterday's rice; the other holds a plastic bottle, a milk carton and a broken toy. She drops them into different openings of the same metal box. This small daily action is required by a rule that applies to every <span class=\"kw\" data-ipa=\"ˈhaʊshoʊld\" data-def=\"家庭；一家人\">household</span> in a city of 24 million people.",
+      "zh": "早上七点，李薇站在上海她家楼门口，手里提着两个袋子。一个装着菜叶、鸡蛋壳和昨天的米饭；另一个装着一个塑料瓶、一个牛奶盒和一个坏了的玩具。她把它们投进同一个金属箱的不同投口中。这个每天的小动作，是这座城市2400万人口中每一户都必须遵守的规定所要求的。"
+    },
+    {
+      "en": "Since July 2019, Shanghai has asked residents to <span class=\"kw\" data-ipa=\"sɔːrt\" data-def=\"把……分类；整理\">sort</span> their rubbish into four groups: recyclable, hazardous, wet and dry. Kitchen waste goes to the wet <span class=\"kw\" data-ipa=\"bɪn\" data-def=\"垃圾箱；桶\">bin</span>; batteries and old medicine go to the hazardous one. For months, volunteers in green vests stood beside the bins, showing people where each item belonged. Those who refused could be fined. The early result surprised even the officials: within a year, the city was sending far less mixed rubbish to its landfills.",
+      "zh": "自2019年7月起，上海要求居民把垃圾分成四类：可回收物、有害垃圾、湿垃圾和干垃圾。厨余垃圾投进湿垃圾桶，电池和过期药品投进有害垃圾桶。有好几个月，穿绿马甲的志愿者守在垃圾桶旁，告诉人们每样东西该投哪里。拒不分类的人可能被罚款。早期的结果连官员都感到意外：一年之内，这座城市送往填埋场的混合垃圾大大减少了。"
+    },
+    {
+      "en": "Why bother to <span class=\"kw\" data-ipa=\"ˈsepəreɪt\" data-def=\"分开；把……分隔\">separate</span> anything at all? Because mixed rubbish is almost impossible to treat. When food scraps soak into paper and cardboard, the paper can no longer be recycled; it simply rots. A single greasy pizza box can spoil a whole load of otherwise clean paper. Sorting at the kitchen door takes about ten seconds; sorting later, if it can be done at all, costs far more.",
+      "zh": "为什么非要把垃圾分开不可？因为混合在一起的垃圾几乎无法处理。当食物残渣浸进纸张和纸板，这些纸就再也回收不了，只能烂掉。一个沾了油的披萨盒，就能毁掉一整批本来干净的纸。在厨房门口分类只要十秒钟；等以后再分，即便分得出来，代价也高得多。"
+    },
+    {
+      "en": "Wet waste has a second life. Trucks carry it to plants where it is broken down in sealed tanks. The gas produced, mostly methane, is captured and burned to make electricity. One plant in Shanghai handles several thousand tonnes a day, enough to supply power to tens of thousands of homes. What was once only a smell and a problem becomes light in someone's living room.",
+      "zh": "湿垃圾有第二次生命。卡车把它运到处理厂，在那里，它在密封罐中被分解。产生的气体主要是甲烷，被收集起来燃烧发电。上海有一家处理厂每天能处理数千吨，发的电足够供应数万户家庭。曾经只是气味和麻烦的东西，变成了别人客厅里的灯光。"
+    },
+    {
+      "en": "Dry waste travels to sorting centres, where workers and machines divide it further. Plastic bottles are washed, crushed and turned into fibres for clothes and bags. Steel cans are melted down. Old phones are taken apart for the gold and copper inside them. In 2018, China introduced a <span class=\"kw\" data-ipa=\"bæn\" data-def=\"禁令；禁止\">ban</span> on importing foreign waste, which pushed its own recycling industry to grow up quickly.",
+      "zh": "干垃圾则被送到分拣中心，由工人和机器进一步细分。塑料瓶经过清洗、压碎，变成做衣服和包用的纤维。钢罐被熔化。旧手机被拆开，取出里面的黄金和铜。2018年，中国出台禁止进口外国废物的禁令，这推动本国的回收产业迅速成长起来。"
+    },
+    {
+      "en": "Other countries have found their own methods. In Germany, shoppers pay about 25 cents extra for a plastic bottle. When they return it to a machine at the supermarket, they get the <span class=\"kw\" data-ipa=\"dɪˈpɑːzɪt\" data-def=\"押金；保证金\">deposit</span> back. The return rate for such bottles is above 98 percent. In Japan, towns hand out calendars that show which kind of rubbish may be put out on which day of the week.",
+      "zh": "其他国家也找到了自己的办法。在德国，顾客买塑料瓶装饮料时要多付约25美分。把空瓶送回超市的机器，就能拿回押金。这类瓶子的回收率超过98%。在日本，城镇会发放日历，标明哪一类垃圾可以在一周的哪一天拿出去扔。"
+    },
+    {
+      "en": "Sweden goes one step further. Only a small share of its household waste reaches a landfill. The rest is recycled, or burned in modern plants that also heat thousands of apartments through pipes running under the streets. The country even buys rubbish from its neighbours to keep those plants running all winter.",
+      "zh": "瑞典走得更远。它的家庭垃圾只有很小一部分进入填埋场。其余的被回收，或在现代化工厂里焚烧——这些工厂还通过街道下方的管道为成千上万套公寓供暖。这个国家甚至向邻国购买垃圾，好让这些工厂整个冬天都运转下去。"
+    },
+    {
+      "en": "None of this works without ordinary people. A rule on paper becomes clean streets, warm rooms and second-hand bottles only when millions of hands do the small work first. Sorting rubbish will not save the planet by itself, but it is one of the few green habits whose results you can actually see, street by street and week by week.",
+      "zh": "没有普通人，这一切都无法实现。只有当千百万双手先完成那个小动作，纸上的规定才能变成干净的街道、温暖的房间和重新被利用的瓶子。垃圾分类本身救不了地球，但它是少数几种成果看得见的绿色习惯之一——一条街一条街地看，一周一周地看。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "Why Shanghai fines residents who do not sort their rubbish.",
+        "How sorted rubbish is collected, treated and reused in different countries.",
+        "The long history of Germany's bottle deposit system.",
+        "Why landfills are disappearing across Europe."
+      ],
+      "answer": 1,
+      "explain": "全文先以上海居民分类投放为切入点，接着讲湿垃圾发电、干垃圾分拣再加工，再对比德国押金制、日本分类日历和瑞典焚烧供暖，主线是‘分类后的垃圾去了哪里、如何被利用’，故选B。A只是第二段的一个细节；C、D只是文中举例的一部分，不能概括全文。"
+    },
+    {
+      "q": "According to the passage, what happens to wet waste in Shanghai?",
+      "options": [
+        "It is buried in landfills outside the city.",
+        "It is sold to factories that make paper and cardboard.",
+        "It is broken down in sealed tanks and the gas is used to produce electricity.",
+        "It is shipped to Sweden to heat apartments in winter."
+      ],
+      "answer": 2,
+      "explain": "第四段明确指出：湿垃圾被运到处理厂，在密封罐中被分解，产生的甲烷气体被收集燃烧发电。A与原文‘减少送往填埋场的混合垃圾’相反；B说的是纸类回收；D张冠李戴，瑞典焚烧供暖讲的是它本国的垃圾处理方式。"
+    },
+    {
+      "q": "Why does the writer mention a greasy pizza box?",
+      "options": [
+        "To show that paper gets damaged easily in the rain.",
+        "To explain how one careless item can ruin a whole batch of recyclable paper.",
+        "To suggest that fast food should be banned in cities.",
+        "To prove that wet waste is more valuable than dry waste."
+      ],
+      "answer": 1,
+      "explain": "第三段用‘一个沾了油的披萨盒就能毁掉一整批本来干净的纸’来说明混合垃圾为何难以处理，即一件没分好的物品会连累整批可回收物，故选B。文中并未谈雨水、禁快餐，也没有比较两类垃圾的价值大小。"
+    },
+    {
+      "q": "The word 'deposit' in Paragraph 6 most probably means ______.",
+      "options": [
+        "money paid in advance and given back later",
+        "a kind of machine found in supermarkets",
+        "a tax that shoppers must pay forever",
+        "a small gift given to customers"
+      ],
+      "answer": 0,
+      "explain": "第六段说：买瓶装饮料时多付约25美分，把空瓶送回超市机器就能拿回这笔钱，且回收率超过98%，可见deposit指‘先付、归还容器时退还的押金’，故选A。机器是退还押金的途径，不是deposit本身；押金会退还，不是永久缴纳的税，也不是礼物。"
+    }
+  ]
+}
