@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-10",
+  "level": "CET-4",
+  "title": "More Than Calories: How Color, Fiber and Timing Shape a Healthy Meal",
+  "title_zh": "不止是卡路里：颜色、纤维与时间如何塑造一顿健康餐",
+  "intro_zh": "本文约 532 词，围绕健康饮食的六个日常线索展开：颜色、纤维、份量、配料表、进食速度与用餐时间，共 8 段，含 6 个 CET-4 核心重点词。",
+  "paragraphs": [
+    {
+      "en": "Ask ten people what healthy eating means, and most will mention calories. Counting them can help, but it is only one part of the picture. What is on your plate, how fast you eat, and when you sit down may matter just as much. A few simple clues can make daily meals better without any strict diet.",
+      "zh": "随便问十个人什么是健康饮食，大多数人都会提到卡路里。计算卡路里确实有帮助，但它只是整体画面的一部分。你盘子里装着什么、吃得多快、什么时候坐下来吃，可能同样重要。几个简单的小线索，就能让日常三餐变得更好，而不必进行任何严格节食。"
+    },
+    {
+      "en": "Eating a rainbow sounds like a children's game, but it hides a serious idea. Different colors in fruit and vegetables come from different <span class=\"kw\" data-ipa=\"ˈnuːtriənt\" data-def=\"营养物；养分\">nutrients</span>. Red tomatoes and watermelons carry lycopene; orange carrots and pumpkins are rich in beta-carotene; dark green spinach and broccoli supply iron and folate; purple grapes and blueberries offer powerful antioxidants. A plate with several colors usually covers more of what the body needs.",
+      "zh": "“吃得像彩虹”听起来像小孩的游戏，但背后藏着一个严肃的道理。水果和蔬菜的不同颜色来自不同的营养素。红色番茄和西瓜含有番茄红素；橙色胡萝卜和南瓜富含β-胡萝卜素；深绿色的菠菜和西兰花提供铁和叶酸；紫色葡萄和蓝莓则带来强大的抗氧化物。一盘里有多种颜色，通常就能覆盖身体更多的需要。"
+    },
+    {
+      "en": "Another quiet hero is <span class=\"kw\" data-ipa=\"ˈfaɪbər\" data-def=\"纤维；膳食纤维\">fiber</span>. It does not feed us directly, but it helps us <span class=\"kw\" data-ipa=\"daɪˈdʒest\" data-def=\"消化\">digest</span> food, keeps blood sugar steady, and makes us feel full for longer. Health experts suggest adults get 25 to 30 grams a day. In reality, many people reach only half that amount, because white bread, white rice and sugary drinks have had most of their fiber removed. Choosing whole grains, beans and vegetables is an easy fix.",
+      "zh": "另一个低调的英雄是纤维。它并不直接给我们提供营养，但能帮助消化、稳定血糖，并让我们更长时间感到饱足。健康专家建议成年人每天摄入 25 到 30 克。现实中，许多人只达到一半，因为白面包、白米饭和含糖饮料在加工中已去掉了大部分纤维。选择全谷物、豆类和蔬菜是简单的解决办法。"
+    },
+    {
+      "en": "<span class=\"kw\" data-ipa=\"ˈpɔːrʃn\" data-def=\"一份；份量\">Portion</span> size is the third clue. Studies show that restaurant servings have grown sharply over the past forty years, and people tend to eat more when more food is placed in front of them. A simple trick is to use smaller plates, or to picture your meal in three parts: one palm of protein, one fist of rice or noodles, and two fists of vegetables. You do not need to weigh anything.",
+      "zh": "份量是第三条线索。研究显示，过去四十年餐厅的份量急剧增加，而当面前摆着更多食物时，人们往往会吃得更多。一个简单的办法是使用小一点的盘子，或者把一餐想成三部分：一掌大小的蛋白质、一拳大小的米饭或面条、两拳大小的蔬菜。你不需要称量任何东西。"
+    },
+    {
+      "en": "Reading the <span class=\"kw\" data-ipa=\"ɪnˈɡriːdiənt\" data-def=\"成分；原料\">ingredient</span> list on a package is another useful skill. Ingredients are listed by weight, so if sugar, syrup or salt appears among the first three, the product is probably not a healthy everyday choice. Labels like 'low fat' can also mislead: when fat is removed, sugar is often added to keep the taste. The shorter and more familiar the list, the better.",
+      "zh": "阅读包装上的配料表也是一项有用的技能。配料按重量排列，所以如果糖、糖浆或盐出现在前三名里，这个产品大概不适合作为日常健康选择。像“低脂”这样的标签也可能误导人：脂肪被去掉后，往往会加入糖来保持口味。配料表越短、越熟悉，通常越好。"
+    },
+    {
+      "en": "How fast you eat may be as important as what you eat. Your brain needs about twenty minutes to receive the signal that your stomach is full. People who rush through meals often eat more without noticing. Putting down your fork between bites, chewing slowly, and turning off the phone or TV can help. One study found that distracted eaters took in about ten percent more calories at a single meal.",
+      "zh": "你吃得多快，可能和你吃什么同样重要。大脑大约需要二十分钟才能收到胃已经饱了的信号。吃饭匆匆的人往往不知不觉就吃得更多。吃几口就放下叉子、慢慢咀嚼、关掉手机或电视，都会有所帮助。一项研究发现，边吃边分心的人，一顿饭会多摄入约百分之十的热量。"
+    },
+    {
+      "en": "<span class=\"kw\" data-ipa=\"ˈbælənst\" data-def=\"均衡的；平衡的\">Balanced</span> meals also depend on timing. Skipping breakfast may leave you hungry and more likely to choose snacks high in sugar and fat by mid-morning. Eating a very large meal late at night, when the body is preparing for rest, can disturb sleep and make digestion harder. Regular meals at roughly the same times each day give the body a steady rhythm.",
+      "zh": "均衡的饮食也和用餐时间有关。不吃早餐可能让你到了上午十点左右又饿又容易选择高糖高脂的零食。深夜吃一顿大餐，而身体正准备休息，会干扰睡眠，也让消化变得更难。每天大致在相同的时间规律进餐，能给身体一个稳定的节奏。"
+    },
+    {
+      "en": "There is no single magic food, and no perfect diet that works for everyone. What helps most is a set of small, repeatable choices: adding one more vegetable to dinner, swapping a sweet drink for water, or slowing down at the table. Over a week, these choices add up. Healthy eating is not a strict test you pass or fail; it is a direction you keep walking in.",
+      "zh": "没有哪一种神奇的食物，也没有适合所有人的完美饮食。最有帮助的，是一组小而可重复的选择：晚饭多加一种蔬菜，把甜饮料换成水，或者在餐桌旁慢下来。一周下来，这些选择会累积起来。健康饮食不是一场必须通过或失败的严格考试，而是一个你一直走下去的方向。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Counting calories is the only reliable way to stay healthy.",
+        "Healthy eating depends on several simple clues, not just calories.",
+        "Restaurant meals are always less healthy than home-cooked food.",
+        "People should never eat a large meal late at night."
+      ],
+      "answer": 1,
+      "explain": "第一段即点明卡路里只是健康饮食的一部分，随后从颜色、纤维、份量、配料表、进食速度与用餐时间等方面展开，B 项最能概括全文。A 项“唯一可靠”过于绝对；C 项“总是”以偏概全；D 项只是第七段提到的一个具体建议。"
+    },
+    {
+      "q": "According to the passage, how much fiber do health experts suggest adults get each day?",
+      "options": [
+        "10 to 15 grams",
+        "25 to 30 grams",
+        "40 to 50 grams",
+        "55 to 60 grams"
+      ],
+      "answer": 1,
+      "explain": "第三段明确写道 Health experts suggest adults get 25 to 30 grams a day，因此选 25 to 30 grams，即 B 项。"
+    },
+    {
+      "q": "Why can a product labeled 'low fat' be a poor choice?",
+      "options": [
+        "Because it always contains more salt than regular food.",
+        "Because removing fat often means adding sugar to keep the taste.",
+        "Because low-fat products are usually more expensive.",
+        "Because the label is not allowed by law."
+      ],
+      "answer": 1,
+      "explain": "第五段指出 when fat is removed, sugar is often added to keep the taste，即脱脂后常加糖保持口感，B 项正确。A 项的“总是”无依据，C 项文中未提价格，D 项属于无中生有。"
+    },
+    {
+      "q": "In paragraph 6, the word 'distracted' most probably means ______.",
+      "options": [
+        "eating while doing something else",
+        "eating much faster than others",
+        "eating alone without company",
+        "eating only one meal a day"
+      ],
+      "answer": 0,
+      "explain": "第六段先建议关掉手机或电视，随后说 distracted eaters 摄入更多热量，可见 distracted 指边吃边做其他事情（如看屏幕），A 项最符合语境。"
+    }
+  ]
+}
