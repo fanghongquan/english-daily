@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-14",
+  "level": "CET-4",
+  "title": "Forty Cars or One Bus: The Everyday Wins of Public Transport",
+  "title_zh": "四十辆车还是一辆公交：公共交通的日常好处",
+  "intro_zh": "本文约 548 词，围绕公共交通的好处展开，从空间、环境、费用、健康、时间、公平和城市生活七个角度，说明公交与地铁给城市和个人带来的实际价值。文中含 6 个 CET-4 核心词（commute, congestion, efficient, affordable, reliable, resident），句式中等，理解目标约 85%-90%。",
+  "paragraphs": [
+    {
+      "en": "Every weekday morning, millions of people stand at bus stops and subway platforms, ready to <span class=\"kw\" data-ipa=\"kəˈmjuːt\" data-def=\"通勤；上下班往返\">commute</span> to work or school. To some drivers stuck in a slow line of cars, that wait looks like wasted time. Yet study after study shows the opposite: moving people together in shared vehicles is one of the smartest choices a city can make.",
+      "zh": "每个工作日的早晨，数百万人站在公交站和地铁站台上，准备通勤去上班或上学。在一些堵在缓慢车流里的司机看来，这样的等待像是在浪费时间。然而一项又一项研究显示的恰恰相反：用共享车辆把人一起运送，是一座城市所能做出的最聪明的选择之一。"
+    },
+    {
+      "en": "The first benefit is space. A single city bus can hold about sixty passengers, but those same sixty people in private cars would need roughly forty vehicles and a line of road more than half a kilometer long. During rush hour, one full bus removes dozens of cars from the street, which directly eases <span class=\"kw\" data-ipa=\"kənˈdʒestʃən\" data-def=\"拥堵；交通堵塞\">congestion</span> in the busiest parts of town. Surveys in several large cities suggest that a well-used bus lane can carry five times as many people per hour as a lane of cars.",
+      "zh": "第一项好处是空间。一辆城市公交车大约能载六十名乘客，而同样这六十人若开私家车，大约需要四十辆车，以及一条超过半公里长的车流。在高峰时段，一辆满载的公交就能让街上少掉几十辆车，这直接缓解了市中心最繁忙路段的拥堵。几座大城市的调查显示，一条使用率高的公交专用道，每小时运送的人数可以达到一条小汽车车道的五倍。"
+    },
+    {
+      "en": "Cleaner air is the second gain. A diesel bus produces more smoke than a car, yet it carries many times more people, so it is far more <span class=\"kw\" data-ipa=\"ɪˈfɪʃnt\" data-def=\"高效的；效率高的\">efficient</span> per passenger. In many European cities, electric buses now run quietly along the same routes once filled with noisy engines. When thousands of riders choose the bus instead of driving, the air in the whole neighborhood improves.",
+      "zh": "第二项收获是更干净的空气。一辆柴油公交排出的烟比一辆小汽车多，但它载的人也要多好几倍，因此分摊到每位乘客身上就高效得多。在许多欧洲城市，电动公交如今安静地行驶在昔日充满嘈杂引擎声的同一条线路上。当成千上万的乘客选择坐公交而不是开车时，整个街区的空气都会变好。"
+    },
+    {
+      "en": "Money matters too. In the United States, a household that gives up one car and uses transit instead can save close to ten thousand dollars a year on fuel, insurance, parking and repairs. A monthly pass usually costs less than a single tank of gas, which makes public transport an <span class=\"kw\" data-ipa=\"əˈfɔːrdəbl\" data-def=\"负担得起的；价格合理的\">affordable</span> option for students and low-income workers.",
+      "zh": "钱的问题也很重要。在美国，一个放弃一辆汽车、改用公共交通的家庭，一年在油费、保险、停车和维修上可以省下将近一万美元。一张月票通常比一箱油还便宜，这使公共交通成为学生和低收入劳动者负担得起的选择。"
+    },
+    {
+      "en": "There are health benefits as well. Most trips on public transport begin and end with a short walk, and those small walks add up. Researchers in London found that bus and train users spent an extra ten to fifteen minutes a day walking compared with drivers, and they were less likely to be overweight. Doctors now describe such daily movement as 'invisible exercise' that costs nothing and fits easily into a normal routine.",
+      "zh": "公共交通还带来健康方面的好处。大多数搭乘公共交通的行程都以一小段步行开始、又以一小段步行结束，而这些小小的步行会累积起来。伦敦的研究人员发现，与开车的人相比，乘坐公交和地铁的人每天多走十到十五分钟，而且他们超重的可能性更低。医生如今把这种日常活动称为“看不见的锻炼”——它不花一分钱，还能轻松融入日常生活。"
+    },
+    {
+      "en": "Time is another reason. When a city gives buses their own lane, the trip becomes <span class=\"kw\" data-ipa=\"rɪˈlaɪəbl\" data-def=\"可靠的；准时的\">reliable</span>: riders know the bus will arrive every few minutes, even in heavy traffic. Cities such as Bogota and Istanbul built fast bus systems at a small part of the cost of a subway, and travel time for millions of people dropped sharply.",
+      "zh": "时间也是一个理由。当一座城市给公交车划出专用车道时，出行就变得可靠：乘客知道车每隔几分钟就会来一趟，即使车流拥堵也是如此。波哥大和伊斯坦布尔等城市以远低于修建地铁的成本建起了快速公交系统，数百万人的出行时间大幅缩短。"
+    },
+    {
+      "en": "Public transport is also fair. Not every <span class=\"kw\" data-ipa=\"ˈrezɪdənt\" data-def=\"居民\">resident</span> can drive: teenagers, older people, and families who cannot afford a car all depend on the network. A good system connects suburbs to job centers, so a nurse who lives far from the hospital can still reach her night shift on time.",
+      "zh": "公共交通也是公平的。并不是每位居民都能开车：青少年、老年人以及买不起汽车的家庭，都依赖这张交通网络。一个良好的系统把郊区与就业中心连接起来，因此住得离医院很远的护士依然能准时赶上夜班。"
+    },
+    {
+      "en": "Finally, transit shapes the city itself. Parking lots near stations can be replaced by shops, homes and small parks, and streets become friendlier for walking and cycling. Fewer cars also mean fewer crashes, which saves both lives and public money. In some Dutch and Japanese cities, stations have become the busiest shopping streets in town.",
+      "zh": "最后，公共交通也在塑造城市本身。车站附近的停车场可以改造成商铺、住宅和小公园，街道对步行和骑行也变得更加友好。汽车更少还意味着事故更少，这既挽救了生命，也节省了公共开支。在荷兰和日本的一些城市，车站已经变成全城最热闹的商业街。"
+    },
+    {
+      "en": "None of this means everyone should sell their car. It simply means that a city which invests in buses, trains and safe stops gets something valuable in return: cleaner air, shorter waits, lower costs and a fairer chance for every resident to move around freely.",
+      "zh": "这一切并不是说人人都该把车卖掉。它只是说明：一座愿意投资公交、地铁和安全站点的城市，会得到珍贵的回报——更干净的空气、更短的等待、更低的成本，以及让每位居民都能自由出行的更公平的机会。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main idea of the passage?",
+      "options": [
+        "Public transport brings many practical benefits to cities and their people.",
+        "Private cars should be banned in all large cities.",
+        "Electric buses are always cheaper than diesel ones.",
+        "Subway systems are more useful than bus systems."
+      ],
+      "answer": 0,
+      "explain": "全文从空间、环境、费用、健康、时间、公平等角度逐一说明公共交通的好处，属于典型的总分结构，故选第一项。B 项“禁车”过于绝对，文中明确说“不是人人都该卖车”；C、D 两项只是文中提到的局部细节，且文中并未说地铁一定优于公交。"
+    },
+    {
+      "q": "According to paragraph 2, how does one full bus help reduce traffic jams?",
+      "options": [
+        "It travels much faster than cars on the same road.",
+        "It takes dozens of cars off the street at the same time.",
+        "It forces drivers to use other roads instead.",
+        "It makes the road itself shorter and wider."
+      ],
+      "answer": 1,
+      "explain": "第二段明确指出：高峰时段一辆满载的公交车能让街上少掉几十辆小汽车，从而直接缓解拥堵。A 项文中未提；C 项文中没有强迫司机改道的内容；D 项属于对“道路长度”的曲解。"
+    },
+    {
+      "q": "What can be inferred from paragraph 5 about regular users of public transport?",
+      "options": [
+        "They probably get more daily exercise than drivers do.",
+        "They spend less time walking than drivers do.",
+        "They are more likely to be overweight.",
+        "They seldom need to see a doctor."
+      ],
+      "answer": 0,
+      "explain": "第五段说乘坐公交和地铁的人每天比开车者多走十到十五分钟，且更不容易超重，由此可推知他们日常运动量更大，故选 A。B、C 与原文相反；D 属于过度推断，文中并未提及就医情况。"
+    },
+    {
+      "q": "The word 'reliable' in paragraph 6 is closest in meaning to ______.",
+      "options": [
+        "dependable",
+        "expensive",
+        "crowded",
+        "popular"
+      ],
+      "answer": 0,
+      "explain": "reliable 意为“可靠的、可信赖的”，与 dependable 同义。该段说乘客知道公交每隔几分钟就会到站，即使堵车也是如此，正说明其“准时可靠”。expensive（昂贵）、crowded（拥挤）、popular（受欢迎）均与语境不符。"
+    }
+  ]
+}
