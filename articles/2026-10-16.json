@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-16",
+  "level": "CET-4",
+  "title": "Small Screen, Big Shift: How Smartphones Rewrote Daily Life",
+  "title_zh": "小屏幕，大改变：智能手机如何改写了日常生活",
+  "intro_zh": "本文约 525 词，从沟通、支付、工作、健康与注意力成本等角度，讲述智能手机如何悄悄改变日常生活，含 6 个 CET-4 核心词，适合四级阅读训练。",
+  "paragraphs": [
+    {
+      "en": "Twenty years ago, planning a trip meant unfolding a paper map, finding a public phone, or asking a stranger for directions. Today a palm-sized <span class=\"kw\" data-ipa=\"dɪˈvaɪs\" data-def=\"设备；装置\">device</span> answers all three questions before the bus even arrives. By 2024, more than five billion people — roughly two-thirds of the world's population — carried a smartphone. That small screen has quietly rearranged the way we talk, pay, learn and rest, and it did so faster than any earlier invention in history.",
+      "zh": "二十年前，计划一次出行意味着摊开纸质地图、找一个公用电话，或者向陌生人问路。如今，一个巴掌大的设备在公交车到站之前就能把这三个问题全部解决。到 2024 年，全球超过五十亿人——大约世界人口的三分之二——随身带着智能手机。这块小小的屏幕悄悄重排了我们说话、付款、学习和休息的方式，而且速度比历史上任何一项更早的发明都要快。"
+    },
+    {
+      "en": "Communication changed first. A letter once took a week to cross the country; a video call now takes a single tap. Grandparents watch a baby's first steps from a thousand miles away, and a group chat can organise a class reunion in one afternoon. Messaging apps have become the default way for families and friends to share news, jokes and photos, and they have changed the way people <span class=\"kw\" data-ipa=\"ˌɪntərˈækt\" data-def=\"互动；交流\">interact</span> across generations.",
+      "zh": "最先改变的是沟通。以前一封信要一周才能横穿全国；如今一次视频通话只需轻轻一点。祖父母可以在千里之外看到宝宝迈出的第一步，一次班级聚会也能在一个下午通过群聊安排妥当。即时通讯应用已成为家人和朋友分享消息、笑话和照片的默认方式，也改变了不同代人之间互动的方式。"
+    },
+    {
+      "en": "Then came <span class=\"kw\" data-ipa=\"ˈækses\" data-def=\"获取途径；使用权\">access</span>. Instead of memorising bus routes or carrying a heavy phrasebook, travellers simply ask the screen. In China alone, more than 900 million people pay for noodles, taxis and electricity with a quick scan of a square code. A student can look up a word, a formula or a historical date in seconds, which makes information far less of a privilege than it was thirty years ago.",
+      "zh": "接着到来的是“获取”。旅行者不必再背公交线路，也不必扛着厚厚的口语手册，直接问屏幕就行。仅在中国，就有超过九亿人通过扫一扫方形二维码来支付面条、打车费和电费。学生几秒钟就能查到单词、公式或某个历史日期，这让信息远不像三十年前那样是一种特权。"
+    },
+    {
+      "en": "The working day bent as well. Remote meetings, shared documents and delivery apps let people earn a living without a fixed office. Farmers <span class=\"kw\" data-ipa=\"rɪˈlaɪ\" data-def=\"依赖；依靠\">rely</span> on weather warnings that arrive in their pockets, and small shop owners reach customers through short videos. Freelancers in quiet towns now compete for exactly the same projects as those in capital cities.",
+      "zh": "工作日也被改变了。远程会议、共享文档和外卖应用让人们不必守着固定办公室也能谋生。农民依赖直接送到口袋里的天气预警，小店主则通过短视频接触顾客。安静小城里的自由职业者，如今与大城市里的人争抢完全相同的项目。"
+    },
+    {
+      "en": "Health is another quiet shift. Wristbands count steps, apps remind patients to take medicine, and a camera can measure a heart rate in seconds. During the pandemic, video consultations kept many patients out of crowded waiting rooms. The same device that counts our steps, however, also collects our data, and very few users read the terms they accept.",
+      "zh": "健康是另一处悄然的变化。手环记录步数，应用提醒病人按时服药，摄像头几秒钟就能测出心率。疫情期间，视频问诊让许多病人不必挤在拥挤的候诊室里。然而，那台为我们数步数的设备同时也在收集我们的数据，而极少有用户会去读自己同意的条款。"
+    },
+    {
+      "en": "Researchers who track phone use report that the average owner checks the device 58 times a day and spends more than four hours looking at it. Each glance costs only a few seconds, but the <span class=\"kw\" data-ipa=\"ˈkɑːnstənt\" data-def=\"不断的；持续的\">constant</span> interruptions break concentration. One experiment found that students who left their phones in another room remembered more of a lecture than those who kept them on the desk.",
+      "zh": "追踪手机使用情况的研究者报告说，普通机主每天查看设备 58 次，盯着它看的时间超过四小时。每一次瞥一眼只要几秒钟，但持续不断的打断会破坏专注力。有一项实验发现，把手机留在另一个房间的学生，比把手机放在桌上的学生记住了更多讲座内容。"
+    },
+    {
+      "en": "There is an emotional cost as well. Social feeds show everyone else's holidays, prizes and perfect kitchens, and comparing your ordinary Tuesday with that highlight reel can leave you <span class=\"kw\" data-ipa=\"ˈæŋkʃəs\" data-def=\"焦虑的；担忧的\">anxious</span>. Bright screens late at night also delay sleep, and tired students are rarely cheerful ones. None of this makes the technology evil; it simply shows that attention is a limited resource.",
+      "zh": "还有情感上的代价。社交信息流展示着别人的假期、奖项和完美厨房，把自己平常的星期二与那卷精彩集锦相比，会让人变得焦虑。深夜的亮屏还会推迟入睡，而疲惫的学生很少会心情愉快。这一切并不能说明技术是邪恶的，只是说明注意力是一种有限的资源。"
+    },
+    {
+      "en": "The smartphone is neither hero nor villain. It is a tool, and tools take their shape from the hands that hold them. Families who agree on phone-free meals, students who silence notifications while studying, and walkers who leave the device in a pocket often report the same thing: the screen still works, and so do they. Used with a little care, it remains one of the most useful objects we have ever made.",
+      "zh": "智能手机既不是英雄，也不是恶棍。它是一种工具，而工具的形状取决于握着它的那双手。约定吃饭时不看手机的家庭、学习时关闭通知的学生、把设备留在口袋里的散步者，往往都报告同一件事：屏幕照样能用，他们也照样能行。只要用得稍微讲究一点，它依然是我们制造过的最有用的物件之一。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain why smartphones should be banned in classrooms.",
+        "To describe how smartphones have changed daily life, for better and for worse.",
+        "To compare smartphone brands sold in different countries.",
+        "To argue that paper maps are more reliable than phone apps."
+      ],
+      "answer": 1,
+      "explain": "全文先讲智能手机在沟通、扫码支付、工作、健康等方面的便利，再讲它带来的注意力分散、焦虑和睡眠问题，属于正反两面介绍其对日常生活的影响，因此选 B。A、C、D 均只在文中某处略有影子，不是主旨。"
+    },
+    {
+      "q": "According to the passage, how often does the average phone owner check the device?",
+      "options": [
+        "About five times a day.",
+        "About 58 times a day.",
+        "Once every hour during work.",
+        "More than two hundred times a day."
+      ],
+      "answer": 1,
+      "explain": "细节题。第六段明确指出 the average owner checks the device 58 times a day，故选 B。其余数字在文中均未出现。"
+    },
+    {
+      "q": "The phrase that highlight reel in Paragraph 7 most probably refers to ______.",
+      "options": [
+        "a short video of a sports game",
+        "the best moments that people choose to show online",
+        "a list of prizes won by university students",
+        "a warning message that appears on the phone screen"
+      ],
+      "answer": 1,
+      "explain": "词义推断题。该段说社交信息流展示别人的假期、奖项和完美厨房，把平常的星期二与它相比会焦虑，可见 highlight reel 指人们在网上挑选展示的“精彩片段”，故选 B。"
+    },
+    {
+      "q": "What can be inferred from the last paragraph?",
+      "options": [
+        "Smartphones will soon be replaced by newer devices.",
+        "People should stop using smartphones completely.",
+        "Whether smartphones help or harm us depends on how we use them.",
+        "Only young people need to control their screen time."
+      ],
+      "answer": 2,
+      "explain": "推断题。末段说手机是工具，工具的形状取决于握着它的手，并举例说明吃饭不看手机、学习关通知的人依然过得很好，可见影响好坏取决于使用方式，故选 C。A、B、D 均属过度推断或与原文相反。"
+    }
+  ]
+}
