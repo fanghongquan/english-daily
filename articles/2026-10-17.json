@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-17",
+  "level": "CET-4",
+  "title": "One Laptop, a Global Classroom: How Online Learning Moved Into the Mainstream",
+  "title_zh": "一台电脑，一间全球课堂：在线学习如何走入主流",
+  "intro_zh": "本文约 523 词，共 8 段，含 6 个重点词（accessible、flexible、motivation、interact、certificate、affordable），句子难度中等，适合 CET-4 阅读训练，理解目标约 85%–90%。",
+  "paragraphs": [
+    {
+      "en": "In 2011, two Stanford professors offered a free online course on artificial intelligence. They expected a few hundred students. More than 160,000 people from 190 countries signed up. That surprise helped create a wave of learning platforms such as Coursera, edX and Udemy, and it changed what the phrase 'going to class' could mean.",
+      "zh": "2011 年，两位斯坦福大学教授开设了一门免费的人工智能在线课程。他们原本只预计有几百名学生。结果来自 190 个国家的 16 万多人报了名。这次意外催生了一批学习平台，如 Coursera、edX 和 Udemy，也改变了“去上课”这句话的含义。"
+    },
+    {
+      "en": "The first promise of online learning was access. A student in a small mountain town with a weak phone signal can now watch the same lecture as a student in Beijing or Boston. Many courses are free to sit through, and thousands are subtitled in several languages. Knowledge that once felt locked inside famous universities is now <span class=\"kw\" data-ipa=\"əkˈsesəbl\" data-def=\"可获得的；易接近的\">accessible</span> to anyone with an internet connection.",
+      "zh": "在线学习的第一个承诺是“可获得”。一个手机信号微弱的小山城学生，如今能和北京或波士顿的学生看到同一堂课。许多课程可以免费观看，成千上万门课还配有多种语言字幕。曾经仿佛被锁在名校高墙内的知识，现在只要有网络，任何人都能获得。"
+    },
+    {
+      "en": "Being <span class=\"kw\" data-ipa=\"ˈfleksəbl\" data-def=\"灵活的；可变通的\">flexible</span> is the second draw. Online courses do not care whether you study at six in the morning or at midnight. A nurse finishing a night shift, a father in a small town, a delivery rider waiting for orders — all can open a lesson when they have twenty spare minutes. For people who cannot quit a job to return to campus, this is not a small convenience; it is the only realistic route to a new skill.",
+      "zh": "第二个吸引力是灵活。在线课程不在乎你是清晨六点学还是半夜学。刚下夜班的护士、小城镇的父亲、等单的外卖骑手——只要有二十分钟空闲，都能打开一节课。对于无法辞掉工作回到校园的人来说，这不是小小的便利，而是获得新技能唯一现实的路径。"
+    },
+    {
+      "en": "But freedom has a price. Without a classroom, a fixed timetable and a teacher watching, many learners simply stop. Researchers who tracked massive open online courses found that only about 5 to 15 percent of students who sign up actually finish. The main reason is not ability; it is <span class=\"kw\" data-ipa=\"ˌmoʊtɪˈveɪʃn\" data-def=\"动力；积极性；动机\">motivation</span>. Small habits help: a fixed study hour, a study partner, a weekly goal written on the wall.",
+      "zh": "但自由是有代价的。没有教室、没有固定课表、没有老师盯着，许多学习者就半途而废。追踪大型开放式网络课程的研究者发现，报名者中真正坚持学完的只有约 5% 到 15%。主因不是能力，而是动力。一些小习惯很有帮助：固定的学习时段、一个学习伙伴、写在墙上的每周目标。"
+    },
+    {
+      "en": "Good platforms try to replace the missing classroom talk. Students <span class=\"kw\" data-ipa=\"ˌɪntərˈækt\" data-def=\"互动；交流；互相作用\">interact</span> in discussion forums, argue over problem sets, and join live video sessions where a teacher can answer questions in real time. Some courses pair learners in different cities for group projects. Still, staring at a screen for hours can feel lonely, and teachers say quiet students often stay quiet online too.",
+      "zh": "好的平台会努力弥补教室里缺失的交流。学生在讨论区互动，为习题争论，参加老师能实时答疑的直播课。有些课程还把不同城市的学习者配对做小组项目。不过，盯着屏幕看几个小时仍会让人感到孤独，老师们也说，平时安静的学生在网上往往依然安静。"
+    },
+    {
+      "en": "What you get at the end has also changed. Besides degrees, platforms now offer short <span class=\"kw\" data-ipa=\"sərˈtɪfɪkət\" data-def=\"证书；证明书\">certificate</span> programs in coding, data analysis, design and project management, often built with large companies. Employers increasingly accept them as proof of skill rather than proof of a famous name. A twenty-two-year-old in Chengdu can add a professional certificate to a resume without leaving home. For them, a certificate is a ladder, not a decoration.",
+      "zh": "最后拿到什么也变了。除了学位，平台现在还提供编程、数据分析、设计和项目管理等短期证书课程，往往与大公司合作开发。雇主越来越愿意把它们当作技能的证明，而不是名气的证明。成都一个 22 岁的年轻人不用离家，就能在自己的简历上加一个专业证书。对他们来说，证书是梯子，而不是装饰。"
+    },
+    {
+      "en": "Cost matters too. Many courses are <span class=\"kw\" data-ipa=\"əˈfɔːrdəbl\" data-def=\"负担得起的；价格合理的\">affordable</span> — sometimes free, sometimes the price of a few coffees — compared with years of tuition. Yet the rise of online learning has exposed a gap. When schools closed in 2020, UNESCO estimated that 1.6 billion students were affected worldwide. In some Chinese villages, teachers drove to students' homes to hand out printed lessons because the internet was too weak for a video class. That gap is the next problem to solve.",
+      "zh": "费用也很重要。相比多年的学费，许多课程相当便宜——有时免费，有时只要几杯咖啡的钱。然而在线学习的兴起也暴露出差距。2020 年学校停课时，联合国教科文组织估计全球有 16 亿学生受到影响。在中国一些村庄，因为网络太弱无法上视频课，老师们开车到学生家里发放纸质讲义。这一差距是下一个要解决的问题。"
+    },
+    {
+      "en": "Online learning will not replace the classroom, and it was never meant to. The most useful picture may be a mixed one: a lecture watched at home, a debate held in a real room, a certificate earned at midnight. The door to learning is wider now. What still matters is whether a person decides to walk through it.",
+      "zh": "在线学习不会取代课堂，也从来不是为了取代它。最有用的图景也许是混合式的：在家看讲座，在真实教室里辩论，在午夜拿到一张证书。如今通往学习的大门更宽了。真正重要的仍然是：一个人是否决定走进去。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "How a single Stanford experiment failed to attract learners.",
+        "The rise of online learning: its promises, its problems and its future.",
+        "Why traditional universities will soon disappear completely.",
+        "How to earn a degree without any internet connection."
+      ],
+      "answer": 1,
+      "explain": "全文从 2011 年斯坦福的在线课程写起，依次谈可获得性、灵活性、完课率低、互动、证书、费用差距，最后指向混合式未来，因此主旨是在线学习的兴起及其利弊与前景。A 与事实相反；C 文中明确说在线学习不会取代课堂；D 与文中“只要有网络”相矛盾。"
+    },
+    {
+      "q": "According to paragraph 1, what surprised the two Stanford professors?",
+      "options": [
+        "Their course was refused by the university.",
+        "Only a few hundred students passed the final exam.",
+        "Over 160,000 people from 190 countries signed up.",
+        "Students had to pay very high fees to join the course."
+      ],
+      "answer": 2,
+      "explain": "细节题。第一段说他们预计只有几百人，结果来自 190 个国家的 16 万多人报名，这正是“surprise”的内容。A、B、D 均未在原文出现，其中 D 与“free online course”矛盾。"
+    },
+    {
+      "q": "The word 'draw' in paragraph 3 is closest in meaning to ______.",
+      "options": [
+        "attraction",
+        "picture",
+        "difficulty",
+        "rule"
+      ],
+      "answer": 0,
+      "explain": "词义题。该段说灵活是在线学习吸引人的地方（后面举例说明人们可以随时学习），因此 draw 在此指“吸引力”，与 attraction 最接近。picture 是“图画”，difficulty 是“困难”，rule 是“规则”，都不符合语境。"
+    },
+    {
+      "q": "What can be inferred from the passage about online learning?",
+      "options": [
+        "It has completely solved the problem of unequal education.",
+        "It is useful, but it depends on internet access and self-discipline.",
+        "It is only suitable for young students living in big cities.",
+        "Certificates from online platforms are worthless to employers."
+      ],
+      "answer": 1,
+      "explain": "推断题。文中既讲了在线学习的便利（免费、随时可学），也指出完课率只有 5%–15%（需要自律）、农村网络太弱无法上视频课（依赖网络条件），故可推断它有用但有前提条件。A 与“暴露出差距”矛盾；C 与外卖骑手、夜班护士等例子矛盾；D 与雇主接受证书相矛盾。"
+    }
+  ]
+}
