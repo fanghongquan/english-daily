@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-19",
+  "level": "CET-4",
+  "title": "Table 47, One Bowl of Soup: How Robots Quietly Moved In",
+  "title_zh": "47号桌与一碗汤：机器人如何悄悄搬进了我们的生活",
+  "intro_zh": "本文约 519 词，共 9 段，含 6 个 CET-4 核心词（operate / capable / burden / routine / adjust / adopt），句子难度中等，读后应能理解 85%-90%。",
+  "paragraphs": [
+    {
+      "en": "At a busy noodle shop in Hangzhou, a small machine the size of a suitcase glides between tables, stops beside number 47 and lifts its lid. A waiter takes out two bowls of hot soup. The robot has made this trip more than 300 times today without once bumping a customer. Ten years ago such a scene belonged to science fiction; today it barely makes anyone look up.",
+      "zh": "在杭州一家热闹的面馆里，一台行李箱大小的小机器在餐桌间滑行，停在47号桌旁，打开盖子。服务员从中取出两碗热汤。这台机器人今天已经跑了300多趟，一次也没有撞到顾客。十年前，这样的场景还只属于科幻小说；如今它几乎没人会多看一眼。"
+    },
+    {
+      "en": "Delivery robots are spreading fast because the numbers work. A model used by many restaurants can carry 30 kilograms and run for 12 hours on a single charge. It costs about 30,000 yuan — roughly what a waiter earns in half a year — and it never asks for a break, a uniform or a pay rise. Managers say it moves smoothly even when the floor is crowded.",
+      "zh": "送餐机器人迅速普及，是因为账算得过来。许多餐馆使用的一款机型能承载30公斤，充一次电能连续工作12小时。它售价约3万元——大致相当于一名服务员半年的收入——而且它从不要求休息、制服或加薪。店长们说，即使地面很拥挤，它也能平稳移动。"
+    },
+    {
+      "en": "The home is the quietest front of this change. Robot vacuum cleaners, which were expensive toys a decade ago, are now bought by millions of ordinary families. One online seller reported that sales rose by 40 percent last year, while the average price fell below 1,500 yuan. Owners say the real gain is not a cleaner floor but the twenty minutes they get back each evening.",
+      "zh": "家庭是这场变化中最安静的一块阵地。扫地机器人十年前还是昂贵的“玩具”，如今已被数百万普通家庭购买。一家网络卖家称，去年销量增长了40%，而平均价格降到了1500元以下。用户说，真正的收获不是更干净的地板，而是每晚多回来的那二十分钟。"
+    },
+    {
+      "en": "Care is another area where these machines are proving <span class=\"kw\" data-ipa=\"/ˈkeɪpəbl/\" data-def=\"有能力的，能胜任的\">capable</span>. In some nursing homes, a robot with a screen and a soft voice reminds residents to take their medicine, plays old songs and connects them to family members far away. It cannot replace a nurse, but it can share part of the daily <span class=\"kw\" data-ipa=\"/ˈbɜːrdn/\" data-def=\"负担，重担\">burden</span>, freeing staff for the work that needs human hands and human judgment.",
+      "zh": "照护是这些机器展现本领的另一个领域。在一些养老院，一台带屏幕、声音柔和的机器人会提醒老人按时吃药、播放老歌，还能帮他们与远方的家人联系。它无法取代护士，但能分担一部分日常负担，把护理人员解放出来，去做那些需要人的双手和人的判断的工作。"
+    },
+    {
+      "en": "Behind the scenes, robots have been working for years. In warehouses, low, flat machines carry shelves to workers instead of making workers walk to shelves, cutting the distance walked in a shift from 15 kilometres to three. On farms, small machines pick strawberries and spray crops on hills too steep for tractors.",
+      "zh": "在看不见的地方，机器人已经工作多年。在仓库里，低矮扁平的机器把货架运到工人面前，而不是让工人走到货架前，把一个班次内步行的距离从15公里缩短到3公里。在农场，小型机器在拖拉机开不上去的陡坡上采摘草莓、喷洒农药。"
+    },
+    {
+      "en": "Yet the picture is not perfect. Robots still struggle with stairs, soft objects and anything unexpected — a child's toy on the floor, a spilled drink, a door left half open. Engineers call this the 'last metre' problem: the final, messy step is often the hardest to solve.",
+      "zh": "但情况并不完美。机器人在楼梯、柔软物体以及任何突发状况面前仍然吃力——地上的儿童玩具、洒出的饮料、只开了一半的门。工程师把这称为“最后一米”难题：最后的、最杂乱的那一步往往最难解决。"
+    },
+    {
+      "en": "The effect on jobs is more <span class=\"kw\" data-ipa=\"/ruːˈtiːn/\" data-def=\"常规的，平常的\">routine</span> than dramatic. Few factories announce that a machine has taken a post; instead, the same worker now watches screens and <span class=\"kw\" data-ipa=\"/əˈdʒʌsts/\" data-def=\"调整，调节\">adjusts</span> settings. New roles appear too — someone must clean sensors, update software and teach new staff how to <span class=\"kw\" data-ipa=\"/ˈɑːpəreɪt/\" data-def=\"操作，运行\">operate</span> the equipment. The skill that matters is shifting from lifting to problem-solving.",
+      "zh": "对就业的影响更多是悄然的，而非戏剧性的。很少有工厂会宣布某台机器取代了某个岗位；更常见的是，同一个工人如今看着屏幕、调整参数。新岗位也会出现——总得有人清洁传感器、更新软件、教新员工如何操作设备。重要的技能正在从“搬运”转向“解决问题”。"
+    },
+    {
+      "en": "Rules are catching up. Some cities now require delivery robots to carry a licence plate, keep to a marked route and give way to people at all times. Engineers are also asked to design machines that stop and ask for help rather than guess when they are unsure.",
+      "zh": "规则正在跟上。一些城市现在要求送餐机器人挂牌、按指定路线行驶，并且任何时候都要礼让行人。工程师也被要求：当机器不确定时，应当停下来求助，而不是去猜。"
+    },
+    {
+      "en": "So the robot revolution, if that is the right word, arrives not with a bang but with a bowl of soup at table 47. We should <span class=\"kw\" data-ipa=\"/əˈdɑːpt/\" data-def=\"采纳，采用\">adopt</span> these helpers where they clearly save time and reduce risk, and keep asking who benefits, who pays, and what we want our streets, kitchens and care homes to feel like.",
+      "zh": "所以这场“机器人革命”——如果这个词合适的话——并不是一声巨响，而是47号桌上的一碗汤。在它们确实能节省时间、降低风险的地方，我们应当接纳这些帮手；同时也要持续追问：谁受益、谁埋单，以及我们希望自己的街道、厨房和养老院是什么样子。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "Why noodle shops in Hangzhou prefer robot waiters to human ones.",
+        "How robots have quietly entered everyday life, and what they bring with them.",
+        "The technical reasons why robots still fail at simple household tasks.",
+        "The history of robot research in factories over the past ten years."
+      ],
+      "answer": 1,
+      "explain": "全文从面馆送餐、家庭扫地、养老院照护、仓库农场，到局限、就业与规则，讲的是机器人如何悄然进入日常生活及其利与思，故选1。选项0、3只是局部细节，选项2只对应倒数第三段。"
+    },
+    {
+      "q": "According to the passage, what do owners of robot vacuum cleaners value most?",
+      "options": [
+        "The machines clean floors far better than people do.",
+        "The machines are cheaper than hiring a cleaning helper.",
+        "They get about twenty minutes of free time back each evening.",
+        "They no longer need to buy any cleaning products."
+      ],
+      "answer": 2,
+      "explain": "第三段明确说：用户认为真正的收获不是更干净的地板，而是每晚多回来的二十分钟，故选2。其余选项文中未提及或与原文相反。"
+    },
+    {
+      "q": "What can be inferred about jobs from the seventh paragraph?",
+      "options": [
+        "Most factory workers lose their jobs to machines without any warning.",
+        "Workers' skills are shifting from physical labour toward monitoring and problem-solving.",
+        "Factories no longer need to train newly hired staff.",
+        "Robots have created far more jobs than they have removed."
+      ],
+      "answer": 1,
+      "explain": "该段指出岗位变化多是“悄然”的：同一名工人改为看屏幕、调参数，重要技能从搬运转向解决问题，故可推断1正确。文中并未说大量工人突然失业、不再培训或创造岗位远多于消失岗位。"
+    },
+    {
+      "q": "The word \"routine\" in the seventh paragraph is closest in meaning to ______.",
+      "options": [
+        "surprising",
+        "ordinary",
+        "dangerous",
+        "temporary"
+      ],
+      "answer": 1,
+      "explain": "more routine than dramatic 意为“平淡常见，而非戏剧化”，与 ordinary（平常的）最接近，故选1；surprising 与 dramatic 同向，dangerous、temporary 与该句语境无关。"
+    }
+  ]
+}
