@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-31",
+  "level": "CET-4",
+  "title": "Ninety-Six Blocks a Day: Where the Hours Really Go",
+  "title_zh": "一天九十六个格子：时间到底去了哪儿",
+  "intro_zh": "本文约 571 词，围绕“时间都去哪儿了”这一主题，用一项时间日记研究、护士被打断的实验和哥本哈根团队的小规则，说明时间多半漏在任务与任务之间的缝隙里，并给出可操作的安排方法。全文含 6 个 CET-4 核心词，句子难度中等。",
+  "paragraphs": [
+    {
+      "en": "Last spring, a research team in Toronto gave 200 office workers a simple job: every evening for two weeks, write down how many hours you actually worked. An app on their phones recorded the truth quietly in the background. The gap was striking. On average, the workers <span class=\"kw\" data-ipa=\"/ˈestɪmeɪtɪd/\" data-def=\"估计，估算\">estimated</span> nine hours and twenty minutes of work a day. The app measured seven. Nobody was lying. Memory keeps the busy scenes and quietly deletes the empty ones.",
+      "zh": "去年春天，多伦多的一个研究团队交给200名上班族一件简单的任务：连续两周，每天晚上写下自己当天真正工作了多少小时。与此同时，他们手机上的一个应用在后台悄悄记录下真相。两者之间的差距令人吃惊。平均来看，这些员工估计自己每天工作9小时20分钟，而应用测到的只有7小时。没有人撒谎，只是记忆留下了忙碌的片段，却悄悄删掉了那些空白的时刻。"
+    },
+    {
+      "en": "The missing time rarely disappears in one big piece. It leaks in small amounts, mostly at the edges of tasks. Researchers call it the switching cost: when you leave one job and start another, your brain needs a few minutes to land. Answering one message, finding the right file, remembering where you stopped — each costs three to five minutes. Ten of these a day and you have lost nearly an hour, without ever noticing it.",
+      "zh": "丢掉的时间很少是整块消失的，它多半一点一点漏在任务的边缘。研究者称之为“切换成本”：当你放下一件事、开始另一件事时，大脑需要几分钟才能“落地”。回一条消息、找到正确的文件、想起自己刚才做到哪儿——每一件都要花三五分钟。一天来回十次，你就已经丢了将近一个小时，却毫无察觉。"
+    },
+    {
+      "en": "Interruptions make it worse, and they are not evenly spread. A study of hospital nurses found that each <span class=\"kw\" data-ipa=\"/ˌɪntəˈrʌpʃn/\" data-def=\"打断，中断\">interruption</span> during medicine preparation added about 12 percent to the time the task took, and raised the chance of a small error. The nurses were not careless; they were simply asked to hold two pictures in their heads at once. The lesson applies far beyond hospitals.",
+      "zh": "打断会让情况更糟，而且打断并不是均匀分布的。一项针对医院护士的研究发现，配药过程中每被打断一次，这项任务所花的时间就增加约12%，出现小差错的可能性也随之上升。护士并非粗心，只是被要求同时在脑子里装着两幅画面。这一课远不止适用于医院。"
+    },
+    {
+      "en": "Most of us also let the loudest task win. Email is <span class=\"kw\" data-ipa=\"/ˈɜːrdʒənt/\" data-def=\"紧急的，急迫的\">urgent</span>; thinking about next year's budget is not. So the morning goes to the inbox and the important work waits until four o'clock, when the brain is tired and the office is loud. One design team in Copenhagen tried a small rule: nobody opens email before ten. Within a month, the average time needed to finish a project report fell from nine days to six.",
+      "zh": "我们大多数人还会让最吵闹的任务获胜。邮件是紧急的，思考明年的预算是“不急”的。于是上午全给了收件箱，重要的工作拖到下午四点，那时脑子已经累了，办公室也吵。哥本哈根的一个设计团队试过一条小规则：十点之前谁都不开邮箱。一个月之内，完成一份项目报告的平均时间从九天降到了六天。"
+    },
+    {
+      "en": "The fix is not to work faster but to <span class=\"kw\" data-ipa=\"/praɪˈɔːrətaɪz/\" data-def=\"优先处理，按重要性排序\">prioritize</span> honestly. Each morning, write down the one task that would make the day feel worthwhile, and give it your first ninety minutes. Everything else can be moved. People who try this often report the same strange feeling: the day feels shorter and calmer at the same time, because the heavy thing is already done.",
+      "zh": "解决办法不是干得更快，而是老老实实地排出优先级。每天早上写下那件“做完了这一天就值了”的事，并把你最初的九十分钟交给它。其他事情都可以挪。试过的人常常会说起同一种奇怪的感觉：这一天既变短了，也变从容了，因为最重的那件事已经完成了。"
+    },
+    {
+      "en": "Then be <span class=\"kw\" data-ipa=\"/ˌriːəˈlɪstɪk/\" data-def=\"现实的，实际的\">realistic</span> about the size of things. A well-known finding in planning research is that we finish tasks later than we expect, again and again, even when we remember being late last time. The simple cure is to add a quarter to the time you first guessed, and to keep one empty half-hour in the afternoon as a buffer for whatever breaks.",
+      "zh": "接下来，要对事情的“体量”现实一点。计划研究中一个著名的发现是：我们一次又一次比预期更晚完成任务，即便我们明明记得上次就迟了。简单的解药是：在你最初估的时间上加四分之一，并在下午留出半小时空档，作为应付意外状况的缓冲。"
+    },
+    {
+      "en": "A day holds ninety-six blocks of fifteen minutes. That is not a whip; it is a map. Two blocks for lunch, three for the journey home, one for the phone calls you cannot avoid. Once the day is drawn this way, it becomes easier to be <span class=\"kw\" data-ipa=\"/ɪˈfɪʃnt/\" data-def=\"高效的，效率高的\">efficient</span> without being rushed: you can see where the free blocks are, and you stop trying to fit four hours of work into a two-hour hole.",
+      "zh": "一天有九十六个十五分钟的格子。这不是鞭子，而是一张地图。两格吃午饭，三格在路上，一格应付躲不掉的电话。把一天这样画出来之后，你会更容易做到高效而不慌张：你能看见哪些格子是空的，也不再试图把四小时的工作塞进一个两小时的洞里。"
+    },
+    {
+      "en": "None of this is about squeezing more into the day. In the Toronto study, the workers who kept the diary for two weeks did not end up working longer. They ended up walking more, sleeping a little better, and reporting less pressure at five o'clock. One of them wrote at the bottom of her last page: 'I found about fifty minutes a day. I gave them back to myself.' Which is, perhaps, the most honest answer to the question of where the time went.",
+      "zh": "这一切都不是为了往一天里再塞进更多东西。在多伦多的那项研究里，坚持写了两周日记的员工并没有因此工作更久。他们反而走的路更多了，睡得稍好一些，下午五点时的压力也更小。其中一位在最后一页的底部写道：“我一天找回了大约五十分钟，我把它还给了自己。”这或许就是“时间都去哪儿了”这个问题最诚实的答案。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "In the Toronto study, how large was the gap between what workers reported and what the app recorded?",
+      "options": [
+        "About twenty minutes a day.",
+        "About two hours and twenty minutes a day.",
+        "About nine hours a day.",
+        "About one week over two weeks."
+      ],
+      "answer": 1,
+      "explain": "细节题。第一段说员工估计每天工作9小时20分钟，而应用记录的是7小时，两者相差约2小时20分钟，故选第二项。其余选项均为对原文数字的误读。"
+    },
+    {
+      "q": "Why does the writer mention the nurses in the hospital study?",
+      "options": [
+        "To show that interruptions make even routine tasks slower and riskier.",
+        "To prove that nurses work longer hours than office workers.",
+        "To suggest that hospitals should hire more staff.",
+        "To explain why medicine is so expensive today."
+      ],
+      "answer": 0,
+      "explain": "推断题。第三段用护士配药的例子说明：每次被打断，任务时间增加约12%，出错概率上升，进而支持“打断的代价”这一观点，故选第一项。文中并未比较护士与白领的工时，也未谈招人或药价。"
+    },
+    {
+      "q": "The word 'buffer' in paragraph 6 is closest in meaning to ______.",
+      "options": [
+        "a strict rule that must be followed",
+        "an extra amount kept for unexpected needs",
+        "a written note for the next morning",
+        "a reward given after hard work"
+      ],
+      "answer": 1,
+      "explain": "词义题。第六段建议下午留出半小时空档，用来应付“突然出问题”的情况，因此 buffer 指“留作缓冲的多余时间”，与第二项一致。"
+    },
+    {
+      "q": "What is the main point of the passage?",
+      "options": [
+        "People should simply cut their working hours every day.",
+        "Planning time in small blocks helps people feel less rushed instead of doing more.",
+        "Email is the single biggest cause of wasted time in offices.",
+        "Phone apps are always more reliable than human memory."
+      ],
+      "answer": 1,
+      "explain": "主旨题。全文先揭示时间漏在任务切换和打断处，再给出排优先级、加缓冲、把一天切成十五分钟格子等方法，最后强调目的不是塞进更多事情而是更从容，故选第二项。第一、三、四项都只是文中局部信息或过度推断。"
+    }
+  ]
+}
