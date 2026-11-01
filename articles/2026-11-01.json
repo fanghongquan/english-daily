@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-01",
+  "level": "CET-4",
+  "title": "Sunshine at 3,000 Meters: The Strange World of Deep-Sea Life",
+  "title_zh": "三千米深处的“阳光”：深海生物的奇特世界",
+  "intro_zh": "本文约518词。文章介绍深海生物如何在黑暗、高压和食物稀少的环境中生存，并配有6个CET-4核心词注释。",
+  "paragraphs": [
+    {
+      "en": "Sunlight can travel only about 200 meters down into the ocean. Below that line lies a cold, black world that covers most of our planet. For a long time, people believed this deep zone was almost empty. Today, scientists know that it is full of life. In fact, more than 80 percent of the ocean has never been mapped or studied closely, so the strange creatures there still surprise us.",
+      "zh": "阳光只能到达海洋约200米深处。那条线以下是一个寒冷、漆黑的世界，覆盖了地球的大部分。很长一段时间，人们认为这片深水区几乎是空的。如今，科学家知道那里充满生命。事实上，超过80%的海洋从未被测绘或仔细研究过，所以那里的奇特生物仍让我们惊讶。"
+    },
+    {
+      "en": "One of the most amazing tricks is living light. Many deep-sea animals can <span class=\"kw\" data-ipa=\"rɪˈliːs\" data-def=\"释放；散发出\">release</span> light from their bodies. The lanternfish, for example, has tiny light organs on its belly. The light matches the faint sunlight from above, so the fish's shadow disappears. This helps it hide from predators below. In the dark, a small flash can also confuse an enemy or help two fish find each other.",
+      "zh": "最令人惊奇的把戏之一就是活光。许多深海动物能从身体释放光。例如，灯笼鱼腹部有微小的发光器官。这种光与上方微弱的阳光相匹配，于是鱼的影子消失了。这帮助它躲避下方的捕食者。在黑暗中，一次小闪光还能迷惑敌人，或帮助两条鱼找到彼此。"
+    },
+    {
+      "en": "Other animals use light to hunt. The female anglerfish carries a long fin over her head like a fishing rod. At its tip is a glowing ball filled with bacteria. In the black water, small fish swim toward this light and come close. Then the anglerfish opens her mouth. This method can <span class=\"kw\" data-ipa=\"əˈtrækt\" data-def=\"吸引\">attract</span> a meal even when food is very rare. Some anglerfish live between 1,000 and 4,000 meters down.",
+      "zh": "其他动物用光捕猎。雌性鮟鱇鱼头顶拖着一根长长的鳍，像钓鱼竿。其尖端是一个充满细菌的发光球。在漆黑的水中，小鱼游向这光并靠近。然后鮟鱇鱼张开嘴。即使食物非常稀少，这种方法也能吸引一顿美餐。有些鮟鱇鱼生活在海面下1000到4000米之间。"
+    },
+    {
+      "en": "Deep water also brings huge <span class=\"kw\" data-ipa=\"ˈpreʃər\" data-def=\"压力\">pressure</span>. For every 10 meters you go down, the pressure increases by about one atmosphere. At 3,000 meters, the pressure is around 300 times that at the surface. Deep-sea animals do not have air-filled spaces like swim bladders. Their bodies are mostly water and jelly, and their proteins are built to work under great weight without being crushed.",
+      "zh": "深水还带来巨大压力。每下潜10米，压力约增加一个大气压。在3000米处，压力约为海面的300倍。深海动物没有像鱼鳔那样充满空气的空间。它们的身体主要由水和胶状物质构成，蛋白质天生适合在巨大重量下工作而不被压碎。"
+    },
+    {
+      "en": "Food is another challenge. Little sunlight means few plants, so deep-sea creatures cannot <span class=\"kw\" data-ipa=\"sərˈvaɪv\" data-def=\"生存；存活\">survive</span> on fresh food from above. Instead, they wait for 'marine snow'—bits of dead plants and animals that slowly fall from the sunlit layer. Some animals eat this snow; others eat the snow-eaters. A single dead whale can fall to the bottom and feed a whole community for decades. Scientists call this a whale fall.",
+      "zh": "食物是另一个挑战。阳光少意味着植物少，所以深海生物不能靠上方的新鲜食物生存。相反，它们等待“海洋雪”——从阳光层缓慢落下的死亡动植物碎屑。有些动物吃这些碎屑；另一些吃吃碎屑的动物。一头死鲸能落到海底，养活整个群落几十年。科学家称之为鲸落。"
+    },
+    {
+      "en": "Life in the deep is often slow. With little food, many <span class=\"kw\" data-ipa=\"ˈspiːʃiːz\" data-def=\"物种\">species</span> grow slowly and live for a long time. The giant isopod, a relative of the woodlouse, can reach the size of a football. Deep-sea corals may live for thousands of years. Some fish have slow hearts and low metabolism, which saves energy in a place where every meal is a gift.",
+      "zh": "深海生活通常很慢。食物少，许多物种生长缓慢、寿命很长。巨型等足虫是潮虫的亲戚，能长到足球大小。深海珊瑚可能活数千年。有些鱼心跳慢、新陈代谢低，这在每顿饭都是礼物的环境里节省能量。"
+    },
+    {
+      "en": "Finding a mate in the dark is not easy. The male anglerfish is much smaller than the female. In some species, he bites onto her body and stays there for life. Their bodies join, and he becomes a permanent source of sperm. This unusual strategy means the female does not need to search for a partner again. It is one of the strangest family lives on Earth.",
+      "zh": "在黑暗中找配偶并不容易。雄性鮟鱇鱼比雌性小得多。在某些物种中，他咬住她的身体，终生待在那里。它们的身体结合，他成为永久的精子来源。这种不寻常的策略意味着雌性不必再次寻找伴侣。这是地球上最奇怪的家庭生活之一。"
+    },
+    {
+      "en": "Today, robots called ROVs let scientists film deep-sea animals without harming them. Each dive can discover new facts about the deep <span class=\"kw\" data-ipa=\"ɪnˈvaɪrənmənt\" data-def=\"环境\">environment</span> and even new species. But deep-sea mining and fishing may damage these habitats before we understand them. The deep sea is not an empty place. It is a living world that needs our care.",
+      "zh": "如今，被称为ROV的机器人让科学家在不伤害它们的情况下拍摄深海动物。每次下潜都能发现关于深海环境的新事实，甚至新物种。但深海采矿和捕鱼可能在我们了解这些栖息地之前就破坏它们。深海不是空无一物的地方。它是一个需要关爱的生命世界。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "How deep-sea creatures survive in a dark and difficult world.",
+        "Why sunlight cannot reach the deep ocean.",
+        "How scientists use ROVs to map the whole ocean.",
+        "The history of deep-sea fishing."
+      ],
+      "answer": 0,
+      "explain": "主旨题。文章从发光、压力、食物、繁殖等多方面介绍深海生物如何在黑暗、高压、食物稀少的环境中生存。B只是开头细节，C只在最后一段提及，D未涉及。"
+    },
+    {
+      "q": "According to the passage, how does the lanternfish use its light?",
+      "options": [
+        "To attract mates from far away.",
+        "To make its shadow disappear and hide from predators.",
+        "To cook small fish before eating them.",
+        "To communicate with large whales."
+      ],
+      "answer": 1,
+      "explain": "细节题。第二段提到灯笼鱼腹部的光与上方微弱阳光相匹配，使影子消失，从而躲避下方的捕食者。"
+    },
+    {
+      "q": "Why can deep-sea animals survive the huge pressure?",
+      "options": [
+        "They have strong swim bladders filled with air.",
+        "Their bodies are mostly water and jelly, with no air-filled spaces.",
+        "They swim to the surface every night.",
+        "They produce light to push the water away."
+      ],
+      "answer": 1,
+      "explain": "细节题。第四段指出深海动物没有像鱼鳔那样充满空气的空间，身体主要是水和胶状物质，蛋白质适应高压。"
+    },
+    {
+      "q": "The phrase 'marine snow' in paragraph 5 refers to ____.",
+      "options": [
+        "ice that forms on the sea surface",
+        "dead plant and animal bits falling from above",
+        "white sand found on the deep-sea floor",
+        "light produced by small fish"
+      ],
+      "answer": 1,
+      "explain": "词义题。第五段明确解释marine snow是从阳光层缓慢落下的死亡动植物碎屑，是深海生物的重要食物来源。"
+    }
+  ]
+}
