@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-05",
+  "level": "CET-4",
+  "title": "One Hundred Kilometres Down: Where a Volcano Begins",
+  "title_zh": "向下100公里：一座火山从哪里开始",
+  "intro_zh": "本文约515词，从地球内部结构、板块运动与热点三个角度解释火山的形成，并说明喷发方式为何不同、火山给人类带来了什么。语言难度贴近CET-4，含6个核心词汇注释，适合限时阅读训练。",
+  "paragraphs": [
+    {
+      "en": "On the morning of 3 January 1983, a crack opened on the side of Kilauea, a volcano on the island of Hawaii. By evening, orange lava was shooting 460 metres into the air, and within a year the flow had buried more than a hundred homes and added new land to the coast. Such fountains are not rare accidents. They are the latest chapter in a story that has been repeating for millions of years — and to understand it, you have to travel about 100 kilometres down.",
+      "zh": "1983年1月3日清晨，夏威夷岛上基拉韦厄火山的一侧裂开了一道缝。到了傍晚，橙色的熔岩已喷射到460米高空；不到一年，这股岩浆流掩埋了一百多座房屋，还为海岸添了新土地。这样的喷泉并非罕见的意外，而是一个重复了数百万年的故事的最新一章——要读懂它，你得往下走大约100公里。"
+    },
+    {
+      "en": "The Earth is not a solid ball. Beneath the thin <span class=\"kw\" data-ipa=\"krʌst\" data-def=\"地壳\">crust</span> we walk on — only about 35 kilometres thick under land — lies the mantle, a layer of hot rock roughly 2,900 kilometres deep. Deeper still is the core, as hot as the surface of the sun. Rock in the mantle is not fully liquid; it flows so slowly that it behaves like extremely thick honey, carrying heat upward from below.",
+      "zh": "地球并不是一个实心球体。我们脚下的<span class=\"kw\" data-ipa=\"krʌst\" data-def=\"地壳\">地壳</span>很薄——陆地下方也只有约35公里厚——其下是地幔，一层厚约2900公里的炽热岩石。再往深处是地核，温度可与太阳表面相比。地幔中的岩石并非完全液态，它流动得极慢，像极其黏稠的蜂蜜，把热量从深处向上输送。"
+    },
+    {
+      "en": "That heat alone rarely makes a volcano. The crust is broken into about a dozen giant plates that drift a few centimetres a year — about the speed at which your fingernails grow. Most volcanoes appear where these plates meet, because that is where rock is squeezed, cracked or pulled apart.",
+      "zh": "仅有热量很少能造出火山。地壳被分割成大约十几块巨大的板块，它们每年漂移几厘米——差不多是你指甲生长的速度。大多数火山出现在板块交界处，因为正是在那里，岩石被挤压、被撕裂或被拉开。"
+    },
+    {
+      "en": "Consider a boundary in the Pacific. An old, heavy ocean plate is pushed beneath a lighter one in a process called subduction. As it sinks, it drags seawater down with it. That water matters more than you might expect: it lowers the melting point of the surrounding rock, and melting begins. The result is <span class=\"kw\" data-ipa=\"ˈmæɡmə\" data-def=\"岩浆\">magma</span> — molten rock, lighter than its surroundings, which slowly rises.",
+      "zh": "以太平洋的一处边界为例。一块古老而沉重的海洋板块被推到一块较轻的板块之下，这个过程叫俯冲。它下沉时会把海水一起拖下去。水的作用比你想象的重要：它降低了周围岩石的熔点，于是岩石开始熔化。产物就是<span class=\"kw\" data-ipa=\"ˈmæɡmə\" data-def=\"岩浆\">岩浆</span>——比周围物质更轻的熔融岩石，它缓缓上升。"
+    },
+    {
+      "en": "Hawaii, strangely, sits in the middle of a plate. There, a column of unusually hot rock called a hot spot burns upward from deep in the mantle, like a candle held under a sheet of paper. The plate slides slowly over the flame, so the hot spot builds one island after another. That is why the Hawaiian chain stretches 2,400 kilometres across the open ocean.",
+      "zh": "奇怪的是，夏威夷位于一块板块的中央。在那里，一股异常炽热的岩柱——被称为热点——从地幔深处向上燃烧，就像纸下面举着一支蜡烛。板块在火焰上方缓慢滑过，于是热点一个接一个地造出岛屿。这就是夏威夷群岛在开阔洋面上延伸2400公里的原因。"
+    },
+    {
+      "en": "Once magma gathers in a chamber a few kilometres below the surface, <span class=\"kw\" data-ipa=\"ˈpreʃər\" data-def=\"压力\">pressure</span> builds. Gases dissolved in the rock — mostly water vapour and carbon dioxide — want to escape. When that pressure beats the strength of the rock above, the magma forces its way up through a crack, and an <span class=\"kw\" data-ipa=\"ɪˈrʌpʃən\" data-def=\"喷发\">eruption</span> begins. Nothing on the surface can hold it back.",
+      "zh": "一旦岩浆聚集在地表以下几公里处的岩浆房里，<span class=\"kw\" data-ipa=\"ˈpreʃər\" data-def=\"压力\">压力</span>便开始积聚。溶解在岩石中的气体——主要是水蒸气和二氧化碳——想要逃逸。当压力超过上方岩石的强度时，岩浆便顺着裂缝向上挤，一次<span class=\"kw\" data-ipa=\"ɪˈrʌpʃən\" data-def=\"喷发\">喷发</span>就此开始。地表上没有任何东西能拦住它。"
+    },
+    {
+      "en": "What happens next depends on the magma itself. Thin, runny <span class=\"kw\" data-ipa=\"ˈmoʊltən\" data-def=\"熔化的\">molten</span> rock low in silica lets gas bubble out easily, so lava flows quietly and travels far; this builds broad, gentle shield volcanoes such as Mauna Loa. Thick, sticky magma traps its gas until the pressure is enormous, then explodes violently, throwing ash 30 kilometres into the sky — the style of Mount St Helens in 1980.",
+      "zh": "接下来的情形取决于岩浆本身。二氧化硅含量低、稀薄易流的<span class=\"kw\" data-ipa=\"ˈmoʊltən\" data-def=\"熔化的\">熔融</span>岩石让气体容易冒出来，熔岩便安静地流淌、流得很远，于是堆出宽缓的盾状火山，如冒纳罗亚火山。黏稠的岩浆则把气体困住，直到压力巨大时猛烈爆炸，把火山灰抛上30公里高空——1980年圣海伦斯火山就是这种类型。"
+    },
+    {
+      "en": "Volcanoes destroy, but they also give. Their ash breaks down into famously <span class=\"kw\" data-ipa=\"ˈfɜːrtl\" data-def=\"肥沃的\">fertile</span> soil: farmers on Java grow rice on it, and Italian vineyards owe part of their flavour to it. Geothermal stations in Iceland use underground steam to heat nine homes in ten. And today satellites and tiltmeters watch restless mountains closely, giving villages hours of warning that they never had before.",
+      "zh": "火山会毁灭，但也会给予。火山灰分解后成为出了名<span class=\"kw\" data-ipa=\"ˈfɜːrtl\" data-def=\"肥沃的\">肥沃</span>的土壤：爪哇的农民在上面种水稻，意大利的葡萄园也有一份风味来自它。冰岛的地热电站利用地下蒸汽为十分之九的家庭供暖。如今，卫星和倾斜仪密切监视着不安分的山峦，让村庄得到了从前从未有过的数小时预警。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "Why Hawaii has more volcanoes than any other place on Earth",
+        "The conditions and processes that produce volcanoes",
+        "How satellites are used to predict volcanic eruptions",
+        "The difference between island volcanoes and mountain volcanoes"
+      ],
+      "answer": 1,
+      "explain": "全文按“地壳与地幔—板块运动—俯冲—热点—岩浆房压力—喷发方式—火山之利”的顺序展开，故主旨是火山形成的条件与过程。A、C、D只是文中涉及的细节。"
+    },
+    {
+      "q": "According to the passage, what role does seawater play in subduction?",
+      "options": [
+        "It cools the sinking plate and stops it from melting.",
+        "It lowers the melting point of the rock around it.",
+        "It provides the carbon dioxide for explosive eruptions.",
+        "It pushes the two plates further apart."
+      ],
+      "answer": 1,
+      "explain": "第四段明确说：海水被拖入地下后 lowers the melting point of the surrounding rock, and melting begins。A与原文相反；C中二氧化碳来自岩石中的溶解气体，并非海水直接提供；D与俯冲无关。"
+    },
+    {
+      "q": "What can be inferred about the Hawaiian Islands?",
+      "options": [
+        "They lie along an active plate boundary.",
+        "The islands farther from the hot spot are generally older.",
+        "They are built mainly of thick, sticky magma.",
+        "They will disappear within a few hundred years."
+      ],
+      "answer": 1,
+      "explain": "文中说板块缓慢滑过热点的“火焰”，热点于是“一个接一个”造岛。既然板块在移动而热点位置相对固定，离热点越远的岛形成越早、年代越老，属于合理推断。A与“位于板块中央”矛盾；C、D文中无据。"
+    },
+    {
+      "q": "The word 'fertile' in the last paragraph is closest in meaning to",
+      "options": [
+        "able to produce good crops",
+        "rich in industrial metals",
+        "warm and rainy all year",
+        "newly formed by lava"
+      ],
+      "answer": 0,
+      "explain": "该词出现在“火山灰分解成肥沃土壤，爪哇农民种稻、意大利葡萄园受益”的语境中，指土壤能长出好庄稼，故选A。B、C、D均与该语境不符。"
+    }
+  ]
+}
