@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-06",
+  "level": "CET-4",
+  "title": "A Library That Rewrites Its Books: How Human Memory Really Works",
+  "title_zh": "一座会改写藏书的图书馆：人类记忆的真实运作方式",
+  "intro_zh": "本文约534词，围绕人类记忆的编码、储存与提取展开，结合睡眠巩固、环境线索、洛夫特斯目击者实验等经典研究，说明记忆是不断重建而非原样录制的，并给出可操作的学习建议。",
+  "paragraphs": [
+    {
+      "en": "Most of us treat memory like a camera. We believe that events are recorded once, stored safely, and played back later without change. Forty years of research has destroyed that picture. Human memory is closer to a library whose books quietly rewrite themselves each time a reader opens them. Every act of remembering is an act of rebuilding.",
+      "zh": "我们大多数人把记忆当成相机：以为事件被录下来一次，妥善保存，之后原样播放。四十年的研究彻底推翻了这幅图景。人类的记忆更像一座图书馆，每当有读者翻开书，书里的字迹就会悄悄改写。每一次回忆，其实都是一次重建。"
+    },
+    {
+      "en": "Psychologists usually divide memory into three steps: encoding, storage and <span class=\"kw\" data-ipa=\"/rɪˈtriːv/\" data-def=\"提取；回想起\">retrieve</span>. Encoding happens when attention selects something worth keeping. Storage is the physical change left behind in the brain. Retrieval is the moment you pull the information back out, and this last step is the most fragile of the three. A memory you cannot reach is, for practical purposes, a memory that does not exist.",
+      "zh": "心理学家通常把记忆分为三步：编码、储存和提取。编码发生在注意力挑出值得保留的内容时；储存是大脑留下的物理改变；提取则是你把信息重新调出来的那一刻——而最后这一步是三者中最脆弱的。一段你调不出来的记忆，实际上等于不存在。"
+    },
+    {
+      "en": "In the 1950s, researchers claimed that short-term memory holds about seven items. Modern work suggests the real limit is nearer four chunks. A chunk can be a single digit or a whole phone number, depending on how you group it. This is why an experienced chef remembers a dozen ingredients as three sauces, while a beginner sees twelve separate bottles.",
+      "zh": "20世纪50年代，研究者声称短时记忆大约能装七项。现代研究认为，真实上限更接近四个“组块”。一个组块可以是一个数字，也可以是一整个电话号码，取决于你怎样分组。这就是为什么一位有经验的厨师把十几种配料记成三种酱汁，而新手看到的是十二个分开的瓶子。"
+    },
+    {
+      "en": "Sleep does far more than rest the body. During deep sleep, the hippocampus replays the day's events to the cortex, which slowly strengthens the connections that matter. Students who study and then sleep learn better than those who study the same number of hours and stay awake. The brain, in effect, files the day while the lights are off.",
+      "zh": "睡眠远不只是让身体休息。在深度睡眠中，海马体会把白天的事件“重播”给皮层，慢慢强化那些重要的连接。先学习再睡觉的学生，比学同样时长却保持清醒的学生学得更好。可以说，灯一关，大脑就开始归档这一天。"
+    },
+    {
+      "en": "Memories are also tied to the place and mood in which they formed. In a famous 1975 study, divers learned word lists either on a beach or under water. They <span class=\"kw\" data-ipa=\"/rɪˈkɔːl/\" data-def=\"回忆起；想起\">recall</span>ed the words best in the same environment where they had learned them. This is why returning to your old classroom, or simply hearing a song from 2015, can suddenly bring back a scene you thought had begun to <span class=\"kw\" data-ipa=\"/feɪd/\" data-def=\"变淡；逐渐消失\">fade</span>.",
+      "zh": "记忆还与它形成的地点与心情紧紧绑在一起。在1975年一项著名研究中，潜水员分别在沙滩上或水下学习词表；在同一种环境里回忆时，成绩最好。这就是为什么回到旧教室，或者只是听到一首2015年的歌，就能突然把你以为已经开始淡去的画面带回来。"
+    },
+    {
+      "en": "Yet the greatest surprise is that memories are not simply stored; they are constantly <span class=\"kw\" data-ipa=\"/ˌriːkənˈstrʌktɪd/\" data-def=\"被重构；被重新构建\">reconstructed</span>. In Elizabeth Loftus's classic experiment, witnesses asked how fast the cars 'smashed' into each other later reported higher speeds than those asked about 'hitting'. Some even 'remembered' broken glass that was never there. Each retelling can add details that feel real but are not.",
+      "zh": "然而最大的惊喜是：记忆并非只是被存起来，它还在被不断重构。在伊丽莎白·洛夫特斯的经典实验中，被问“两车相撞（smashed）时速度多快”的目击者，事后报告的车速比被问“hitting”的人更高；有人甚至“记得”现场有碎玻璃，而其实并没有。每一次复述都可能添上感觉真实、实则不存在的细节。"
+    },
+    {
+      "en": "Because of this, the brain must <span class=\"kw\" data-ipa=\"/dɪˈstɪŋɡwɪʃ/\" data-def=\"区分；辨别\">distinguish</span> between what actually happened and what we merely imagined or were told. It relies on small clues: how vivid the picture is, how much sensory detail it carries, whether other people agree. These clues work well most of the time, which is why we trust our own past, and why we are now and then wrong.",
+      "zh": "正因如此，大脑必须区分“真正发生过的事”和“我们只是想象过或听别人说过的事”。它依靠一些小线索：画面有多鲜活、带有多少感官细节、别人是否也这么说。多数时候这些线索很好用，所以我们相信自己的过去——也所以我们偶尔会出错。"
+    },
+    {
+      "en": "Forgetting, too, has a purpose. If every detail stayed sharp, the mind would drown in noise. The ability to <span class=\"kw\" data-ipa=\"/əˈsoʊʃieɪt/\" data-def=\"联想；把……联系起来\">associate</span> new information with what we already know lets the brain keep the pattern and drop the decoration. What remains is usually the meaning, and meaning is exactly what we need in order to act.",
+      "zh": "遗忘同样有其用处。如果每个细节都保持清晰，心智会被噪音淹没。把新信息与已知内容联系起来的能力，让大脑留下模式、丢掉装饰。留下来的通常是意义，而意义正是我们行动时所需要的。"
+    },
+    {
+      "en": "The practical lessons follow naturally: test yourself instead of rereading, spread study over several days, sleep after learning, and give your memories good cues. Above all, treat your past with a little humility. It is a careful, useful, and constantly updated version of events, not a recording.",
+      "zh": "实用的结论随之而来：用自我测试代替反复阅读，把学习分散到好几天里，学完就睡，并给自己的记忆设置好的线索。最重要的是，对自己的过去保持一点谦逊：它是一份认真、有用、且不断更新的版本，而不是一份录音。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What does the author mainly want to tell us about human memory?",
+      "options": [
+        "It works like a camera and records events faithfully.",
+        "It stores information in three separate boxes that never change.",
+        "It rebuilds the past each time we remember something.",
+        "It is far weaker than the memory of most animals."
+      ],
+      "answer": 2,
+      "explain": "主旨题。首段用相机比喻否定“原样录制”，并提出记忆像一座会改写藏书的图书馆，末段再次强调过去是“不断更新的版本，而不是录音”，故答案为第三项。"
+    },
+    {
+      "q": "According to the passage, which step of memory is the least reliable?",
+      "options": [
+        "Encoding.",
+        "Storage.",
+        "Retrieval.",
+        "Grouping."
+      ],
+      "answer": 2,
+      "explain": "细节题。第二段明确指出三步中“this last step is the most fragile”，即提取（retrieval）最脆弱，调不出的记忆等于不存在。"
+    },
+    {
+      "q": "The 1975 diving experiment is mentioned to show that ______.",
+      "options": [
+        "people always remember words better under water than on land",
+        "memory is influenced by the surroundings in which it was formed",
+        "professional divers have unusually strong memories",
+        "music can bring back scenes people have long forgotten"
+      ],
+      "answer": 1,
+      "explain": "推断题。潜水员在“学习时的同一环境”里回忆成绩最好，说明记忆与形成时的地点、情境紧密相关；A项“总是”过于绝对，C、D均非该实验的目的。"
+    },
+    {
+      "q": "In Paragraph 8, the phrase 'drop the decoration' most probably means ______.",
+      "options": [
+        "forget details that are not needed",
+        "lose the main meaning of an event",
+        "remove unpleasant memories on purpose",
+        "store new information more slowly"
+      ],
+      "answer": 0,
+      "explain": "词义题。该段说大脑“留下模式、丢掉装饰”，留下的通常是意义，可见“装饰”指无关紧要的细节，故为“忘掉不需要的细节”。"
+    }
+  ]
+}
