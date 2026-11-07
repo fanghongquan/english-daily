@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-07",
+  "level": "CET-4",
+  "title": "The Duck Curve: When Too Much Sunshine Becomes a Headache",
+  "title_zh": "鸭子曲线：当阳光太多也成了烦恼",
+  "intro_zh": "本文约 528 词，围绕加州太阳能发电出现的“鸭子曲线”现象，讲述可再生能源在时间分配上的现实难题与解决思路，含 6 个 CET-4 核心词汇，难度适中。",
+  "paragraphs": [
+    {
+      "en": "On a bright spring afternoon in California, something strange happens on the electricity market. For a few hours, wholesale prices <span class=\"kw\" data-ipa=\"/plʌndʒ/\" data-def=\"骤降，猛跌\">plunge</span> below zero. Power companies sometimes pay neighbouring states to take their extra electricity. This is not a sign that solar energy is failing. It is a sign that it is working better than the system was built to handle. Visitors find the idea hard to believe: sunshine, once a simple gift, now has to be managed.",
+      "zh": "在加州一个阳光明媚的春日午后，电力市场上会发生一件怪事。有几个小时，批发价格会跌到零以下。电力公司有时甚至付钱给邻州，请他们把自己的多余电力拿走。这并不说明太阳能失败了，反而说明它运转得比这套系统当初设计的承受能力还要好。外来者觉得这想法难以置信：阳光，曾经是一份简单的礼物，如今却需要被管理。"
+    },
+    {
+      "en": "Engineers have a name for the shape this creates. If you draw the state's demand for power over 24 hours, then subtract everything solar panels supply, the remaining line looks like a bird. It has a deep belly at midday, when sunshine is strongest, and a long neck that climbs steeply at sunset. They call it the duck curve.",
+      "zh": "工程师给由此形成的形状起了个名字。如果你把全州一天二十四小时的用电需求画出来，再减去太阳能板所提供的全部电力，剩下的那条线看上去就像一只鸟。它在正午阳光最强时有一个深深的肚子，而到了日落时分，一条长脖子又陡然攀升。他们称之为“鸭子曲线”。"
+    },
+    {
+      "en": "The duck's belly is the <span class=\"kw\" data-ipa=\"/ˈsɜːrpləs/\" data-def=\"过剩，盈余\">surplus</span>. California now has more than 30 gigawatts of solar <span class=\"kw\" data-ipa=\"/kəˈpæsəti/\" data-def=\"容量，产能\">capacity</span>, on rooftops and in desert farms, and on some afternoons renewable sources meet almost all of the state's demand. Traditional power stations, which cannot switch on and off quickly, find themselves squeezed out of the market.",
+      "zh": "鸭子的肚子就是那份过剩。加州如今的太阳能装机容量已超过三千兆瓦的三万倍——也就是三十千兆瓦，分布在屋顶和沙漠电站里；有些下午，可再生能源几乎满足了全州的全部用电需求。而那些无法快速启停的传统电站，则发现自己被挤出了市场。"
+    },
+    {
+      "en": "Then the sun drops. Between five and eight in the evening, solar output fades just as families come home, switch on lights and cook dinner. Demand climbs while supply falls. In less than three hours the <span class=\"kw\" data-ipa=\"/ɡrɪd/\" data-def=\"电网\">grid</span> may need to replace the output of a dozen large power plants — an operator's nightmare.",
+      "zh": "接着太阳落山了。傍晚五点到八点之间，太阳能输出逐渐减弱，而这时家庭正陆续回家、开灯、做晚饭。需求上升，供给却在下降。不到三个小时里，电网可能需要补上十几座大型发电厂的发电量——这是调度员的噩梦。"
+    },
+    {
+      "en": "This is why storage has become the fastest-growing part of the industry. Giant batteries, most of them lithium-ion, charge up at midday when power is cheap and empty themselves into the evening rush. California has gone from almost no battery storage a decade ago to roughly ten gigawatts, enough to keep millions of homes lit for a few hours.",
+      "zh": "这就是为什么储能成了这个行业增长最快的部分。巨型电池（其中大多数是锂离子电池）在电价便宜的正午充电，到傍晚用电高峰时再把电放出来。加州从十年前几乎没有电池储能，发展到今天大约十千兆瓦，足以让数百万家庭亮上几个小时。"
+    },
+    {
+      "en": "Batteries are not the only answer. Pumped hydro stations lift water uphill when power is plentiful and let it fall back through turbines when it is needed. Factories can shift heavy work to sunny hours. Electric cars, plugged in at the office, can <span class=\"kw\" data-ipa=\"/əbˈzɔːrb/\" data-def=\"吸收\">absorb</span> cheap midday electrons instead of charging at night.",
+      "zh": "电池并不是唯一的答案。抽水蓄能电站会在电力充裕时把水抽到高处，需要时再让水流经水轮机落下来。工厂可以把耗电大的工序挪到日照充足的时段。停在办公室插上电的电动车，可以在正午吸收便宜的电，而不必等到夜里才充。"
+    },
+    {
+      "en": "Still, some sunshine is simply wasted. On the sunniest days operators switch off solar farms to protect equipment — a practice called curtailment. In recent years California has thrown away record amounts of solar power. It sounds shocking, but the electricity is worth so little at noon that throwing it away can be cheaper than building wires for a peak that lasts two hours.",
+      "zh": "不过，有些阳光还是被白白浪费了。在最晴朗的日子里，运营者会关掉太阳能电站以保护设备——这种做法叫作“弃光”。近年来，加州弃掉的太阳能电量创下了纪录。听起来令人震惊，但正午的电实在太不值钱，把它丢掉可能比为了两个小时的高峰去建输电线路更便宜。"
+    },
+    {
+      "en": "The deeper lesson is that sunshine is <span class=\"kw\" data-ipa=\"/ˌɪntərˈmɪtənt/\" data-def=\"间歇的，断断续续的\">intermittent</span> by nature. It arrives in generous bursts and then vanishes. A power system designed for steady coal plants must learn to bend. Countries from Spain to Chile to Australia are meeting the same duck, and each is finding its own way to store, share and shift energy.",
+      "zh": "更深的启示在于：阳光本质上是间歇性的。它慷慨地一阵阵涌来，然后又消失不见。一个为稳定燃煤电厂设计的电力系统必须学会弯一弯腰。从西班牙到智利再到澳大利亚，各国都在遇见同一只“鸭子”，而每个国家都在寻找自己的方式来储存、共享和转移电力。"
+    },
+    {
+      "en": "None of this means renewable energy has failed. The duck curve is a picture of success: clean power arriving faster than the old rules expected. The next chapter is less about making electricity and more about moving it through time — and that, engineers say, is a solvable problem. In the end, it is a plumbing problem more than a physics one.",
+      "zh": "这一切都不意味着可再生能源失败了。“鸭子曲线”其实是一幅成功的图景：清洁电力到来的速度超出了旧规则的预期。接下来的篇章，与其说是关于如何发电，不如说是关于如何让电在时间上流动——而工程师们说，这是可以解决的问题。归根到底，这更像是一个管道问题，而不是物理问题。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "Why solar panels are becoming cheaper in California.",
+        "How the success of solar power creates a timing problem for the electricity system.",
+        "Why coal power stations should be closed down immediately.",
+        "How to encourage families to use less electricity in the evening."
+      ],
+      "answer": 1,
+      "explain": "全文围绕“鸭子曲线”展开：太阳能发电量太大导致正午电力过剩、傍晚又供应不足，核心是发电与用电在时间上的错配，故选 B。A、C、D 文中均非主旨。"
+    },
+    {
+      "q": "According to the passage, why do wholesale electricity prices sometimes fall below zero in California?",
+      "options": [
+        "Because the government fixes the price of electricity.",
+        "Because power plants refuse to sell their electricity.",
+        "Because solar output at midday is greater than what the state can use.",
+        "Because neighbouring states no longer buy Californian power."
+      ],
+      "answer": 2,
+      "explain": "细节题。第一、三段指出，正午阳光最强时太阳能供应几乎满足全部需求，出现过剩（surplus），价格因而跌破零，甚至付钱请邻州接收，故选 C。"
+    },
+    {
+      "q": "What can be inferred about battery storage from the passage?",
+      "options": [
+        "It helps move cheap midday solar power to the evening peak.",
+        "It has replaced all traditional power stations in California.",
+        "It is too expensive for California to develop further.",
+        "It works best when the weather is cloudy."
+      ],
+      "answer": 0,
+      "explain": "推断题。第五段说电池在正午电价低时充电、傍晚高峰时放电，说明它的作用是把白天的太阳能“搬”到晚上用，故选 A。B、C、D 均与原文不符。"
+    },
+    {
+      "q": "The word 'plunge' in the first paragraph is closest in meaning to ______.",
+      "options": [
+        "rise slowly",
+        "fall sharply",
+        "stay the same",
+        "change suddenly"
+      ],
+      "answer": 1,
+      "explain": "词义题。文中说正午批发价格跌到零以下，plunge 意为“骤降、猛跌”，与 fall sharply 最接近，故选 B。"
+    }
+  ]
+}
