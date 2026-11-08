@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-08",
+  "level": "CET-4",
+  "title": "A Chip of Paint at 28,000 km/h: The Slow Traffic Jam Above Earth",
+  "title_zh": "时速28000公里的一粒油漆：地球上空缓慢拥堵的交通",
+  "intro_zh": "本文约527词，围绕太空垃圾问题展开：先讲碎片数量与高速撞击的危险，再以2009年卫星相撞为例说明连锁风险，最后介绍追踪预警、清运技术与法律规则，难度适中，适合CET-4阅读训练。",
+  "paragraphs": [
+    {
+      "en": "On a clear night the sky above us looks peaceful and empty. In fact, about 1,000 kilometres up, a slow traffic jam is growing. Since 1957, when the first satellite went up, humans have left thousands of objects in <span class=\"kw\" data-ipa=\"/ˈɔːrbɪt/\" data-def=\"轨道\">orbit</span>: dead satellites, rocket bodies and pieces of broken metal. Today more than 36,000 of them are large enough to be followed from the ground. None of this rubbish is visible to the eye, yet radar follows every large piece.",
+      "zh": "晴朗的夜里，我们头顶的天空看起来安静而空旷。事实上，在大约1000公里的高处，一场缓慢的“交通拥堵”正在加剧。自1957年第一颗卫星升空以来，人类已在轨道上留下成千上万个物体：报废卫星、火箭箭体和破碎的金属块。如今其中超过3.6万个大到可以从地面被跟踪。这些垃圾肉眼看不见，但雷达会跟踪每一个大块头。"
+    },
+    {
+      "en": "Why should we care? Speed. In low orbit a <span class=\"kw\" data-ipa=\"/ˈsætəlaɪt/\" data-def=\"卫星\">satellite</span> travels at about 28,000 km/h, roughly ten times faster than a bullet. At that speed even a small screw can do serious damage. In 2016 a chip of paint struck a window of the International Space Station and left a small pit. Nobody was hurt, but engineers noticed. Far higher up, junk can stay for thousands of years, because there is almost no air to slow it down.",
+      "zh": "我们为什么要在意？因为速度。在低轨道上，一颗卫星的飞行速度约为每小时28000公里，大约是子弹的十倍。在这样的速度下，哪怕一颗小螺丝也能造成严重破坏。2016年，一小片油漆击中国际空间站的一扇舷窗，留下一个小坑。没有人受伤，但工程师们注意到了。而在更高处，垃圾能停留数千年，因为那里几乎没有空气让它减速。"
+    },
+    {
+      "en": "Bigger accidents have already happened. In 2009 a dead Russian satellite and a working American one crashed into each other 800 kilometres above Siberia. The <span class=\"kw\" data-ipa=\"/kəˈlɪʒən/\" data-def=\"碰撞\">collision</span> produced more than 2,000 trackable pieces of junk, plus thousands of fragments too small to see. One such crash can make the problem far worse in a single second. Each of those pieces now circles Earth, and each one can hit something else.",
+      "zh": "更大的事故已经发生过。2009年，一颗报废的俄罗斯卫星与一颗仍在工作的美国卫星在西伯利亚上空800公里处相撞。这次碰撞产生了2000多块可被跟踪的碎片，外加数千块小到看不见的碎屑。这样一次相撞，能在一秒钟内让问题严重得多。这些碎片如今都在绕地球飞行，而每一块都可能再撞上别的东西。"
+    },
+    {
+      "en": "Scientists worry about a chain reaction. If <span class=\"kw\" data-ipa=\"/dəˈbriː/\" data-def=\"碎片；残骸\">debris</span> keeps spreading, some orbits may become too dangerous to use, and the number of crashes could grow on its own. That matters on the ground too. Weather forecasts, GPS directions and international phone calls all depend on the machines up there. One lost weather satellite can make every forecast a little less accurate.",
+      "zh": "科学家担心出现连锁反应。如果碎片不断扩散，有些轨道可能变得危险到无法使用，撞车次数还可能自行增长。这对地面生活同样重要。天气预报、GPS导航和国际电话都依赖天上的那些机器。少一颗气象卫星，每一份预报都可能略微失准。"
+    },
+    {
+      "en": "The good news is that the world is waking up. Radar stations on the ground now <span class=\"kw\" data-ipa=\"/træk/\" data-def=\"追踪；跟踪\">track</span> large pieces and warn operators days in advance. If a piece seems likely to <span class=\"kw\" data-ipa=\"/ˈθretn/\" data-def=\"威胁\">threaten</span> a working satellite, the satellite can fire its engine gently and step aside, like a car changing lanes. Such small moves cost almost no fuel.",
+      "zh": "好消息是，世界正在清醒过来。地面雷达站如今能追踪大块碎片，并提前数天向运营方发出警告。如果某块碎片可能要威胁到一颗工作中的卫星，这颗卫星可以轻轻点火，让到一边，就像汽车变道一样。这样的小动作几乎不费燃料。"
+    },
+    {
+      "en": "Cleaning up is harder than avoiding. A European mission called ClearSpace-1 is building a robot with four arms. Its plan is to catch a piece of old rocket, hold it tightly and pull it down into the air, where it will burn up safely. Japan, meanwhile, has tested a long tether that slowly drags junk out of busy routes. Nothing is thrown away in space; it simply stays.",
+      "zh": "清理比躲避更难。一项名为ClearSpace-1的欧洲任务正在研制一台有四条手臂的机器人。它的计划是抓住一块旧火箭残骸，牢牢抱住它，把它拖入大气层，让它在那里安全烧毁。与此同时，日本测试了一条长系绳，可以慢慢把垃圾拖出繁忙航线。在太空里，没有什么东西是被扔掉的，它只是留在那里。"
+    },
+    {
+      "en": "Rules matter as much as technology. Several space agencies now ask companies to remove a satellite within 25 years of finishing its job, and some designers build a small extra engine just for that final drop. France has even passed a law that fines operators who leave their rubbish behind. In time, tidying up may simply become part of the price of going to space.",
+      "zh": "规则和技术同样重要。多家航天机构现在要求公司在卫星完成任务后25年内将其移除，一些设计者还专门为最后这次“下坠”加装一台小发动机。法国甚至通过法律，对留下垃圾的运营方处以罚款。假以时日，收拾干净也许就会成为进入太空的成本之一。"
+    },
+    {
+      "en": "Ordinary people can help too, by supporting budgets for space safety and by remembering that orbit is a shared place, like a road or a river. The sky is large, but it is not endless. It took us sixty years to fill it. With care and clever engineering, we can keep the road open for the next century.",
+      "zh": "普通人也能出力：支持太空安全方面的预算，并记住轨道是一个共享的地方，就像一条路或一条河。天空很大，但并非没有边界。我们用了六十年把它填满。只要用心加上巧妙的工程，我们就能让这条“路”在下一个世纪依然畅通。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "Why the International Space Station needs new windows.",
+        "The growing problem of space junk and the efforts to deal with it.",
+        "How satellites help weather forecasts and phone calls.",
+        "The story of the first satellite launched in 1957."
+      ],
+      "answer": 1,
+      "explain": "主旨题。全文先讲太空碎片数量多、速度快、危害大，再讲2009年相撞、连锁反应，然后介绍雷达追踪、清运机器人与法律规则，故B正确。A、C只是文中细节，D只在第一段被提及一句。"
+    },
+    {
+      "q": "According to the passage, what happened in 2009?",
+      "options": [
+        "A robot with four arms caught an old rocket.",
+        "A chip of paint damaged a window of the space station.",
+        "Two satellites crashed and created thousands of pieces.",
+        "France passed a law about space rubbish."
+      ],
+      "answer": 2,
+      "explain": "细节题。第三段明确写到2009年一颗报废的俄罗斯卫星与一颗美国卫星在西伯利亚上空相撞，产生2000多块可跟踪碎片及大量细小碎屑，故选C。A是ClearSpace-1的计划，B发生在2016年，D在第七段且未标年份。"
+    },
+    {
+      "q": "Why does the author mention 'like a car changing lanes'?",
+      "options": [
+        "To show that a satellite can move aside to avoid a crash.",
+        "To suggest that space traffic should be controlled by police.",
+        "To explain why satellites need more fuel than cars.",
+        "To compare the speed of satellites with that of cars."
+      ],
+      "answer": 0,
+      "explain": "推断题。该比喻出现在第五段，前文说卫星可以轻轻点火、让到一边来避开可能撞上的碎片，作者用“汽车变道”让读者更容易理解这种小幅度机动，故选A。其余选项都偏离了比喻要说明的重点。"
+    },
+    {
+      "q": "In the fifth paragraph, the word 'track' most probably means ______.",
+      "options": [
+        "follow the movement of",
+        "build a new path for",
+        "repair in a short time",
+        "record in a song"
+      ],
+      "answer": 0,
+      "explain": "词义题。第五段说地面雷达站能 track 大块碎片，并提前数天向运营方预警，可见其意思是“追踪、跟踪其运动”，故选A。B、C、D都是该词其他义项或无关解释，与上下文不符。"
+    }
+  ]
+}
