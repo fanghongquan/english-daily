@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-10",
+  "level": "CET-4",
+  "title": "The Blue That Isn't Paint: How Air Molecules Color the Sky",
+  "title_zh": "并非颜料的蓝：空气分子如何为天空上色",
+  "intro_zh": "本文约547词，从瑞利散射、波长和人类视觉三个角度解释天空为何呈蓝色，并说明日落变红的原因。适合CET-4阅读练习。",
+  "paragraphs": [
+    {
+      "en": "On a clear day, few of us stop to ask why the sky is blue. We simply accept it, as we accept the ground under our feet. Yet that blue is not a painted ceiling. It comes from sunlight interacting with the air. The short answer is surprising: the sky looks blue because tiny air molecules <span class=\"kw\" data-ipa=\"/ˈskætər/\" data-def=\"散射；散开\">scatter</span> blue light much more strongly than red light.",
+      "zh": "晴朗的日子里，很少有人会停下来问天空为什么是蓝色的。我们只是接受它，就像接受脚下的地面一样。然而那片蓝色并不是画上去的天花板。它来自阳光与空气的相互作用。简短的回答令人惊讶：天空看起来是蓝色的，是因为微小的空气分子散射蓝光的能力远比散射红光强。"
+    },
+    {
+      "en": "Sunlight looks white, but it is actually a mixture of many colors. A glass prism can separate it into a rainbow, from red to violet. Each color travels as a wave with its own length. Blue light has a short <span class=\"kw\" data-ipa=\"/ˈweɪvleŋθ/\" data-def=\"波长\">wavelength</span>, around 450 nanometers, while red light is longer, near 700 nanometers. The difference seems small, but it matters greatly in the air.",
+      "zh": "阳光看起来是白色的，但它实际上是多种颜色的混合。玻璃棱镜可以将它分成一道彩虹，从红色到紫色。每种颜色都以波的形式传播，有自己的长度。蓝光的波长较短，约为450纳米，而红光的波长较长，接近700纳米。这种差异似乎很小，但在空气中却关系重大。"
+    },
+    {
+      "en": "The air around us is full of tiny <span class=\"kw\" data-ipa=\"/ˈmɑːlɪkjuːl/\" data-def=\"分子\">molecules</span>, mainly nitrogen and oxygen. These molecules are far smaller than the wavelength of visible light. As sunlight passes through the <span class=\"kw\" data-ipa=\"/ˈætməsfɪr/\" data-def=\"大气层；氛围\">atmosphere</span>, the molecules <span class=\"kw\" data-ipa=\"/əbˈzɔːrb/\" data-def=\"吸收\">absorb</span> some light and send it out again in every direction. This process is called scattering. Because blue light has a shorter wavelength, it is scattered much more than red light—roughly five times more.",
+      "zh": "我们周围的空气充满了微小的分子，主要是氮气和氧气。这些分子远小于可见光的波长。当阳光穿过大气层时，分子会吸收一些光，并再次向各个方向发出。这个过程叫做散射。因为蓝光的波长更短，它被散射的程度比红光强得多——大约强五倍。"
+    },
+    {
+      "en": "The scattered blue light reaches our eyes from every direction of the sky. That is why we see blue overhead, not only around the sun. You might ask: why not violet? Violet light has an even shorter wavelength and is scattered more. However, sunlight contains less violet, and our eyes are less sensitive to it. Some violet is also absorbed high in the atmosphere. So the <span class=\"kw\" data-ipa=\"/ˈvɪzəbl/\" data-def=\"可见的\">visible</span> result is a clear blue sky.",
+      "zh": "被散射的蓝光从天空的各个方向到达我们的眼睛。这就是为什么我们看到头顶是蓝色的，而不仅仅是太阳周围。你可能会问：为什么不是紫色？紫光的波长更短，被散射得更多。然而，阳光中紫光较少，而且我们的眼睛对紫光不太敏感。一些紫光还在大气层高处被吸收了。所以可见的结果就是一片清澈的蓝天。"
+    },
+    {
+      "en": "This same process explains the colors of sunset. When the sun is low, its light travels through a much thicker layer of air. Most of the blue light is scattered away before it reaches us. What remains is the longer red and orange light. That is why the sky near the horizon can turn a warm orange or deep red in the evening. This change is a clear sign that the light is passing through more air.",
+      "zh": "同样的过程解释了日落的颜色。当太阳位置较低时，它的光要穿过厚得多的大气层。大部分蓝光在到达我们之前就被散射掉了。剩下的是波长较长的红光和橙光。这就是为什么傍晚时地平线附近的天空会变成温暖的橙色或深红色。这种变化清楚地表明，光线穿过了更多的空气。"
+    },
+    {
+      "en": "In the 1870s, the British scientist Lord Rayleigh worked out the mathematics of this scattering. His name is now used for it: Rayleigh scattering. The effect is strongest when the air is clean. After rain, the sky often looks especially blue because dust and water droplets have been washed away. From a high mountain, the sky can look deeper blue because there is less air above you. This is why the sky looks pale near the horizon and deeper overhead.",
+      "zh": "19世纪70年代，英国科学家瑞利勋爵推导出了这种散射的数学原理。现在它就以他的名字命名：瑞利散射。空气干净时，这种效应最强。雨后，天空常常看起来特别蓝，因为灰尘和水滴被冲走了。在高山上，天空可能看起来更深的蓝色，因为你上方的空气更少。这就是为什么地平线附近的天空看起来较浅，而头顶的天空颜色更深。"
+    },
+    {
+      "en": "Some people think the sky reflects the color of the ocean. That is a common misunderstanding. The sky over a desert or a city is just as blue as over the sea. The blue comes from the air itself, not from water below. Even astronauts looking down at Earth see a blue edge around the planet—the thin atmosphere glowing with scattered sunlight.",
+      "zh": "有些人认为天空反射了海洋的颜色。这是一个常见的误解。沙漠或城市上方的天空和海洋上方的天空一样蓝。蓝色来自空气本身，而不是下方的水。甚至宇航员俯视地球时，也会看到行星周围有一圈蓝色的边缘——那是稀薄的大气层在散射阳光而发光。"
+    },
+    {
+      "en": "So the next time you look up, remember: you are seeing sunlight filtered by the air. The blue sky is a daily display of physics, free for everyone. It reminds us that even the most familiar things can hold a beautiful secret—if we take a moment to ask why. All you need is a clear day and a curious mind.",
+      "zh": "所以，下次你抬头看时，请记住：你看到的是被空气过滤过的阳光。蓝天是物理学的日常展示，对每个人都免费。它提醒我们，即使是最熟悉的事物，也可能藏着一个美丽的秘密——只要我们花一点时间去问为什么。你所需要的只是一个晴朗的日子和一颗好奇的心。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the main purpose of the passage?",
+      "options": [
+        "To explain why the sky appears blue.",
+        "To compare blue light with red light.",
+        "To describe the history of weather science.",
+        "To argue that sunsets are more beautiful than sunrises."
+      ],
+      "answer": 0,
+      "explain": "文章开篇提出天空为何是蓝色，随后用瑞利散射、波长和视觉敏感度解释原因，因此主旨是解释天空呈蓝色的科学原理。A项概括准确；B、C、D均只是文中细节或未涉及。"
+    },
+    {
+      "q": "According to the passage, why do we see blue rather than violet when we look at the sky?",
+      "options": [
+        "Sunlight contains no violet light.",
+        "Violet light is completely absorbed by nitrogen.",
+        "Sunlight has less violet, and human eyes are less sensitive to it.",
+        "Violet light has a longer wavelength than red light."
+      ],
+      "answer": 2,
+      "explain": "第四段明确指出：紫光虽然散射更强，但阳光中紫光较少，人眼对紫光也不如对蓝光敏感，且部分紫光在高空被吸收。C项准确。A、B、D与原文不符。"
+    },
+    {
+      "q": "What can be inferred about the sky when viewed from a high mountain?",
+      "options": [
+        "It appears deeper blue because there is less air above.",
+        "It appears white because of more dust.",
+        "It appears red because the atmosphere is thicker.",
+        "It appears violet because sunlight is stronger."
+      ],
+      "answer": 0,
+      "explain": "第六段提到，在高山上天空看起来更深的蓝色，因为上方的空气更少。由此可推断空气层越薄，蓝色越深。A项正确。"
+    },
+    {
+      "q": "The word 'scatter' in the passage is closest in meaning to ______.",
+      "options": [
+        "spread in different directions",
+        "take in completely",
+        "change into heat",
+        "move in a straight line"
+      ],
+      "answer": 0,
+      "explain": "第三段用 'send it out again in every direction' 解释 scattering，因此 scatter 意为“向不同方向散开、散射”。A项最接近。B项是 absorb 的意思；C、D均不准确。"
+    }
+  ]
+}
