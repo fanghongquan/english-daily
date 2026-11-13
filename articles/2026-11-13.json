@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-13",
+  "level": "CET-4",
+  "title": "From Burnt Bamboo to Blue Bursts: The Long History of Festival Fireworks",
+  "title_zh": "从烧竹子到蓝色烟花：节日烟花的漫长由来",
+  "intro_zh": "本文约 549 词，共 8 段，围绕“节日烟花的由来”展开：从中国古代烧竹取声、道士炼丹意外发明火药，到李畋装竹筒、宋代纸筒娱乐、丝路西传、19世纪金属盐上色，再到今天的规模与环保改良。含 6 个 CET-4 核心词，句子难度中等，适合 85%-90% 理解目标。",
+  "paragraphs": [
+    {
+      "en": "Every New Year's Eve the sky above Sydney Harbour turns red, gold and green, and crowds on the shore look up and shout. Something similar happens in thousands of smaller places, from a village in Hunan to a town in Brazil. Almost everyone enjoys the show, but few people stop to ask a simple question: where did fireworks actually come from? The story starts in China and runs back about 1,400 years.",
+      "zh": "每到新年前夜，悉尼港上空的天空就被染成红、金、绿三色，岸边的人群抬头欢呼。类似的场景也在成千上万个更小的地方上演，从湖南的一个村庄到巴西的一座小镇。几乎人人都爱看这场表演，但很少有人停下来问一个简单的问题：烟花究竟从哪里来？这个故事始于中国，可以回溯到大约1400年前。"
+    },
+    {
+      "en": "The earliest version was not pretty at all. Long before paper tubes, people in ancient China threw joints of <span class=\"kw\" data-ipa=\"/ˌbæmˈbuː/\" data-def=\"n. 竹子\">bamboo</span> into campfires. Air trapped inside the hollow stems heated up and burst with a sharp crack, sending sparks into the dark. Sixth-century writers described the noise as loud enough to frighten away evil spirits on New Year's night. Even today the Chinese word for firecracker, baozhu, literally means 'exploding bamboo'.",
+      "zh": "最早的版本一点也不好看。早在纸筒出现之前，中国古人就把一节节的竹子扔进篝火里。空心竹节里困住的空气受热膨胀，随着一声清脆的爆裂声炸开，把火星送进黑暗。六世纪的作家形容，那声音响得足以在除夕之夜吓跑邪祟。直到今天，中国人把鞭炮叫作“爆竹”，字面意思就是“爆炸的竹子”。"
+    },
+    {
+      "en": "Then came an accident that changed everything. Around 800 AD, Chinese alchemists were searching for a <span class=\"kw\" data-ipa=\"/ˈkemɪkəl/\" data-def=\"adj. 化学的；n. 化学物质\">chemical</span> mixture that would let people live forever. They heated saltpeter with sulfur and charcoal, again and again. Instead of a magic drink they got a black powder that burned fast and <span class=\"kw\" data-ipa=\"/ɪkˈsploʊdɪd/\" data-def=\"v. 爆炸，爆裂（explode 的过去式）\">exploded</span> with smoke and a bang. The seekers of immortality had invented gunpowder.",
+      "zh": "接着，一场意外改变了一切。大约公元800年，中国的炼丹术士在寻找一种能让人长生不老的化学混合物。他们一次又一次地把硝石与硫磺、木炭一起加热。他们没有得到灵药，而是得到一种燃烧极快、伴着浓烟和巨响爆炸的黑色粉末。寻求长生的人就这样发明了火药。"
+    },
+    {
+      "en": "<span class=\"kw\" data-ipa=\"/ˈledʒənd/\" data-def=\"n. 传说，传奇\">Legend</span> gives the credit to a craftsman named Li Tian from Liuyang, Hunan. He is said to have packed gunpowder into a bamboo tube, added a fuse, and lit it. The bang was far louder than burning bamboo could ever make, and the tube could be carried, aimed and stored. Nobody can prove the story, yet Liuyang still calls Li Tian its founding father and has made fireworks ever since. Today the city supplies about 60 percent of the fireworks sold worldwide.",
+      "zh": "传说把功劳归于湖南浏阳一位名叫李畋的匠人。据说他把火药装进竹筒，加上引线，然后点燃。那声响远比烧竹子能发出的声音大得多，而且这种竹筒可以携带、瞄准和储存。没人能证实这个故事，但浏阳至今仍尊李畋为祖师，并且自那时起一直制作烟花。如今，这座城市供应了全球销售烟花的约60%。"
+    },
+    {
+      "en": "By the Song dynasty, paper had replaced bamboo, and fireworks had become entertainment rather than protection. Palaces staged displays for emperors, and ordinary families bought small crackers for weddings and festivals. Travellers and traders carried the knowledge west along the Silk Road. Arab armies used gunpowder weapons in the thirteenth century, and European kings were soon paying for spectacular shows.",
+      "zh": "到了宋代，纸取代了竹子，烟花也从驱邪之物变成了娱乐。宫廷为皇帝举办烟花表演，普通人家也会在婚礼和节日买些小鞭炮。旅行者和商人把这项知识沿着丝绸之路带向西方。十三世纪，阿拉伯军队已使用火药武器，而欧洲的国王们很快也开始花钱办起场面宏大的表演。"
+    },
+    {
+      "en": "For centuries, though, the shows were orange and gold only. Color is a much later invention. In the 1830s, Italian chemists found that adding a pinch of a metal salt changed the flame: strontium burned red, barium green, copper blue. Each new <span class=\"kw\" data-ipa=\"/ɪnˈɡriːdiənt/\" data-def=\"n. 成分，原料\">ingredient</span> made a different color, and the modern firework was born. Today a single shell may hold dozens of small 'stars', each with its own recipe, timed to burst at a chosen height.",
+      "zh": "不过，几百年来，烟花表演只有橙色和金色。颜色是后来才有的发明。19世纪30年代，意大利的化学家发现，加入一小撮金属盐就能改变火焰的颜色：锶烧出红色，钡烧出绿色，铜烧出蓝色。每一种新成分都带来一种不同的颜色，现代烟花由此诞生。今天，一枚烟花弹里可能装着几十颗小“星”，每一颗都有自己的配方，并按设定在特定高度炸开。"
+    },
+    {
+      "en": "The scale of modern celebrations is hard to imagine. Sydney's New Year show uses around eight tonnes of fireworks and is watched by more than a million people on the harbor. In India, Diwali fills the sky with light for hours; in the United States, July 4th brings thousands of public displays. The industry is worth billions of dollars, and China remains its biggest producer and exporter.",
+      "zh": "现代庆典的规模难以想象。悉尼的新年表演要用掉约八吨烟花，有超过一百万人在港口边观看。在印度，排灯节让天空亮上好几个小时；在美国，7月4日会带来成千上万场公共烟花表演。这个产业价值数十亿美元，而中国仍是最大的生产国和出口国。"
+    },
+    {
+      "en": "None of this comes free. Smoke, fine dust and loud bangs trouble cities, pets and wildlife, and some places have banned private fireworks. Communities are changing the <span class=\"kw\" data-ipa=\"/trəˈdɪʃən/\" data-def=\"n. 传统\">tradition</span> instead of dropping it: quieter low-smoke products, city-wide laser and drone shows, and stricter safety rules. The bamboo crack that once frightened away bad luck has become a global art form, and it is still being rewritten.",
+      "zh": "这一切都不是没有代价的。烟雾、细微粉尘和巨响困扰着城市、宠物与野生动物，一些地方已经禁止私人燃放。各地社区正在改变这一传统，而不是抛弃它：更安静的低烟产品、全市性的激光与无人机表演，以及更严格的安全规定。那声曾用来吓跑厄运的竹子爆响，如今已成为一门全球性的艺术，而且仍在被不断改写。"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is the passage mainly about?",
+      "options": [
+        "How fireworks grew from burning bamboo in China into a worldwide art form.",
+        "Why many cities have decided to ban all public celebrations.",
+        "The safety rules for making gunpowder in modern factories.",
+        "How Italian chemists first invented gunpowder in the 1830s."
+      ],
+      "answer": 0,
+      "explain": "主旨题。全文按时间顺序讲烟花的由来与演变：烧竹取声→炼丹意外得火药→竹筒/纸筒烟花→西传→金属盐上色→现代规模与环保改良，故 A 正确。B、C 只是末段或局部细节，D 与第六段“19世纪意大利化学家只是解决颜色问题”相矛盾。"
+    },
+    {
+      "q": "According to the passage, what did the early immortality seekers actually produce?",
+      "options": [
+        "A drink that could make people live forever.",
+        "A fast-burning black powder that exploded with smoke and a bang.",
+        "A blue flame made from copper salt.",
+        "A strong paper tube for storing chemicals."
+      ],
+      "answer": 1,
+      "explain": "细节题。第三段明确说他们没有得到灵药，而是得到一种燃烧很快、伴随浓烟和巨响爆炸的黑色粉末，即火药，故选 B。A 是他们想要却没得到的东西；C 是第六段19世纪的事；D 与题意不符。"
+    },
+    {
+      "q": "In paragraph 6, the word 'stars' most probably refers to ______.",
+      "options": [
+        "the planets that can be seen in the night sky",
+        "small chemical pellets packed inside a firework shell",
+        "famous performers who take part in the show",
+        "the sparks that fall slowly to the ground"
+      ],
+      "answer": 1,
+      "explain": "词义题。第六段说一枚烟花弹里可装几十颗小“stars”，每颗都有自己的配方、被设定在特定高度炸开，可见它指的是弹体内的小型药粒（效果药球），故选 B。A 是字面误解；C、D 与上下文无关。"
+    },
+    {
+      "q": "What can be inferred from the last paragraph about fireworks traditions?",
+      "options": [
+        "They are disappearing quickly in most countries.",
+        "They are being adapted to cause less pollution and noise.",
+        "They are no longer popular with ordinary Chinese families.",
+        "They can now be bought only by city governments."
+      ],
+      "answer": 1,
+      "explain": "推断题。末段提到烟雾、粉尘、噪声带来困扰，一些地方禁止私人燃放，社区于是改用低烟产品、激光和无人机表演并加强安全规定，可推知传统正在被调整以减少污染和噪音，故选 B。A、C、D 在文中均无依据。"
+    }
+  ]
+}
