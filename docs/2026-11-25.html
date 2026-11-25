@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self' data: blob:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+<title>每日英语 · Four Bins at the Gate: What Really Happens to a Sorted Bag</title>
+<script>
+/* 尽早设置主题，避免刷新时白屏闪烁：优先用户选择，否则跟随系统 */
+(function(){try{var t=localStorage.getItem('theme');
+  if(t!=='light'&&t!=='dark') t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1f2329; --sub:#646a73;
+    --line:#e5e6eb; --accent:#3370ff; --accent-soft:#eaf0ff; --accent-soft2:#dce7ff;
+    --kw:#1456f0; --zh:#8a5a00; --zhbg:#fff8ec;
+    --know:#2ea043; --fuzzy:#d29302; --forget:#e5484d;
+    --selbg:#cfe0ff; --speakbg:#fff3cd; --shadow:rgba(0,0,0,.18);
+    --ok-bg:#eaf7ee; --no-bg:#fdecec;
+  }
+  html[data-theme="dark"]{
+    --bg:#15171a; --card:#22262b; --ink:#e6e8eb; --sub:#9aa0a6;
+    --line:#343a42; --accent:#6b97ff; --accent-soft:#22304d; --accent-soft2:#2c3f63;
+    --kw:#86a9ff; --zh:#e3b877; --zhbg:#2a2620;
+    --know:#3fb950; --fuzzy:#e3a72f; --forget:#f06b70;
+    --selbg:#33507e; --speakbg:#4a431f; --shadow:rgba(0,0,0,.5);
+    --ok-bg:#1f3a28; --no-bg:#3a2222;
+  }
+  *{box-sizing:border-box}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 120px}
+  header{padding:6px 2px 14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .meta{font-size:12px;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
+  h1{font-size:24px;margin:8px 0 4px;line-height:1.3}
+  .h1zh{font-size:15px;color:var(--sub);margin:0}
+  .intro{font-size:13px;color:var(--sub);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-top:14px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:6px 13px;font-size:13px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .speed{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .vsel{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;
+    background:var(--card);color:var(--ink)}
+  .para{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .en{font-size:17px;line-height:1.85}
+  .en .kw{color:var(--kw);font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(20,86,240,.4)}
+  .en .kw .ipa{font-size:.72em;font-weight:500;color:var(--sub);margin-left:2px;white-space:nowrap}
+  .en .kw:hover{background:var(--accent-soft);border-radius:3px}
+  .ptools{display:flex;gap:10px;margin-top:10px}
+  .icbtn{border:none;background:var(--accent-soft);color:var(--accent);border-radius:8px;
+    padding:5px 11px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .icbtn:hover{background:var(--accent-soft2)}
+  .zh{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    font-size:14.5px;color:var(--zh);background:var(--zhbg);margin-left:-16px;margin-right:-16px;
+    margin-bottom:-14px;padding:11px 16px 14px;border-radius:0 0 12px 12px}
+  .para.show-zh .zh{display:block}
+  h2.vh{font-size:18px;margin:30px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  h2.vh .cnt{font-size:13px;color:var(--sub);font-weight:400}
+  /* 复习模块 */
+  #review{margin-top:30px}
+  .rvcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .rv-type{font-size:12px;color:var(--sub);margin-bottom:10px}
+  .rv-text{font-size:24px;font-weight:600;line-height:1.5;margin:6px 0 16px;word-break:break-word}
+  .rv-text.sent{font-size:19px;font-weight:500}
+  .rv-play{border:1px solid var(--line);background:var(--card);color:var(--accent);
+    border-radius:20px;padding:7px 18px;font-size:14px;cursor:pointer;margin-bottom:20px}
+  .rv-play:hover{border-color:var(--accent)}
+  .rv-grade{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .rv-grade button{border:none;border-radius:10px;padding:11px 22px;font-size:15px;
+    font-weight:600;color:#fff;cursor:pointer;transition:.15s;min-width:92px}
+  .rv-grade button:active{transform:scale(.96)}
+  .g-know{background:var(--know)}
+  .g-fuzzy{background:var(--fuzzy)}
+  .g-forget{background:var(--forget)}
+  .rv-progress{font-size:12px;color:var(--sub);margin-top:16px}
+  .rv-empty{font-size:15px;color:var(--sub);padding:18px 0}
+  .rv-empty .big{font-size:30px;display:block;margin-bottom:8px}
+  .syncbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:12px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  /* 选中弹出条 */
+  #selbar{position:fixed;z-index:50;display:none;transform:translate(-50%,-100%);
+    background:#1f2329;border-radius:12px;padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.28);
+    white-space:nowrap;gap:4px}
+  #selbar button{background:transparent;border:none;color:#fff;font-size:13px;
+    padding:7px 12px;border-radius:8px;cursor:pointer}
+  #selbar button:hover{background:rgba(255,255,255,.15)}
+  .tok.phrase-selected{background:var(--selbg);border-radius:4px}
+  #phrase-preview,#phrase-hint,#phrase-add,#phrase-cancel{display:none}
+  #selbar.phrase-mode{left:50%!important;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    width:min(calc(100vw - 24px),520px);flex-wrap:wrap;justify-content:center;
+    align-items:center;white-space:normal}
+  #selbar.phrase-mode #sel-add,#selbar.phrase-mode #sel-phrase{display:none}
+  #selbar.phrase-mode #phrase-hint,#selbar.phrase-mode #phrase-cancel{display:inline-flex}
+  #selbar.phrase-ready #phrase-hint{display:none}
+  #selbar.phrase-ready #phrase-preview,#selbar.phrase-ready #phrase-add{display:inline-flex}
+  #phrase-preview,#phrase-hint{color:#fff;font-size:13px}
+  #phrase-preview{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#fff;font-size:13px;padding:7px 10px;flex:1 1 100%;justify-content:center}
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:#1f2329;color:#fff;padding:10px 18px;border-radius:22px;font-size:14px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:36px}
+  .tip{font-size:12px;color:var(--sub);margin:2px 0 0}
+  .speaking{background:var(--speakbg) !important;border-radius:3px}
+  #read-progress{position:fixed;z-index:90;top:0;left:0;width:0;height:3px;
+    background:var(--accent);transition:width .12s linear}
+  #continue-reading{display:none;align-items:center;gap:8px;margin:10px 0;padding:9px 11px;
+    background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;font-size:13px}
+  #continue-reading.show{display:flex} #continue-reading span{flex:1}
+  .advanced{display:contents}
+  #toolbar-more{display:none}
+  #mobile-float{display:none;position:fixed;z-index:45;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));
+    transform:translateX(-50%);background:#1f2329;color:#fff;border-radius:24px;padding:5px;
+    box-shadow:0 5px 18px var(--shadow);gap:3px}
+  #mobile-float button{border:0;background:transparent;color:#fff;border-radius:18px;padding:8px 13px}
+  @media (max-width:640px){
+    .wrap{padding-bottom:calc(105px + env(safe-area-inset-bottom))}
+    #toolbar-more{display:inline-flex}
+    .toolbar .advanced{display:none;flex-basis:100%;padding:9px;border:1px solid var(--line);
+      border-radius:12px;background:var(--card);gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar .advanced.open{display:flex;position:fixed;z-index:44;left:12px;right:12px;
+      bottom:calc(62px + env(safe-area-inset-bottom));box-shadow:0 5px 18px var(--shadow)}
+    #mobile-float.visible{display:flex}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  /* 理解自测 */
+  .quiz .q{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:14px 0}
+  .quiz .stem{font-size:15.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+  .quiz .stem .num{color:var(--accent);margin-right:6px}
+  .quiz .opt{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;
+    padding:10px 12px;margin:7px 0;font-size:14.5px;line-height:1.5;cursor:pointer;transition:.12s}
+  .quiz .opt:hover{border-color:var(--accent)}
+  .quiz .opt .lab{font-weight:700;color:var(--sub);flex-shrink:0}
+  .quiz .opt.correct{background:var(--ok-bg);border-color:var(--know)}
+  .quiz .opt.correct .lab{color:var(--know)}
+  .quiz .opt.wrong{background:var(--no-bg);border-color:var(--forget)}
+  .quiz .opt.wrong .lab{color:var(--forget)}
+  .quiz .opt:disabled{cursor:default}
+  .quiz .exp{display:none;margin-top:9px;padding:10px 12px;border-radius:9px;
+    background:var(--zhbg);color:var(--zh);font-size:13.5px;line-height:1.6}
+  .quiz .exp.show{display:block}
+  #quiz-summary{display:none;margin:12px 0;padding:14px;border:1px solid var(--accent);
+    background:var(--accent-soft);border-radius:12px;align-items:center;gap:8px;flex-wrap:wrap}
+  #quiz-summary.show{display:flex} #quiz-result{font-weight:700;flex:1;min-width:180px}
+  .feedback-card{position:relative;overflow:hidden;margin:22px 0 4px;padding:18px 16px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .feedback-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--know),var(--accent),var(--fuzzy))}
+  .feedback-title{font-size:17px;font-weight:700;margin:0 0 3px}
+  .feedback-copy{font-size:12.5px;color:var(--sub);margin:0 0 13px}
+  .difficulty-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .difficulty-scale button{min-height:48px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:600;padding:7px 5px;
+    cursor:pointer;transition:.15s}
+  .difficulty-scale button:hover{border-color:var(--accent)}
+  .difficulty-scale button[aria-pressed="true"]{color:#fff;background:var(--accent);
+    border-color:var(--accent);box-shadow:0 3px 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+  #feedback-status{min-height:20px;margin:10px 1px 0;color:var(--sub);font-size:12.5px}
+  .en .tok{cursor:pointer}
+  /* ---- 手机端排版优化 ---- */
+  @media (max-width:480px){
+    .wrap{padding:14px 12px calc(105px + env(safe-area-inset-bottom))}
+    h1{font-size:21px}
+    .h1zh{font-size:14px}
+    .intro{font-size:12.5px}
+    .en{font-size:16.5px;line-height:1.8}
+    .en .kw .ipa{font-size:.62em;margin-left:1px}
+    h2.vh{font-size:16.5px;margin:24px 0 10px}
+    .toolbar{gap:6px}
+    .btn{padding:6px 11px;font-size:12.5px}
+    .rvcard{padding:22px 14px}
+    .rv-text{font-size:22px}
+    .rv-grade button{padding:10px 16px;font-size:14px;min-width:80px}
+    .feedback-card{padding:16px 12px}
+    .difficulty-scale{gap:5px}
+    .difficulty-scale button{font-size:13px;padding:6px 3px}
+  }
+</style>
+</head>
+<body>
+<div id="read-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<div class="wrap">
+  <header>
+    <div class="meta">每日英语 · <span id="m-level"></span> · <span id="m-date"></span> · <a href="./" style="color:var(--accent);text-decoration:none">📚 目录</a></div>
+    <h1 id="m-title"></h1>
+    <p class="h1zh" id="m-titlezh"></p>
+    <div class="intro" id="m-intro"></div>
+    <div id="continue-reading"><span>继续上次阅读？</span>
+      <button class="icbtn" id="resume-reading">继续阅读</button>
+      <button class="icbtn" id="restart-reading">从头开始</button></div>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn on" id="tg-zh" aria-pressed="true">隐藏中文</button>
+    <button class="btn on" id="tg-ipa" aria-pressed="true">隐藏音标</button>
+    <button class="btn" id="play-all">▶ 朗读全文</button>
+    <button class="btn" id="toolbar-more">更多</button>
+    <div class="advanced" id="mobile-panel">
+    <button class="btn" id="tg-theme" aria-pressed="false">🌙 夜间</button>
+    <button class="btn" id="stop">⏹ 停止</button>
+    <button class="btn" id="access-key">🔑 访问码</button>
+    <span class="speed"><label for="rate">语速</label>
+      <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.95">
+      <span id="rateval">0.95×</span>
+    </span>
+    <span class="speed"><label for="voice">嗓音</label>
+      <select id="voice" class="vsel">
+        <option value="101051">英文女声 WeRose</option>
+        <option value="101050">英文男声 WeJack</option>
+      </select>
+    </span>
+    </div>
+  </div>
+  <p class="tip"><strong>生词</strong>：双击英文单词弹出「＋ 生词」；普通选词、翻译、查询使用浏览器或手机系统默认功能。<span id="engine-note"></span></p>
+
+  <main id="article"></main>
+
+  <section id="quiz-sec">
+    <h2 class="vh">📝 理解自测 Comprehension</h2>
+    <div class="quiz" id="quiz"></div>
+    <div id="quiz-summary" aria-live="polite"><span id="quiz-result"></span>
+      <button class="icbtn" id="quiz-wrong">只看错题</button>
+      <button class="icbtn" id="quiz-reset">重新作答</button></div>
+  </section>
+
+  <section id="difficulty-feedback" class="feedback-card" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="feedback-title">这篇文章对你来说？</h2>
+    <p class="feedback-copy">凭第一感觉选择即可，之后也可以修改</p>
+    <div class="difficulty-scale" role="group" aria-label="文章阅读难度">
+      <button type="button" data-value="easy" aria-pressed="false">有点简单</button>
+      <button type="button" data-value="balanced" aria-pressed="false">刚刚好</button>
+      <button type="button" data-value="hard" aria-pressed="false">有点吃力</button>
+    </div>
+    <p id="feedback-status" aria-live="polite">完成阅读或答题后，系统也会参考客观数据</p>
+  </section>
+
+  <footer>美式发音 · 双击加生词 · 系统默认选词/翻译</footer>
+</div>
+
+<div id="mobile-float" aria-label="移动阅读工具">
+  <button id="mobile-play" aria-pressed="false">▶ 朗读</button>
+  <button id="mobile-more" aria-expanded="false">•••</button>
+</div>
+
+<div id="selbar" role="toolbar" aria-live="polite">
+  <span id="phrase-preview"></span>
+  <span id="phrase-hint"></span>
+  <button id="sel-add">＋ 单词</button>
+  <button id="sel-phrase">选择短语</button>
+  <button id="phrase-add">＋ 短语</button>
+  <button id="phrase-cancel">取消</button>
+</div>
+<div id="toast"></div>
+
+<script>
+const ARTICLE = {"date": "2026-11-25", "level": "CET-4", "title": "Four Bins at the Gate: What Really Happens to a Sorted Bag", "title_zh": "门口的四只桶：一只分好类的垃圾袋究竟去了哪里", "intro_zh": "本文约 532 词，以城市小区垃圾投放点为切入点，讲清厨余垃圾、可回收物与有害垃圾分别会被怎样处理，并给出具体数据，说明“前端分类”与“后端处理”必须彼此配合，才能真正把垃圾变成资源。全文含 6 个 CET-4 核心词，句子难度中等。", "paragraphs": [{"en": "At seven in the morning, the bin station at the gate of a Shanghai neighbourhood is busy. People arrive with two or three bags and drop them into four coloured containers: dark grey for kitchen waste, blue for recyclables, red for hazardous items, black for everything else. A volunteer in an orange vest lifts one lid, looks inside, and says, 'This bag is fine.'", "zh": "早上七点，上海某小区门口的垃圾投放点一派忙碌。人们拎着两三个袋子走来，把它们分别丢进四只不同颜色的桶里：深灰色装厨余垃圾，蓝色装可回收物，红色装有害垃圾，黑色装其余垃圾。一位穿橙色马甲的志愿者掀开一只桶盖，往里看了一眼，说：“这袋没问题。”"}, {"en": "A single bag of mixed rubbish is hard to deal with. Leftover rice and wet vegetable leaves carry a lot of water. When they are thrown in with paper and cardboard, the paper turns soft and useless, and the whole truckload may end up buried or burned. Sorting, in the end, is the cheapest way to keep clean materials clean.", "zh": "一袋混装的垃圾很难处理。剩饭和湿菜叶带着大量水分，一旦和纸张、纸板丢在一起，纸就会变软、变得毫无用处，整车的垃圾最后可能只能被填埋或焚烧。说到底，分类是让干净的材料保持干净的最省钱的办法。"}, {"en": "Chinese cities produce more than 200 million tonnes of household rubbish a year, and about half of it is kitchen waste. That is a problem and also a resource. At a treatment plant, the scraps are heated and then eaten by bacteria inside huge closed tanks. The process of letting them \u003cspan class=\"kw\" data-ipa=\"daɪˈdʒest\" data-def=\"消化；分解\"\u003edigest\u003c/span\u003e takes about three weeks, and it gives off a gas that can be \u003cspan class=\"kw\" data-ipa=\"kənˈvɜːrtɪd\" data-def=\"转化；转变\"\u003econverted\u003c/span\u003e into electricity for the city grid.", "zh": "中国的城市每年产生两亿多吨生活垃圾，其中大约一半是厨余垃圾。这既是麻烦，也是资源。在处理厂里，这些剩菜剩饭先被加热，再在巨大的密闭罐中被细菌“吃掉”。让它们消化的过程大约需要三周，过程中会释放出一种气体，可以转化成电力输入城市电网。"}, {"en": "The numbers are surprising. One tonne of kitchen waste can yield about 100 cubic metres of gas, enough to cook meals for a family for several months. What is left at the end is a dark, dry material that farmers use to feed the soil, so nothing has to go to a \u003cspan class=\"kw\" data-ipa=\"ˈlændfɪl\" data-def=\"垃圾填埋场\"\u003elandfill\u003c/span\u003e. In a city of ten million people, all this adds up to a quiet power station that nobody ever has to see.", "zh": "数据出人意料。一吨厨余垃圾大约能产出 100 立方米气体，足够一家人做几个月的饭。最后剩下的是一种深色干燥的物质，农民用它来肥田，因此没有任何东西需要进垃圾填埋场。在一座千万人口的城市里，这些加起来就是一座安静运转、谁都不必看见的发电站。"}, {"en": "Recyclables carry real value. Recycling one tonne of paper saves about seventeen trees and half of the water needed to make new paper. Aluminium is even better: a can made from old cans uses only five percent of the energy. But that value disappears when materials are \u003cspan class=\"kw\" data-ipa=\"kənˈtæmɪneɪtɪd\" data-def=\"被污染的；弄脏的\"\u003econtaminated\u003c/span\u003e. A greasy pizza box or a bottle still half full of milk can spoil a whole bale of paper or plastic, and the bale is then burned.", "zh": "可回收物是真正有价值的。回收一吨纸，可以少砍约十七棵树，并省下生产新纸所需的一半用水。铝更划算：用旧易拉罐做成的罐子只用掉百分之五的能源。但一旦材料被污染，这些价值就消失了。一只沾满油渍的披萨盒，或一只还剩半瓶牛奶的瓶子，就能毁掉整捆纸或塑料，而这捆东西随后只能被烧掉。"}, {"en": "Hazardous waste is a small pile with a long shadow. Old batteries, broken thermometers and expired medicines together make up less than one percent of what households throw out, yet they must never be \u003cspan class=\"kw\" data-ipa=\"dɪˈspoʊzd\" data-def=\"被处理；被丢弃\"\u003edisposed\u003c/span\u003e of like ordinary rubbish. A single button battery, once its case breaks, can \u003cspan class=\"kw\" data-ipa=\"kənˈtæmɪneɪt\" data-def=\"污染\"\u003econtaminate\u003c/span\u003e 600,000 litres of water — more than one person could drink in a lifetime.", "zh": "有害垃圾是一小堆、长影子：分量轻，危害却长久。旧电池、碎温度计和过期药品加起来不到家庭丢弃物的百分之一，但它们绝不能被当作普通垃圾处理。一颗纽扣电池的外壳一旦破损，就能污染 60 万升水——比一个人一辈子喝的水还多。"}, {"en": "Good systems make the right choice easy. Cities that place the bins close to the door, print clear pictures on the lids and keep the station clean get far better results than cities that only hand out rules. In some communities, families scan a card when they drop off their recyclables and collect points for small rewards — an \u003cspan class=\"kw\" data-ipa=\"ɪˈfɪʃnt\" data-def=\"高效的；效率高的\"\u003eefficient\u003c/span\u003e reminder rather than a lecture.", "zh": "好的制度会让正确的选择变得容易。把垃圾桶设在离楼门很近的地方、在桶盖上印清楚图案、让投放点保持干净，这样的城市成效远好于那些只发规定的城市。在一些社区，家庭投放可回收物时刷卡积分，可以换取小奖励——这是高效的提醒，而不是说教。"}, {"en": "None of this works in one direction only. A truck cannot sort what a household has already crushed together, and a household will stop sorting if the bins are never emptied. Waste is not really thrown away at all — it simply moves somewhere else. Every well-sorted bag is a short message to the city, and the city, slowly, is learning to read it.", "zh": "这一切都不是单向奏效的。一辆清运车无法分拣一个家庭已经混在一起压紧的垃圾；而如果桶里的垃圾从来没人清运，家庭也会不再分类。垃圾其实从来没有被真正“扔掉”，它只是挪到了别的地方。每一只认真分好类的袋子，都是写给这座城市的一条短消息，而城市正在慢慢学会读懂它。"}], "questions": [{"q": "Why does the passage mention a greasy pizza box and a bottle half full of milk?", "options": ["They are too heavy for the collection truck to lift.", "They can ruin a whole bale of recyclable material.", "They make the bin station smell unpleasant in summer.", "They have to be sent to a special medical plant."], "answer": 1, "explain": "细节题。第五段明确指出，沾油的披萨盒或剩半瓶牛奶的瓶子会“毁掉整捆纸或塑料”，使其只能被焚烧，因此选第二项。"}, {"q": "What happens to kitchen waste at a treatment plant?", "options": ["It is dried and then buried in a landfill.", "It is burned to heat the closed tanks.", "Bacteria break it down and produce gas for electricity.", "It is sold to farmers exactly as it arrives."], "answer": 2, "explain": "细节题。第三段说明厨余垃圾被加热后由密闭罐中的细菌消化，约三周后释放出可转化为电力的气体；第四段补充残渣才被农民用来肥田，故第三项正确。"}, {"q": "The phrase 'a small pile with a long shadow' suggests that hazardous waste ____.", "options": ["takes up most of the space in the black bin", "is collected less often than other kinds of waste", "weighs more than ordinary household rubbish", "is small in amount but can cause lasting harm"], "answer": 3, "explain": "词义/句意理解题。该比喻后紧跟数据：有害垃圾不到家庭垃圾的百分之一，但一颗纽扣电池可污染 60 万升水，说明“量小危害久”，故选第四项。"}, {"q": "What is the main idea of the passage?", "options": ["Sorting rubbish is mainly a moral duty that individuals must carry alone.", "Modern machines can separate mixed waste without any human help.", "Household sorting and city services must work together to turn waste into resources.", "Kitchen waste is the only kind of rubbish that is worth sorting."], "answer": 2, "explain": "主旨题。全文分别讲厨余、可回收物、有害垃圾的去向，末段强调“分类不是单向的”：家庭与清运、处理系统必须彼此配合，故第三项最能概括全文。"}]};
+const TTS_API = "https://1300942703-hhwd575mtt.ap-guangzhou.tencentscf.com";
+let rate = 0.95;
+let voice = parseInt(localStorage.getItem('ttsVoice') || '101051', 10);
+const cloudOn = TTS_API && TTS_API.indexOf('__') !== 0;
+const progressKey='englishDaily:progress:'+(ARTICLE.date||'unknown');
+function loadProgress(){
+  try{ const value=JSON.parse(localStorage.getItem(progressKey)||'null');
+    return value&&value.version===1?value:null; }catch(e){ return null; }
+}
+const progressDefaults={version:1,ratio:0,lastParagraph:0,completed:false,
+  quizScore:null,quizTotal:0,quizFirstScore:null,wordActionCount:0,
+  phraseActionCount:0,learningActionKeys:[],difficultyFeedback:null,
+  feedbackSyncState:null,updatedAt:null};
+let progressState=Object.assign({},progressDefaults,loadProgress()||{});
+if(!Array.isArray(progressState.learningActionKeys))progressState.learningActionKeys=[];
+function saveProgress(patch){
+  progressState=Object.assign({},progressState,patch||{},{version:1,updatedAt:new Date().toISOString()});
+  try{ localStorage.setItem(progressKey,JSON.stringify(progressState)); }catch(e){}
+  return progressState;
+}
+
+/* ========== 受保护云函数请求：个人访问码 + HMAC-SHA256 ========== */
+const encoder=new TextEncoder();
+function hex(bytes){ return [...new Uint8Array(bytes)].map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function storedAccessKey(){ return localStorage.getItem('APP_ACCESS_KEY')||''; }
+function accessKey(){
+  let key=storedAccessKey();
+  if(!key) key=(prompt('请输入个人访问码（仅保存在本机）')||'').trim();
+  if(key) localStorage.setItem('APP_ACCESS_KEY',key);
+  return key;
+}
+async function protectedFetch(payload,options={}){
+  const key=options.allowPrompt===false?storedAccessKey():accessKey();
+  if(!key) throw new Error('未提供访问码');
+  const body=JSON.stringify(payload);
+  const timestamp=String(Math.floor(Date.now()/1000));
+  const nonce=hex(crypto.getRandomValues(new Uint8Array(18)));
+  const digest=hex(await crypto.subtle.digest('SHA-256',encoder.encode(body)));
+  const cryptoKey=await crypto.subtle.importKey('raw',encoder.encode(key),
+    {name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature=hex(await crypto.subtle.sign('HMAC',cryptoKey,
+    encoder.encode(timestamp+'\n'+nonce+'\n'+digest)));
+  const response=await fetch(TTS_API,{method:'POST',headers:{
+    'Content-Type':'application/json','X-App-Timestamp':timestamp,
+    'X-App-Nonce':nonce,'X-App-Signature':signature},body});
+  if(response.status===401||response.status===403){
+    localStorage.removeItem('APP_ACCESS_KEY');
+    throw new Error('访问码无效或已过期，请重新输入');
+  }
+  return response;
+}
+
+/* ========== 自适应难度反馈：只上传聚合计数 ========== */
+const feedbackQueueKey='englishDaily:feedback:pending';
+const feedbackStatus=document.getElementById('feedback-status');
+const feedbackButtons=[...document.querySelectorAll('.difficulty-scale button')];
+function readFeedbackQueue(){
+  try{ const queue=JSON.parse(localStorage.getItem(feedbackQueueKey)||'{}');
+    return queue&&typeof queue==='object'&&!Array.isArray(queue)?queue:{}; }
+  catch(e){ return {}; }
+}
+function writeFeedbackQueue(queue){
+  try{ localStorage.setItem(feedbackQueueKey,JSON.stringify(queue)); }catch(e){}
+}
+function learningFeedbackPayload(){
+  return {op:'feedback_put',article_date:ARTICLE.date,
+    difficulty:progressState.difficultyFeedback||null,
+    completed:!!progressState.completed,
+    quiz_first_score:Number.isInteger(progressState.quizFirstScore)?progressState.quizFirstScore:null,
+    quiz_total:Number.isInteger(progressState.quizFirstScore)?Number(progressState.quizTotal||0):0,
+    word_action_count:Number(progressState.wordActionCount||0),
+    phrase_action_count:Number(progressState.phraseActionCount||0)};
+}
+function hasMeaningfulFeedback(payload){
+  return !!(payload&&(payload.difficulty||payload.completed||
+    Number.isInteger(payload.quiz_first_score)||
+    Number(payload.word_action_count)>0||Number(payload.phrase_action_count)>0));
+}
+function queueLearningFeedback(payload){
+  if(!hasMeaningfulFeedback(payload))return false;
+  const queue=readFeedbackQueue(); queue[payload.article_date]=payload; writeFeedbackQueue(queue);
+  if(payload.article_date===ARTICLE.date)saveProgress({feedbackSyncState:'pending'});
+  return true;
+}
+function queueCurrentLearningFeedback(){
+  return queueLearningFeedback(learningFeedbackPayload());
+}
+function renderDifficultyFeedback(){
+  feedbackButtons.forEach(button=>button.setAttribute('aria-pressed',
+    String(button.dataset.value===progressState.difficultyFeedback)));
+}
+function trendText(trend){
+  return trend==='harder'?'后续会稍微提高难度':
+    trend==='easier'?'后续会稍微降低难度':'最近难度较合适，继续保持';
+}
+let feedbackSyncPromise=null;
+async function drainLearningFeedback(interactive){
+  let sentCurrent=false,lastProfile=null;
+  while(true){
+    const queue=readFeedbackQueue();
+    const dates=Object.keys(queue).sort();
+    if(!dates.length)return true;
+    const articleDate=dates[0],payload=queue[articleDate];
+    if(!hasMeaningfulFeedback(payload)){
+      delete queue[articleDate]; writeFeedbackQueue(queue); continue;
+    }
+    const response=await protectedFetch(payload,{allowPrompt:interactive});
+    interactive=false;
+    if(!response.ok)throw new Error('http '+response.status);
+    const result=await response.json();
+    if(!result.ok)throw new Error(result.error||'sync failed');
+    const latestQueue=readFeedbackQueue();
+    const latest=latestQueue[articleDate];
+    if(latest&&JSON.stringify(latest)===JSON.stringify(payload)){
+      delete latestQueue[articleDate]; writeFeedbackQueue(latestQueue);
+      if(articleDate===ARTICLE.date){
+        sentCurrent=true; lastProfile=result.profile||null;
+        saveProgress({feedbackSyncState:'synced'});
+      }
+    }
+    if(sentCurrent)feedbackStatus.textContent='已记录，将用于调整后续文章 · '+
+      trendText(lastProfile&&lastProfile.trend);
+    else feedbackStatus.textContent='历史待同步记录已补传';
+  }
+}
+async function syncLearningFeedback(interactive=false){
+  const queued=readFeedbackQueue();
+  if(!Object.keys(queued).length)return true;
+  if(!interactive&&!storedAccessKey()){
+    feedbackStatus.textContent='已保存在本机，设置访问码后自动同步';
+    return false;
+  }
+  if(!cloudOn){
+    feedbackStatus.textContent='已保存在本机，云同步恢复后自动补传';
+    return false;
+  }
+  if(feedbackSyncPromise)return feedbackSyncPromise;
+  feedbackStatus.textContent='正在记录…';
+  feedbackSyncPromise=drainLearningFeedback(interactive);
+  try{ return await feedbackSyncPromise; }
+  catch(e){
+    feedbackStatus.textContent=storedAccessKey()?
+      '已保存在本机，联网后自动同步':'已保存在本机，请重新设置访问码';
+    return false;
+  }finally{
+    feedbackSyncPromise=null;
+  }
+}
+let feedbackSyncTimer=0;
+function scheduleLearningFeedbackSync(){
+  clearTimeout(feedbackSyncTimer);
+  feedbackSyncTimer=setTimeout(()=>syncLearningFeedback(false),700);
+}
+function recordLearningAction(text){
+  const normalized=(text||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!normalized)return;
+  const type=/\s/.test(normalized)?'phrase':'word';
+  const key=type+':'+normalized;
+  const keys=progressState.learningActionKeys.slice(0,199);
+  if(keys.includes(key))return;
+  keys.push(key);
+  saveProgress({learningActionKeys:keys,
+    wordActionCount:Math.min(100,Number(progressState.wordActionCount||0)+(type==='word'?1:0)),
+    phraseActionCount:Math.min(100,Number(progressState.phraseActionCount||0)+(type==='phrase'?1:0))});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+feedbackButtons.forEach(button=>button.onclick=()=>{
+  saveProgress({difficultyFeedback:button.dataset.value,feedbackSyncState:'pending'});
+  queueCurrentLearningFeedback(); renderDifficultyFeedback(); syncLearningFeedback(true);
+});
+renderDifficultyFeedback();
+const initialFeedbackQueue=readFeedbackQueue();
+if(Object.keys(initialFeedbackQueue).length){
+  feedbackStatus.textContent='上次记录正在等待同步';
+  scheduleLearningFeedbackSync();
+}
+addEventListener('online',scheduleLearningFeedbackSync);
+
+/* ========== 发音引擎(腾讯云按需 + 浏览器回退) ========== */
+let usVoice=null;
+function pickFallback(){ const vs=speechSynthesis.getVoices();
+  usVoice=vs.find(v=>/en-US/i.test(v.lang)&&/Google|Natural|Neural|Enhanced|Siri|Premium/i.test(v.name))
+        ||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en/i.test(v.lang))||null; }
+pickFallback(); speechSynthesis.onvoiceschanged=pickFallback;
+function speakFallback(text){ return new Promise(resolve=>{ speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=rate;
+  if(usVoice)u.voice=usVoice; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); }); }
+
+const clipCache=new Map(); let curAudio=null, token=0, activeParagraph=-1;
+function setSpeakingState(index){
+  activeParagraph=typeof index==='number'?index:-1;
+  document.querySelectorAll('.para').forEach((p,i)=>{
+    p.classList.toggle('speaking',i===activeParagraph);
+    if(i===activeParagraph)p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
+  const mobile=document.getElementById('mobile-play');
+  mobile.textContent=activeParagraph>=0?'⏹ 停止':'▶ 朗读';
+  mobile.setAttribute('aria-pressed',String(activeParagraph>=0));
+}
+function stopAll(){ token++; if(curAudio){curAudio.pause();curAudio=null;} speechSynthesis.cancel();
+  setSpeakingState(-1); }
+function splitClient(text){ const parts=text.trim().split(/(?<=[.!?;:])\s+/); const out=[]; let buf='';
+  for(let s of parts){ while(s.length>180){ let c=s.lastIndexOf(' ',180); if(c<=0)c=180;
+    out.push(s.slice(0,c)); s=s.slice(c).trim(); }
+    if((buf+' '+s).trim().length<=180) buf=(buf+' '+s).trim();
+    else { if(buf)out.push(buf); buf=s; } }
+  if(buf)out.push(buf); return out.length?out:[text.trim()]; }
+async function fetchClip(text){ const key=voice+'|'+text;
+  if(clipCache.has(key))return clipCache.get(key);
+  const r=await protectedFetch({text,voice});
+  if(!r.ok)throw new Error('http'+r.status); const j=await r.json();
+  if(!j.audio)throw new Error(j.error||'no audio');
+  const url='data:audio/mp3;base64,'+j.audio; clipCache.set(key,url); return url; }
+function playClip(url){ return new Promise((res,rej)=>{ const a=new Audio(url);
+  a.playbackRate=rate; curAudio=a; a.onended=res; a.onerror=()=>rej(new Error('audio'));
+  a.play().catch(rej); }); }
+async function play(text, hiEl, paragraphIndex){
+  if(!text) return; stopAll(); const my=token;
+  if(typeof paragraphIndex==='number')setSpeakingState(paragraphIndex);
+  else if(hiEl)hiEl.classList.add('speaking');
+  try{
+    if(!cloudOn){ await speakFallback(text); return; }
+    const parts=splitClient(text);
+    for(let i=0;i<parts.length;i++){ if(my!==token)return;
+      const cur=fetchClip(parts[i]); if(i+1<parts.length)fetchClip(parts[i+1]).catch(()=>{});
+      let url; try{ url=await cur; }catch(e){ await speakFallback(parts.slice(i).join(' ')); return; }
+      if(my!==token)return; await playClip(url); }
+  } finally { if(my===token){ if(hiEl)hiEl.classList.remove('speaking'); setSpeakingState(-1); } }
+}
+
+/* 生词直接存入墨墨背单词，见下方 doAdd() */
+
+/* ========== 渲染文章 ========== */
+document.getElementById('m-level').textContent=ARTICLE.level||'CET-4';
+document.getElementById('m-date').textContent=ARTICLE.date||'';
+document.getElementById('m-title').textContent=ARTICLE.title||'';
+document.getElementById('m-titlezh').textContent=ARTICLE.title_zh||'';
+document.getElementById('m-intro').textContent=ARTICLE.intro_zh||'';
+document.getElementById('engine-note').textContent=
+  cloudOn?'（腾讯云自然发音）':'（当前用浏览器语音）';
+
+const art=document.getElementById('article');
+ARTICLE.paragraphs.forEach((p,i)=>{
+  const div=document.createElement('div'); div.className='para show-zh';
+  div.setAttribute('data-paragraph',String(i));
+  const en=document.createElement('div'); en.className='en'; en.lang='en-US'; en.innerHTML=p.en;
+  const tools=document.createElement('div'); tools.className='ptools';
+  const toggle=document.createElement('button'); toggle.className='icbtn tz';
+  toggle.textContent='中/英'; tools.appendChild(toggle);
+  const speak=document.createElement('button'); speak.className='icbtn para-play';
+  speak.textContent='🔊 朗读本段'; speak.setAttribute('aria-label','朗读第 '+(i+1)+' 段');
+  speak.onclick=()=>startParagraph(i); tools.appendChild(speak);
+  const zh=document.createElement('div'); zh.className='zh'; zh.lang='zh-CN'; zh.textContent = p.zh;
+  div.append(en,tools,zh);
+  art.appendChild(div);
+  div.querySelector('.tz').onclick=()=>div.classList.toggle('show-zh');
+});
+function paragraphText(index){ return document.querySelectorAll('.para')[index]?.querySelector('.en')?.textContent||''; }
+function startParagraph(index){ play(paragraphText(index),document.querySelectorAll('.para')[index],index); }
+function applyIpa(show){ document.querySelectorAll('.en .kw').forEach(k=>{
+  let b=k.querySelector('.ipa');
+  if(show){ if(!b){ b=document.createElement('span'); b.className='ipa'; b.textContent=k.dataset.ipa||''; k.appendChild(b);} b.style.display=''; }
+  else if(b){ b.style.display='none'; } }); }
+applyIpa(true);
+/* 重点词的正文交互由下方“双击加生词”统一处理 */
+
+/* ========== 本机阅读进度 ========== */
+const progressBar=document.getElementById('read-progress');
+const resumeBox=document.getElementById('continue-reading');
+const mobilePanel=document.getElementById('mobile-panel');
+function nearestParagraph(){
+  const paras=[...document.querySelectorAll('.para')]; let best=0,dist=Infinity;
+  paras.forEach((p,i)=>{ const d=Math.abs(p.getBoundingClientRect().top-innerHeight*.42);
+    if(d<dist){dist=d;best=i;} }); return best;
+}
+function updateReadingProgress(){
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const ratio=Math.min(1,Math.max(0,scrollY/max)); const percent=Math.round(ratio*100);
+  progressBar.style.width=percent+'%'; progressBar.setAttribute('aria-valuenow',String(percent));
+  const lastParagraph=nearestParagraph();
+  const justCompleted=!progressState.completed&&ratio>=.92;
+  saveProgress({ratio,lastParagraph,completed:progressState.completed||ratio>=.92});
+  if(justCompleted){queueCurrentLearningFeedback();scheduleLearningFeedbackSync();}
+  const toolbar=document.querySelector('.toolbar');
+  document.getElementById('mobile-float').classList.toggle('visible',
+    innerWidth<=640&&toolbar.getBoundingClientRect().bottom<0);
+}
+let progressFrame=0;
+addEventListener('scroll',()=>{ if(!progressFrame) progressFrame=requestAnimationFrame(()=>{
+  progressFrame=0; updateReadingProgress(); }); },{passive:true});
+addEventListener('resize',updateReadingProgress);
+if(progressState.ratio>.05&&!progressState.completed) resumeBox.classList.add('show');
+document.getElementById('resume-reading').onclick=()=>{
+  const max=Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  scrollTo({top:max*progressState.ratio,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+document.getElementById('restart-reading').onclick=()=>{
+  saveProgress({ratio:0,lastParagraph:0,completed:false,quizScore:null});
+  scrollTo({top:0,behavior:'smooth'}); resumeBox.classList.remove('show'); };
+updateReadingProgress();
+
+/* 理解自测：渲染 CET-4 选择题，点选后判分并显示答案+解析 */
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+const LAB=['A','B','C','D','E','F'];
+const quizEl=document.getElementById('quiz');
+const QS=Array.isArray(ARTICLE.questions)?ARTICLE.questions:[];
+const quizSummary=document.getElementById('quiz-summary');
+let quizScore=0,answeredCount=0,incorrectQuestions=[];
+function updateQuizSummary(){
+  if(!QS.length)return;
+  if(answeredCount<QS.length){ document.getElementById('quiz-result').textContent=
+    '已完成 '+answeredCount+' / '+QS.length; return; }
+  const percent=Math.round(quizScore/QS.length*100);
+  document.getElementById('quiz-result').textContent='得分 '+quizScore+' / '+QS.length+'（'+percent+'%）'+
+    (incorrectQuestions.length?' · 错题 Q'+incorrectQuestions.map(i=>i+1).join('、Q'):' · 全部正确');
+  quizSummary.classList.add('show');
+  const quizFirstScore=progressState.quizFirstScore==null?quizScore:progressState.quizFirstScore;
+  saveProgress({quizScore:quizScore,quizFirstScore,quizTotal:QS.length,completed:true});
+  queueCurrentLearningFeedback();
+  scheduleLearningFeedbackSync();
+}
+if(QS.length){
+  QS.forEach((q,qi)=>{
+    const opts=Array.isArray(q.options)?q.options:[];
+    let ans=q.answer;
+    if(typeof ans==='string'){ ans='ABCDEF'.indexOf(ans.trim().toUpperCase()); }
+    if(typeof ans!=='number'||ans<0||ans>=opts.length) ans=0;
+    const card=document.createElement('div'); card.className='q';
+    card.innerHTML='<div class="stem"><span class="num">Q'+(qi+1)+'.</span>'+esc(q.q||q.question||'')+'</div>';
+    opts.forEach((o,oi)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button';
+      b.innerHTML='<span class="lab">'+LAB[oi]+'</span><span>'+esc(o)+'</span>';
+      b.onclick=()=>{ if(card.dataset.done) return; card.dataset.done='1'; answeredCount++;
+        if(oi===ans)quizScore++; else{incorrectQuestions.push(qi);card.dataset.incorrect='true';}
+        card.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true;
+          if(xi===ans) x.classList.add('correct');
+          else if(xi===oi) x.classList.add('wrong'); });
+        const e=card.querySelector('.exp'); if(e) e.classList.add('show'); updateQuizSummary(); };
+      card.appendChild(b);
+    });
+    const exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>答案 '+LAB[ans]+'</b>　'+esc(q.explain||q.explanation||'');
+    card.appendChild(exp);
+    quizEl.appendChild(card);
+  });
+} else {
+  document.getElementById('quiz-sec').style.display='none';   // 旧文章没有题目则隐藏
+}
+if(QS.length&&progressState.quizScore!==null&&progressState.quizTotal===QS.length){
+  document.getElementById('quiz-result').textContent='上次得分 '+progressState.quizScore+' / '+QS.length;
+  quizSummary.classList.add('show');
+}
+let wrongOnly=false;
+document.getElementById('quiz-wrong').onclick=()=>{ wrongOnly=!wrongOnly;
+  document.querySelectorAll('.quiz .q').forEach(card=>card.style.display=
+    wrongOnly&&card.dataset.incorrect!=='true'?'none':'');
+  document.getElementById('quiz-wrong').textContent=wrongOnly?'显示全部':'只看错题'; };
+document.getElementById('quiz-reset').onclick=()=>{
+  quizScore=0;answeredCount=0;incorrectQuestions=[];wrongOnly=false;
+  document.querySelectorAll('.quiz .q').forEach(card=>{card.style.display='';delete card.dataset.done;
+    delete card.dataset.incorrect;card.querySelectorAll('.opt').forEach(b=>{b.disabled=false;
+      b.classList.remove('correct','wrong');});card.querySelector('.exp')?.classList.remove('show');});
+  quizSummary.classList.remove('show');saveProgress({quizScore:null,quizTotal:QS.length}); };
+
+/* ========== 工具条 ========== */
+const tgZh=document.getElementById('tg-zh');
+tgZh.onclick=()=>{ const on=tgZh.classList.toggle('on'); tgZh.textContent=on?'显示中文翻译':'隐藏中文翻译';
+  tgZh.textContent=on?'隐藏中文':'显示中文'; tgZh.setAttribute('aria-pressed',String(on));
+  document.querySelectorAll('.para').forEach(p=>p.classList.toggle('show-zh',on)); };
+const tgIpa=document.getElementById('tg-ipa'); let ipaOn=true;
+tgIpa.onclick=()=>{ ipaOn=!ipaOn; applyIpa(ipaOn); tgIpa.textContent=ipaOn?'隐藏音标':'显示音标';
+  tgIpa.setAttribute('aria-pressed',String(ipaOn)); };
+/* 夜间模式切换 */
+const tgTheme=document.getElementById('tg-theme');
+function syncThemeBtn(){ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  tgTheme.textContent=dark?'☀️ 日间':'🌙 夜间'; tgTheme.classList.toggle('on',dark);
+  tgTheme.setAttribute('aria-pressed',String(dark)); }
+syncThemeBtn();
+tgTheme.onclick=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const next=dark?'light':'dark'; document.documentElement.setAttribute('data-theme',next);
+  try{ localStorage.setItem('theme',next); }catch(e){} syncThemeBtn(); };
+document.getElementById('play-all').onclick=()=>{ const full=ARTICLE.paragraphs.map(p=>{
+  const t=document.createElement('div'); t.innerHTML=p.en; return t.textContent; }).join(' ');
+  play(full,null,null); };
+document.getElementById('stop').onclick=stopAll;
+const rEl=document.getElementById('rate'),rv=document.getElementById('rateval');
+rEl.oninput=()=>{ rate=parseFloat(rEl.value); rv.textContent=rate.toFixed(2)+'×'; if(curAudio)curAudio.playbackRate=rate; };
+const vEl=document.getElementById('voice'); vEl.value=String(voice);
+vEl.onchange=()=>{ voice=parseInt(vEl.value,10); localStorage.setItem('ttsVoice',vEl.value); };
+document.getElementById('access-key').onclick=()=>{
+  localStorage.removeItem('APP_ACCESS_KEY');
+  if(accessKey()){ toast('访问码已保存'); scheduleLearningFeedbackSync(); }
+};
+function toggleMore(){ const open=mobilePanel.classList.toggle('open');
+  document.getElementById('mobile-more').setAttribute('aria-expanded',String(open)); }
+document.getElementById('toolbar-more').onclick=toggleMore;
+document.getElementById('mobile-more').onclick=toggleMore;
+document.getElementById('mobile-play').onclick=()=>{
+  if(activeParagraph>=0)stopAll(); else startParagraph(nearestParagraph()); };
+
+/* ========== toast ========== */
+let toastT=null;
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),1600); }
+async function doAdd(text){ text=(text||'').trim(); if(!text) return;
+  if(!cloudOn){ toast('需云函数支持'); return; }
+  toast('正在加入墨墨…');
+  try{
+    const r=await protectedFetch({op:'maimemo',text});
+    const j=await r.json();
+    if(j.ok){ recordLearningAction(text);
+      toast(j.dup?'已经在墨墨里了':('已加入墨墨 ✓ 共 '+(j.total||'?')+' 词')); }
+    else { toast('加入失败'+(j.error?'：'+j.error:'')); }
+  }catch(e){ toast('加入失败，请重试'); } }
+
+/* ========== 双击加生词，其他选词行为交给系统默认菜单 ========== */
+const selbar=document.getElementById('selbar');
+let selText='';
+let phraseStart=null, phraseEnd=null, phraseTokens=[];
+const artEl=document.getElementById('article');
+
+function tokenize(){
+  artEl.querySelectorAll('.en').forEach(en=>{
+    en.querySelectorAll('.kw').forEach(k=>{ k.classList.add('tok');
+      k.dataset.w=(k.firstChild.textContent||k.textContent).trim(); });
+    const tw=document.createTreeWalker(en, NodeFilter.SHOW_TEXT, null);
+    const nodes=[]; let n;
+    while(n=tw.nextNode()){ const p=n.parentNode;
+      if(p.classList&&(p.classList.contains('ipa')||p.classList.contains('tok'))) continue;
+      if(p.closest&&p.closest('.kw')) continue;
+      if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(tn=>{
+      const frag=document.createDocumentFragment();
+      tn.nodeValue.split(/(\s+)/).forEach(part=>{
+        if(part==='') return;
+        if(/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+        else { const s=document.createElement('span'); s.className='tok';
+          s.dataset.w=part; s.textContent=part; frag.appendChild(s); }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  });
+}
+tokenize();
+let TOKENS=[];
+function indexTokens(){ TOKENS=[...artEl.querySelectorAll('.tok')]; TOKENS.forEach((t,i)=>t.dataset.i=i); }
+indexTokens();
+
+function cleanToken(text){ return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,''); }
+function cleanPhraseEdge(text){
+  return (text||'').trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g,'');
+}
+function phraseFromTokens(tokens){
+  return cleanPhraseEdge(tokens.map(t=>cleanPhraseEdge(t.dataset.w||t.textContent))
+    .filter(Boolean).join(' '));
+}
+function clearPhraseHighlight(){
+  phraseTokens.forEach(t=>t.classList.remove('phrase-selected'));
+  phraseTokens=[];
+}
+function clearSel(){
+  clearPhraseHighlight(); phraseStart=null; phraseEnd=null; selText='';
+  selbar.classList.remove('phrase-mode','phrase-ready');
+  document.getElementById('phrase-preview').textContent='';
+  document.getElementById('phrase-hint').textContent='';
+  selbar.style.display='none';
+}
+function exitPhraseMode(){ clearSel(); }
+function enterPhraseMode(){
+  if(!phraseStart) return;
+  clearPhraseHighlight(); phraseTokens=[phraseStart];
+  phraseStart.classList.add('phrase-selected'); selText='';
+  selbar.classList.add('phrase-mode'); selbar.classList.remove('phrase-ready');
+  document.getElementById('phrase-hint').textContent='请选择短语最后一个词';
+  selbar.style.display='flex';
+}
+function selectPhraseEnd(end){
+  const start=phraseStart;
+  if(!start||start.closest('.en')!==end.closest('.en')){
+    toast('短语需在同一段内'); exitPhraseMode(); return;
+  }
+  const siblings=[...start.closest('.en').querySelectorAll('.tok')];
+  const a=siblings.indexOf(start), b=siblings.indexOf(end);
+  const selected=siblings.slice(Math.min(a,b),Math.max(a,b)+1);
+  if(selected.length<2){ toast('请再选择一个词'); return; }
+  if(selected.length>10){ toast('短语最多 10 个词'); return; }
+  clearPhraseHighlight(); phraseTokens=selected; phraseEnd=end;
+  phraseTokens.forEach(t=>t.classList.add('phrase-selected'));
+  selText=phraseFromTokens(phraseTokens);
+  document.getElementById('phrase-preview').textContent=selText;
+  selbar.classList.add('phrase-ready');
+}
+function showBar(tok){ selbar.style.display='flex';
+  const r=tok.getBoundingClientRect();
+  const bw=selbar.offsetWidth, bh=selbar.offsetHeight;
+  let cx=Math.min(Math.max(r.left+r.width/2, bw/2+8), window.innerWidth-bw/2-8);  // 收拢进屏幕
+  let top=r.top-8; if(top<bh+8) top=r.bottom+bh+12;          // 离顶太近则移到下方
+  selbar.style.left=cx+'px'; selbar.style.top=top+'px'; }
+
+artEl.addEventListener('dblclick', e=>{
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok||!artEl.contains(tok)){ clearSel(); return; }
+  clearSel(); phraseStart=tok;
+  selText=cleanToken(tok.dataset.w||tok.textContent);
+  if(!selText){ clearSel(); return; }
+  showBar(tok);
+}, true);
+artEl.addEventListener('click',e=>{
+  if(!selbar.classList.contains('phrase-mode')) return;
+  const tok=e.target.closest&&e.target.closest('.tok');
+  if(!tok) return;
+  e.preventDefault(); e.stopPropagation(); selectPhraseEnd(tok);
+},true);
+document.getElementById('sel-add').onclick=()=>{ if(selText){ doAdd(selText); clearSel(); } };
+document.getElementById('sel-phrase').onclick=e=>{ e.stopPropagation(); enterPhraseMode(); };
+document.getElementById('phrase-add').onclick=e=>{
+  e.stopPropagation(); if(selText){ doAdd(selText); exitPhraseMode(); }
+};
+document.getElementById('phrase-cancel').onclick=e=>{ e.stopPropagation(); exitPhraseMode(); };
+document.addEventListener('click',e=>{
+  if(!e.target.closest||e.target.closest('#selbar')) return;
+  if(selbar.classList.contains('phrase-mode')&&e.target.closest('.tok')) return;
+  clearSel();
+},true);
+document.addEventListener('scroll',()=>{
+  if(!selbar.classList.contains('phrase-mode')) clearSel();
+},true);
+
+</script>
+</body>
+</html>
